@@ -1,0 +1,211 @@
+import re
+from helper_functions.parser_find_add_parameters import parser_find_data
+from db_operations.scraping_db import DataBaseOperations
+from utils.additional_variables.additional_variables import countries_cities_table
+from helper_functions.cities_and_countries.cities_parser import CitiesAndCountries
+
+class FinderAddParameters:
+
+    def __init__(self,):
+        self.db = DataBaseOperations()
+        self.cities_countries = CitiesAndCountries()
+
+    def clean_text_special_symbols(self, main_dict=True, input_dict=None):
+        special_symbols = {}
+        if main_dict:
+            special_symbols = parser_find_data.special_symbols
+        if type(input_dict) is dict:
+            special_symbols.update(input_dict)
+        for item in special_symbols:
+            self.text = self.text.replace(item, special_symbols[item])
+
+    def salary_to_set_form(self, **kwargs):
+        currency_dict = parser_find_data.currency_dict
+
+        self.text = kwargs['text'] if 'text' in kwargs else ''
+        if not self.text:
+            response = ['-', '-', '-', '-']
+            print(response)
+            return response
+
+        self.region = kwargs['region'] if 'region' in kwargs else None
+        match self.region:
+            case "BY": currency_dict =  parser_find_data.by_dict
+
+        # search numbers
+        print('-'*10)
+        print('add_parameters: self.text: ', self.text)
+        self.clean_text_special_symbols()
+        match = re.findall(r"[0-9,]+[\s]?[0-9]+[\s]?[0-9]{0,4}", self.text)
+        self.salary_list = [number.replace(' ', '').replace(',', '') for number in match]
+        if 'тыс' in self.text:
+            salary_list = []
+            for number in self.salary_list:
+                salary_list.append(f"{number}000")
+            self.salary_list = salary_list
+
+
+        # search currency
+        if self.salary_list:
+            match = []
+            if len(self.salary_list) < 2:
+                self.salary_list.append('-')
+            for key in currency_dict:
+                match = re.findall(fr"{key.lower()}", self.text.lower())
+                if match and match[0]:
+                    self.salary_list.append(currency_dict[key])
+                    break
+            if not match:
+                salary = self.salary_list[0]
+                if len(salary) > 5:
+                    self.salary_list.append('RuR')
+            if len(self.salary_list)<3:
+                self.salary_list.append('-')
+
+        # searching Per Period
+        if self.salary_list:
+            match = []
+            period_dict = parser_find_data.period_dict
+            for period in period_dict:
+                for value in period_dict[period]:
+                    match = re.findall(fr"{value.lower()}", self.text.lower())
+                    if match and match[0]:
+                        self.salary_list.append(period)
+                        break
+            if not match and len(self.salary_list) < 4:
+                self.salary_list.append('Per Month')
+
+        if not self.salary_list:
+            self.salary_list = ['-', '-', '-', '-']
+
+        print(self.salary_list)
+
+        return self.salary_list
+
+    async def find_city_country(self, text):
+        if not text:
+            return False
+        text_list = text.split(',')
+
+        remove_elements = []
+        for item in text_list:
+            match = re.findall(r'[a-zA-Zа-яА-Я\s\-]+', item)
+            if match and len(match[0]) != len(item):
+                remove_elements.append(item)
+
+        for item in remove_elements:
+            text_list.remove(item)
+
+        if len(text_list) == 2:
+            city = text_list[0].strip().title()
+            country = text_list[1].strip().title()
+            if city == country:
+                city = ''
+            return await self.check_and_write_city_country(city=city, country=country)
+        elif len(text_list) == 1:
+            return await self.check_and_write_city_country(city_or_country=text_list[0])
+        elif len(text_list) > 2:
+            for element in text_list:
+                result = await self.check_and_write_city_country(city_or_country=element)
+                if result:
+                    return result
+
+    async def check_and_write_city_country(self, **kwargs):
+        country_pin = ''
+        city_or_country = kwargs['city_or_country'] if 'city_or_country' in kwargs else ''
+        city = kwargs['city'] if 'city' in kwargs else ''
+        country = kwargs['country'] if 'country' in kwargs else ''
+        if not city and not country and not city_or_country:
+            return False
+
+        if city_or_country:
+            city_or_country = await self.cities_countries.translate_to_english(word=city_or_country)
+            city_or_country = await self.refactoring_country(city_or_country)
+            response = self.db.get_all_from_db(
+                table_name=countries_cities_table,
+                param=f"WHERE city LIKE '%{city_or_country.strip()}%'",
+                field='city, country',
+                without_sort=True
+            )
+            if response:
+                if len(response) == 1:
+                    return f"{response[0][0]}, {response[0][1]}"
+                else:
+                    return f"{city_or_country.strip()}, "
+            else:
+                city_or_country = await self.refactoring_country(city_or_country)
+                response = self.db.get_all_from_db(
+                    table_name=countries_cities_table,
+                    param=f"WHERE country LIKE '%{city_or_country.strip()}%'",
+                    field='city, country',
+                    without_sort=True
+                )
+                if response:
+                    if len(response) == 1:
+                        return f"{response[0]}, {response[1]}"
+                    else:
+                        return f", {city_or_country.strip()}"
+
+
+        city = await self.cities_countries.translate_to_english(word=city)
+        country = await self.cities_countries.translate_to_english(word=country)
+        country = await self.refactoring_country(country)
+
+        if city and country:
+            response = self.db.get_all_from_db(
+                table_name=countries_cities_table,
+                param=f"WHERE LOWER(country) LIKE '%{country.lower().strip()}%' and LOWER(city) LIKE '%{city.lower().strip()}%'",
+                field='city, country',
+                without_sort = True
+            )
+            if response:
+                return f"{response[0][0]}, {response[0][1]}"
+            else:
+                country_pin = country
+                country = ''
+
+        if city and not country:
+            response = self.db.get_all_from_db(
+                table_name=countries_cities_table,
+                param=f"WHERE LOWER(city) LIKE '%{city.lower().strip()}%'",
+                field='city, country',
+                without_sort=True
+            )
+            if response:
+                if len(response) == 1:
+                    return f"{response[0][0]}, {response[0][1]}"
+                else:
+                    return f"{city}, "
+            else:
+                if country_pin:
+                    city = ''
+                    country = country_pin
+
+        if country and not city:
+            response = self.db.get_all_from_db(
+                table_name=countries_cities_table,
+                param=f"WHERE LOWER(country) LIKE '%{country.lower().strip()}%'",
+                field='country',
+                without_sort = True
+            )
+            if response:
+                return f", {country.strip()}"
+            else:
+                return False
+        return False
+
+    async def refactoring_country(self, country):
+        if "america" in country.lower():
+            country = 'United States'
+        if "usa" in country.lower():
+            country = 'United States'
+        if "сша" in country.lower():
+            country = 'United States'
+        if "england" in country.lower():
+            country = 'United Kingdom'
+        if 'españa' in country.lower():
+            country = 'Spain'
+        return country
+
+# f= FinderAddParameters()
+# f.salary_to_set_form(text='$15,000 - $30,000 ')
