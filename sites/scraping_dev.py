@@ -42,11 +42,11 @@ class DevGetInformation:
             self.chat_id = self.bot_dict['chat_id']
         self.browser = None
         self.main_url = 'https://jobs.devby.io'
+        self.count_message_in_one_channel = 1
 
 
     async def get_content(self, db_tables=None):
         self.db_tables = db_tables
-        self.count_message_in_one_channel = 1
         await self.get_info()
         await self.report.add_to_excel()
         await send_file_to_user(
@@ -136,8 +136,11 @@ class DevGetInformation:
     async def get_content_from_link(self):
         links = []
         for link in self.list_links:
-            vacancy_url = link.find('a', class_='vacancies-list-item__link_block').get('href')
-            vacancy_url = self.main_url + vacancy_url
+            try:
+                vacancy_url = link.find('a', class_='vacancies-list-item__link_block').get('href')
+                vacancy_url = self.main_url + vacancy_url
+            except:
+                vacancy_url = link
             links.append(vacancy_url)
             self.browser.get(vacancy_url)
             self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
@@ -338,6 +341,15 @@ class DevGetInformation:
                 vacancy=vacancy,
                 vacancy_url=vacancy_url
             )
+            return response
+    async def get_content_from_one_link(self, vacancy_url):
+
+        self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=None)
+        # -------------------- check what is current session --------------
+        self.current_session = await self.helper_parser_site.get_name_session()
+        self.list_links= [vacancy_url]
+        response = await self.get_content_from_link()
+        return response
 
     def normalize_date(self, date):
         convert = {
