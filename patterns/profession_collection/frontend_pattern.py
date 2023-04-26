@@ -102,14 +102,13 @@ frontend['mex'] = set(frontend['mex']).union(set(vue['mex2'])).union(set(fronten
 
 # front1
 frontend['ma'] = set(frontend['ma']).union(set(vue['ma'])).union(set(frontend['ma2'])).union(set(react['ma'])).union(set(angular['ma'])).\
-    union(set(django['ma'])).union(set(wordpress['ma'])).union(set(bitrix['ma'])).union(set(joomla['ma'])).\
+    union(set(wordpress['ma'])).union(set(bitrix['ma'])).union(set(joomla['ma'])).\
     union(set(drupal['ma']))
 
 frontend['sub'] = {
     'vue': vue,
     'react': react,
     'angular': angular,
-    'django': django,
     'wordpress': wordpress,
     'bitrix': bitrix,
     'joomla': joomla,

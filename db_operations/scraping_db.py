@@ -1590,60 +1590,67 @@ class DataBaseOperations:
     def statistics_total(self, date_in, date_out):
         table_name = 'admin_last_session'
         period = f"'{date_in}' AND '{date_out}'"
-        field1 = 'DATE (time_of_public) AS group_date, COUNT(*)'
+        field1 = 'DATE (created_at) AS group_date, COUNT(*)'
 
-        param_no_sort = f"WHERE DATE (time_of_public) BETWEEN {period} AND profession LIKE 'no_sort' GROUP BY group_date"
+        param_to_sort = f"WHERE DATE (created_at) BETWEEN {period} GROUP BY group_date"
         order1 = 'ORDER BY group_date'
-        data_no_sort = self.get_all_from_db(table_name=table_name, field=field1, order=order1, param=param_no_sort)
-        df_no_sort=pd.DataFrame(data_no_sort, columns=['date', 'no_sort'])
-        df_no_sort['no_sort'].fillna(0, inplace=True)
-
-        param_to_sort = f"WHERE DATE (time_of_public) BETWEEN {period} AND profession NOT LIKE 'no_sort' GROUP BY group_date"
         data_to_sort = self.get_all_from_db(table_name=table_name, field=field1, order=order1, param=param_to_sort)
-        df_to_sort=pd.DataFrame(data_to_sort, columns=['date', 'to_sort'])
+        df_to_sort = pd.DataFrame(data_to_sort, columns=['date', 'to_sort'])
         df_to_sort['to_sort'].fillna(0, inplace=True)
 
-        table_name2='archive'
-        param_archive=f"WHERE DATE (time_of_public) BETWEEN {period} GROUP BY group_date"
-        data_archive=self.get_all_from_db(table_name=table_name2, field=field1, order=order1, param=param_archive)
-        df_archive=pd.DataFrame(data_archive, columns=['date', 'archive'])
+        table_name2 = 'archive'
+        param_archive = f"WHERE DATE (created_at) BETWEEN {period} AND profession NOT LIKE 'no_sort' GROUP BY group_date"
+        data_archive = self.get_all_from_db(table_name=table_name2, field=field1, order=order1, param=param_archive)
+        df_archive = pd.DataFrame(data_archive, columns=['date', 'archive'])
         df_archive['archive'].fillna(0, inplace=True)
 
-        df_total_admin=df_no_sort.merge(df_to_sort, how='outer', on='date').sort_values('date')
-        df_total_admin.fillna(0, inplace=True)
-        df_total=df_total_admin.merge(df_archive, how='outer', on='date').sort_values('date')
+        param_no_sort = f"WHERE DATE (created_at) BETWEEN {period} AND profession LIKE 'no_sort' GROUP BY group_date"
+        data_no_sort = self.get_all_from_db(table_name=table_name2, field=field1, order=order1, param=param_no_sort)
+        df_no_sort = pd.DataFrame(data_no_sort, columns=['date', 'no_sort'])
+        df_no_sort['no_sort'].fillna(0, inplace=True)
+
+        df_total_archive = df_no_sort.merge(df_archive, how='outer', on='date').sort_values('date')
+        df_total_archive.fillna(0, inplace=True)
+        df_total = df_to_sort.merge(df_total_archive, how='outer', on='date').sort_values('date')
         df_total.fillna(0, inplace=True)
-        df_total.insert(loc=1, column = 'Total', value=df_total.no_sort + df_total.to_sort+df_total.archive)
-        df_total.loc[f'Total for period']=df_total.sum(axis=0, numeric_only=True)
+        df_total.insert(loc=1, column='Total', value=df_total.no_sort + df_total.to_sort + df_total.archive)
+        df_total.loc[f'Total for period'] = df_total.sum(axis=0, numeric_only=True)
 
-        field2 = 'DATE (time_of_public) AS group_date, chat_name, COUNT(*)'
-        param_no_sort_channels = f"WHERE DATE (time_of_public) BETWEEN {period} AND profession LIKE 'no_sort' GROUP BY group_date, chat_name"
+        field2 = 'DATE (created_at) AS group_date, chat_name, COUNT(*)'
         order2 = 'ORDER BY group_date, chat_name'
-        data_no_sort_channels = self.get_all_from_db(table_name=table_name, field=field2, order=order2, param=param_no_sort_channels)
-        df_no_sort_channels=pd.DataFrame(data_no_sort_channels, columns=['date', 'channel', 'no_sort'])
-        df_no_sort_channels['no_sort'].fillna(0, inplace=True)
 
-        param_to_sort_channels = f"WHERE DATE (time_of_public) BETWEEN {period} AND profession NOT LIKE 'no_sort' GROUP BY group_date, chat_name"
-        data_to_sort_channels = self.get_all_from_db(table_name=table_name, field=field2, order=order2, param=param_to_sort_channels)
-        df_to_sort_channels=pd.DataFrame(data_to_sort_channels, columns=['date', 'channel', 'to_sort'])
+        param_to_sort_channels = f"WHERE DATE (created_at) BETWEEN {period} GROUP BY group_date, chat_name"
+        data_to_sort_channels = self.get_all_from_db(table_name=table_name, field=field2, order=order2,
+                                                     param=param_to_sort_channels)
+        df_to_sort_channels = pd.DataFrame(data_to_sort_channels, columns=['date', 'channel', 'to_sort'])
         df_to_sort_channels['to_sort'].fillna(0, inplace=True)
 
-        param_archive_channels = f"WHERE DATE (time_of_public) BETWEEN {period} AND profession NOT LIKE 'no_sort' GROUP BY group_date, chat_name"
-        data_archive_channels = self.get_all_from_db(table_name=table_name2, field=field2, order=order2, param=param_archive_channels)
-        df_archive_channels=pd.DataFrame(data_archive_channels, columns=['date', 'channel', 'archive'])
+        param_no_sort_channels = f"WHERE DATE (created_at) BETWEEN {period} AND profession LIKE 'no_sort' GROUP BY group_date, chat_name"
+        data_no_sort_channels = self.get_all_from_db(table_name=table_name2, field=field2, order=order2,
+                                                     param=param_no_sort_channels)
+        df_no_sort_channels = pd.DataFrame(data_no_sort_channels, columns=['date', 'channel', 'no_sort'])
+        df_no_sort_channels['no_sort'].fillna(0, inplace=True)
+
+        param_archive_channels = f"WHERE DATE (created_at) BETWEEN {period} AND profession NOT LIKE 'no_sort' GROUP BY group_date, chat_name"
+        data_archive_channels = self.get_all_from_db(table_name=table_name2, field=field2, order=order2,
+                                                     param=param_archive_channels)
+        df_archive_channels = pd.DataFrame(data_archive_channels, columns=['date', 'channel', 'archive'])
         df_archive_channels['archive'].fillna(0, inplace=True)
 
-        df_total_admin_channels=df_no_sort_channels.merge(df_to_sort_channels, how='outer', on=['date', 'channel']).sort_values('date')
-        df_total_admin_channels.fillna(0, inplace=True)
+        df_total_archive_channels = df_no_sort_channels.merge(df_archive_channels, how='outer',
+                                                              on=['date', 'channel']).sort_values('date')
+        df_total_archive_channels.fillna(0, inplace=True)
 
-        df_total_channels=df_total_admin_channels.merge(df_archive_channels, how='outer', on=['date', 'channel']).sort_values('date')
+        df_total_channels = df_to_sort_channels.merge(df_total_archive_channels, how='outer',
+                                                      on=['date', 'channel']).sort_values('date')
         df_total_channels.fillna(0, inplace=True)
-        df_total_channels.insert(loc=2, column = 'Total', value=df_total_channels.no_sort + df_total_channels.to_sort+df_total_channels.archive)
-        df_total_channels.loc[f'Total for period']=df_total_channels.sum(axis=0, numeric_only=True)
+        df_total_channels.insert(loc=2, column='Total',
+                                 value=df_total_channels.no_sort + df_total_channels.to_sort + df_total_channels.archive)
+        df_total_channels.loc[f'Total for period'] = df_total_channels.sum(axis=0, numeric_only=True)
 
         with pd.ExcelWriter(f'./excel/report_total_{date_in}_{date_out}.xlsx') as writer:
-            df_total.to_excel(writer, sheet_name="Total", index= False)
-            df_total_channels.to_excel(writer, sheet_name="Channels", index= False)
+            df_total.to_excel(writer, sheet_name="Total", index=False)
+            df_total_channels.to_excel(writer, sheet_name="Channels", index=False)
             print('Report is done, saved')
 
     def create_table_common(self, field_list, table_name):

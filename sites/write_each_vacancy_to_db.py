@@ -54,6 +54,8 @@ class HelperSite_Parser:
                     salary = self.find_parameters.salary_to_set_form(text=results_dict['salary'])
                     results_dict['salary'] = ", ".join(salary)
 
+                results_dict['job_type'] = self.find_parameters.get_job_types(results_dict)
+
                 response_from_db = self.db.push_to_admin_table(
                     results_dict=results_dict,
                     profession=profession,
