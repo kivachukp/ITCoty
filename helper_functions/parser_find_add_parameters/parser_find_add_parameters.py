@@ -1,8 +1,9 @@
 import re
 from helper_functions.parser_find_add_parameters import parser_find_data
 from db_operations.scraping_db import DataBaseOperations
-from utils.additional_variables.additional_variables import countries_cities_table
+from utils.additional_variables.additional_variables import countries_cities_table, valid_job_types
 from helper_functions.cities_and_countries.cities_parser import CitiesAndCountries
+from patterns._export_pattern import export_pattern
 
 class FinderAddParameters:
 
@@ -206,6 +207,32 @@ class FinderAddParameters:
         if 'españa' in country.lower():
             country = 'Spain'
         return country
+
+    async def get_parameter(self, presearch_results: list, pattern: str, return_value: str):
+        for element in presearch_results:
+            for pattern_item in pattern:
+                match = re.findall(rf"{pattern_item}", element)
+                if match:
+                    return return_value
+    async def get_job_types(self, return_dict):
+        job_types_var = valid_job_types
+        self.job_types = ''
+        for i in job_types_var:
+            parameter = self.get_parameter(
+                presearch_results=[
+                    return_dict['job_type'],
+                    return_dict['title'] + return_dict['body'],
+                ],
+                pattern=export_pattern['others'][i]['ma'],
+                return_value=i,
+            )
+            if parameter:
+                if len(self.job_types)>0:
+                    self.job_types += ", "
+                self.job_types += parameter
+            if not self.job_types:
+                self.job_types += 'office'
+        return self.job_types
 
 # f= FinderAddParameters()
 # f.salary_to_set_form(text='$15,000 - $30,000 ')

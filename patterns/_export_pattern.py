@@ -53,7 +53,7 @@ export_pattern = {
     },
     'others': {
         'remote': pattern['remote'],
-        'full_time': pattern['fulltime'],
+        'fulltime': pattern['fulltime'],
         'office': pattern['office'],
         'flexible': pattern['flexible'],
         'office/remote': pattern['office/remote'],
