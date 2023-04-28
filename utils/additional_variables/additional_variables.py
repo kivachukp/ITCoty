@@ -211,6 +211,7 @@ help_text = '/log or /logs - get custom logs (useful for developer\n' \
             '---------------- TOOLS: ----------------\n' \
             '🛠/edit_pattern - stop proccess\n' \
             '/db_check_url_vacancy - does vacancy exist by link\n' \
+            '/db_check_add_single_vacancy - check and add vacancy by link\n' \
             '/schedule - non-stop parsing\n' \
             '/restore_from_admin - restory the lost vacancies\n' \
             '/invite_people - start to invite followers\n' \
