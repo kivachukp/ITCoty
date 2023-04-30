@@ -18,7 +18,10 @@ class FinderAddParameters:
         if type(input_dict) is dict:
             special_symbols.update(input_dict)
         for item in special_symbols:
-            self.text = self.text.replace(item, special_symbols[item])
+            try:
+                self.text = self.text.replace(item, special_symbols[item])
+            except:
+                pass
 
     def salary_to_set_form(self, **kwargs):
         currency_dict = parser_find_data.currency_dict
@@ -83,6 +86,27 @@ class FinderAddParameters:
 
         return self.salary_list
 
+    async def compose_salary_dict_from_salary_list(self, salary_list):
+        if salary_list:
+            try:
+                salary_from = int(salary_list[0]) if salary_list[0] and salary_list[0] != '-' else None
+            except Exception as e:
+                salary_from = None
+                print(e)
+            try:
+                salary_to = int(salary_list[1]) if salary_list[1] and salary_list[1] != '-' else None
+            except Exception as e:
+                salary_to = None
+                print(e)
+            if salary_from or salary_to:
+                salary_currency = salary_list[2] if salary_list[2] and salary_list[2] != '-' else None
+                salary_period = salary_list[3] if salary_list[3] and salary_list[3] != '-' else None
+            else:
+                salary_currency = salary_period = None
+            return {"salary_from": salary_from, "salary_to": salary_to, "salary_currency": salary_currency, "salary_period": salary_period}
+        else:
+            return False
+
     async def find_city_country(self, text):
         if not text:
             return False
@@ -92,7 +116,7 @@ class FinderAddParameters:
         for item in text_list:
             match = re.findall(r'[a-zA-Zа-яА-Я\s\-]+', item)
             if match and len(match[0]) != len(item):
-                remove_elements.append(item)
+                remove_elements.append(item.strip())
 
         for item in remove_elements:
             text_list.remove(item)
@@ -113,14 +137,14 @@ class FinderAddParameters:
 
     async def check_and_write_city_country(self, **kwargs):
         country_pin = ''
-        city_or_country = kwargs['city_or_country'] if 'city_or_country' in kwargs else ''
-        city = kwargs['city'] if 'city' in kwargs else ''
-        country = kwargs['country'] if 'country' in kwargs else ''
+        city_or_country = kwargs['city_or_country'].strip() if 'city_or_country' in kwargs else ''
+        city = kwargs['city'].strip() if 'city' in kwargs else ''
+        country = kwargs['country'].strip() if 'country' in kwargs else ''
         if not city and not country and not city_or_country:
             return False
 
         if city_or_country:
-            city_or_country = await self.cities_countries.translate_to_english(word=city_or_country)
+            city_or_country = await self.cities_countries.google_translate_to_english(word=city_or_country)
             city_or_country = await self.refactoring_country(city_or_country)
             response = self.db.get_all_from_db(
                 table_name=countries_cities_table,
@@ -129,12 +153,21 @@ class FinderAddParameters:
                 without_sort=True
             )
             if response:
-                if len(response) == 1:
+                response_country = self.db.get_all_from_db(
+                    table_name=countries_cities_table,
+                    param=f"WHERE country LIKE '%{city_or_country.strip()}%'",
+                    field='country',
+                    without_sort=True
+                )
+                if response_country:
+                    return f", {response_country[0][0]}"
+
+                if len(response[0]) == 1:
                     return f"{response[0][0]}, {response[0][1]}"
                 else:
                     return f"{city_or_country.strip()}, "
             else:
-                city_or_country = await self.refactoring_country(city_or_country)
+                # city_or_country = await self.refactoring_country(city_or_country)
                 response = self.db.get_all_from_db(
                     table_name=countries_cities_table,
                     param=f"WHERE country LIKE '%{city_or_country.strip()}%'",
@@ -147,28 +180,40 @@ class FinderAddParameters:
                     else:
                         return f", {city_or_country.strip()}"
 
-
-        city = await self.cities_countries.translate_to_english(word=city)
-        country = await self.cities_countries.translate_to_english(word=country)
-        country = await self.refactoring_country(country)
+        if city:
+            city = await self.cities_countries.google_translate_to_english(word=city)
+            city = await self.refactoring_country(city)
+        if country:
+            country = await self.cities_countries.google_translate_to_english(word=country)
+            country = await self.refactoring_country(country)
 
         if city and country:
             response = self.db.get_all_from_db(
                 table_name=countries_cities_table,
-                param=f"WHERE LOWER(country) LIKE '%{country.lower().strip()}%' and LOWER(city) LIKE '%{city.lower().strip()}%'",
+                param=f"WHERE LOWER(country) LIKE '%{country.lower()}%' and LOWER(city) LIKE '%{city.lower()}%'",
                 field='city, country',
                 without_sort = True
             )
             if response:
                 return f"{response[0][0]}, {response[0][1]}"
             else:
-                country_pin = country
-                country = ''
+                city = await self.refactoring_country(city)
+                response = self.db.get_all_from_db(
+                    table_name=countries_cities_table,
+                    param=f"WHERE LOWER(country) LIKE '%{city.lower()}%' and LOWER(city) LIKE '%{country.lower()}%'",
+                    field='city, country',
+                    without_sort=True
+                )
+                if response:
+                    return f"{response[0][0]}, {response[0][1]}"
+                else:
+                    country_pin = country
+                    country = ''
 
         if city and not country:
             response = self.db.get_all_from_db(
                 table_name=countries_cities_table,
-                param=f"WHERE LOWER(city) LIKE '%{city.lower().strip()}%'",
+                param=f"WHERE LOWER(city) LIKE '%{city.lower()}%'",
                 field='city, country',
                 without_sort=True
             )
@@ -176,7 +221,16 @@ class FinderAddParameters:
                 if len(response) == 1:
                     return f"{response[0][0]}, {response[0][1]}"
                 else:
-                    return f"{city}, "
+                    response = self.db.get_all_from_db(
+                        table_name=countries_cities_table,
+                        param=f"WHERE LOWER(country) LIKE '%{city.lower()}%'",
+                        field='country',
+                        without_sort=True
+                    )
+                    if response:
+                        return f", {response[0][0]}"
+                    else:
+                        return f"{city}, "
             else:
                 if country_pin:
                     city = ''
@@ -185,7 +239,7 @@ class FinderAddParameters:
         if country and not city:
             response = self.db.get_all_from_db(
                 table_name=countries_cities_table,
-                param=f"WHERE LOWER(country) LIKE '%{country.lower().strip()}%'",
+                param=f"WHERE LOWER(country) LIKE '%{country.lower()}%'",
                 field='country',
                 without_sort = True
             )
@@ -196,16 +250,16 @@ class FinderAddParameters:
         return False
 
     async def refactoring_country(self, country):
-        if "america" in country.lower():
-            country = 'United States'
-        if "usa" in country.lower():
-            country = 'United States'
-        if "сша" in country.lower():
+        if "america" in country.lower() or country.lower() in ["usa", "сша"]:
             country = 'United States'
         if "england" in country.lower():
             country = 'United Kingdom'
         if 'españa' in country.lower():
             country = 'Spain'
+        if country.lower() in ['рф', 'rf', 'ru']:
+            country = 'Russia'
+        if country.lower() in ["by", "bу", "ву"]:
+            country = 'Belarus'
         return country
 
     async def get_parameter(self, presearch_results: list, pattern: str, return_value: str):

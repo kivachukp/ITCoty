@@ -25475,3 +25475,185 @@ id_admin_last_session_table = 50526
 it was sending to agregator = None
 title = Portuguese Speaking Job in Greece - I-Gaming Consu
 ------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3285
+id_admin_last_session_table = 53295
+it was sending to agregator = None
+title = Компания Cuby (https://www.cubytechnologies.com/ )
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3285
+id_admin_last_session_table = 53295
+it was sending to agregator = None
+title = Компания Cuby (https://www.cubytechnologies.com/ )
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3286
+id_admin_last_session_table = 53297
+it was sending to agregator = None
+title = Аниматор и визуализатор на Unreal Engine 5
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3286
+id_admin_last_session_table = 53297
+it was sending to agregator = None
+title = Аниматор и визуализатор на Unreal Engine 5
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3288
+id_admin_last_session_table = 53322
+it was sending to agregator = None
+title = Публикатор: Alina
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3288
+id_admin_last_session_table = 53322
+it was sending to agregator = None
+title = Публикатор: Alina
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3289
+id_admin_last_session_table = 50518
+it was sending to agregator = None
+title = HR & Admin Manager
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3289
+id_admin_last_session_table = 50518
+it was sending to agregator = None
+title = HR & Admin Manager
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3290
+id_admin_last_session_table = 50569
+it was sending to agregator = None
+title = HR tech sales
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3290
+id_admin_last_session_table = 50569
+it was sending to agregator = None
+title = HR tech sales
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3291
+id_admin_last_session_table = 50578
+it was sending to agregator = None
+title = SAP ERP Human Capital Management (HCM)
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3291
+id_admin_last_session_table = 50578
+it was sending to agregator = None
+title = SAP ERP Human Capital Management (HCM)
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3292
+id_admin_last_session_table = 50652
+it was sending to agregator = None
+title = Software Developer
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3292
+id_admin_last_session_table = 50652
+it was sending to agregator = None
+title = Software Developer
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3293
+id_admin_last_session_table = 50655
+it was sending to agregator = None
+title = Рекрутер/Менеджер по подбору персонала (HR)
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3293
+id_admin_last_session_table = 50655
+it was sending to agregator = None
+title = Рекрутер/Менеджер по подбору персонала (HR)
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3294
+id_admin_last_session_table = 50657
+it was sending to agregator = None
+title = HR менеджер
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3294
+id_admin_last_session_table = 50657
+it was sending to agregator = None
+title = HR менеджер
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3295
+id_admin_last_session_table = 50676
+it was sending to agregator = None
+title = Менеджер по поиску пероснала и кадрам
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3295
+id_admin_last_session_table = 50676
+it was sending to agregator = None
+title = Менеджер по поиску пероснала и кадрам
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3296
+id_admin_last_session_table = 50692
+it was sending to agregator = None
+title = HR менеджер / Рекрутер / Специалист по подбору пер
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3296
+id_admin_last_session_table = 50692
+it was sending to agregator = None
+title = HR менеджер / Рекрутер / Специалист по подбору пер
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3297
+id_admin_last_session_table = 50696
+it was sending to agregator = None
+title = Оператор call центра
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3297
+id_admin_last_session_table = 50696
+it was sending to agregator = None
+title = Оператор call центра
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3298
+id_admin_last_session_table = 50714
+it was sending to agregator = None
+title = HR-менеджер
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3298
+id_admin_last_session_table = 50714
+it was sending to agregator = None
+title = HR-менеджер
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3300
+id_admin_last_session_table = 53090
+it was sending to agregator = None
+title = Front-end разработчик
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3300
+id_admin_last_session_table = 53090
+it was sending to agregator = None
+title = Front-end разработчик
+------------------------------------------------------------

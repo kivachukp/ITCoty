@@ -50,6 +50,7 @@ from multiprocessing import Process
 from sites.send_log_txt import send_log_txt
 from report.reports import Reports
 from report.report_variables import report_file_path
+from helper_functions.database_update_data.database_update_data import DatabaseUpdateData
 
 logs = Logs()
 import settings.os_getenv as settings
@@ -71,8 +72,10 @@ password = 0
 con = None
 
 print(f'Bot started at {datetime.now()}')
-
 logs.write_log(f'\n------------------ restart --------------------')
+
+
+
 
 class InviteBot():
 
@@ -112,6 +115,8 @@ class InviteBot():
         self.message_for_send_dict = {}
         self.schedule_pushing_shorts = True
         self.task = None
+        self.parser_at_work = False
+        self.shorts_at_work = False
         self.show_vacancies = {
             'table': '',
             'offset': 0,
@@ -122,7 +127,6 @@ class InviteBot():
             self.client = TelegramClient(username_double, int(api_id_double), api_hash_double)
         else:
             self.client = TelegramClient(username, int(api_id), api_hash)
-
         try:
             self.client.start()
         except Exception as e:
@@ -141,6 +145,25 @@ class InviteBot():
         self.bot_aiogram = Bot(token=self.token)
         storage = MemoryStorage()
         self.dp = Dispatcher(self.bot_aiogram, storage=storage)
+        try:
+            self.db.push_to_db_common(
+                table_name="shorts_at_work",
+                fields_values_dict={"shorts_at_work": False},
+                params="WHERE id=1"
+                )
+            print('Set value False for shorts_at_work')
+        except Exception as e:
+            print(e)
+        try:
+            self.db.push_to_db_common(
+                table_name='parser_at_work',
+                fields_values_dict={"parser_at_work": False},
+                params = "WHERE id=1"
+            )
+            print('Set value False for parser_at_work')
+        except Exception as e:
+            print(e)
+
 
     def main_invitebot(self):
 
@@ -285,6 +308,16 @@ class InviteBot():
                 text_list = [variable.help_text]
             for text in text_list:
                 await self.bot_aiogram.send_message(message.chat.id, text)
+
+        @self.dp.message_handler(commands=['update_city_field'])
+        async def update_city_field(message: types.Message):
+            updater = DatabaseUpdateData()
+            await updater.update_city_field()
+
+        @self.dp.message_handler(commands=['update_salary_field'])
+        async def update_city_field(message: types.Message):
+            updater = DatabaseUpdateData()
+            await updater.update_salary_fields()
 
         @self.dp.message_handler(commands=['get_admin_vacancies_table'])
         async def get_admin_vacancies_table(message: types.Message):
@@ -1632,141 +1665,31 @@ class InviteBot():
                     await self.bot_aiogram.send_message(callback.message.chat.id, "Sorry, You have not the permissions")
 
             if callback.data[0:5] == 'admin':
-                self.temporary_data = {}
-                helper.add_to_report_file(
-                    path=variable.path_push_shorts_report_file,
-                    write_mode='a',
-                    text=f"----------{datetime.now().strftime('%d-%m-%Y')}-----------\n[BUTTON] admin callback.data: {callback.data}\n"
-                )
-
-                try:
-                    self.db.delete_table('admin_temporary')
-                except Exception as e:
-                    print(e)
-
-                # delete messages for channel will be clean to take new messages
-                all_messages = await self.get_tg_history_messages(callback.message)
-                for i in all_messages:
-                    await self.client.delete_messages(PeerChannel(int(config['My_channels']['admin_channel'])), i['id'])
-
-                # getting the last message_id
-                last_admin_channel_id = await self.get_last_admin_channel_id(callback.message)
-
-                profession = callback.data.split('/')[1]
-                if profession == 'ba':
-                    param = f"WHERE profession LIKE '%{profession}' OR profession LIKE '%{profession},%'"
-                else:
-                    param = f"WHERE profession LIKE '%{profession}%'"
-                response = self.db.get_all_from_db(
-                    table_name='admin_last_session',
-                    param=param,
+                tables = self.db.get_information_about_tables_and_fields(only_tables=True)
+                if "shorts_at_work" not in tables:
+                    self.db.create_table_common(
+                        field_list=["shorts_at_work BOOLEAN"],
+                        table_name="shorts_at_work"
+                    )
+                    self.db.push_to_db_common(
+                        table_name='shorts_at_work',
+                        fields_values_dict={"shorts_at_work": False}
+                    )
+                self.shorts_at_work = self.db.get_all_from_db(
+                    table_name="shorts_at_work",
+                    param="WHERE id=1",
                     without_sort=True,
-                    field=variable.admin_table_fields
-                )
-                self.quantity_in_statistics = len(response)
+                )[0][1]
 
-                if response:
-                    self.percent = 0
-                    length = len(response)
-                    n = 0
-                    self.message = await self.bot_aiogram.send_message(callback.message.chat.id, f'progress {self.percent}%')
-                    await asyncio.sleep(random.randrange(2, 3))
-
-                    self.quantity_entered_to_admin_channel = 0
-                    for vacancy in response:
-                        vacancy_from_admin_dict = await helper.to_dict_from_admin_response(
-                            response = vacancy,
-                            fields=variable.admin_table_fields
-                        )
-                        #shorts_report
-                        if 'in' not in self.temporary_data:
-                            self.temporary_data['in'] = {}
-                        if 'id_admin_channel' not in self.temporary_data['in']:
-                            self.temporary_data['in']['id_admin_channel'] = []
-                        if 'id_admin' not in self.temporary_data['in']:
-                            self.temporary_data['in']['id_admin'] = []
-                        if 'title' not in self.temporary_data['in']:
-                            self.temporary_data['in']['title'] = []
-                        if 'body' not in self.temporary_data['in']:
-                            self.temporary_data['in']['body'] = []
-                        self.temporary_data['in']['id_admin_channel'].append(str(last_admin_channel_id+1))
-                        self.temporary_data['in']['id_admin'].append(str(vacancy_from_admin_dict['id']))
-                        self.temporary_data['in']['title'].append(vacancy_from_admin_dict['title'])
-                        self.temporary_data['in']['body'].append(vacancy_from_admin_dict['body'])
-                        pass
-
-                        composed_message_dict = await self.compose_message(
-                            vacancy_from_admin_dict=vacancy_from_admin_dict,
-                            one_profession=profession,
-                            full=True,
-                            message=vacancy,
-                        )
-                        composed_message_dict['id_admin_channel'] = ''
-                        composed_message_dict['id_admin_channel'] = last_admin_channel_id + 1
-                        composed_message_dict['it_was_sending_to_agregator'] = ''
-                        composed_message_dict['it_was_sending_to_agregator'] = vacancy_from_admin_dict['sended_to_agregator']
-
-                    # it needs the checking. It can be in DB. Do it after is better. At the moment writing ti admin las session. Does not matter to write it if it exists in DB
-
-                        try:
-                            text = composed_message_dict['composed_message']
-                            if len(text) > 4096:
-                                text = text[:4093] + '...'
-                            try:
-                                await self.bot_aiogram.send_message(config['My_channels']['admin_channel'], text, parse_mode='html', disable_web_page_preview=True)
-                                last_admin_channel_id += 1
-                            except Exception as e:
-                                if 'Flood control exceeded' in str(e):
-                                    print(f'ERROR {e},\n PLEASE WAIT')
-                                    await asyncio.sleep(60*2)
-                                    await self.bot_aiogram.send_message(config['My_channels']['admin_channel'], text,
-                                                                   parse_mode='html', disable_web_page_preview=True)
-                                    last_admin_channel_id += 1
-
-
-                            # -------------- it is for user's check -----------------------
-                            with open(self.admin_check_file, 'a', encoding="utf-8") as file:
-                                file.write(f"              NEXT                \n"
-                                           f"-------- in callback admin -------\n"
-                                           f"id admin_channel = {last_admin_channel_id}\n"
-                                           f"id_admin_last_session_table = {vacancy[0]}\n"
-                                           f"it was sending to agregator = {vacancy[19]}\n"
-                                           f"title = {vacancy[2][:50]}\n"
-                                           f"--------------------------------------------\n")
-                            # ----------------------- end ----------------------------------
-
-                            try:
-                                self.db.push_to_admin_temporary(composed_message_dict)
-                            except:
-                                print('Error in push in db temporary table')
-
-                            self.quantity_entered_to_admin_channel += 1
-                            await asyncio.sleep(random.randrange(3, 4))
-                        except Exception as e:
-                            await self.bot_aiogram.send_message(callback.message.chat.id, f"It hasn't been pushed to admin_channel : {e}")
-                            await self.write_to_logs_error(
-                                f"It hasn't been pushed to admin_channel\n{e}\n------------\n{vacancy[2]+vacancy[3]}\n-------------\n\n")
-                            await asyncio.sleep(random.randrange(2, 3))
-                        # write to temporary DB (admin_temporary) id_admin_message and id in db admin_last_session
-
-                        n += 1
-                        await self.show_progress(callback.message, n, length)
-
-                        # to say the customer about finish
-                    print('\nTransfer to admin has finished =======')
-                    markup = InlineKeyboardMarkup()
-                    push_full = InlineKeyboardButton(f'PUSH full to {profession.title()}', callback_data=f'PUSH full to {profession}')
-                    button_shorts = InlineKeyboardButton(f'PUSH shorts to {profession.title()}', callback_data=f'PUSH shorts to {profession}')
-
-                    markup.row(push_full, button_shorts)
-                    await self.bot_aiogram.send_message(callback.message.chat.id, f'{profession.title()} in the Admin channel\n'
-                                                                             f'When you will ready, press button PUSH',
-                                                   reply_markup=markup)
-                    await asyncio.sleep(random.randrange(2, 3))
+                if not self.shorts_at_work:
+                    self.db.push_to_db_common(
+                        table_name="shorts_at_work",
+                        fields_values_dict={"shorts_at_work": True},
+                        params="WHERE id=1"
+                    )
+                    await self.send_vacancy_to_admin_channel(callback.message, callback.data)
                 else:
-                    await self.bot_aiogram.send_message(callback.message.chat.id, f'There are have not any vacancies in {profession}\n'
-                                                                             f'Please choose others', reply_markup=self.markup)
-                    await asyncio.sleep(random.randrange(2, 3))
+                    await self.bot_aiogram.send_message(callback.message.chat.id, "Sorry shorts at work now. Please wait some time")
 
             if callback.data == 'one_day_statistics':
                 self.feature = 'one_day_statistics'
@@ -2869,37 +2792,68 @@ class InviteBot():
             return matches_list
 
         async def get_news(message):
-            # ----------------- make the current session and write it in DB ----------------------
-            await send_log_txt(text='', write_mode='w')
+            tables = self.db.get_information_about_tables_and_fields(only_tables=True)
+            if "parser_at_work" not in tables:
+                self.db.create_table_common(
+                    field_list=["parser_at_work BOOLEAN"],
+                    table_name="parser_at_work"
+                )
+                self.db.push_to_db_common(
+                    table_name='parser_at_work',
+                    fields_values_dict={"parser_at_work": False}
+                )
+            self.parser_at_work = self.db.get_all_from_db(
+                table_name="parser_at_work",
+                param="WHERE id=1",
+                without_sort=True,
+            )[0][1]
 
-            self.current_session = datetime.now().strftime("%Y%m%d%H%M%S")
-            self.db.write_current_session(self.current_session)
-            await self.bot_aiogram.send_message(message.chat.id, f'Session is {self.current_session}')
-            await asyncio.sleep(1)
-            self.start_time_scraping_channels = datetime.now()
-            print('time_start = ', self.start_time_scraping_channels)
-            # await bot_aiogram.send_message(message.chat.id, 'Scraping is starting')
-            await asyncio.sleep(1)
+            if not self.parser_at_work:
+                self.db.push_to_db_common(
+                    table_name='parser_at_work',
+                    fields_values_dict={"parser_at_work": True},
+                    params="WHERE id=1"
+                )
+                # ----------------- make the current session and write it in DB ----------------------
+                await send_log_txt(text='', write_mode='w')
+                self.current_session = datetime.now().strftime("%Y%m%d%H%M%S")
+                self.db.write_current_session(self.current_session)
+                await self.bot_aiogram.send_message(message.chat.id, f'Session is {self.current_session}')
+                await asyncio.sleep(1)
+                self.start_time_scraping_channels = datetime.now()
+                print('time_start = ', self.start_time_scraping_channels)
+                await asyncio.sleep(1)
 
-            # # -----------------------parsing telegram channels -------------------------------------
-            bot_dict = {'bot': self.bot_aiogram, 'chat_id': message.chat.id}
-            # self.task = asyncio.create_task(main(report=self.report, client=self.client, bot_dict=bot_dict))
-            # await self.report.add_to_excel(report_type='parsing')
-            await main(report=self.report, client=self.client, bot_dict=bot_dict)
+                # # -----------------------parsing telegram channels -------------------------------------
+                bot_dict = {'bot': self.bot_aiogram, 'chat_id': message.chat.id}
+                # self.task = asyncio.create_task(main(report=self.report, client=self.client, bot_dict=bot_dict))
+                # await main(report=self.report, client=self.client, bot_dict=bot_dict)
+                # await self.report.add_to_excel(report_type='parsing')
 
-            sites_parser = SitesParser(client=self.client, bot_dict=bot_dict, report=self.report)
-            self.task = asyncio.create_task(sites_parser.call_sites())
+                sites_parser = SitesParser(client=self.client, bot_dict=bot_dict, report=self.report)
+                # self.task = asyncio.create_task(sites_parser.call_sites())
+                await sites_parser.call_sites()
+                self.db.push_to_db_common(
+                    table_name='parser_at_work',
+                    fields_values_dict={"parser_at_work": False},
+                    params="WHERE id=1"
+                )
+                await self.send_file_to_user(
+                    message=message,
+                    path=variable.flood_control_logs_path,
+                    caption="take the exception logs"
+                )
+                await self.send_file_to_user(
+                    message=message,
+                    path=variable.path_log_check_profession,
+                    caption="take the profession logs"
+                )
+            else:
+                await self.bot_aiogram.send_message(message.chat.id, "Sorry, parser at work. Request a stop from developers")
 
-            await self.send_file_to_user(
-                message=message,
-                path=variable.flood_control_logs_path,
-                caption="take the exception logs"
-            )
-            await self.send_file_to_user(
-                message=message,
-                path=variable.path_log_check_profession,
-                caption="take the profession logs"
-            )
+
+
+
 
         async def debug_function():
             response = self.db.get_all_from_db(
@@ -4195,10 +4149,11 @@ class InviteBot():
                                 await self.bot_aiogram.send_photo(chat_id=chat_id, photo=file)
                             except Exception as ex:
                                 print(f'Key {count}: picture error: {ex}. Chat_id: message chat id')
-                                print('Key {count}: ONE SHORTS HAS BEEN LOOSED')
+                                print(f'Key {count}: ONE SHORTS HAS BEEN LOOSED')
                     except Exception as e:
                         print(e)
-                        await self.bot_aiogram.send_message(message.chat.id, f"ONE SHORTS HAS BEEN LOOSED{str(e)}")
+                        # await self.bot_aiogram.send_message(message.chat.id, f"ONE SHORTS HAS BEEN LOOSED{str(e)}")
+                        await helper.send_message(self.bot_aiogram, message.chat.id, f"ONE SHORTS HAS BEEN LOOSED{str(e)}")
             count += 1
 
             for short in vacancies_list:
@@ -4223,24 +4178,40 @@ class InviteBot():
 
                 linkedin_message = await self.compose_message_for_linkedin(key, message_for_send, profession,
                                                                       shorts_id)
-                await self.bot_aiogram.send_message(
+                # await self.bot_aiogram.send_message(
+                #     variable.channel_id_for_shorts,
+                #     'Post for LinkedIn',
+                #     parse_mode='html',
+                #     disable_web_page_preview=True
+                # )
+                # await self.bot_aiogram.send_message(
+                #     variable.channel_id_for_shorts,
+                #     linkedin_message,
+                #     parse_mode='html',
+                #     disable_web_page_preview=True
+                # )
+                await helper.send_message(
+                    self.bot_aiogram,
                     variable.channel_id_for_shorts,
                     'Post for LinkedIn',
                     parse_mode='html',
                     disable_web_page_preview=True
                 )
-                await self.bot_aiogram.send_message(
+                await helper.send_message(
+                    self.bot_aiogram,
                     variable.channel_id_for_shorts,
                     linkedin_message,
                     parse_mode='html',
                     disable_web_page_preview=True
                 )
 
-                await self.bot_aiogram.send_message(message.chat.id, 'Linkedin message sent to channel_for_shorts')
+                # await self.bot_aiogram.send_message(message.chat.id, 'Linkedin message sent to channel_for_shorts')
+                await helper.send_message(self.bot_aiogram, message.chat.id, 'Linkedin message sent to channel_for_shorts')
                 await asyncio.sleep(random.randrange(1, 2))
 
             except Exception as e:
-                await self.bot_aiogram.send_message(message.chat.id, f"linkedin report: {str(e)}")
+                # await self.bot_aiogram.send_message(message.chat.id, f"linkedin report: {str(e)}")
+                await helper.send_message(self.bot_aiogram, message.chat.id, f"linkedin report: {str(e)}")
 
         try:
             await helper.send_file_to_user(
@@ -5270,6 +5241,12 @@ class InviteBot():
                 print(f'{profession}: no vacancies')
                 await self.bot_aiogram.send_message(message.chat.id, f'{profession}: No vacancies')
 
+        self.db.push_to_db_common(
+            table_name="shorts_at_work",
+            fields_values_dict={"shorts_at_work": False},
+            params="WHERE id=1"
+        )
+
     async def hard_pushing_by_schedule(self, message, profession_list):
         table_set = set()
         time_marker = ''
@@ -5457,6 +5434,151 @@ class InviteBot():
             last_session = value[0]
         return last_session
 
+    async def send_vacancy_to_admin_channel(self, message, callback_data):
+        self.shorts_at_work = True
+        self.temporary_data = {}
+        helper.add_to_report_file(
+            path=variable.path_push_shorts_report_file,
+            write_mode='a',
+            text=f"----------{datetime.now().strftime('%d-%m-%Y')}-----------\n[BUTTON] admin callback.data: {callback_data}\n"
+        )
+
+        try:
+            self.db.delete_table('admin_temporary')
+        except Exception as e:
+            print(e)
+
+        # delete messages for channel will be clean to take new messages
+        all_messages = await self.get_tg_history_messages(message)
+        for i in all_messages:
+            await self.client.delete_messages(PeerChannel(int(config['My_channels']['admin_channel'])), i['id'])
+
+        # getting the last message_id
+        last_admin_channel_id = await self.get_last_admin_channel_id(message)
+
+        profession = callback_data.split('/')[1]
+        if profession == 'ba':
+            param = f"WHERE profession LIKE '%{profession}' OR profession LIKE '%{profession},%'"
+        else:
+            param = f"WHERE profession LIKE '%{profession}%'"
+        response = self.db.get_all_from_db(
+            table_name='admin_last_session',
+            param=param,
+            without_sort=True,
+            field=variable.admin_table_fields
+        )
+        self.quantity_in_statistics = len(response)
+
+        if response:
+            self.percent = 0
+            length = len(response)
+            n = 0
+            # self.message = await self.bot_aiogram.send_message(message.chat.id, f'progress {self.percent}%')
+            self.message = await helper.send_message(bot=self.bot_aiogram, chat_id=message.chat.id, text=f'progress {self.percent}%')
+            await asyncio.sleep(random.randrange(2, 3))
+
+            self.quantity_entered_to_admin_channel = 0
+            for vacancy in response:
+                vacancy_from_admin_dict = await helper.to_dict_from_admin_response(
+                    response=vacancy,
+                    fields=variable.admin_table_fields
+                )
+                # shorts_report
+                if 'in' not in self.temporary_data:
+                    self.temporary_data['in'] = {}
+                if 'id_admin_channel' not in self.temporary_data['in']:
+                    self.temporary_data['in']['id_admin_channel'] = []
+                if 'id_admin' not in self.temporary_data['in']:
+                    self.temporary_data['in']['id_admin'] = []
+                if 'title' not in self.temporary_data['in']:
+                    self.temporary_data['in']['title'] = []
+                if 'body' not in self.temporary_data['in']:
+                    self.temporary_data['in']['body'] = []
+                self.temporary_data['in']['id_admin_channel'].append(str(last_admin_channel_id + 1))
+                self.temporary_data['in']['id_admin'].append(str(vacancy_from_admin_dict['id']))
+                self.temporary_data['in']['title'].append(vacancy_from_admin_dict['title'])
+                self.temporary_data['in']['body'].append(vacancy_from_admin_dict['body'])
+                pass
+
+                composed_message_dict = await self.compose_message(
+                    vacancy_from_admin_dict=vacancy_from_admin_dict,
+                    one_profession=profession,
+                    full=True,
+                    message=vacancy,
+                )
+                composed_message_dict['id_admin_channel'] = ''
+                composed_message_dict['id_admin_channel'] = last_admin_channel_id + 1
+                composed_message_dict['it_was_sending_to_agregator'] = ''
+                composed_message_dict['it_was_sending_to_agregator'] = vacancy_from_admin_dict['sended_to_agregator']
+
+                # it needs the checking. It can be in DB. Do it after is better. At the moment writing ti admin las session. Does not matter to write it if it exists in DB
+
+                try:
+                    text = composed_message_dict['composed_message']
+                    if len(text) > 4096:
+                        text = text[:4093] + '...'
+                    try:
+                        await self.bot_aiogram.send_message(config['My_channels']['admin_channel'], text,
+                                                            parse_mode='html', disable_web_page_preview=True)
+                        last_admin_channel_id += 1
+                    except Exception as e:
+                        if 'Flood control exceeded' in str(e):
+                            print(f'ERROR {e},\n PLEASE WAIT')
+                            await asyncio.sleep(60 * 2)
+                            # await self.bot_aiogram.send_message(config['My_channels']['admin_channel'], text,
+                            #                                     parse_mode='html', disable_web_page_preview=True)
+                            await helper.send_message(bot=self.bot_aiogram, chat_id=config['My_channels']['admin_channel'],
+                                                      text=text, parse_mode='html', disable_web_page_preview=True)
+                            last_admin_channel_id += 1
+
+                    # -------------- it is for user's check -----------------------
+                    with open(self.admin_check_file, 'a', encoding="utf-8") as file:
+                        file.write(f"              NEXT                \n"
+                                   f"-------- in callback admin -------\n"
+                                   f"id admin_channel = {last_admin_channel_id}\n"
+                                   f"id_admin_last_session_table = {vacancy[0]}\n"
+                                   f"it was sending to agregator = {vacancy[19]}\n"
+                                   f"title = {vacancy[2][:50]}\n"
+                                   f"--------------------------------------------\n")
+                    # ----------------------- end ----------------------------------
+
+                    try:
+                        self.db.push_to_admin_temporary(composed_message_dict)
+                    except:
+                        print('Error in push in db temporary table')
+
+                    self.quantity_entered_to_admin_channel += 1
+                    await asyncio.sleep(random.randrange(3, 4))
+                except Exception as e:
+                    await self.bot_aiogram.send_message(message.chat.id,
+                                                        f"It hasn't been pushed to admin_channel : {e}")
+                    await self.write_to_logs_error(
+                        f"It hasn't been pushed to admin_channel\n{e}\n------------\n{vacancy[2] + vacancy[3]}\n-------------\n\n")
+                    await asyncio.sleep(random.randrange(2, 3))
+                # write to temporary DB (admin_temporary) id_admin_message and id in db admin_last_session
+
+                n += 1
+                await self.show_progress(message, n, length)
+
+                # to say the customer about finish
+            print('\nTransfer to admin has finished =======')
+            markup = InlineKeyboardMarkup()
+            push_full = InlineKeyboardButton(f'PUSH full to {profession.title()}',
+                                             callback_data=f'PUSH full to {profession}')
+            button_shorts = InlineKeyboardButton(f'PUSH shorts to {profession.title()}',
+                                                 callback_data=f'PUSH shorts to {profession}')
+
+            markup.row(push_full, button_shorts)
+            await self.bot_aiogram.send_message(message.chat.id, f'{profession.title()} in the Admin channel\n'
+                                                                          f'When you will ready, press button PUSH',
+                                                reply_markup=markup)
+            await asyncio.sleep(random.randrange(2, 3))
+        else:
+            await self.bot_aiogram.send_message(message.chat.id,
+                                                f'There are have not any vacancies in {profession}\n'
+                                                f'Please choose others', reply_markup=self.markup)
+            await asyncio.sleep(random.randrange(2, 3))
+
 def run(double=False, token_in=None):
     InviteBot(
         token_in=token_in,
@@ -5477,6 +5599,8 @@ def start_hardpushing():
         profession_list=variable.profession_list_for_pushing_by_schedule
         )
     )
+
+
 
 if __name__ == '__main__':
    run()

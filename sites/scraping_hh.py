@@ -58,6 +58,7 @@ class HHGetInformation:
             self.word = word
             till = how_much_pages
 
+            # not remote
             for self.page_number in range(0, till - 1):
                 try:
                     await self.bot.send_message(self.chat_id,
@@ -73,13 +74,14 @@ class HHGetInformation:
                     print(e)
                     break
 
+            # remote
             for self.page_number in range(0, till - 1):
                 try:
                     await self.bot.send_message(self.chat_id,
                                                 f"https://hh.ru/search/vacancy?area=1002&area=16&area=113&area=40&schedule=remote&search_field=name&search_field=company_name&search_field=description&enable_snippets=true&text={self.word}&ored_clusters=true&search_period=3&page={self.page_number}")
                     self.browser.get(
                         f"https://hh.ru/search/vacancy?area=1002&area=16&area=113&area=40&schedule=remote&search_field=name&search_field=company_name&search_field=description&enable_snippets=true&text={self.word}&ored_clusters=true&search_period=3&page={self.page_number}")
-                    # self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+                    self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                     vacancy_exists_on_page = await self.get_link_message(self.browser.page_source)
                     if not vacancy_exists_on_page:
                         break
@@ -87,22 +89,22 @@ class HHGetInformation:
                     print(e)
                     break
 
-            for self.page_number in range(0, till - 1):
-                try:
-                    await self.bot.send_message(self.chat_id,
-                                                f'https://hh.ru/search/vacancy?search_field=name&search_field=company_name&search_field=description&enable_snippets=true&text={self.word}&ored_clusters=true&search_period=3&page={self.page_number}',
-                                                disable_web_page_preview=True)
-                    self.browser.get(
-                        f'https://hh.ru/search/vacancy?search_field=name&search_field=company_name&search_field=description&enable_snippets=true&text={self.word}&ored_clusters=true&search_period=3&page={self.page_number}')
-                    self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-                    # print('await asyncio.sleep(10)')
-                    # await asyncio.sleep(10)
-                    vacancy_exists_on_page = await self.get_link_message(self.browser.page_source)
-                    if not vacancy_exists_on_page:
-                        break
-                except Exception as e:
-                    print(e)
-                    break
+            # for self.page_number in range(0, till - 1):
+            #     try:
+            #         await self.bot.send_message(self.chat_id,
+            #                                     f'https://hh.ru/search/vacancy?search_field=name&search_field=company_name&search_field=description&enable_snippets=true&text={self.word}&ored_clusters=true&search_period=3&page={self.page_number}',
+            #                                     disable_web_page_preview=True)
+            #         self.browser.get(
+            #             f'https://hh.ru/search/vacancy?search_field=name&search_field=company_name&search_field=description&enable_snippets=true&text={self.word}&ored_clusters=true&search_period=3&page={self.page_number}')
+            #         self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            #         # print('await asyncio.sleep(10)')
+            #         # await asyncio.sleep(10)
+            #         vacancy_exists_on_page = await self.get_link_message(self.browser.page_source)
+            #         if not vacancy_exists_on_page:
+            #             break
+            #     except Exception as e:
+            #         print(e)
+            #         break
 
         await self.bot.send_message(self.chat_id, 'hh.ru parsing: Done!', disable_web_page_preview=True)
 
