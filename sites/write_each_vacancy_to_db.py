@@ -41,18 +41,24 @@ class HelperSite_Parser:
                 self.report.parsing_report(ma=profession['tag'], mex=profession['anti_tag'])
 
             if profession['profession']:
-
-
-                # #city and country refactoring
-                # city_country = await self.find_parameters.find_city_country(text=results_dict['city'])
-                # with open("./excel/city.txt", 'a', encoding="utf-8") as file:
-                #     file.write(f"---------------\nfrom parser: {results_dict['city']}\nresult: {city_country}")
-                # print(f"city_country: {city_country}")
+                #city and country refactoring
+                if results_dict['city']:
+                    city_country = await self.find_parameters.find_city_country(text=results_dict['city'])
+                    with open("./excel/city.txt", 'a', encoding="utf-8") as file:
+                        file.write(f"---------------\nfrom parser: {results_dict['city']}\nresult: {city_country}")
+                    print(f"city_country: {results_dict['city']} -> {city_country}")
+                    if city_country:
+                        results_dict['city'] = city_country
+                    else:
+                        results_dict['city'] = ''
 
                 # salary refactoring
                 if 'salary' in results_dict and results_dict['salary']:
                     salary = self.find_parameters.salary_to_set_form(text=results_dict['salary'])
-                    results_dict['salary'] = ", ".join(salary)
+                    salary = await self.find_parameters.compose_salary_dict_from_salary_list(salary)
+                    for key in salary:
+                        results_dict[key] = salary[key]
+                    pass
 
                 response_from_db = self.db.push_to_admin_table(
                     results_dict=results_dict,

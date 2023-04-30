@@ -52,41 +52,14 @@ class GorodRabotGetInformation:
 
 
     async def get_content(self, db_tables=None):
-        """
-        If DB_tables = 'all', that it will push to all DB include professions.
-        If None (default), that will push in all_messages only
-        :param count_message_in_one_channel:
-        :param db_tables:
-        :return:
-        """
-        # self.browser.delete_all_cookies()
-        # print('all cookies have deleted')
         self.db_tables = db_tables
-
         self.count_message_in_one_channel = 1
-
         await self.get_info()
         self.browser.quit()
 
     async def get_info(self):
         self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         for word in self.search_words:
-            # self.page_number = 0
-            # link = f'https://hh.ru/search/vacancy?text={word}&from=suggest_post&salary=&schedule=remote&no_magic=true&ored_clusters=true&enable_snippets=true&search_period=1&excluded_text='
-            # await self.bot.send_message(self.chat_id, link, disable_web_page_preview=True)
-            #
-            # print('page link: ', link)
-            # try:
-            #     self.browser.get(link)
-            # except Exception as e:
-            #     print('bot could not to get the link', e)
-            #
-            # try:
-            #     self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            # except:
-            #     pass
-            # await self.get_link_message(self.browser.page_source, word) https://belarus.gorodrabot.by/?q=frontend&d=%D0%B7%D0%B0+%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D0%BD%D0%B8%D0%B9+%D0%B4%D0%B5%D0%BD%D1%8C
-            #
             while True:
                 try:
                     await self.bot.send_message(self.chat_id, f"https://belarus.gorodrabot.by/?q={word}&d=%D0%B7%D0%B0+%D0%BF%D0%BE%D1%81%D0%BB%D0%B5%D0%B4%D0%BD%D0%B8%D0%B9+%D0%B4%D0%B5%D0%BD%D1%8C&p={self.page_number}")
@@ -121,7 +94,7 @@ class GorodRabotGetInformation:
 
             # -------------------- check what is current session --------------
 
-            current_session = DataBaseOperations(None).get_all_from_db(
+            current_session = DataBaseOperations().get_all_from_db(
                 table_name='current_session',
                 param='ORDER BY id DESC LIMIT 1',
                 without_sort=True,

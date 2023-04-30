@@ -268,19 +268,19 @@ def get_additional_values_fields(dict_in):
     if experience_shorts:
         results_dict['experience'] = experience_shorts
 
-    salary_shorts = get_field_for_shorts_sync(
-        presearch_results=[
-            results_dict['salary'],
-            results_dict['title'] + results_dict['body']
-        ],
-        pattern=export_pattern['others']['salary_for_shorts']['ma'],
-        return_value='salary'
-    )
-    salary_shorts = salary_shorts['match']
-    salary_shorts = salary_shorts.replace('до', '-').replace('  ', ' ')
-    if salary_shorts:
-        results_dict['salary'] = salary_shorts
-    # print('salary = ', salary_shorts)
+    # salary_shorts = get_field_for_shorts_sync(
+    #     presearch_results=[
+    #         results_dict['salary'],
+    #         results_dict['title'] + results_dict['body']
+    #     ],
+    #     pattern=export_pattern['others']['salary_for_shorts']['ma'],
+    #     return_value='salary'
+    # )
+    # salary_shorts = salary_shorts['match']
+    # salary_shorts = salary_shorts.replace('до', '-').replace('  ', ' ')
+    # if salary_shorts:
+    #     results_dict['salary'] = salary_shorts
+    # # print('salary = ', salary_shorts)
 
     city_shorts = get_city_vacancy_for_shorts_sync(
         presearch_results=[

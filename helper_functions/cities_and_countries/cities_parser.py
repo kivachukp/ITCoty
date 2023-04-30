@@ -1,5 +1,6 @@
 import asyncio
 from translate import Translator
+from googletrans import Translator as google_translator
 import requests
 from db_operations.scraping_db import DataBaseOperations
 from utils.additional_variables.additional_variables import countries_cities_table
@@ -53,6 +54,16 @@ class CitiesAndCountries:
             translation = ''
         # print(translation)
         return translation if translation != '.' else word
+
+    async def google_translate_to_english(self, word: str):
+        translator = google_translator(service_urls=[
+            'translate.google.com',
+            'translate.google.co.kr',
+        ])
+        translation = translator.translate(text=word, dest='en')
+        print(f"Translator: {word}={translation.text}")
+        return translation.text if translation else ''
+
 
 # cities_parser = CitiesAndCountries()
 # asyncio.run(cities_parser.get_all_countries_and_cities())
