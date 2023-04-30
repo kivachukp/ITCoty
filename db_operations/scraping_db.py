@@ -773,11 +773,12 @@ class DataBaseOperations:
                 else set(profession['profession'])
             from utils.additional_variables.additional_variables import additional_elements
             tables_list_for_vacancy_searching = tables_list_for_vacancy_searching.union(additional_elements)
-            if self.check_vacancy_exists_in_db(
+            has_been_found = self.check_vacancy_exists_in_db(
                     tables_list=tables_list_for_vacancy_searching,
                     title=results_dict['title'],
-                    body=results_dict['body']):
-                return True
+                    body=results_dict['body'])
+            if has_been_found['has_been_found']:
+                return {"has_been_found": True, "response_dict": has_been_found['response_dict']}
 
         results_dict['company'] = self.clear_title_or_body(results_dict['company'])
         results_dict['profession'] = helper.compose_simple_list_to_str(data_list=profession['profession'], separator=', ')
@@ -834,7 +835,7 @@ class DataBaseOperations:
                 print(f'-------------- Didn\'t push in ADMIN LAST SESSION {e}\n')
                 pass
 
-        return False
+        return {"has_been_found": False, "response_dict": {}}
 
     def check_vacancy_exists_in_db(self, tables_list, title, body):
         title = self.clear_title_or_body(title)
@@ -859,7 +860,8 @@ class DataBaseOperations:
                 print(f"response_like True") if response_like else print(f"response_like False")
 
 
-            if response:
+            if response or response_like:
+                response = response_like if not response else response
                 response_dict = helper.to_dict_from_admin_response_sync(
                     response=response[0],
                     fields=tables_fields
@@ -874,27 +876,27 @@ class DataBaseOperations:
                     self.report.parsing_report(has_been_added_to_db=False)
 
                 print(f'!!!!!!!!!!! Vacancy exists in {one_element} table\n')
-                return True
+                return {"has_been_found": True, "response_dict": response_dict}
 
-            if not response and response_like:
-                response_dict = helper.to_dict_from_admin_response_sync(
-                    response=response_like[0],
-                    fields=tables_fields
-                )
-                if self.report:
-                    self.report.parsing_report(
-                        found_title=response_dict['title'],
-                        found_body=response_dict['body'],
-                        found_id=response_dict['id'],
-                        found_vacancy_link=response_dict['vacancy_url']
-                    )
-                    self.report.parsing_report(has_been_added_to_db=False)
-                    # self.report.parsing_switch_next(switch=True)
+            # if not response and response_like:
+            #     response_dict = helper.to_dict_from_admin_response_sync(
+            #         response=response_like[0],
+            #         fields=tables_fields
+            #     )
+            #     if self.report:
+            #         self.report.parsing_report(
+            #             found_title=response_dict['title'],
+            #             found_body=response_dict['body'],
+            #             found_id=response_dict['id'],
+            #             found_vacancy_link=response_dict['vacancy_url']
+            #         )
+            #         self.report.parsing_report(has_been_added_to_db=False)
+            #         # self.report.parsing_switch_next(switch=True)
+            #
+            #     print(f'!!!!!!!!!!! Vacancy exists in {one_element} table\n')
+            #     return True
 
-                print(f'!!!!!!!!!!! Vacancy exists in {one_element} table\n')
-                return True
-
-        return False
+        return {"has_been_found": False, "response_dict": {}}
 
     def push_followers_statistics(self, channel_statistic_dict:dict):
 

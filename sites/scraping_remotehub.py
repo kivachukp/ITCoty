@@ -101,8 +101,8 @@ class RemotehubGetInformation:
         counter = 1
         for link in self.list_links:
             counter += 1
-            if counter>10:
-                break
+            # if counter>10:
+            #     break
             vacancy_url = link.find('a', class_='entity-detailed-link').get('href')
             vacancy_url = self.main_url + vacancy_url
             links.append(vacancy_url)
@@ -160,9 +160,9 @@ class RemotehubGetInformation:
                             if not salary:
                                 salary = soup.find('span', class_='label muted ng-star-inserted')
                             salary = salary.text
-                            salary = self.find_parameters.salary_to_set_form(text=salary)
-                            if salary[0]:
-                                salary = ", ".join(salary)
+                            # salary = self.find_parameters.salary_to_set_form(text=salary)
+                            # if salary[0]:
+                            #     salary = ", ".join(salary)
                         except:
                             salary = ''
 

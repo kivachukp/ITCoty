@@ -178,9 +178,9 @@ class RemoteJobGetInformation:
                 salary = soup.find('div', class_='panel-heading').find('div', class_='col-md-4').find('b').text.strip()
                 # salary = salary.strip().split()
                 # salary = ' '.join(salary)
-                salary = self.find_parameters.salary_to_set_form(text=salary)
-                if salary[0]:
-                    salary = ", ".join(salary)
+                # salary = self.find_parameters.salary_to_set_form(text=salary)
+                # if salary[0]:
+                #     salary = ", ".join(salary)
             except:
                 salary = ''
             # print('salary = ', salary)

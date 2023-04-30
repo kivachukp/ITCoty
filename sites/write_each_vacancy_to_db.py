@@ -1,7 +1,8 @@
 from db_operations.scraping_db import DataBaseOperations
 from filters.filter_jan_2023.filter_jan_2023 import VacancyFilter
 from helper_functions.parser_find_add_parameters.parser_find_add_parameters import FinderAddParameters
-from utils.additional_variables.additional_variables import table_list_for_checking_message_in_db as tables
+from utils.additional_variables.additional_variables import table_list_for_checking_message_in_db as tables, \
+    admin_database, archive_database
 
 class HelperSite_Parser:
     def __init__(self, **kwargs):
@@ -37,6 +38,7 @@ class HelperSite_Parser:
             )
 
             profession = profession['profession']
+
             if self.report:
                 self.report.parsing_report(ma=profession['tag'], mex=profession['anti_tag'])
 
@@ -67,7 +69,7 @@ class HelperSite_Parser:
                     profession=profession,
                     check_or_exists=True
                 )
-                response['vacancy'] = 'found in db by title-body' if response_from_db else 'written to db'
+                response['vacancy'] = 'found in db by title-body' if response_from_db['has_been_found'] else 'written to db'
             else:
                 response['vacancy'] = 'no vacancy by anti-tags'
         else:

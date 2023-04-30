@@ -301,7 +301,7 @@ class WriteToDbMessages():
                     check_or_exists=True,
                     params=params
                 )
-                if db_response:
+                if db_response['has_been_found']:
                     self.exist_dict['existed'] += 1
                 else:
                     self.exist_dict['written'] += 1
