@@ -312,3 +312,4 @@ class RemotehubGetInformation:
             )
 
         self.count_message_in_one_channel += 1
+

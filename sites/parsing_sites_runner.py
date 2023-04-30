@@ -23,6 +23,14 @@ logs = Logs()
 config = configparser.ConfigParser()
 config.read("./settings_/config.ini")
 
+parser_sites = {'hh.ru': HHGetInformation, 'hh.kz': HHKzGetInformation, 'rabota.by': RabotaGetInformation,
+                'praca.by': PracaGetInformation, 'remotehub.com': RemotehubGetInformation,
+                'remote-job.ru': RemoteJobGetInformation, 'jobs.devby.io' : DevGetInformation,
+                'russia.superjob.ru': SuperJobGetInformation, 'superjob.ru': SuperJobGetInformation,
+                'career.habr.com': HabrGetInformation, 'finder.vc': FinderGetInformation, 'geekjob.ru' : GeekGetInformation,
+                'designer.ru': DesignerGetInformation, 'www.vseti.app': SvyaziGetInformation, 'ru.ingamejob.com': IngameJobGetInformation}
+
+
 class SitesParser:
 
     def __init__(self, client, bot_dict, **kwargs):

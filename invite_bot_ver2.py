@@ -29,7 +29,7 @@ from helper_functions.cities_and_countries.cities_parser import CitiesAndCountri
 from sites.scraping_hhkz import HHKzGetInformation
 from sites.scraping_praca import PracaGetInformation
 from telegram_chats.scraping_telegramchats2 import WriteToDbMessages, main
-from sites.parsing_sites_runner import SitesParser
+from sites.parsing_sites_runner import SitesParser, parser_sites
 from logs.logs import Logs
 from sites.scraping_dev import DevGetInformation
 from sites.scraping_geekjob import GeekGetInformation
@@ -242,6 +242,9 @@ class InviteBot():
             name = State()
 
         class Form_check_url(StatesGroup):
+            url = State()
+
+        class Form_check_url_to_add(StatesGroup):
             url = State()
 
         class Form_vacancy_names(StatesGroup):
@@ -865,6 +868,21 @@ class InviteBot():
             vacancy_text = await db_check_url_vacancy(message, url=url)
             if vacancy_text:
                 await self.bot_aiogram.send_message(message.chat.id, vacancy_text)
+
+        @self.dp.message_handler(commands=['db_check_add_single_vacancy'])
+        async def db_check_url_vacancy_commands(message: types.Message):
+            await Form_check_url_to_add.url.set()
+            await self.bot_aiogram.send_message(message.chat.id, 'Type the vacancy_url to check in db and add')
+
+        @self.dp.message_handler(state=Form_check_url_to_add.url)
+        async def db_check_url_vacancy_form(message: types.Message, state: FSMContext):
+            async with state.proxy() as data:
+                data['url'] = message.text
+                url = message.text
+            await state.finish()
+            vacancy_text = await db_check_add_single_vacancy(message, url=url)
+            # if vacancy_text:
+            #     await self.bot_aiogram.send_message(message.chat.id, vacancy_text)
 
         @self.dp.message_handler(commands=['emergency_push'])
         async def emergency_push(message: types.Message):
@@ -3168,6 +3186,47 @@ class InviteBot():
                     return text
             await self.bot_aiogram.send_message(message.chat.id, f"😱 (-)Vacancy NOT FOUND")
             return ''
+
+        async def db_check_add_single_vacancy(message, url):
+            table_list = variable.all_tables_for_vacancy_search
+            url = url.strip()
+            urls = [url]
+            site_url = re.split(r'\/', url, maxsplit=3)
+            domain = site_url[2]
+            if domain == 'hh.ru':
+                site_url[2] = 'spb.hh.ru'
+                url_new = '/'.join(site_url)
+                urls.append(url_new)
+            for url in urls:
+                for pro in table_list:
+                    response = self.db.get_all_from_db(
+                        table_name=pro,
+                        field='title, body',
+                        param=f"WHERE vacancy_url='{url}'"
+                    )
+                    if response:
+                        await self.bot_aiogram.send_message(message.chat.id,
+                                                            f"😎 (+)Vacancy FOUND in {pro} table\n{response[0][0][0:40]}")
+                        text = f"{response[0][0]}\n{response[0][1]}"
+                        return text
+
+            await self.bot_aiogram.send_message(message.chat.id, f"😱 (-)URL NOT FOUND, PLEASE WAIT..")
+            try:
+                parser = parser_sites.get(domain)
+                if parser:
+                    parser_response = await parser(report=self.report, bot_dict={'bot': self.bot_aiogram,
+                                                                      'chat_id': message.chat.id}).get_content_from_one_link(
+                        url)
+                    if not parser_response:
+                        text = 'Vacancy found in db by title-body with another url'
+                    else:
+                        text = parser_response['response']['vacancy']
+                    await self.bot_aiogram.send_message(message.chat.id, text)
+                else:
+                    await self.bot_aiogram.send_message(message.chat.id, f"NO PARSER for {domain}")
+
+            except Exception as e:
+                return e
 
         async def add_subs():
             self.db.append_columns(

@@ -38,10 +38,10 @@ class DesignerGetInformation:
             self.chat_id = self.bot_dict['chat_id']
         self.browser = None
         self.main_url = 'https://designer.ru'
+        self.count_message_in_one_channel = 1
 
     async def get_content(self, db_tables=None):
         self.db_tables = db_tables
-        self.count_message_in_one_channel = 1
         await self.report.add_to_excel()
         await self.get_info()
         self.browser.quit()
@@ -93,7 +93,10 @@ class DesignerGetInformation:
     async def get_content_from_link(self):
         links = []
         for link in self.list_links:
-            vacancy_url = link.find('a').get('href')
+            try:
+                vacancy_url = link.find('a').get('href')
+            except:
+                vacancy_url = link
             vacancy_url = self.main_url + vacancy_url
             links.append(vacancy_url)
             self.browser.get(vacancy_url)
@@ -270,7 +273,15 @@ class DesignerGetInformation:
                 vacancy=vacancy,
                 vacancy_url=vacancy_url
             )
-
+            return response
+    async def get_content_from_one_link(self, vacancy_url):
+        
+        self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=None)
+        # -------------------- check what is current session --------------
+        self.current_session = await self.helper_parser_site.get_name_session()
+        self.list_links= [vacancy_url]
+        response = await self.get_content_from_link()
+        return response
 
     def normalize_date(self, date):
         convert = {

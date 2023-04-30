@@ -36,7 +36,7 @@ profession_list_for_pushing_by_schedule = ['pm', 'qa', 'devops', 'mobile', 'game
 all_tables_for_vacancy_search = []
 all_tables_for_vacancy_search.extend([admin_database, archive_database])
 all_tables_for_vacancy_search.extend(valid_professions)
-
+valid_job_types = ['remote', 'office', 'office/remote', 'fulltime', 'flexible']
 not_lower_professions = ['pm', 'game', 'designer', 'hr', 'analyst', 'qa', 'ba' 'devops', 'product']
 
 white_admin_list = [1763672666, 556128576, 758905227, 945718420, 5755261667, 5884559465, 5730794427, 758905227]
@@ -244,6 +244,7 @@ help_text = '/log or /logs - get custom logs (useful for developer\n' \
             '---------------- TOOLS: ----------------\n' \
             '🛠/edit_pattern - stop proccess\n' \
             '/db_check_url_vacancy - does vacancy exist by link\n' \
+            '/db_check_add_single_vacancy - check and add vacancy by link\n' \
             '/schedule - non-stop parsing\n' \
             '/restore_from_admin - restory the lost vacancies\n' \
             '/invite_people - start to invite followers\n' \

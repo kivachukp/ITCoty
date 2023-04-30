@@ -244,7 +244,14 @@ class FindJobGetInformation:
 
         return to_write_excel_dict
 
+    async def get_content_from_one_link(self, vacancy_url):
 
+        self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=None)
+        # -------------------- check what is current session --------------
+        self.current_session = await self.helper_parser_site.get_name_session()
+        self.list_links= [vacancy_url]
+        response = await self.get_content_from_link()
+        return response
 
     def normalize_text(self, text):
         text = str(text)

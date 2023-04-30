@@ -49,11 +49,14 @@ class GorodRabotGetInformation:
             self.bot = bot_dict['bot']
             self.chat_id = bot_dict['chat_id']
         self.browser = None
+        self.count_message_in_one_channel = 1
 
 
     async def get_content(self, db_tables=None):
         self.db_tables = db_tables
+
         self.count_message_in_one_channel = 1
+
         await self.get_info()
         self.browser.quit()
 
@@ -160,9 +163,12 @@ class GorodRabotGetInformation:
         db.write_to_db_companies(companies)
 
     async def get_content_from_link(self, i, links, word):
-        vacancy_url = i.get('href')
-        # vacancy_url = re.findall(r'https:\/\/hh.ru\/vacancy\/[0-9]{6,12}', vacancy_url)[0]
-        print('vacancy_url = ', vacancy_url)
+        try:
+            vacancy_url = i.get('href')
+            # vacancy_url = re.findall(r'https:\/\/hh.ru\/vacancy\/[0-9]{6,12}', vacancy_url)[0]
+            # print('vacancy_url = ', vacancy_url)
+        except:
+            vacancy_url = link
         links.append(vacancy_url)
 
         print('self.broswer.get(vacancy_url)')
@@ -318,6 +324,14 @@ class GorodRabotGetInformation:
             vacancy_url=vacancy_url
         )
 
+    async def get_content_from_one_link(self, vacancy_url):
+
+        self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=None)
+        # -------------------- check what is current session --------------
+        self.current_session = await self.helper_parser_site.get_name_session()
+        self.list_links= [vacancy_url]
+        response = await self.get_content_from_link()
+        return response
     async def output_logs(self, response_from_db, vacancy, word=None, vacancy_url=None):
 
         additional_message = ''

@@ -42,7 +42,6 @@ class IngameJobGetInformation:
 
     async def get_content(self, db_tables=None):
         self.db_tables = db_tables
-        self.count_message_in_one_channel = 1
         await self.get_info()
         if self.report:
             await self.report.add_to_excel()
@@ -212,6 +211,15 @@ class IngameJobGetInformation:
                 vacancy=vacancy,
                 vacancy_url=vacancy_url
             )
+            return response
+
+    async def get_content_from_one_link(self, vacancy_url):
+        self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=None)
+        # -------------------- check what is current session --------------
+        self.current_session = await self.helper_parser_site.get_name_session()
+        self.list_links= [vacancy_url]
+        response = await self.get_content_from_link()
+        return response
 
     async def compose_in_one_file(self):
         hiring = []
