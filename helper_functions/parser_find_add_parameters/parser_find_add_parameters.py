@@ -218,7 +218,7 @@ class FinderAddParameters:
         job_types_var = valid_job_types
         self.job_types = ''
         for i in job_types_var:
-            parameter = self.get_parameter(
+            parameter = await self.get_parameter(
                 presearch_results=[
                     return_dict['job_type'],
                     return_dict['title'] + return_dict['body'],
