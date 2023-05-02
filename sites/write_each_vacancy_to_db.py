@@ -1,7 +1,8 @@
 from db_operations.scraping_db import DataBaseOperations
 from filters.filter_jan_2023.filter_jan_2023 import VacancyFilter
 from helper_functions.parser_find_add_parameters.parser_find_add_parameters import FinderAddParameters
-from utils.additional_variables.additional_variables import table_list_for_checking_message_in_db as tables
+from utils.additional_variables.additional_variables import table_list_for_checking_message_in_db as tables, \
+    admin_database, archive_database
 
 class HelperSite_Parser:
     def __init__(self, **kwargs):
@@ -13,6 +14,9 @@ class HelperSite_Parser:
     async def write_each_vacancy(self, results_dict):
         response = {}
         profession = []
+
+        # print('??????????? start_write_each_vacancy')
+
         if self.report:
             self.report.parsing_report(
                 link_current_vacancy = results_dict['vacancy_url'],
@@ -37,6 +41,7 @@ class HelperSite_Parser:
             )
 
             profession = profession['profession']
+
             if self.report:
                 self.report.parsing_report(ma=profession['tag'], mex=profession['anti_tag'])
 
@@ -44,8 +49,6 @@ class HelperSite_Parser:
                 #city and country refactoring
                 if results_dict['city']:
                     city_country = await self.find_parameters.find_city_country(text=results_dict['city'])
-                    with open("./excel/city.txt", 'a', encoding="utf-8") as file:
-                        file.write(f"---------------\nfrom parser: {results_dict['city']}\nresult: {city_country}")
                     print(f"city_country: {results_dict['city']} -> {city_country}")
                     if city_country:
                         results_dict['city'] = city_country
@@ -53,8 +56,12 @@ class HelperSite_Parser:
                         results_dict['city'] = ''
 
                 # salary refactoring
+                if 'praca.by' in results_dict['vacancy_url']:
+                    region = 'BY'
+                else:
+                    region = None
                 if 'salary' in results_dict and results_dict['salary']:
-                    salary = self.find_parameters.salary_to_set_form(text=results_dict['salary'])
+                    salary = self.find_parameters.salary_to_set_form(text=results_dict['salary'], region=region)
                     salary = await self.find_parameters.compose_salary_dict_from_salary_list(salary)
                     for key in salary:
                         results_dict[key] = salary[key]
@@ -67,13 +74,16 @@ class HelperSite_Parser:
                     profession=profession,
                     check_or_exists=True
                 )
-                response['vacancy'] = 'found in db by title-body' if response_from_db else 'written to db'
+                response['vacancy'] = 'found in db by title-body' if response_from_db['has_been_found'] else 'written to db'
             else:
                 response['vacancy'] = 'no vacancy by anti-tags'
         else:
             response['vacancy'] = 'found in db by link'
         if self.report:
             self.report.parsing_switch_next(switch=True)
+
+        # print('??????????? finish_write_each_vacancy')
+
         return {'response': response, "profession": profession}
 
     async def get_name_session(self):

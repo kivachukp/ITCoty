@@ -68,8 +68,8 @@ class Reports:
             return print('Incorrect report_type')
 
         self.excel_row = {}
-        df = pd.DataFrame(self.excel_sheet[report_type])
         try:
+            df = pd.DataFrame(self.excel_sheet[report_type])
             df.to_excel(self.keys.report_file_path[report_type], sheet_name='Sheet1')
             print('got it')
             self.excel_sheet = {}

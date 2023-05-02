@@ -103,7 +103,7 @@ vacancy_fresh_time_days = 7
 path_to_excel = "./excel/"
 path_push_shorts_report_file = "./excel/report_push_shorts.txt"
 tables_list_for_report = ['junior', '*']
-developer_chat_id = 5730794427
+developer_chat_id = 5884559465
 
 parsing_report_path = './report/excel/parsing_report.xlsx'
 table_parsing_report = 'report_parsing_temporary'
