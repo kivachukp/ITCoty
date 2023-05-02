@@ -110,13 +110,14 @@ class FinderAddParameters:
     async def find_city_country(self, text):
         if not text:
             return False
+        text = text.replace('ё', 'е')
         text_list = text.split(',')
 
         remove_elements = []
         for item in text_list:
             match = re.findall(r'[a-zA-Zа-яА-Я\s\-]+', item)
             if match and len(match[0]) != len(item):
-                remove_elements.append(item.strip())
+                remove_elements.append(item)
 
         for item in remove_elements:
             text_list.remove(item)
@@ -130,10 +131,20 @@ class FinderAddParameters:
         elif len(text_list) == 1:
             return await self.check_and_write_city_country(city_or_country=text_list[0])
         elif len(text_list) > 2:
+            results_list = []
             for element in text_list:
                 result = await self.check_and_write_city_country(city_or_country=element)
-                if result:
+                if result and len(result.split(', ')) == 2 and result.split(', ')[0]:
                     return result
+                else:
+                    if result:
+                        results_list.append(result)
+            for element in results_list:
+                if re.findall(rf", [a-zA-Z\s]+", element):
+                    return element
+            return results_list[0]
+                # if result:
+                #     return result
 
     async def check_and_write_city_country(self, **kwargs):
         country_pin = ''
@@ -162,7 +173,7 @@ class FinderAddParameters:
                 if response_country:
                     return f", {response_country[0][0]}"
 
-                if len(response[0]) == 1:
+                if len(response) == 1:
                     return f"{response[0][0]}, {response[0][1]}"
                 else:
                     return f"{city_or_country.strip()}, "
@@ -176,7 +187,7 @@ class FinderAddParameters:
                 )
                 if response:
                     if len(response) == 1:
-                        return f"{response[0]}, {response[1]}"
+                        return f"{response[0][0]}, {response[0][1]}"
                     else:
                         return f", {city_or_country.strip()}"
 

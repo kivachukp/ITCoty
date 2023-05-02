@@ -26,34 +26,36 @@ class DataBaseOperations:
 
     def connect_db(self):
 
-        logs.write_log(f"scraping_db: function: connect_db")
+        if not self.con:
+            self.con = None
+            config.read("./../settings/config.ini")
+            try:
+                database = config['DB3']['database']
+                user = config['DB3']['user']
+                password = config['DB3']['password']
+                host = config['DB3']['host']
+                port = config['DB3']['port']
+            except:
+                config.read("./settings/config.ini")
+                database = config['DB_local_clone']['database']
+                user = config['DB_local_clone']['user']
+                password = config['DB_local_clone']['password']
+                host = config['DB_local_clone']['host']
+                port = config['DB_local_clone']['port']
 
-        self.con = None
-        config.read("./../settings/config.ini")
-        try:
-            database = config['DB3']['database']
-            user = config['DB3']['user']
-            password = config['DB3']['password']
-            host = config['DB3']['host']
-            port = config['DB3']['port']
-        except:
-            config.read("./settings/config.ini")
-            database = config['DB_local_clone']['database']
-            user = config['DB_local_clone']['user']
-            password = config['DB_local_clone']['password']
-            host = config['DB_local_clone']['host']
-            port = config['DB_local_clone']['port']
-
-        try:
-            self.con = psycopg2.connect(
-                database=database,
-                user=user,
-                password=password,
-                host=host,
-                port=port
-            )
-        except:
-            print('No connect with db')
+            try:
+                self.con = psycopg2.connect(
+                    database=database,
+                    user=user,
+                    password=password,
+                    host=host,
+                    port=port
+                )
+            except:
+                print('No connect with db')
+        else:
+            pass
+            # print('You are in connections with database')
 
         return self.con
     #-------------participants-------------------------
@@ -228,8 +230,8 @@ class DataBaseOperations:
         return text
 
     def get_all_from_db(self, table_name, param='', without_sort=False, order=None, field='*', curs=None):
-        if not self.con:
-            self.connect_db()
+
+        self.connect_db()
         cur = self.con.cursor()
         if not order:
             order = "ORDER BY time_of_public"
@@ -237,16 +239,21 @@ class DataBaseOperations:
             query = f"""SELECT {field} FROM {table_name} {param} {order}"""
         else:
             query = f"""SELECT {field} FROM {table_name} {param} """
-        with self.con:
-            try:
-                cur.execute(query)
-                response = cur.fetchall()
-            except Exception as e:
-                print(e)
-                return str(e)
-        if curs:
-            return cur
-        return response
+
+        try:
+            with self.con:
+                try:
+                    cur.execute(query)
+                    response = cur.fetchall()
+                except Exception as e:
+                    print(e)
+                    return str(e)
+            if curs:
+                return cur
+            return response
+        except Exception as ex:
+            print(f"\nerror in get_all_from_db: {ex}\n")
+            return False
 
     async def get_all_from_db_async(self, table_name, param='', without_sort=False, order=None, field='*', curs=None):
         response = []
@@ -798,11 +805,11 @@ class DataBaseOperations:
         if results_dict['profession'] == 'no_sort':
             table_name = archive_database
 
-        print('+++city: ', results_dict['city'])
-        print('+++salary from: ', results_dict['salary_from'])
-        print('+++salary to: ', results_dict['salary_to'])
-        print('+++salary currency: ', results_dict['salary_currency'])
-        print('+++salary period: ', results_dict['salary_period'])
+        print('+++city: ', results_dict['city']) if 'city' in results_dict else None
+        print('+++salary from: ', results_dict['salary_from']) if 'salary_from' in results_dict else None
+        print('+++salary to: ', results_dict['salary_to']) if 'salary_to' in results_dict else None
+        print('+++salary currency: ', results_dict['salary_currency']) if 'salary_currency' in results_dict else None
+        print('+++salary period: ', results_dict['salary_period']) if 'salary_period' in results_dict else None
 
         fields_list = []
         values_str = ''
@@ -1330,6 +1337,9 @@ class DataBaseOperations:
             print('Nothing to write to db')
 
     def check_exists_message_by_link_or_url(self, title=None, body=None, vacancy_url=None, table_list=None):
+
+        # print("??????????start_check_exists_message_by_link_or_url")
+
         param = "WHERE "
         length = len(param)
 
@@ -1351,7 +1361,8 @@ class DataBaseOperations:
             response = self.get_all_from_db(
                 table_name=table,
                 param=param,
-                field='id, vacancy_url'
+                field='id, vacancy_url',
+                without_sort=True
             )
             if response:
                 if self.report:
@@ -1359,7 +1370,9 @@ class DataBaseOperations:
                         self.report.parsing_report(found_id_by_link=response[0][1])
                     else:
                         self.report.parsing_report(found_title=title, found_body=body, found_id=response[0][0])
+                # print("??????????finish_check_exists_message_by_link_or_url")
                 return False
+        # print("??????????finish_check_exists_message_by_link_or_url")
         return True
 
     def write_short_session(self, short_session_name):

@@ -278,6 +278,7 @@ class InviteBot():
 
             self.chat_id = message.chat.id
             print("user_id: ", message.from_user.id)
+            print('chat_id: ', self.chat_id)
             self.user_id = message.from_user.id
 
             logs.write_log(f'\n------------------ start --------------------')
@@ -308,6 +309,10 @@ class InviteBot():
                 text_list = [variable.help_text]
             for text in text_list:
                 await self.bot_aiogram.send_message(message.chat.id, text)
+
+        @self.dp.message_handler(commands=['silent_get_news'])
+        async def silent_get_news(message: types.Message):
+            await get_news(silent=True)
 
         @self.dp.message_handler(commands=['update_city_field'])
         async def update_city_field(message: types.Message):
@@ -958,8 +963,13 @@ class InviteBot():
                 print('--------\n')
 
         @self.dp.message_handler(commands=['get_backup_db'])
-        async def get_logs(message: types.Message):
+        async def get_backup_db_func(message: types.Message):
             try:
+                # await self.get_backup_db(
+                #     message=message,
+                #     path='./db_backup/backup_from_server.backup',
+                #     caption='Take the backup from server'
+                #     )
                 await self.send_file_to_user(
                 message=message,
                 path='./db_backup/backup_from_server.backup',
@@ -1658,7 +1668,7 @@ class InviteBot():
 
             if callback.data == 'go_by_admin': # next step if callback.data[2:] in self.valid_profession_list:
                 # make the keyboard with all professions
-                if callback.message.from_user.id in variable.white_admin_list:
+                if int(callback.message.from_user.id) in variable.white_admin_list:
                     self.markup = await compose_inline_keyboard(prefix='admin')
                     await self.bot_aiogram.send_message(callback.message.chat.id, 'choose the channel for vacancy checking', reply_markup=self.markup)
                 else:
@@ -2791,7 +2801,7 @@ class InviteBot():
                     matches_list[i] = len(response)
             return matches_list
 
-        async def get_news(message):
+        async def get_news(message, silent=False):
             tables = self.db.get_information_about_tables_and_fields(only_tables=True)
             if "parser_at_work" not in tables:
                 self.db.create_table_common(
@@ -2829,8 +2839,11 @@ class InviteBot():
                 # self.task = asyncio.create_task(main(report=self.report, client=self.client, bot_dict=bot_dict))
                 # await main(report=self.report, client=self.client, bot_dict=bot_dict)
                 # await self.report.add_to_excel(report_type='parsing')
+                if silent:
+                    sites_parser = SitesParser(client=self.client, bot_dict=bot_dict, report=self.report)
+                else:
+                    sites_parser = SitesParser(client=self.client, bot_dict=bot_dict, report=self.report)
 
-                sites_parser = SitesParser(client=self.client, bot_dict=bot_dict, report=self.report)
                 # self.task = asyncio.create_task(sites_parser.call_sites())
                 await sites_parser.call_sites()
                 self.db.push_to_db_common(
@@ -3975,7 +3988,6 @@ class InviteBot():
         self.quantity_entered_to_shorts += 1
 
     async def send_file_to_user(self, message, path, caption='Please take it', send_to_developer=False):
-        logs.write_log(f"invite_bot_2: function: send_file_to_user")
         with open(path, 'rb') as file:
             try:
                 await self.bot_aiogram.send_document(message.chat.id, file, caption=caption)
@@ -3986,6 +3998,15 @@ class InviteBot():
                         print(e)
             except:
                 await self.client.send_file(int(variable.developer_chat_id), file, caption=caption)
+
+    async def get_backup_db(self, message, path, caption):
+        with open(path, 'rb') as file:
+            backup = file.read()
+            try:
+                await self.bot_aiogram.send_document(message.chat.id, file)
+                # await self.client.send_file(int(variable.developer_chat_id), file, caption=caption)
+            except Exception as ex:
+                print(ex)
 
     async def show_progress(self, message, n, len):
         check = n * 100 // len
@@ -4020,20 +4041,25 @@ class InviteBot():
                 param=f"WHERE id='{id_admin_last_session_table}'",
                 without_sort=True
             )
-            prof_list = response_admin_last_session[0][4].split(', ')
-            try:
-                await self.update_vacancy_admin_last_session(
-                    results_dict=None,
-                    profession=profession,
-                    prof_list=prof_list,
-                    id_admin_last_session_table=id_admin_last_session_table,
-                    update_profession=True,
-                    update_id_agregator=False
-                )
-            except Exception as e:
-                print('error with deleting from admin temporary ', e)
-            n = + 1
-            await self.show_progress(message, n, length)
+            if response_admin_last_session:
+                prof_list = response_admin_last_session[0][4].split(', ')
+                try:
+                    await self.update_vacancy_admin_last_session(
+                        results_dict=None,
+                        profession=profession,
+                        prof_list=prof_list,
+                        id_admin_last_session_table=id_admin_last_session_table,
+                        update_profession=True,
+                        update_id_agregator=False
+                    )
+                except Exception as e:
+                    print('error with deleting from admin temporary ', e)
+                n = + 1
+                await self.show_progress(message, n, length)
+            else:
+                print('something was wrong in delete_and_change_waste_vacancy function')
+                await self.bot_aiogram.send_message(message.chat.id, "something was wrong in delete_and_change_waste_vacancy function")
+
             # -------------------end ----------------------------
 
     async def compose_message_for_linkedin(self, key, message_for_send, profession, shorts_id=None):
@@ -4276,7 +4302,7 @@ class InviteBot():
             # code for transpose in shorts like reference
 
             remote_pattern = export_pattern['others']['remote']['ma']
-            full_time_pattern = export_pattern['others']['full_time']['ma']
+            full_time_pattern = export_pattern['others']['fulltime']['ma']
             relocate_pattern = export_pattern['others']['relocate']['ma']
             experience_pattern = export_pattern['others']['experience']['ma']
             english_pattern = export_pattern['others']['english_for_shorts']['ma']
