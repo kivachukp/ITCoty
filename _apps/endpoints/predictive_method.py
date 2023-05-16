@@ -102,7 +102,6 @@ class Predictive():
         #     query_job_type = self.job_type_method(request_from_frontend['job_type'])
 
 
-
         for key in request_from_frontend:
 
             if key == 'level':
@@ -138,8 +137,6 @@ class Predictive():
             self.search_tables = variables.valid_professions
             part_of_query = f"(LOWER(title) LIKE '%{text.lower()}%' OR LOWER(body) LIKE '%{text.lower()}%' OR LOWER(vacancy) LIKE '%{text.lower()}%')"
         return part_of_query
-
-
 
         part_of_request = '('
         if not text:
@@ -186,7 +183,29 @@ class Predictive():
             return ''
 
     def get_query_salary(self, request_from_frontend, fields_list):
-        return ""
+        salary_from = request_from_frontend["salary"][0]
+        salary_to = request_from_frontend["salary"][1]
+        salary_period = request_from_frontend["salaryOption"][0]
+        if salary_period == "За месяц":
+            salary_per_month_from = int(request_from_frontend["salary"][0])
+            salary_per_month_to = int(request_from_frontend["salary"][1])
+
+        elif salary_period == "Почасовая":
+            salary_per_hour_from = request_from_frontend["salary"][0]
+            salary_per_hour_to = request_from_frontend["salary"][1]
+            salary_per_month_from = salary_per_hour_from*160
+            salary_per_month_to = salary_per_hour_to*160
+
+        elif salary_period == "За год":
+            salary_per_year_from = int(request_from_frontend["salary"][0])
+            salary_per_year_to = int(request_from_frontend["salary"][1])
+            salary_per_month_from = salary_per_year_from/12
+            salary_per_month_to = salary_per_year_to/12
+
+        salary_query = f"salary_from_usd_month >= {salary_per_month_from} AND salary_to_usd_month <= {salary_per_month_to}"
+
+
+
 
     def multipurpose_method(self, one_parameter_dict):
         if one_parameter_dict.keys()[0] in self.pattern_main_page:
