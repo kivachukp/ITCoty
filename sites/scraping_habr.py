@@ -208,8 +208,12 @@ class HabrGetInformation:
                     try:
                         city_list = link.find_all('span', class_='inline-list')
                         for i in city_list:
+                            f_href = ''
                             f = i.find('a')
-                            f_href = f.get('href')
+                            try:
+                                f_href = f.get('href')
+                            except:
+                                pass
                             if 'city' in f_href:
                                 city = f.text
                                 break
@@ -290,6 +294,7 @@ class HabrGetInformation:
         self.current_session = await self.helper_parser_site.get_name_session()
         self.list_links= [vacancy_url]
         await self.get_content_from_link()
+        self.browser.quit()
         return self.response
 
 

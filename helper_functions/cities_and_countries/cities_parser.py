@@ -13,6 +13,13 @@ class CitiesAndCountries:
 
 
     async def get_all_countries_and_cities(self):
+        try:
+            self.db.delete_table(
+                table_name=countries_cities_table
+            )
+        except Exception as ex:
+            print(ex)
+
         self.db.create_table_common(
             field_list=["country VARCHAR(60)", "city VARCHAR (150)"],
             table_name=countries_cities_table
@@ -42,7 +49,8 @@ class CitiesAndCountries:
                     fields_values_dict={
                         'country': country['name'],
                         'city': city['name']
-                    }
+                    },
+                    notification=True
                 )
 
     async def translate_to_english(self, word):
@@ -56,14 +64,16 @@ class CitiesAndCountries:
         return translation if translation != '.' else word
 
     async def google_translate_to_english(self, word: str):
+        if word.lower() == 'москва':
+            return 'Moscow'
         translator = google_translator(service_urls=[
             'translate.google.com',
-            'translate.google.co.kr',
+            # 'translate.google.co.kr',
         ])
-        translation = translator.translate(text=word, dest='en')
-        print(f"Translator: {word}={translation.text}")
-        return translation.text if translation else ''
-
-
-# cities_parser = CitiesAndCountries()
-# asyncio.run(cities_parser.get_all_countries_and_cities())
+        try:
+            translation = translator.translate(text=word, dest='en')
+            print(f"Translator: {word}={translation.text}")
+            return translation.text if translation else ''
+        except Exception as e:
+            print(f'error in google_translate_to_english in cities_parser.py: {e}')
+            return ''

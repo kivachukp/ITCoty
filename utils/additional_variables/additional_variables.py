@@ -11,7 +11,8 @@ short_session_database = 'shorts_session_name'
 admin_table_fields = "id, chat_name, title, body, profession, vacancy, vacancy_url, company, english, relocation, " \
                      "job_type, city, salary, experience, contacts, time_of_public, created_at, agregator_link, " \
                      "session, sended_to_agregator, sub, tags, full_tags, full_anti_tags, short_session_numbers, " \
-                     "level, approved, closed"
+                     "level, approved, closed, salary_from, salary_to, salary_currency, salary_period, rate, " \
+                     "salary_from_usd_month, salary_to_usd_month"
 
 profession_table_fields = "id, chat_name, title, body, profession, vacancy, vacancy_url, company, english, relocation, " \
                              "job_type, city, salary, experience, contacts, time_of_public, created_at, agregator_link, " \
@@ -218,6 +219,7 @@ help_text = '/log or /logs - get custom logs (useful for developer\n' \
             '⛔️/show_db_records - random vacancy from db\n' \
             '⛔️/get_channel_members - get user\'s channels name\n' \
             '⛔️/transpose_no_sort_to_archive - all no_sort to archive\n' \
+            '/update_salary_field_usd - add usd fields' \
             '----------------------------------------------------\n\n' \
             '---------------- FILES: ----------------\n' \
             '/report_push_shorts - shorts report \n' \

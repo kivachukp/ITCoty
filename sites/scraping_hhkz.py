@@ -305,6 +305,7 @@ class HHKzGetInformation:
         self.current_session = await self.helper_parser_site.get_name_session()
         self.list_links= [vacancy_url]
         await self.get_content_from_link()
+        self.browser.quit()
         return self.response
 
     def normalize_date(self, date):

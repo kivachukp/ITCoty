@@ -1,8 +1,10 @@
 import configparser
 import json
 import re
-from utils.additional_variables.additional_variables import admin_database, archive_database, admin_table_fields
-from utils.additional_variables.additional_variables import table_list_for_checking_message_in_db, short_session_database, vacancy_table
+from utils.additional_variables.additional_variables import admin_database, archive_database, admin_table_fields, \
+    valid_professions
+from utils.additional_variables.additional_variables import table_list_for_checking_message_in_db, \
+    short_session_database, vacancy_table, additional_elements
 import psycopg2
 from datetime import datetime
 from logs.logs import Logs
@@ -543,6 +545,19 @@ class DataBaseOperations:
                     except Exception as e:
                         print(e)
 
+    def db_drop_columns(self, columns: list, tables: list):
+        if not tables:
+            tables = valid_professions.copy()
+            tables.extend([admin_database, archive_database])
+
+        for table in tables:
+            for column in columns:
+                query = f"ALTER TABLE {table} DROP COLUMN {column}"
+                try:
+                    self.run_free_request(request=query)
+                except Exception as ex:
+                    print(ex)
+
     def add_columns_to_stat(self, cur, table_name, column_name_type=None):
 
         if not table_name:
@@ -775,11 +790,12 @@ class DataBaseOperations:
         results_dict['body'] = self.clear_title_or_body(results_dict['body'])
 
         if check_or_exists:
-            tables_list_for_vacancy_searching = profession['profession'] \
-                if type(profession['profession']) is set \
-                else set(profession['profession'])
-            from utils.additional_variables.additional_variables import additional_elements
+
+            tables_list_for_vacancy_searching = set()
+            tables_list_for_vacancy_searching.union(profession['profession'] if type(profession['profession']) is set else set(profession['profession']))
+            tables_list_for_vacancy_searching.discard('no_sort')
             tables_list_for_vacancy_searching = tables_list_for_vacancy_searching.union(additional_elements)
+
             has_been_found = self.check_vacancy_exists_in_db(
                     tables_list=tables_list_for_vacancy_searching,
                     title=results_dict['title'],
@@ -848,7 +864,7 @@ class DataBaseOperations:
         title = self.clear_title_or_body(title)
         body = self.clear_title_or_body(body)
 
-        tables_fields = 'id, title, body, vacancy_url'
+        tables_fields = admin_table_fields
 
         for one_element in tables_list:
             response = self.get_all_from_db(
@@ -1702,4 +1718,17 @@ class DataBaseOperations:
         for table in table_list:
             response = self.get_all_from_db(table)
             print(response)
+
+    def rewrite_database_cities(self):
+        all_vacancies = self.get_all_from_db(
+            table_name=admin_database,
+            field=admin_table_fields,
+        )
+        for vacancy in all_vacancies:
+            vacancy_dict = helper.to_dict_from_admin_response(
+                response=vacancy,
+                fields=admin_table_fields
+            )
+            url = vacancy_dict['vacancy_url']
+
 

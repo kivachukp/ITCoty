@@ -115,8 +115,10 @@ class InviteBot():
         self.message_for_send_dict = {}
         self.schedule_pushing_shorts = True
         self.task = None
+        self.parser_task = None
         self.parser_at_work = False
         self.shorts_at_work = False
+        self.unlock_message = None
         self.show_vacancies = {
             'table': '',
             'offset': 0,
@@ -314,6 +316,15 @@ class InviteBot():
         async def silent_get_news(message: types.Message):
             await get_news(silent=True)
 
+        @self.dp.message_handler(commands=['update_salary_field_usd'])
+        async def update_salary_field_usd(message: types.Message):
+            # self.db.db_drop_columns(columns=['salary_currency_usd', 'salary_period_usd_month', 'salary_from_usd', 'salary_to_usd'], tables=[])
+            updater = DatabaseUpdateData()
+            await updater.create_salary_fields_usd()
+
+            await helper.refill_salary_usd(self.db)
+
+
         @self.dp.message_handler(commands=['update_city_field'])
         async def update_city_field(message: types.Message):
             updater = DatabaseUpdateData()
@@ -459,14 +470,17 @@ class InviteBot():
                 profession_list = variable.profession_list_for_pushing_by_schedule
                 await self.bot_aiogram.send_message(message.chat.id, f"professions in the list: {profession_list}")
 
-                # my_thread = threading.Thread(
-                #     target=await hard_pushing_by_schedule, args=(message, profession_list))
-                # my_thread.start()
-                #
-                await self.hard_pushing_by_schedule(
-                    message=message,
-                    profession_list=profession_list
+                self.task = asyncio.create_task(
+                    self.hard_pushing_by_schedule(
+                        message=message,
+                        profession_list=profession_list
+                    )
                 )
+
+                # await self.hard_pushing_by_schedule(
+                #     message=message,
+                #     profession_list=profession_list
+                # )
 
         @self.dp.message_handler(commands=['stop_hard_pushing_by_schedule'])
         async def hard_pushing_by_schedule_commands(message: types.Message):
@@ -805,7 +819,9 @@ class InviteBot():
 
         @self.dp.message_handler(commands=['get_news'])
         async def get_news_command(message: types.Message):
-            await get_news(message)
+            self.parser_task = asyncio.create_task(get_news(message))
+
+            # await get_news(message)
 
         @self.dp.message_handler(commands=['schedule'])
         async def schedule_command(message: types.Message):
@@ -965,16 +981,17 @@ class InviteBot():
         @self.dp.message_handler(commands=['get_backup_db'])
         async def get_backup_db_func(message: types.Message):
             try:
-                # await self.get_backup_db(
+                await self.get_backup_db(
                 #     message=message,
-                #     path='./db_backup/backup_from_server.backup',
+                    path='./db_backup/backup_from_server.backup',
                 #     caption='Take the backup from server'
-                #     )
-                await self.send_file_to_user(
-                message=message,
-                path='./db_backup/backup_from_server.backup',
-                caption='Take the backup from server'
-            )
+                    )
+                # await self.send_file_to_user(
+                # message=message,
+                # path='./db_backup/backup_from_server.backup',
+                # caption='Take the backup from server'
+            # )
+                print('Done!')
             except Exception as e:
                 print(e)
 
@@ -1697,6 +1714,16 @@ class InviteBot():
                         fields_values_dict={"shorts_at_work": True},
                         params="WHERE id=1"
                     )
+                    # add the button
+                    unlock_kb = ReplyKeyboardMarkup(resize_keyboard=True)
+                    button_unlock = KeyboardButton('Unlock admin')
+                    unlock_kb.add(button_unlock)
+                    self.unlock_message = await self.bot_aiogram.send_message(callback.message.chat.id,
+                        'the admin panel will be locked until the end of the operation. '
+                        'Or press the unlock button (only available to you)',
+                                                        reply_markup=unlock_kb)
+                    pass
+
                     await self.send_vacancy_to_admin_channel(callback.message, callback.data)
                 else:
                     await self.bot_aiogram.send_message(callback.message.chat.id, "Sorry shorts at work now. Please wait some time")
@@ -1830,6 +1857,30 @@ class InviteBot():
                 self.marker = False
 
             else:
+
+                if message.text in ['Unlock admin', 'Unlock admin and stop autopushing']:
+                    self.db.push_to_db_common(
+                        table_name="shorts_at_work",
+                        fields_values_dict={"shorts_at_work": False},
+                        params="WHERE id=1"
+                    )
+                    if self.unlock_message:
+                        await self.unlock_message.delete()
+                        self.unlock_message = None
+                    if self.task:
+                        self.task.cancel()
+                        self.task = None
+                        await self.bot_aiogram.send_message(message.chat.id, "Autopushing has been stopped")
+
+                if message.text == 'Stop parsers':
+                    if self.unlock_message:
+                        await self.unlock_message.delete()
+                        self.unlock_message = None
+                    if self.parser_task:
+                        self.parser_task.cancel()
+                        self.parser_task = None
+                        await self.bot_aiogram.send_message(message.chat.id, "Parser has been stopped")
+
                 if message.text == 'Get participants':
 
                     if message.text == 'Get participants':
@@ -2802,6 +2853,14 @@ class InviteBot():
             return matches_list
 
         async def get_news(message, silent=False):
+            unlock_kb = ReplyKeyboardMarkup(resize_keyboard=True)
+            button_unlock = KeyboardButton('Stop parsers')
+            unlock_kb.add(button_unlock)
+            self.unlock_message = await self.bot_aiogram.send_message(message.chat.id,
+                                                                      'the admin panel will be locked until the end of the operation. '
+                                                                      'Or press the unlock button (only available to you)',
+                                                                      reply_markup=unlock_kb)
+
             tables = self.db.get_information_about_tables_and_fields(only_tables=True)
             if "parser_at_work" not in tables:
                 self.db.create_table_common(
@@ -2844,7 +2903,6 @@ class InviteBot():
                 else:
                     sites_parser = SitesParser(client=self.client, bot_dict=bot_dict, report=self.report)
 
-                # self.task = asyncio.create_task(sites_parser.call_sites())
                 await sites_parser.call_sites()
                 self.db.push_to_db_common(
                     table_name='parser_at_work',
@@ -3214,12 +3272,20 @@ class InviteBot():
                 for pro in table_list:
                     response = self.db.get_all_from_db(
                         table_name=pro,
-                        field='title, body',
+                        field=variable.admin_table_fields,
                         param=f"WHERE vacancy_url='{url}'"
                     )
                     if response:
-                        await self.bot_aiogram.send_message(message.chat.id,
-                                                            f"😎 (+)Vacancy FOUND in {pro} table\n{response[0][0][0:40]}")
+                        response_dict = await helper.to_dict_from_admin_response(
+                            response[0],
+                            variable.admin_table_fields
+                        )
+                        text = f"😎 (+)Vacancy FOUND in {pro} table\n{response_dict['title'][:40]}\n\n" \
+                               f"profession: {response_dict['profession']}\n" \
+                               f"tags: {response_dict['full_tags'] if response_dict['full_tags'] else '-'}\n" \
+                               f"anti_tags: {response_dict['full_anti_tags'] if response_dict['full_anti_tags'] else '-'}"
+                        await self.bot_aiogram.send_message(message.chat.id, text)
+
                         text = f"{response[0][0]}\n{response[0][1]}"
                         return text
 
@@ -3227,19 +3293,31 @@ class InviteBot():
             try:
                 parser = parser_sites.get(domain)
                 if parser:
-                    parser_response = await parser(report=self.report, bot_dict={'bot': self.bot_aiogram,
-                                                                      'chat_id': message.chat.id}).get_content_from_one_link(
-                        url)
-                    if not parser_response:
-                        text = 'Vacancy found in db by title-body with another url'
+                    parser = parser(bot_dict={'bot': self.bot_aiogram, 'chat_id': message.chat.id})
+                    parser_response = await parser.get_content_from_one_link(url)
+
+                    if parser_response['response_dict']:
+                        text = f"Vacancy found in db by title-body with another url\n" \
+                               f"url: {parser_response['response_dict']['vacancy_url']}\n" \
+                               f"title: {parser_response['response_dict']['title'][:40]}\n" \
+                               f"profession: {parser_response['response_dict']['profession']}\n" \
+                               f"tags: {parser_response['response_dict']['full_tags'] if parser_response['response_dict']['full_tags'] else '-'}\n" \
+                               f"anti_tags: {parser_response['response_dict']['full_anti_tags'] if parser_response['response_dict']['full_anti_tags'] else '-'}\n"
                     else:
-                        text = parser_response['response']['vacancy']
+                        text = f"{parser_response['response']['vacancy']}\n" \
+                               f"profession: {parser_response['profession']['profession'] if parser_response['profession']['profession'] else '-'}\n" \
+                               f"tags: {parser_response['profession']['tag'] if parser_response['profession']['tag'] else '-'}\n" \
+                               f"anti_tags: {parser_response['profession']['anti_tag'] if parser_response['profession']['anti_tag'] else '-'}"
+                    # if not parser_response:
+                    #     text = 'Vacancy found in db by title-body with another url'
+                    # else:
+                    #     text = parser_response['response']['vacancy']
                     await self.bot_aiogram.send_message(message.chat.id, text)
                 else:
                     await self.bot_aiogram.send_message(message.chat.id, f"NO PARSER for {domain}")
-
             except Exception as e:
-                return e
+                await self.bot_aiogram.send_message(message.chat.id, str(e))
+
 
         async def add_subs():
             self.db.append_columns(
@@ -3999,14 +4077,30 @@ class InviteBot():
             except:
                 await self.client.send_file(int(variable.developer_chat_id), file, caption=caption)
 
-    async def get_backup_db(self, message, path, caption):
-        with open(path, 'rb') as file:
-            backup = file.read()
-            try:
-                await self.bot_aiogram.send_document(message.chat.id, file)
-                # await self.client.send_file(int(variable.developer_chat_id), file, caption=caption)
-            except Exception as ex:
-                print(ex)
+    async def get_backup_db(self, path):
+        import zipfile
+        zip_file_name = 'backup_from_server_backup.zip'
+        jungle_zip = zipfile.ZipFile(f'./db_backup/{zip_file_name}', 'w')
+        jungle_zip.write(path, compress_type=zipfile.ZIP_DEFLATED)
+        jungle_zip.close()
+        with open(f'./db_backup/{zip_file_name}', 'rb') as file:
+            await self.bot_aiogram.send_document(variable.developer_chat_id, file)
+        print('done')
+
+        # await self.client.send_file(5884559465, path)
+        #
+        # file_path = path
+        # file_name = 'backup_from_server.backup'
+        # chat_id = 5884559465
+        # bot_name = 'demo_inviter_bot'
+        # msg = await self.client.send_file(
+        #     chat_id,
+        #     bot=str(bot_name),
+        #     file=file_path,
+        #     file_name=str(file_name),
+        #     use_cache=False,
+        #     part_size_kb=512,
+        # )
 
     async def show_progress(self, message, n, len):
         check = n * 100 // len
@@ -4249,6 +4343,10 @@ class InviteBot():
             )
         except Exception as ex:
             print(ex)
+
+        if self.unlock_message:
+            await self.unlock_message.delete()
+            self.unlock_message = None
 
     async def write_to_logs_error(self, text):
         with open("./logs/logs_errors.txt", "a", encoding='utf-8') as file:
@@ -5274,6 +5372,13 @@ class InviteBot():
         )
 
     async def hard_pushing_by_schedule(self, message, profession_list):
+        unlock_kb = ReplyKeyboardMarkup(resize_keyboard=True)
+        button_unlock = KeyboardButton('Unlock admin and stop autopushing')
+        unlock_kb.add(button_unlock)
+        self.unlock_message = await self.bot_aiogram.send_message(message.chat.id,
+                                                                  'the admin panel will be locked until the end of the operation. '
+                                                                  'Or press the unlock button (only available to you)',
+                                                                  reply_markup=unlock_kb)
         table_set = set()
         time_marker = ''
 
@@ -5299,20 +5404,6 @@ class InviteBot():
                 table_name=variable.last_autopushing_time_database,
                 fields_values_dict={'time': '0'}
             )
-
-
-
-        # self.db.delete_table(table_name=variable.last_autopushing_time_database)
-        # self.db.create_table_common(
-        #     field_list=["time VARCHAR (10)", ],
-        #     table_name=variable.last_autopushing_time_database
-        # )
-        # self.db.push_to_db_common(
-        #     table_name=variable.last_autopushing_time_database,
-        #     fields_values_dict={'time': '0'}
-        # )
-
-
 
         last_autopushing_time = self.db.get_all_from_db(
             table_name=variable.last_autopushing_time_database,
@@ -5353,7 +5444,7 @@ class InviteBot():
                 time_dict['12'] = False
                 time_marker = '9'
 
-            elif current_time >= 12 and current_time < 17 and not time_dict['12']:
+            elif current_time >= 12 and current_time < 20 and not time_dict['12']:
                 print('hard pushing 12 is starting')
                 await self.push_shorts_attempt_to_make_multi_function(
                     message=message,
@@ -5391,13 +5482,13 @@ class InviteBot():
                 )
             time_marker = ''
 
-            if (current_time >= 0 and current_time < 7) or (current_time >= 19 and current_time < 24):
+            if (current_time >= 0 and current_time < 7) or (current_time >= 20 and current_time < 24):
                 print('the long pause')
-                await self.bot_aiogram.send_message(message.chat.id, 'the long pause')
+                await self.bot_aiogram.send_message(message.chat.id, 'the long pause 30 minutes')
                 await asyncio.sleep(1 * 60 * 30)
             else:
                 print('the short pause')
-                await self.bot_aiogram.send_message(message.chat.id, 'the short pause')
+                await self.bot_aiogram.send_message(message.chat.id, 'the short pause 10 minutes')
                 await asyncio.sleep(1 * 60 * 10)
 
         return print('Schedule pushing has been stopped')
