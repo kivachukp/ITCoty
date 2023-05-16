@@ -9,6 +9,7 @@ currency_dict = {
     '\$': 'USD',
     'USD': 'USD',
     'EUR': "EUR",
+    'KZT': 'KZT',
 }
 
 by_dict = {
@@ -18,6 +19,7 @@ by_dict = {
     '\$': 'USD',
     'USD': 'USD',
     'EUR': "EUR",
+    'KZT': 'KZT',
 }
 
 period_dict = {

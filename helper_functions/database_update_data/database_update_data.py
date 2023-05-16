@@ -43,6 +43,17 @@ class DatabaseUpdateData:
                 print(f'{counter}. city not was in the db\n----------')
             counter += 1
 
+    async def create_salary_fields_usd(self):
+        table_list = valid_professions.copy()
+        table_list.extend([admin_database, archive_database])
+
+        self.db.add_columns_to_tables(table_list=table_list, column_name_type=[
+            "rate REAL",
+            "salary_from_usd_month INT",
+            "salary_to_usd_month INT",
+        ])
+        pass
+
     async def update_salary_fields(self, create_db_structure=True):
         if create_db_structure:
             table_list = valid_professions.copy()

@@ -1,22 +1,22 @@
 import re
 import time
-from datetime import datetime, timedelta
+from datetime import datetime
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 from db_operations.scraping_db import DataBaseOperations
-from helper_functions.parser_find_add_parameters.parser_find_add_parameters import FinderAddParameters
 from sites.write_each_vacancy_to_db import HelperSite_Parser
 from settings.browser_settings import options, chrome_driver_path
-from utils.additional_variables.additional_variables import sites_search_words, admin_database, archive_database
+from utils.additional_variables.additional_variables import sites_search_words, parsing_report_path, admin_database, archive_database
 from helper_functions.helper_functions import edit_message, send_message, send_file_to_user
-from utils.additional_variables import additional_variables as variables
+from helper_functions.parser_find_add_parameters.parser_find_add_parameters import FinderAddParameters
 from report.report_variables import report_file_path
 
 
-class RemotehubGetInformation:
+class RemoteJobGetInformation:
 
     def __init__(self, **kwargs):
 
@@ -24,8 +24,8 @@ class RemotehubGetInformation:
         self.search_word = kwargs['search_word'] if 'search_word' in kwargs else sites_search_words
         self.bot_dict = kwargs['bot_dict'] if 'bot_dict' in kwargs else None
         self.helper_parser_site = HelperSite_Parser(report=self.report)
-        self.find_parameters = FinderAddParameters()
         self.db = DataBaseOperations(report=self.report)
+        self.find_parameters = FinderAddParameters()
         self.db_tables = None
         self.options = None
         self.page = None
@@ -38,25 +38,28 @@ class RemotehubGetInformation:
             self.bot = self.bot_dict['bot']
             self.chat_id = self.bot_dict['chat_id']
         self.browser = None
-        self.main_url = 'https://remotehub.com'
+        self.main_url = 'https://remote-job.ru'
         self.count_message_in_one_channel = 1
         self.found_by_link = 0
         self.response = None
 
     async def get_content(self, db_tables=None):
+        print('control: 1')
         self.db_tables = db_tables
-        self.count_message_in_one_channel = 1
         await self.get_info()
-        await self.report.add_to_excel()
-        await send_file_to_user(
-            bot=self.bot,
-            chat_id=self.chat_id,
-            path=report_file_path['parsing'],
-        )
+        if self.report:
+            await self.report.add_to_excel()
+            await send_file_to_user(
+                bot=self.bot,
+                chat_id=self.chat_id,
+                path=report_file_path['parsing'],
+            )
         self.browser.quit()
 
-
     async def get_info(self):
+        last_page = 0
+        print('control: 2')
+
         try:
             self.browser = webdriver.Chrome(
                 executable_path=chrome_driver_path,
@@ -64,42 +67,61 @@ class RemotehubGetInformation:
             )
         except:
             self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-        # -------------------- check what is current session --------------
+        print('control: 3')
+        # -------------------- clicks on the main page --------------------
         self.current_session = await self.helper_parser_site.get_name_session()
-        if self.bot_dict:
-            await self.bot.send_message(self.chat_id, f'https://www.remotehub.com/jobs/search?sort_type=2',
-                                    disable_web_page_preview=True)
-        self.browser.get(f'https://www.remotehub.com/jobs/search?sort_type=2')
-        SCROLL_PAUSE_TIME = 3
 
-        last_height = self.browser.execute_script("return document.body.scrollHeight")
-        till = 0
-        while till <= 10:
-            self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
-            time.sleep(SCROLL_PAUSE_TIME)
-
-            # Calculate new scroll height and compare with last scroll height
-            new_height = self.browser.execute_script("return document.body.scrollHeight")
-            if new_height == last_height:
+        self.browser.get(self.main_url)
+        print(self.browser.page_source)
+        time.sleep(5)
+        search_button = self.browser.find_element(By.XPATH, "//*[@class='btn btn-success btn-toggle']")
+        search_button.click()
+        time.sleep(5)
+        Last_day_button = self.browser.find_element(By.XPATH,
+                                                    "/html/body/div[7]/div[1]/div[3]/div/div[1]/div/div/div[5]/button[1]")
+        Last_day_button.click()
+        time.sleep(5)
+        active_page_number = int(self.browser.find_element(By.XPATH, "//*[@class='active']").text)
+        all_pages = self.browser.find_element(By.XPATH, "//*[@class='pagination']").find_elements(By.XPATH, "li")
+        for i in reversed(all_pages):
+            if i.text.isalnum():
+                last_page = int(i.text)
                 break
-            last_height = new_height
-            till += 1
-        await self.get_link_message(self.browser.page_source)
+        current_url = self.browser.current_url
+
+        vacancy_exists_on_page = True
+        while active_page_number < last_page-1 or vacancy_exists_on_page:
+            vacancy_exists_on_page = await self.get_link_message(self.browser.page_source)
+            print('go outside')
+
+            self.browser.get(current_url)
+            active_page_number = int(self.browser.find_element(By.XPATH, "//*[@class='active']").text)
+            all_pages = self.browser.find_element(By.XPATH, "//*[@class='pagination']").find_elements(By.XPATH, "li")
+
+            for i in all_pages:
+                if i.text.isalnum() and int(i.text)>active_page_number:
+                    i.find_element(By.XPATH, "a").click()
+                    current_url = self.browser.current_url
+                    break
+
         if self.bot_dict:
-            await self.bot.send_message(self.chat_id, 'remotehub.com parsing: Done!', disable_web_page_preview=True)
+            await self.bot.send_message(self.chat_id, 'remote-job.ru parsing: Done!', disable_web_page_preview=True)
 
     async def get_link_message(self, raw_content):
-        soup = BeautifulSoup(raw_content, 'lxml')
+        print('control: 4')
 
-        self.list_links = soup.find_all('smp-landings-entity', class_='ng-star-inserted')
+        soup = BeautifulSoup(raw_content, 'lxml')
+        self.list_links = soup.find_all('div', class_='vacancy_item')
+        print('self.list_links: ', self.list_links)
         if self.list_links:
             if self.bot_dict:
                 self.current_message = await self.bot.send_message(self.chat_id,
-                                                                   f'remotehub.com:\nНайдено {len(self.list_links)} вакансий',
+                                                                   f'remote-job.ru:\nНайдено {len(self.list_links)} вакансий на странице {self.page_number}',
                                                                    disable_web_page_preview=True)
             # --------------------- LOOP -------------------------
             self.written_vacancies = 0
             self.rejected_vacancies = 0
+
             await self.get_content_from_link()
             # ----------------------- the statistics output ---------------------------
             self.written_vacancies = 0
@@ -109,159 +131,132 @@ class RemotehubGetInformation:
             return False
 
     async def get_content_from_link(self):
+        print('control: 5')
+
         links = []
         soup = None
         self.found_by_link = 0
         for link in self.list_links:
-
             found_vacancy = True
             try:
-                vacancy_url = link.find('a', class_='entity-detailed-link').get('href')
+                vacancy_url = link.find('a').get('href')
                 vacancy_url = self.main_url + vacancy_url
             except:
                 vacancy_url = link
 
             print(f"\n{vacancy_url}")
+            print('control: 6')
 
             # pre-checking by link
             check_vacancy_not_exists = self.db.check_exists_message_by_link_or_url(
                 vacancy_url=vacancy_url,
                 table_list=[admin_database, archive_database]
             )
+            print('control: 7')
+
             if check_vacancy_not_exists:
                 links.append(vacancy_url)
-
                 try:
                     self.browser.get(vacancy_url)
-                    self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                     soup = BeautifulSoup(self.browser.page_source, 'lxml')
                 except Exception as ex:
                     found_vacancy = False
                     print(f"error in browser.get {ex}")
 
                 if found_vacancy:
-                    vacancy = ''
                     try:
-                        vacancy = soup.find('h1', class_='title mat-headline').text
-                    except Exception:
-                        pass
+                        vacancy = soup.find('h1').text.split()
+                        vacancy = ' '.join(vacancy)
+                    except:
+                        vacancy = ''
 
                     if vacancy:
                         title = vacancy
-
-                        body = ''
                         try:
-                            body = soup.find('span', class_='mat-subheading-2').text
+                            body = soup.find('div', class_='row p-y-3').find('div', class_='col-md-12').text.split()
+                            body = ' '.join(body)
                             body = body.replace('\n\n', '\n')
+                            body = body.replace('Откликнуться на вакансию', '')
                             body = re.sub(r'\<[A-Za-z\/=\"\-\>\s\._\<]{1,}\>', " ", body)
                         except:
-                            pass
-                        if body:
-                            tags = ''
-                            try:
-                                raw_tags = soup.find_all('span', class_="truncate muted-2")
-                                tags = ''
-                                for tag in raw_tags:
-                                    tags += tag.text
-                            except:
-                                pass
+                            body = ''
 
-                            english = ''
-                            if tags:
-                                if re.findall(r'[Аа]нглийский', tags) or re.findall(r'[Ee]nglish', tags):
-                                    english = 'English'
+                        level = ''
+                        tags = ''
 
-                            try:
-                                city = soup.find('span', class_='mat-body-2 text').text
-                            except:
-                                city = ''
+                        english = ''
+                        if re.findall(r'[Аа]нглийский', tags) or re.findall(r'[Ee]nglish', tags):
+                            english = 'English'
 
-                            try:
-                                company = soup.find('div', class_='account-name mat-body-2').text
-                            except:
-                                company = ''
+                        try:
+                            city = soup.find('div', class_='location').get_text()
+                        except:
+                            city = ''
 
-                            # get salary --------------------------
-                            try:
-                                salary = soup.find('div', class_='price ng-star-inserted')
-                                if not salary:
-                                    salary = soup.find('span', class_='label muted ng-star-inserted')
-                                salary = salary.text
-                                # salary = self.find_parameters.salary_to_set_form(text=salary)
-                                # if salary[0]:
-                                #     salary = ", ".join(salary)
-                            except:
-                                salary = ''
+                        try:
+                            company = soup.find('div', class_='col-md-12 m-t-1').find('h4').text.strip()
+                            company = company.replace('\xa0', ' ')
+                            if 'Прямой работодатель ' in company:
+                                company = company.replace('Прямой работодатель ', '')
+                            company = company.replace('\n', ' ')
 
-                            raw_job_format = ''
-                            try:
-                                raw_job_format = soup.find_all('a', class_="ng-star-inserted")
-                            except:
-                                pass
-                            job_format = ''
-                            format_find = ''
-                            if raw_job_format:
-                                for format in raw_job_format:
-                                    try:
-                                        format_find = format.find('mat-basic-chip')
-                                    except:
-                                        pass
-                                    if format_find:
-                                        try:
-                                            job_format += format_find.text
-                                        except:
-                                            pass
+                        except:
+                            company = ''
 
-                            contacts = ''
-                            try:
-                                date = soup.find('div', class_="mat-body-2 posted-ago muted-2").text.split()[0]
-                            except:
-                                date = ''
-                            if date:
-                                date = await self.convert_date(date)
+                        try:
+                            salary = soup.find('div', class_='panel-heading').find('div', class_='col-md-4').find('b').text.strip()
+                        except:
+                            salary = ''
 
-                            # ------------------------- search relocation ----------------------------
-                            relocate = ''
-                            relocation = ''
-                            try:
-                                relocate = re.findall(r'[Rr]elocation', body)
-                            except:
-                                pass
-                            if relocate:
-                                relocation = 'релокация'
+                        job_format = ''
+                        try:
+                            experience = soup.find('div', class_='panel-heading').find_all('div', class_='col-md-4')[1].find('b').text
+                        except:
+                            experience = ''
 
-                            self.db.write_to_db_companies([company])
+                        contacts = ''
 
-                            # -------------------- compose one writting for ione vacancy ----------------
+                        try:
+                            date = datetime.today()
+                        except:
+                            date = ''
 
-                            results_dict = {
-                                'chat_name': 'https://remotehub.com/',
-                                'title': title,
-                                'body': body,
-                                'vacancy': vacancy,
-                                'vacancy_url': vacancy_url,
-                                'company': company,
-                                'company_link': '',
-                                'english': english,
-                                'relocation': relocation,
-                                'job_type': job_format,
-                                'city': city,
-                                'salary': salary,
-                                'experience': '',
-                                'time_of_public': date,
-                                'contacts': contacts,
-                                'session': self.current_session
-                            }
+                        # ------------------------- search relocation ----------------------------
+                        relocation = ''
+                        if re.findall(r'[Рр]елокация', body):
+                            relocation = 'релокация'
 
-                            response = await self.helper_parser_site.write_each_vacancy(results_dict)
+                        self.db.write_to_db_companies([company])
 
-                            await self.output_logs(
-                                about_vacancy=response,
-                                vacancy=vacancy,
-                                vacancy_url=vacancy_url
-                            )
-                            self.response = response
+                        # -------------------- compose one writting for ione vacancy ----------------
 
+                        results_dict = {
+                            'chat_name': 'https://remote-job.ru',
+                            'title': title,
+                            'body': body,
+                            'vacancy': vacancy,
+                            'vacancy_url': vacancy_url,
+                            'company': company,
+                            'company_link': '',
+                            'english': english,
+                            'relocation': relocation,
+                            'job_type': job_format,
+                            'city': city,
+                            'salary': salary,
+                            'experience': '',
+                            'time_of_public': date,
+                            'contacts': contacts,
+                            'session': self.current_session
+                        }
+
+                        response = await self.helper_parser_site.write_each_vacancy(results_dict)
+
+                        await self.output_logs(
+                            about_vacancy=response,
+                            vacancy=vacancy,
+                            vacancy_url=vacancy_url
+                        )
+                        self.response = response
             else:
                 self.found_by_link += 1
                 print("vacancy link exists")
@@ -290,12 +285,13 @@ class RemotehubGetInformation:
         self.browser.quit()
         return self.response
 
-    async def convert_date(self, date):
-        if date == 'Today':
-            date = datetime.now()
-        else:
-            date = datetime.now() - timedelta(days=int(date))
-        return date
+    def clean_company_name(self, text):
+        text = re.sub('Прямой работодатель', '', text)
+        text = re.sub(r'[(]{1} [a-zA-Z0-9\W\.]{1,30} [)]{1}', '', text)
+        text = re.sub(r'Аккаунт зарегистрирован с (публичной почты|email) \*@[a-z.]*[, не email компании!]{0,1}', '',
+                      text)
+        text = text.replace(f'\n', '')
+        return text
 
     async def compose_in_one_file(self):
         hiring = []
@@ -328,8 +324,11 @@ class RemotehubGetInformation:
 
         self.db.write_to_db_companies(companies)
 
+
     async def output_logs(self, about_vacancy, vacancy, word=None, vacancy_url=None):
         additional_message = ''
+
+        # print('start_output_logs')
 
         if about_vacancy['response']['vacancy'] in ['found in db by link', 'found in db by title-body']:
             additional_message = f'-exists in db\n\n'
@@ -366,5 +365,8 @@ class RemotehubGetInformation:
                     text=new_text
                 )
 
+        # print(f"\n{self.count_message_in_one_channel} from_channel remote-job.ru search {word}")
         self.count_message_in_one_channel += 1
+
+        # print('finish_output_logs')
 

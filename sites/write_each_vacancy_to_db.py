@@ -3,6 +3,7 @@ from filters.filter_jan_2023.filter_jan_2023 import VacancyFilter
 from helper_functions.parser_find_add_parameters.parser_find_add_parameters import FinderAddParameters
 from utils.additional_variables.additional_variables import table_list_for_checking_message_in_db as tables, \
     admin_database, archive_database
+from helper_functions.helper_functions import get_salary_usd_month
 
 class HelperSite_Parser:
     def __init__(self, **kwargs):
@@ -14,7 +15,7 @@ class HelperSite_Parser:
     async def write_each_vacancy(self, results_dict):
         response = {}
         profession = []
-
+        response_from_db = {}
         # print('??????????? start_write_each_vacancy')
 
         if self.report:
@@ -60,12 +61,17 @@ class HelperSite_Parser:
                     region = 'BY'
                 else:
                     region = None
+
                 if 'salary' in results_dict and results_dict['salary']:
                     salary = self.find_parameters.salary_to_set_form(text=results_dict['salary'], region=region)
                     salary = await self.find_parameters.compose_salary_dict_from_salary_list(salary)
                     for key in salary:
                         results_dict[key] = salary[key]
                     pass
+
+                    results_dict = await get_salary_usd_month(
+                        vacancy_dict=results_dict
+                    )
 
                 results_dict['job_type'] = await self.find_parameters.get_job_types(results_dict)
 
@@ -74,6 +80,8 @@ class HelperSite_Parser:
                     profession=profession,
                     check_or_exists=True
                 )
+                if not response_from_db:
+                    return False
                 response['vacancy'] = 'found in db by title-body' if response_from_db['has_been_found'] else 'written to db'
             else:
                 response['vacancy'] = 'no vacancy by anti-tags'
@@ -84,7 +92,7 @@ class HelperSite_Parser:
 
         # print('??????????? finish_write_each_vacancy')
 
-        return {'response': response, "profession": profession}
+        return {'response': response, "profession": profession, 'response_dict': response_from_db}
 
     async def get_name_session(self):
         current_session = self.db.get_all_from_db(

@@ -25657,3 +25657,445 @@ id_admin_last_session_table = 53090
 it was sending to agregator = None
 title = Front-end разработчик
 ------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3302
+id_admin_last_session_table = 53502
+it was sending to agregator = None
+title = Experimentation & Wargaming Expert
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3302
+id_admin_last_session_table = 53502
+it was sending to agregator = None
+title = Experimentation & Wargaming Expert
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3303
+id_admin_last_session_table = 53544
+it was sending to agregator = None
+title = Game Designer
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3303
+id_admin_last_session_table = 53544
+it was sending to agregator = None
+title = Game Designer
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3304
+id_admin_last_session_table = 53672
+it was sending to agregator = None
+title = Motion Designer/Creative Team Leader at Supersonic
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3304
+id_admin_last_session_table = 53672
+it was sending to agregator = None
+title = Motion Designer/Creative Team Leader at Supersonic
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3305
+id_admin_last_session_table = 53775
+it was sending to agregator = None
+title = Unreal Engine Developer
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3305
+id_admin_last_session_table = 53775
+it was sending to agregator = None
+title = Unreal Engine Developer
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3306
+id_admin_last_session_table = 53789
+it was sending to agregator = None
+title = Game Developer (Unreal Engine 5, C++)
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3306
+id_admin_last_session_table = 53789
+it was sending to agregator = None
+title = Game Developer (Unreal Engine 5, C++)
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3307
+id_admin_last_session_table = 53796
+it was sending to agregator = None
+title = Lead Unity Programmer (Match-3 product)
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3307
+id_admin_last_session_table = 53796
+it was sending to agregator = None
+title = Lead Unity Programmer (Match-3 product)
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3308
+id_admin_last_session_table = 53797
+it was sending to agregator = None
+title = Middle Unity Developer
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3308
+id_admin_last_session_table = 53797
+it was sending to agregator = None
+title = Middle Unity Developer
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3309
+id_admin_last_session_table = 53801
+it was sending to agregator = None
+title = Lead Unity Developer VR
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3309
+id_admin_last_session_table = 53801
+it was sending to agregator = None
+title = Lead Unity Developer VR
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3310
+id_admin_last_session_table = 53870
+it was sending to agregator = None
+title = Middle Game Designer
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3310
+id_admin_last_session_table = 53870
+it was sending to agregator = None
+title = Middle Game Designer
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3311
+id_admin_last_session_table = 53875
+it was sending to agregator = None
+title = Senior Game Designer (AAA PC-console game)
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3311
+id_admin_last_session_table = 53875
+it was sending to agregator = None
+title = Senior Game Designer (AAA PC-console game)
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3312
+id_admin_last_session_table = 53876
+it was sending to agregator = None
+title = Middle Quality Assurance Engineer
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3312
+id_admin_last_session_table = 53876
+it was sending to agregator = None
+title = Middle Quality Assurance Engineer
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3313
+id_admin_last_session_table = 53879
+it was sending to agregator = None
+title = Architect (Unity)
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3313
+id_admin_last_session_table = 53879
+it was sending to agregator = None
+title = Architect (Unity)
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3314
+id_admin_last_session_table = 53881
+it was sending to agregator = None
+title = Mathematician
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3314
+id_admin_last_session_table = 53881
+it was sending to agregator = None
+title = Mathematician
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3315
+id_admin_last_session_table = 53889
+it was sending to agregator = None
+title = Senior Graphics Programmer/ Rendering Programmer
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3315
+id_admin_last_session_table = 53889
+it was sending to agregator = None
+title = Senior Graphics Programmer/ Rendering Programmer
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3316
+id_admin_last_session_table = 53891
+it was sending to agregator = None
+title = Senior Unity Developer
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3316
+id_admin_last_session_table = 53891
+it was sending to agregator = None
+title = Senior Unity Developer
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3317
+id_admin_last_session_table = 54145
+it was sending to agregator = None
+title = Разработчик Unity (удаленная работа)
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3317
+id_admin_last_session_table = 54145
+it was sending to agregator = None
+title = Разработчик Unity (удаленная работа)
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3318
+id_admin_last_session_table = 54191
+it was sending to agregator = None
+title = Business Assistant to CEO (Remote) (удаленная рабо
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3318
+id_admin_last_session_table = 54191
+it was sending to agregator = None
+title = Business Assistant to CEO (Remote) (удаленная рабо
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3320
+id_admin_last_session_table = 53502
+it was sending to agregator = None
+title = Experimentation & Wargaming Expert
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3320
+id_admin_last_session_table = 53502
+it was sending to agregator = None
+title = Experimentation & Wargaming Expert
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3321
+id_admin_last_session_table = 53544
+it was sending to agregator = None
+title = Game Designer
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3321
+id_admin_last_session_table = 53544
+it was sending to agregator = None
+title = Game Designer
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3322
+id_admin_last_session_table = 53672
+it was sending to agregator = None
+title = Motion Designer/Creative Team Leader at Supersonic
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3322
+id_admin_last_session_table = 53672
+it was sending to agregator = None
+title = Motion Designer/Creative Team Leader at Supersonic
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3323
+id_admin_last_session_table = 53775
+it was sending to agregator = None
+title = Unreal Engine Developer
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3323
+id_admin_last_session_table = 53775
+it was sending to agregator = None
+title = Unreal Engine Developer
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3324
+id_admin_last_session_table = 53789
+it was sending to agregator = None
+title = Game Developer (Unreal Engine 5, C++)
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3324
+id_admin_last_session_table = 53789
+it was sending to agregator = None
+title = Game Developer (Unreal Engine 5, C++)
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3325
+id_admin_last_session_table = 53796
+it was sending to agregator = None
+title = Lead Unity Programmer (Match-3 product)
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3325
+id_admin_last_session_table = 53796
+it was sending to agregator = None
+title = Lead Unity Programmer (Match-3 product)
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3326
+id_admin_last_session_table = 53797
+it was sending to agregator = None
+title = Middle Unity Developer
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3326
+id_admin_last_session_table = 53797
+it was sending to agregator = None
+title = Middle Unity Developer
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3327
+id_admin_last_session_table = 53801
+it was sending to agregator = None
+title = Lead Unity Developer VR
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3327
+id_admin_last_session_table = 53801
+it was sending to agregator = None
+title = Lead Unity Developer VR
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3328
+id_admin_last_session_table = 53870
+it was sending to agregator = None
+title = Middle Game Designer
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3328
+id_admin_last_session_table = 53870
+it was sending to agregator = None
+title = Middle Game Designer
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3329
+id_admin_last_session_table = 53875
+it was sending to agregator = None
+title = Senior Game Designer (AAA PC-console game)
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3329
+id_admin_last_session_table = 53875
+it was sending to agregator = None
+title = Senior Game Designer (AAA PC-console game)
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3330
+id_admin_last_session_table = 53876
+it was sending to agregator = None
+title = Middle Quality Assurance Engineer
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3330
+id_admin_last_session_table = 53876
+it was sending to agregator = None
+title = Middle Quality Assurance Engineer
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3331
+id_admin_last_session_table = 53879
+it was sending to agregator = None
+title = Architect (Unity)
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3331
+id_admin_last_session_table = 53879
+it was sending to agregator = None
+title = Architect (Unity)
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3332
+id_admin_last_session_table = 53881
+it was sending to agregator = None
+title = Mathematician
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3332
+id_admin_last_session_table = 53881
+it was sending to agregator = None
+title = Mathematician
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3333
+id_admin_last_session_table = 53889
+it was sending to agregator = None
+title = Senior Graphics Programmer/ Rendering Programmer
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3333
+id_admin_last_session_table = 53889
+it was sending to agregator = None
+title = Senior Graphics Programmer/ Rendering Programmer
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3334
+id_admin_last_session_table = 53891
+it was sending to agregator = None
+title = Senior Unity Developer
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3334
+id_admin_last_session_table = 53891
+it was sending to agregator = None
+title = Senior Unity Developer
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3335
+id_admin_last_session_table = 54145
+it was sending to agregator = None
+title = Разработчик Unity (удаленная работа)
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3335
+id_admin_last_session_table = 54145
+it was sending to agregator = None
+title = Разработчик Unity (удаленная работа)
+------------------------------------------------------------
+              NEXT                
+-------- in callback admin -------
+id admin_channel = 3336
+id_admin_last_session_table = 54191
+it was sending to agregator = None
+title = Business Assistant to CEO (Remote) (удаленная рабо
+--------------------------------------------
+--------in function push_to_admin_temporary-------
+id admin_channel = 3336
+id_admin_last_session_table = 54191
+it was sending to agregator = None
+title = Business Assistant to CEO (Remote) (удаленная рабо
+------------------------------------------------------------

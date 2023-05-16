@@ -4,12 +4,15 @@ import re
 import time
 from datetime import datetime
 
+import requests
 from asgiref.sync import async_to_sync
 
 from filters.filter_jan_2023.filter_jan_2023 import VacancyFilter
 from patterns._export_pattern import export_pattern
 from patterns.pseudo_pattern.pseudo_export_pattern import export_pattern as pseudo_export_pattern
-from utils.additional_variables.additional_variables import flood_control_logs_path, admin_table_fields, pictures_separators_path
+from utils.additional_variables.additional_variables import flood_control_logs_path, admin_table_fields, \
+    pictures_separators_path, valid_professions, admin_database, archive_database
+
 
 def compose_to_str_from_list(data_list):
     sub_str = ''
@@ -50,19 +53,23 @@ def list_to_string(raw_list, separator):
 async def to_dict_from_admin_response(response, fields):
     response_dict = {}
     fields = fields.split(', ')
-    for i in range(0, len(fields)):
-        try:
+    try:
+        for i in range(0, len(fields)):
             response_dict[fields[i]] = response[i]
-        except Exception as e:
-            print(e)
-            return False
+    except Exception as ex:
+        print(f"error in to_dict_from_admin_response: {ex}")
+        return False
     return response_dict
 
 def to_dict_from_admin_response_sync(response, fields):
     response_dict = {}
     fields = fields.split(', ')
-    for i in range(0, len(fields)):
-        response_dict[fields[i]] = response[i]
+    try:
+        for i in range(0, len(fields)):
+            response_dict[fields[i]] = response[i]
+    except Exception as ex:
+        print(f"error in to_dict_from_admin_response_sync: {ex}")
+        return False
     return response_dict
 
 async def to_dict_from_temporary_response(response, fields):
@@ -304,6 +311,7 @@ def get_additional_values_fields(dict_in):
         results_dict['city'] = city_shorts
 
     return results_dict
+
 def update_job_types(dict):
     # function for one-time update, can be deleted later
 
@@ -581,3 +589,114 @@ async def send_file_to_user(
         except Exception as exc:
             print(f"can't to send file: {exc}")
 
+async def refill_salary_usd(db_class):
+    table_list = valid_professions.copy()
+    table_list.extend([admin_database, archive_database])
+    for table in table_list:
+        vacancies = []
+        try:
+            vacancies = db_class.get_all_from_db(
+                table_name=table,
+                without_sort=True,
+                field=admin_table_fields
+            )
+        except Exception as ex:
+            print(f'error in getting from database from table: {table}: \n{ex}')
+        if vacancies:
+            for one_vacancy in vacancies:
+                if type(one_vacancy) is str:
+                    pass
+                vacancy_dict = await to_dict_from_admin_response(one_vacancy, admin_table_fields)
+                vacancy_dict_new = await get_salary_usd_month(vacancy_dict=vacancy_dict, table=table, db_class=db_class)
+                if db_class and vacancy_dict_new['rate']:
+                    db_class.update_table_multi(
+                        table_name=table,
+                        param=f"Where id={vacancy_dict['id']}",
+                        values_dict={
+                            'salary_from_usd_month': vacancy_dict['salary_from_usd_month'],
+                            'salary_to_usd_month': vacancy_dict['salary_to_usd_month'],
+                            'rate': vacancy_dict['rate']
+                        }
+                    )
+                    print('GOT!', vacancy_dict['salary_currency'])
+
+async def get_salary_usd_month(vacancy_dict, **kwargs):
+    table = kwargs['table'] if 'table' in kwargs else None
+    # db_class = kwargs['db_class'] if 'db_class' in kwargs else None
+    # update_data = kwargs['update_data'] if 'update_data' in kwargs else False
+    salary_to_usd_month = None
+
+    currencies_nbrb = {
+        "EUR": 2.75,
+        "USD": 2.89,
+        "KZT": 0.0056,
+        "RuR": 0.032,
+        "ByR": 1
+    }
+
+    if 'salary_currency' in vacancy_dict and vacancy_dict['salary_currency']:
+        if vacancy_dict['salary_currency'].lower() == 'rur':
+            pass
+        if vacancy_dict['salary_currency'].lower() == 'rur' and vacancy_dict['salary_period'] != "Per Hour":
+            if vacancy_dict['salary_from'] and vacancy_dict['salary_from'] < 1000:
+                vacancy_dict['salary_from'] = vacancy_dict['salary_from'] * 1000
+            if vacancy_dict['salary_to'] and vacancy_dict['salary_to'] < 1000:
+                vacancy_dict['salary_to'] = vacancy_dict['salary_to'] * 1000
+
+        if vacancy_dict['salary_currency'] in currencies_nbrb:
+            currency = vacancy_dict['salary_currency']
+            rate = currencies_nbrb[currency]
+            if vacancy_dict['salary_from']:
+
+                if 'rate' not in vacancy_dict or rate != vacancy_dict['rate']:
+                    if 'rate' not in vacancy_dict:
+                        vacancy_dict['rate'] = rate
+                        vacancy_dict['salary_from_usd_month'] = None
+                        vacancy_dict['salary_to_usd_month'] = None
+
+                    salary_from_usd_month = vacancy_dict['salary_from']*rate/currencies_nbrb['USD'] #if rate>1 else vacancy_dict['salary_from']*rate/currencies_nbrb['USD']
+                    if vacancy_dict['salary_to']:
+                        salary_to_usd_month = vacancy_dict['salary_to']*rate/currencies_nbrb['USD'] #if rate>1 else vacancy_dict['salary_to']*rate/currencies_nbrb['USD']
+                    if vacancy_dict['salary_period'].lower() == 'per year':
+                        vacancy_dict['salary_from_usd_month'] = round(salary_from_usd_month/12) if salary_from_usd_month else None
+                        vacancy_dict['salary_to_usd_month'] = round(salary_to_usd_month/12) if salary_to_usd_month else None
+                    elif vacancy_dict['salary_period'].lower() == "per hour":
+                        vacancy_dict['salary_from_usd_month'] = round(salary_from_usd_month*8*22) if salary_from_usd_month else None
+                        vacancy_dict['salary_to_usd_month'] = round(salary_to_usd_month*8*22) if salary_to_usd_month else None
+                    else:
+                        vacancy_dict['salary_from_usd_month'] = round(salary_from_usd_month) if salary_from_usd_month else None
+                        vacancy_dict['salary_to_usd_month'] = round(salary_to_usd_month) if salary_to_usd_month else None
+
+                    # if not update_data:
+                    return vacancy_dict
+
+                    # if db_class and table:
+                    #     db_class.update_table_multi(
+                    #         table_name=table,
+                    #         param=f"Where id={vacancy_dict['id']}",
+                    #         values_dict={
+                    #             'salary_from_usd_month': round(salary_from_usd_month) if salary_from_usd_month else None,
+                    #             'salary_to_usd_month': round(salary_to_usd_month) if salary_to_usd_month else None,
+                    #             'rate': rate
+                    #         }
+                    #     )
+                    #     print('GOT!', vacancy_dict['salary_currency'])
+                else:
+                    print('data is valid')
+                    # if not update_data:
+                    return vacancy_dict
+
+        else:
+            with open('./excel/errors_in_salary_currency.txt', 'a') as file:
+                file.write(f"vacancy_dict['salary_currency']: {vacancy_dict['salary_currency']}\n"
+                           f"link: {vacancy_dict['vacancy_url']}\n"
+                           f"table: {table if table else None}\n"
+                           f"id: {vacancy_dict['id']}\n"
+                           f"-------\n\n")
+            print('currency not in currencies_nbrb: ', vacancy_dict['salary_currency'])
+            # if not update_data:
+            return vacancy_dict
+    else:
+        print('*' * 6)
+        # if not update_data:
+        return vacancy_dict
