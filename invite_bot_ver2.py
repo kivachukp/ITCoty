@@ -319,8 +319,8 @@ class InviteBot():
         @self.dp.message_handler(commands=['update_salary_field_usd'])
         async def update_salary_field_usd(message: types.Message):
             # self.db.db_drop_columns(columns=['salary_currency_usd', 'salary_period_usd_month', 'salary_from_usd', 'salary_to_usd'], tables=[])
-            # updater = DatabaseUpdateData()
-            # await updater.create_salary_fields_usd()
+            updater = DatabaseUpdateData()
+            await updater.create_salary_fields_usd()
 
             await helper.refill_salary_usd(self.db)
 
