@@ -10,7 +10,7 @@ from aiogram.types import Message, Chat
 from flask import Flask
 import random
 from db_operations.scraping_db import DataBaseOperations
-from utils.additional_variables.additional_variables import admin_database, admin_table_fields
+from utils.additional_variables.additional_variables import admin_database, admin_table_fields, search_table_fields
 from helper_functions.helper_functions import to_dict_from_admin_response
 from flask_cors import CORS
 from flask import request
@@ -183,17 +183,25 @@ async def main_endpoints():
 
     @app.route("/search-by-text", methods = ['POST'])
     async def search_by_text():
-        # responses_dict = await search_by_text_func(
-        #     request=request
-        # )
-        # query = Predictive().get_full_query(request_from_frontend=request.json)
-        query = ""
-        responses_from_db = db.get_all_from_db(
-            table_name=admin_database,
+        query_search = Predictive()
+        query = query_search.get_full_query(request_from_frontend=request.json)
+        print('QUERY TO API', query)
+        search_tables = query_search.get_search_tables(request_from_frontend=request.json)
+        print('SEARCH_TABLES', search_tables)
+        responses_from_db=[]
+        for table in search_tables:
+            response=db.get_all_from_db(
+            table_name=table,
             param=query,
             field=admin_table_fields
-        )
+            )
+            if response:
+                print(response)
+                responses_from_db.extend(response)
+        print(responses_from_db)
+        # response_dict = await helper.to_dict_from_admin_response(responses[0], admin_table_fields)
         responses_dict = await package_list_to_dict(responses_from_db)
+        print(responses_dict)
         responses_dict = {'numbers': len(responses_dict), 'vacancies': responses_dict}
         return responses_dict
 

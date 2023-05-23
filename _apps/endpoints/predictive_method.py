@@ -57,159 +57,116 @@ How I'm doing it:
 """
 from db_operations.scraping_db import DataBaseOperations
 from utils.additional_variables import additional_variables as variables
-from patterns.data_pattern._data_pattern import filter_main_page_dict
+
 class Predictive():
     def __init__(self):
         self.query = ''
         self.db = DataBaseOperations()
-        self.search_tables = set()
-        self.pattern_main_page = filter_main_page_dict
+        self.tables=variables.valid_professions
+        self.search_tables = []
+
+    def get_search_tables(self, request_from_frontend):
+        if 'direction' in request_from_frontend:
+            profession = request_from_frontend['direction']
+            if profession == 'development':
+                self.search_tables.extend(['backend', 'frontend', 'mobile'])
+            elif profession == 'game':
+                self.search_tables.extend(['admin_last_session'])
+            if profession in self.search_tables:
+                self.search_tables.append(profession)
+        else:
+            self.search_tables = self.tables
+        # tables_list = ''
+        # for table in self.search_tables:
+        #     tables_list += f'{table}, '
+        return self.search_tables
 
     def get_full_query(self, request_from_frontend):
+        print(request_from_frontend)
         query = ''
-        part_of_query = ''
-        professions = set()
-
-        if 'direction' in request_from_frontend:
-            query_direction = self.direction_method(text=request_from_frontend['direction'])
-        if 'specialization' in request_from_frontend:
-            query_specialization = self.specialization_method(request_from_frontend['specialization'])
-        # if 'programmingLanguage' in request_from_frontend:
-        #     query_programmingLanguage = self.programmingLanguage_method(request_from_frontend['programmingLanguage'])
-        # if 'technologies' in request_from_frontend:
-        #     query_technologies = self.technologies_method(request_from_frontend['technologies'])
-        # if 'level' in request_from_frontend:
-        #     query_level = self.level_method(request_from_frontend['level'])
-        # if 'country' in request_from_frontend:
-        #     query_country = self.country_method(request_from_frontend['country'])
-        # if 'city' in request_from_frontend:
-        #     query_city = self.city_method(request_from_frontend['city'])
-        # if 'state' in request_from_frontend:
-        #     query_state = self.state_method(request_from_frontend['state'])
-        # if 'salary' in request_from_frontend:
-        #     query_salary = self.salary_method(request_from_frontend['salary'])
-        # if 'salaryOption' in request_from_frontend:
-        #     query_salaryOption = self.salaryOption_method(request_from_frontend['salaryOption'])
-        # if 'companyScope' in request_from_frontend:
-        #     query_companyScope = self.companyScope_method(request_from_frontend['companyScope'])
-        # if 'typeOfEmployment' in request_from_frontend:
-        #     query_typeOfEmployment = self.typeOfEmployment_method(request_from_frontend['typeOfEmployment'])
-        # if 'companyType' in request_from_frontend:
-        #     query_companyType = self.companyType_method(request_from_frontend['companyType'])
-        # if 'companySize' in request_from_frontend:
-        #     query_companySize = self.job_companySize(request_from_frontend['companySize'])
-        # if 'job_type' in request_from_frontend:
-        #     query_job_type = self.job_type_method(request_from_frontend['job_type'])
-
 
         for key in request_from_frontend:
-
-            if key == 'level':
-                fields_list = ['level']
-            elif key == 'job_type':
-                fields_list = ['job_type']
+            part_of_query = ''
+            print(key)
+            if key in ['job_type', 'level', 'city']:
+                request=request_from_frontend[key]
+                print(request)
+                if request:
+                    part_of_query = self.get_part_of_query(field=key, request=request)
+                    print(part_of_query)
+            elif key == 'country':
+                request=request_from_frontend[key]
+                print(request)
+                if request:
+                    part_of_query = self.get_part_of_query(field='city', request=request)
+                    print(part_of_query)
+            elif key == 'specialization':
+                field = 'sub'
+                print (field)
+                request = request_from_frontend[key]
+                print(request)
+                if request:
+                    part_of_query = self.get_part_of_query(field, request)
+                    print(part_of_query)
             elif key == 'salary':
-                fields_list = ['salary']
-                part_of_query = self.get_query_salary(request_from_frontend[key], fields_list)
-            else:
-                fields_list = ['body', 'title', 'vacancy', 'profession']
+                part_of_query = self.get_query_salary(request_from_frontend)
+                print(part_of_query)
 
-            if key not in ['salary',]:
-                part_of_query = self.get_part_of_query(
-                    request_list=request_from_frontend[key],
-                    fields_list=fields_list,
-                    dict_name=key
-                )
+
             if part_of_query:
-                query += f"({part_of_query}) AND "
+                query += f"{part_of_query} AND "
+                print('QUERY:', query)
+
         if query:
-            # query = f"SELECT * FROM admin_last_session WHERE {query[:-5]}"
-            query = f"WHERE {query[:-5]}"
-        return query
 
-    def direction_method(self, text):
-        """
-        function defines tables by professions and if there are not tables it return part of global query
-        """
-        part_of_query = ''
-        self.search_tables = self.direction_find_professions(text=text)
-        if not self.search_tables:
-            self.search_tables = variables.valid_professions
-            part_of_query = f"(LOWER(title) LIKE '%{text.lower()}%' OR LOWER(body) LIKE '%{text.lower()}%' OR LOWER(vacancy) LIKE '%{text.lower()}%')"
-        return part_of_query
+            full_query = f"WHERE {query[:-5]}"
+            print(full_query)
+            return full_query
 
-        part_of_request = '('
-        if not text:
-            return ''
-        for field in fields_list:
-            part_of_request += f"LOWER({field}) LIKE '%{text.lower()}%' OR "
-        return part_of_request[:-4] + ')'
 
-    def direction_find_professions(self, text):
-        """
-        Define professions by export_pattern
-        """
-        vacancy_filter = VacancyFilter()
-        professions = vacancy_filter.sort_profession(
-            title=text, body='', check_contacts=False, check_vacancy=False, check_level=False,
-            get_params=False, only_one_profession_sub=False
-        )
-        pass
-        return professions['profession']['profession']
+    def get_part_of_query(self, field, request):
+        print(field)
+        print(request)
+        if type(request) is str:
+            request = [request, ]
+        query_part = "("
+        for word in request:
+            query_part += f"{field} LIKE '%{word.lower()}%' OR "
+            print(query_part)
+        return query_part[:-4] + ')'
 
-    def get_part_of_query(self, request_list, fields_list, dict_name):
-        words_list = []
-        part_of_request = '('
-        if not request_list:
-            return ''
-        if type(request_list) is str:
-            request_list = [request_list,]
+    def get_query_salary(self, request_from_frontend):
+        salary = request_from_frontend["salary"]
+        salary_period = request_from_frontend["salaryOption"][0]
+        if salary[0] == '':
+            salary_from_query = ''
+        else:
+            salary_from = int(salary[0])
+            if salary_period == "За месяц":
+                salary_per_month_from = salary_from
+            elif salary_period == "За год":
+                salary_per_month_from = salary_from/12
+            else:
+                salary_per_month_from = salary_from * 160
+            salary_from_query = f"salary_from_usd_month >= {salary_per_month_from}"
 
-        # compose the list from helper dict values by each key
-        for key_word in request_list:
-            if key_word:
-                if key_word in dict_name:
-                    words_list.extend(dict_name[key_word.lower()])
-                else:
-                    words_list.append(key_word.lower())
+        if salary[1] == '':
+            salary_to_query = ''
+        else:
+            salary_to = int(salary[1])
+            if salary_period == "За месяц":
+                salary_per_month_to = salary_to
+            elif salary_period == "За год":
+                salary_per_month_to = salary_to/12
+            else:
+                salary_per_month_to = salary_to * 160
+            salary_to_query = f"salary_from_usd_month <= {salary_per_month_to}"
 
-        for word in words_list:
-            part_of_request += f"{self.direction_method(word, fields_list)} OR "
-
-        part_of_request = part_of_request[:-4]
-        if part_of_request:
-            return part_of_request + ")"
+        if salary_from_query and salary_to_query:
+            return f"{salary_from_query} AND {salary_to_query}"
+        elif salary_from_query and not salary_to_query:
+            return salary_from_query
+        elif not salary_from_query and salary_to_query:
+            return salary_to_query
         else:
             return ''
-
-    def get_query_salary(self, request_from_frontend, fields_list):
-        salary_from = request_from_frontend["salary"][0]
-        salary_to = request_from_frontend["salary"][1]
-        salary_period = request_from_frontend["salaryOption"][0]
-        if salary_period == "За месяц":
-            salary_per_month_from = int(request_from_frontend["salary"][0])
-            salary_per_month_to = int(request_from_frontend["salary"][1])
-
-        elif salary_period == "Почасовая":
-            salary_per_hour_from = request_from_frontend["salary"][0]
-            salary_per_hour_to = request_from_frontend["salary"][1]
-            salary_per_month_from = salary_per_hour_from*160
-            salary_per_month_to = salary_per_hour_to*160
-
-        elif salary_period == "За год":
-            salary_per_year_from = int(request_from_frontend["salary"][0])
-            salary_per_year_to = int(request_from_frontend["salary"][1])
-            salary_per_month_from = salary_per_year_from/12
-            salary_per_month_to = salary_per_year_to/12
-
-        salary_query = f"salary_from_usd_month >= {salary_per_month_from} AND salary_to_usd_month <= {salary_per_month_to}"
-
-
-
-
-    def multipurpose_method(self, one_parameter_dict):
-        if one_parameter_dict.keys()[0] in self.pattern_main_page:
-            pass
-
-# result = Predictive().get_full_query(request_from_frontend=request_from_frontend)
-# print(result)
