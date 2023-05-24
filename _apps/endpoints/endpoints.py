@@ -45,7 +45,6 @@ con = psycopg2.connect(
 )
 
 admin_table = variable.admin_copy
-predictive = Predictive()
 
 async def main_endpoints():
     app = Flask(__name__)
@@ -183,25 +182,19 @@ async def main_endpoints():
 
     @app.route("/search-by-text", methods = ['POST'])
     async def search_by_text():
-        query_search = Predictive()
-        query = query_search.get_full_query(request_from_frontend=request.json)
-        print('QUERY TO API', query)
-        search_tables = query_search.get_search_tables(request_from_frontend=request.json)
-        print('SEARCH_TABLES', search_tables)
-        responses_from_db=[]
+        query_search = Predictive(request_from_frontend=request.json)
+        query = query_search.get_full_query()
+        search_tables = query_search.get_search_tables()
+        responses_from_db = []
         for table in search_tables:
-            response=db.get_all_from_db(
-            table_name=table,
-            param=query,
-            field=admin_table_fields
+            response = db.get_all_from_db(
+                table_name=table,
+                param=query,
+                field=admin_table_fields
             )
             if response:
-                print(response)
                 responses_from_db.extend(response)
-        print(responses_from_db)
-        # response_dict = await helper.to_dict_from_admin_response(responses[0], admin_table_fields)
         responses_dict = await package_list_to_dict(responses_from_db)
-        print(responses_dict)
         responses_dict = {'numbers': len(responses_dict), 'vacancies': responses_dict}
         return responses_dict
 

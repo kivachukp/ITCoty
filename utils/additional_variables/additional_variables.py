@@ -14,6 +14,7 @@ admin_table_fields = "id, chat_name, title, body, profession, vacancy, vacancy_u
                      "level, approved, closed, salary_from, salary_to, salary_currency, salary_period, rate, " \
                      "salary_from_usd_month, salary_to_usd_month"
 
+
 profession_table_fields = "id, chat_name, title, body, profession, vacancy, vacancy_url, company, english, relocation, " \
                              "job_type, city, salary, experience, contacts, time_of_public, created_at, agregator_link, " \
                              "session, sub, tags, full_tags, full_anti_tags, short_session_numbers, level, approved"
@@ -110,6 +111,14 @@ parsing_report_path = './report/excel/parsing_report.xlsx'
 table_parsing_report = 'report_parsing_temporary'
 
 pictures_separators_path = "./utils/pictures/shorts_separators"
+
+valid_subs = {'analyst' : ['sys_analyst', 'data_analyst', 'data_scientist', 'ba'],
+              'backend' : ['python', 'c', 'php', 'java', 'ruby', 'scala', 'net', 'nodejs', 'laravel', 'golang', 'delphi', 'abap', 'ml', 'data_engineer', 'unity', 'one_c', 'embedded'],
+              'designer' : ['ui_ux', 'motion', 'dd', 'ddd', 'game_designer', 'illustrator', 'graphic', 'uxre_searcher'], 'devops' : [],
+              'frontend' : ['vue', 'react', 'angular', 'wordpress', 'bitrix', 'joomla', 'drupal'], 'game' : [], 'hr' : [],
+              'marketing' : ['smm', 'copyrighter', 'seo', 'link_builder', 'media_buyer', 'email_marketer', 'context', 'content_manager', 'tech_writer'],
+              'mobile' : ['ios', 'android', 'cross_mobile', 'flutter', 'react_native'], 'pm' : ['project', 'product'],
+              'qa' : ['manual_qa', 'aqa', 'support'], 'sales_manager' : [], 'non_code_manager' : []}
 
 dict_from_front = {
     "direction": "",
