@@ -295,12 +295,12 @@ class InviteBot():
             parsing_kb.row(parsing_button3, parsing_button2)
 
             await self.bot_aiogram.send_message(message.chat.id, f'Привет, {message.from_user.first_name}!', reply_markup=parsing_kb)
-            await self.bot_aiogram.send_message(variable.id_owner, f'User {message.from_user.id} has started')
-            config2 = configparser.ConfigParser()
-            config2.read("./settings/config_keys.ini")
-            if self.token == config2['Token']['token_red']:
-                await get_news(message=message)
-                pass
+            # await self.bot_aiogram.send_message(variable.id_owner, f'User {message.from_user.id} has started')
+            # config2 = configparser.ConfigParser()
+            # config2.read("./settings/config_keys.ini")
+            # if self.token == config2['Token']['token_red']:
+            #     await get_news(message=message)
+            #     pass
 
         @self.dp.message_handler(commands=['help'])
         async def get_logs(message: types.Message):
@@ -1685,11 +1685,11 @@ class InviteBot():
 
             if callback.data == 'go_by_admin': # next step if callback.data[2:] in self.valid_profession_list:
                 # make the keyboard with all professions
-                if int(callback.message.from_user.id) in variable.white_admin_list:
-                    self.markup = await compose_inline_keyboard(prefix='admin')
-                    await self.bot_aiogram.send_message(callback.message.chat.id, 'choose the channel for vacancy checking', reply_markup=self.markup)
-                else:
-                    await self.bot_aiogram.send_message(callback.message.chat.id, "Sorry, You have not the permissions")
+                # if int(callback.message.from_user.id) in variable.white_admin_list:
+                self.markup = await compose_inline_keyboard(prefix='admin')
+                await self.bot_aiogram.send_message(callback.message.chat.id, 'choose the channel for vacancy checking', reply_markup=self.markup)
+                # else:
+                #     await self.bot_aiogram.send_message(callback.message.chat.id, "Sorry, You have not the permissions")
 
             if callback.data[0:5] == 'admin':
                 tables = self.db.get_information_about_tables_and_fields(only_tables=True)
@@ -2896,8 +2896,8 @@ class InviteBot():
                 # # -----------------------parsing telegram channels -------------------------------------
                 bot_dict = {'bot': self.bot_aiogram, 'chat_id': message.chat.id}
                 # self.task = asyncio.create_task(main(report=self.report, client=self.client, bot_dict=bot_dict))
-                # await main(report=self.report, client=self.client, bot_dict=bot_dict)
-                # await self.report.add_to_excel(report_type='parsing')
+                await main(report=self.report, client=self.client, bot_dict=bot_dict)
+                await self.report.add_to_excel(report_type='parsing')
                 if silent:
                     sites_parser = SitesParser(client=self.client, bot_dict=bot_dict, report=self.report)
                 else:
