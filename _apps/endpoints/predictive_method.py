@@ -77,7 +77,7 @@ class Predictive():
                 salary_per_month_from = salary_from
             elif salary_period == "perYear":
                 salary_per_month_from = salary_from/12
-            elif salary_period == "perHour":
+            elif salary_period == "hourly":
                 salary_per_month_from = salary_from * 160
             salary_from_query = f"salary_from_usd_month >= {salary_per_month_from}"
 
