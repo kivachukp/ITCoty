@@ -68,29 +68,33 @@ class Predictive():
 
     def get_query_salary(self):
         salary = self.request_from_frontend["salary"]
-        salary_period = self.request_from_frontend["salaryOption"][0]
+        salary_period = self.request_from_frontend.get("salaryOption")
         if salary[0] == '':
             salary_from_query = ''
         else:
             salary_from = int(salary[0])
-            if salary_period == "За месяц":
+            if salary_period == "perMonth":
                 salary_per_month_from = salary_from
-            elif salary_period == "За год":
+            elif salary_period == "perYear":
                 salary_per_month_from = salary_from/12
-            else:
+            elif salary_period == "hourly":
                 salary_per_month_from = salary_from * 160
+            else:
+                return ''
             salary_from_query = f"salary_from_usd_month >= {salary_per_month_from}"
 
         if salary[1] == '':
             salary_to_query = ''
         else:
             salary_to = int(salary[1])
-            if salary_period == "За месяц":
+            if salary_period == "perMonth":
                 salary_per_month_to = salary_to
-            elif salary_period == "За год":
+            elif salary_period == "perYear":
                 salary_per_month_to = salary_to/12
+            elif salary_period == "hourly":
+                salary_per_month_to = salary_from * 160
             else:
-                salary_per_month_to = salary_to * 160
+                return ''
             salary_to_query = f"salary_from_usd_month <= {salary_per_month_to}"
 
         if salary_from_query and salary_to_query:
