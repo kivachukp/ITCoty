@@ -56,7 +56,7 @@ class Predictive():
 
         if query:
             full_query = f"WHERE {query[:-5]}"
-            return full_query
+            print (full_query)
 
     def get_part_of_query (self, field, request):
         if type(request) is str:
@@ -73,11 +73,11 @@ class Predictive():
             salary_from_query = ''
         else:
             salary_from = int(salary[0])
-            if salary_period == "За месяц":
+            if salary_period == "perMonth":
                 salary_per_month_from = salary_from
-            elif salary_period == "За год":
+            elif salary_period == "perYear":
                 salary_per_month_from = salary_from/12
-            else:
+            elif salary_period == "perHour":
                 salary_per_month_from = salary_from * 160
             salary_from_query = f"salary_from_usd_month >= {salary_per_month_from}"
 
