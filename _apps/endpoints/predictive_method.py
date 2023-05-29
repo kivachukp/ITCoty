@@ -68,7 +68,7 @@ class Predictive():
 
     def get_query_salary(self):
         salary = self.request_from_frontend["salary"]
-        salary_period = self.request_from_frontend["salaryOption"][0]
+        salary_period = self.request_from_frontend["salaryOption"]
         if salary[0] == '':
             salary_from_query = ''
         else:
