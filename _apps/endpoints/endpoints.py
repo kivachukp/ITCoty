@@ -10,7 +10,7 @@ from aiogram.types import Message, Chat
 from flask import Flask
 import random
 from db_operations.scraping_db import DataBaseOperations
-from utils.additional_variables.additional_variables import admin_database, admin_table_fields, search_table_fields
+from utils.additional_variables.additional_variables import admin_database, admin_table_fields
 from helper_functions.helper_functions import to_dict_from_admin_response
 from flask_cors import CORS
 from flask import request
@@ -182,6 +182,7 @@ async def main_endpoints():
 
     @app.route("/search-by-text", methods = ['POST'])
     async def search_by_text():
+        print(request.json)
         query_search = Predictive(request_from_frontend=request.json)
         query = query_search.get_full_query()
         search_tables = query_search.get_search_tables()
@@ -190,7 +191,9 @@ async def main_endpoints():
             response = db.get_all_from_db(
                 table_name=table,
                 param=query,
-                field=admin_table_fields
+                order = "ORDER BY time_of_public DESC LIMIT 20",
+                field=admin_table_fields,
+                without_sort=True
             )
             if response:
                 responses_from_db.extend(response)

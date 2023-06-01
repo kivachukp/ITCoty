@@ -24,7 +24,6 @@ class Predictive():
         return self.search_tables
 
     def get_full_query(self):
-
         query = ''
         for key in self.request_from_frontend:
             part_of_query = ''
@@ -50,13 +49,16 @@ class Predictive():
 
             elif key == 'salary':
                 part_of_query = self.get_query_salary()
+                pass
 
             if part_of_query:
                 query += f"{part_of_query} AND "
 
         if query:
             full_query = f"WHERE {query[:-5]}"
+            print(f'full_query: {len(full_query)}')
             return full_query
+
 
     def get_part_of_query (self, field, request):
         if type(request) is str:

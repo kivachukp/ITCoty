@@ -1,0 +1,198 @@
+vacancy_dict['salary_currency']: 00
+link: https://hh.ru/vacancy/78772850
+table: admin_last_session
+id: 53396
+-------
+
+vacancy_dict['salary_currency']: 200000
+link: https://t.me/marketing_jobs/7134
+table: admin_last_session
+id: 53095
+-------
+
+vacancy_dict['salary_currency']: 450
+link: https://t.me/jvmjobs/5577
+table: admin_last_session
+id: 53116
+-------
+
+vacancy_dict['salary_currency']: 220
+link: https://t.me/fordev/38300
+table: admin_last_session
+id: 53121
+-------
+
+vacancy_dict['salary_currency']: 350000
+link: https://t.me/hiddengurus/1570
+table: admin_last_session
+id: 53180
+-------
+
+vacancy_dict['salary_currency']: 450
+link: https://t.me/relocaty_jobs/21604
+table: admin_last_session
+id: 53138
+-------
+
+vacancy_dict['salary_currency']: 350
+link: https://t.me/php_jobs/93648
+table: admin_last_session
+id: 53349
+-------
+
+vacancy_dict['salary_currency']: 360
+link: https://t.me/hiddengurus/1574
+table: admin_last_session
+id: 53181
+-------
+
+vacancy_dict['salary_currency']: 10
+link: https://t.me/marketing_jobs/7154
+table: admin_last_session
+id: 53361
+-------
+
+vacancy_dict['salary_currency']: 230
+link: https://t.me/hr_breakfast_emergency/59740
+table: admin_last_session
+id: 53338
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://remote-job.ru/vacancy/show/629214/menedzher-po-prodazham-obuvi-na-udalennuyu-rabotu
+table: admin_last_session
+id: 53426
+-------
+
+vacancy_dict['salary_currency']: 2000
+link: https://t.me/it_vac/2797
+table: admin_last_session
+id: 53183
+-------
+
+vacancy_dict['salary_currency']: 60000
+link: https://finder.vc/vacancies/20851
+table: admin_last_session
+id: 50666
+-------
+
+vacancy_dict['salary_currency']: 250000
+link: https://finder.vc/vacancies/17244
+table: admin_last_session
+id: 50697
+-------
+
+vacancy_dict['salary_currency']: 100
+link: https://finder.vc/vacancies/20760
+table: admin_last_session
+id: 50709
+-------
+
+vacancy_dict['salary_currency']: 60
+link: https://finder.vc/vacancies/20712
+table: admin_last_session
+id: 50730
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.ru/vacancy/78772850
+table: admin_last_session
+id: 53396
+-------
+
+vacancy_dict['salary_currency']: 200000
+link: https://t.me/marketing_jobs/7134
+table: admin_last_session
+id: 53095
+-------
+
+vacancy_dict['salary_currency']: 450
+link: https://t.me/jvmjobs/5577
+table: admin_last_session
+id: 53116
+-------
+
+vacancy_dict['salary_currency']: 220
+link: https://t.me/fordev/38300
+table: admin_last_session
+id: 53121
+-------
+
+vacancy_dict['salary_currency']: 350000
+link: https://t.me/hiddengurus/1570
+table: admin_last_session
+id: 53180
+-------
+
+vacancy_dict['salary_currency']: 450
+link: https://t.me/relocaty_jobs/21604
+table: admin_last_session
+id: 53138
+-------
+
+vacancy_dict['salary_currency']: 350
+link: https://t.me/php_jobs/93648
+table: admin_last_session
+id: 53349
+-------
+
+vacancy_dict['salary_currency']: 360
+link: https://t.me/hiddengurus/1574
+table: admin_last_session
+id: 53181
+-------
+
+vacancy_dict['salary_currency']: 10
+link: https://t.me/marketing_jobs/7154
+table: admin_last_session
+id: 53361
+-------
+
+vacancy_dict['salary_currency']: 230
+link: https://t.me/hr_breakfast_emergency/59740
+table: admin_last_session
+id: 53338
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://remote-job.ru/vacancy/show/629214/menedzher-po-prodazham-obuvi-na-udalennuyu-rabotu
+table: admin_last_session
+id: 53426
+-------
+
+vacancy_dict['salary_currency']: 2000
+link: https://t.me/it_vac/2797
+table: admin_last_session
+id: 53183
+-------
+
+vacancy_dict['salary_currency']: 60000
+link: https://finder.vc/vacancies/20851
+table: admin_last_session
+id: 50666
+-------
+
+vacancy_dict['salary_currency']: 250000
+link: https://finder.vc/vacancies/17244
+table: admin_last_session
+id: 50697
+-------
+
+vacancy_dict['salary_currency']: 100
+link: https://finder.vc/vacancies/20760
+table: admin_last_session
+id: 50709
+-------
+
+vacancy_dict['salary_currency']: 60
+link: https://finder.vc/vacancies/20712
+table: admin_last_session
+id: 50730
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.ru/vacancy/78772850
+table: admin_last_session
+id: 53396
+-------
+
