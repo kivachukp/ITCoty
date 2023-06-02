@@ -56,6 +56,7 @@ class Predictive():
 
         if query:
             full_query = f"WHERE {query[:-5]}"
+            print(full_query)
             return full_query
 
     def get_part_of_query (self, field, request):

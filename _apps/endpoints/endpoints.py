@@ -10,11 +10,12 @@ from aiogram.types import Message, Chat
 from flask import Flask
 import random
 from db_operations.scraping_db import DataBaseOperations
-from utils.additional_variables.additional_variables import admin_database, admin_table_fields, search_table_fields
+from utils.additional_variables.additional_variables import admin_database, admin_table_fields
 from helper_functions.helper_functions import to_dict_from_admin_response
 from flask_cors import CORS
 from flask import request
-from utils.additional_variables.additional_variables import path_post_request_file, post_request_for_example, valid_professions
+from utils.additional_variables.additional_variables import path_post_request_file, post_request_for_example, \
+    valid_professions, table_for_web, preview_fields_for_web
 from patterns._export_pattern import export_pattern
 from patterns.data_pattern._data_pattern import pattern
 from filters.filter_jan_2023.filter_jan_2023 import VacancyFilter
@@ -152,6 +153,10 @@ async def main_endpoints():
     async def get_all_vacancies():
         return await get_all_vacancies_from_db()
 
+    @app.route("/vacancies", methods = ['GET'])
+    async def get_all_vacancies_for_web():
+        return await get_all_vacancies_for_web()
+
     @app.route("/get-all-vacancies-admin")
     async def get_all_vacancies_admin():
         response = await get_all_vacancies_from_db()
@@ -190,6 +195,7 @@ async def main_endpoints():
             response = db.get_all_from_db(
                 table_name=table,
                 param=query,
+                order = 'ORDER BY id DESC LIMIT 20',
                 field=admin_table_fields
             )
             if response:
@@ -317,6 +323,41 @@ async def main_endpoints():
         elif type(response) is str:
             return {'error': response}
         return all_vacancies
+
+    async def get_all_vacancies_for_web():
+        all_vacancies = {}
+        all_vacancies['vacancies'] = {}
+        # all_vacancies['amount'] = ''
+
+        # amount_response = db.get_all_from_db(
+        #     table_name=variable.table_for_web,
+        #     field='count(*)',
+        #     without_sort=True
+        # )
+        # if amount_response:
+        #     all_vacancies['amount'] = amount_response
+
+        response = db.get_all_from_db(
+            table_name=variable.table_for_web,
+            order='LIMIT 25',
+            field=preview_fields_for_web
+        )
+        if type(response) is list:
+            number = 0
+            for vacancy in response:
+                vacancy_dict = await to_dict_from_admin_response(
+                    response=vacancy,
+                    fields=preview_fields_for_web
+                )
+                if number < 100:
+                    all_vacancies['vacancies'][str(number)] = vacancy_dict
+                print(all_vacancies['vacancies'][str(number)]['id'])
+                number += 1
+        elif type(response) is str:
+            return {'error': response}
+
+        return all_vacancies
+
 
     async def write_to_file(text):
         with open(path_post_request_file, 'a', encoding='utf-8') as file:
