@@ -5,14 +5,11 @@ admin_database = 'admin_last_session'
 archive_database = 'archive'
 shorts_session_database = 'short_session_numbers'
 admin_copy = 'admin_copy'
+vacancies_database = 'vacancies'
 countries_cities_table = 'countries_cities'
 last_autopushing_time_database = 'last_autopushing_time'
 short_session_database = 'shorts_session_name'
-admin_table_fields = "id, chat_name, title, body, profession, vacancy, vacancy_url, company, english, relocation, " \
-                     "job_type, city, salary, experience, contacts, time_of_public, created_at, agregator_link, " \
-                     "session, sended_to_agregator, sub, tags, full_tags, full_anti_tags, short_session_numbers, " \
-                     "level, approved, closed, salary_from, salary_to, salary_currency, salary_period, rate, " \
-                     "salary_from_usd_month, salary_to_usd_month"
+
 
 
 profession_table_fields = "id, chat_name, title, body, profession, vacancy, vacancy_url, company, english, relocation, " \
@@ -155,38 +152,48 @@ post_request_for_example = {
     'job_type': ['remote']
 }
 
+admin_table_fields = "id, chat_name, title, body, profession, vacancy, vacancy_url, company, english, relocation, " \
+                     "job_type, city, salary, experience, contacts, time_of_public, created_at, agregator_link, " \
+                     "session, sended_to_agregator, sub, tags, full_tags, full_anti_tags, short_session_numbers, " \
+                     "level, approved, closed, salary_from, salary_to, salary_currency, salary_period, rate, " \
+                     "salary_from_usd_month, salary_to_usd_month"
+
 vacancy_table = "id SERIAL PRIMARY KEY," \
-                         "chat_name VARCHAR(150)," \
-                         "title VARCHAR(1000)," \
-                         "body VARCHAR (6000)," \
-                         "profession VARCHAR (30)," \
-                         "vacancy VARCHAR (700)," \
-                         "vacancy_url VARCHAR (150)," \
-                         "company VARCHAR (200)," \
-                         "english VARCHAR (100)," \
-                         "relocation VARCHAR (100)," \
-                         "job_type VARCHAR (700)," \
-                         "city VARCHAR (150)," \
-                         "salary VARCHAR (300)," \
-                         "salary_from INT," \
-                         "salary_to INT," \
-                         "salary_currency VARCHAR(20)," \
-                         "salary_period VARCHAR(50)," \
-                         "experience VARCHAR (700)," \
-                         "contacts VARCHAR (500)," \
-                         "time_of_public TIMESTAMP," \
-                         "created_at TIMESTAMP," \
-                         "agregator_link VARCHAR(200)," \
-                         "session VARCHAR(15)," \
-                         "sended_to_agregator VARCHAR(30)," \
-                         "sub VARCHAR (250)," \
-                         "tags VARCHAR (700)," \
-                         "full_tags VARCHAR (700)," \
-                         "full_anti_tags VARCHAR (700)," \
-                         "short_session_numbers VARCHAR (300)," \
-                         "level VARCHAR (70)," \
-                         "approved VARCHAR (100)," \
-                         "FOREIGN KEY (session) REFERENCES current_session(session)"
+                "chat_name VARCHAR(150)," \
+                "title VARCHAR(1000)," \
+                "body VARCHAR (6000)," \
+                "profession VARCHAR (30)," \
+                "vacancy VARCHAR (700)," \
+                "vacancy_url VARCHAR (150)," \
+                "company VARCHAR (200)," \
+                "english VARCHAR (100)," \
+                "relocation VARCHAR (100)," \
+                "job_type VARCHAR (700)," \
+                "city VARCHAR (150)," \
+                "salary VARCHAR (300)," \
+                "salary_from INT," \
+                "salary_to INT," \
+                "salary_currency VARCHAR(20)," \
+                "salary_period VARCHAR(50)," \
+                "experience VARCHAR (700)," \
+                "contacts VARCHAR (500)," \
+                "time_of_public TIMESTAMP," \
+                "created_at TIMESTAMP," \
+                "agregator_link VARCHAR(200)," \
+                "session VARCHAR(15)," \
+                "sended_to_agregator VARCHAR(30)," \
+                "sub VARCHAR (250)," \
+                "tags VARCHAR (700)," \
+                "full_tags VARCHAR (700)," \
+                "full_anti_tags VARCHAR (700)," \
+                "short_session_numbers VARCHAR (300)," \
+                "level VARCHAR (70)," \
+                "approved VARCHAR (100), " \
+                "closed BOOLEAN, " \
+                "rate REAL, " \
+                "salary_from_usd_month INT, " \
+                "salary_to_usd_month INT, " \
+                "FOREIGN KEY (session) REFERENCES current_session(session)"
 
 help_text = '/log or /logs - get custom logs (useful for developer\n' \
             '/get_participants - ❗️get the channel follower numbers\n' \
@@ -229,6 +236,7 @@ help_text = '/log or /logs - get custom logs (useful for developer\n' \
             '⛔️/get_channel_members - get user\'s channels name\n' \
             '⛔️/transpose_no_sort_to_archive - all no_sort to archive\n' \
             '/update_salary_field_usd - add usd fields' \
+            '/add_vacancies_table' \
             '----------------------------------------------------\n\n' \
             '---------------- FILES: ----------------\n' \
             '/report_push_shorts - shorts report \n' \

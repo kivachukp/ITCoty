@@ -3,7 +3,7 @@ from filters.filter_jan_2023.filter_jan_2023 import VacancyFilter
 from helper_functions.parser_find_add_parameters.parser_find_add_parameters import FinderAddParameters
 from utils.additional_variables.additional_variables import table_list_for_checking_message_in_db as tables, \
     admin_database, archive_database
-from helper_functions.helper_functions import get_salary_usd_month
+from helper_functions.helper_functions import get_salary_usd_month, replace_NoneType
 
 class HelperSite_Parser:
     def __init__(self, **kwargs):
@@ -38,7 +38,8 @@ class HelperSite_Parser:
                 get_params=False,
                 check_vacancy=True,
                 check_vacancy_only_mex=True,
-                check_contacts=False
+                check_contacts=False,
+                vacancy_dict=results_dict
             )
 
             profession = profession['profession']
@@ -74,6 +75,8 @@ class HelperSite_Parser:
                     )
 
                 results_dict['job_type'] = await self.find_parameters.get_job_types(results_dict)
+
+                results_dict = await replace_NoneType(results_dict=results_dict)
 
                 response_from_db = self.db.push_to_admin_table(
                     results_dict=results_dict,

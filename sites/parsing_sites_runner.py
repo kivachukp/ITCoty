@@ -1,8 +1,13 @@
 
 import configparser
+
+from db_operations.scraping_db import DataBaseOperations
 from logs.logs import Logs
+from sites.scraping_careerjet import СareerjetGetInformation
+from sites.scraping_careerspace import CareerSpaceGetInformation
 from sites.scraping_designer import DesignerGetInformation
 from sites.scraping_dev import DevGetInformation
+from sites.scraping_epam_anywhere import EpamGetInformation
 from sites.scraping_geekjob import GeekGetInformation
 from sites.scraping_habr import HabrGetInformation
 from sites.scraping_hh import HHGetInformation
@@ -16,8 +21,7 @@ from sites.scraping_svyazi import SvyaziGetInformation
 from sites.scrapping_finder import FinderGetInformation
 from sites.scraping_ingamejob import IngameJobGetInformation
 from sites.scraping_remotejob_upgrade import RemoteJobGetInformation
-from multiprocessing import Process, Lock
-import asyncio
+from helper_functions import helper_functions as helper
 
 logs = Logs()
 
@@ -40,6 +44,9 @@ class SitesParser:
         self.current_session = ''
         self.bot = bot_dict['bot']
         self.chat_id = bot_dict['chat_id']
+        self.db = DataBaseOperations(report=self.report)
+        self.helper = helper
+
 
 
     async def call_sites(self):
@@ -49,7 +56,9 @@ class SitesParser:
         # loop.create_task(RemotehubGetInformation(bot_dict=bot_dict, report=self.report).get_content(), name='remotehub')
         # loop.create_task(RemoteJobGetInformation(bot_dict=bot_dict, report=self.report).get_content(), name='remotejob')
         # loop.create_task(HHGetInformation(bot_dict=bot_dict, report=self.report).get_content(), name='hh')
-
+        # await СareerjetGetInformation(bot_dict=bot_dict, report=self.report, db=self.db, helper=self.helper).get_content()
+        await CareerSpaceGetInformation(bot_dict=bot_dict, report=self.report, db=self.db, helper=self.helper).get_content()
+        await EpamGetInformation(bot_dict=bot_dict, report=self.report, db=self.db, helper=self.helper).get_content()
         await RemotehubGetInformation(bot_dict=bot_dict, report=self.report).get_content()
         await RemoteJobGetInformation(bot_dict=bot_dict, report=self.report).get_content()
         await HHGetInformation(bot_dict=bot_dict, report=self.report).get_content()

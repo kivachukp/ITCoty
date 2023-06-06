@@ -4,7 +4,7 @@ import re
 from utils.additional_variables.additional_variables import admin_database, archive_database, admin_table_fields, \
     valid_professions
 from utils.additional_variables.additional_variables import table_list_for_checking_message_in_db, \
-    short_session_database, vacancy_table, additional_elements
+    short_session_database, vacancy_table, additional_elements, vacancies_database
 import psycopg2
 from datetime import datetime
 from logs.logs import Logs
@@ -119,12 +119,14 @@ class DataBaseOperations:
                 else:
                     print('This user exist already', i)
     #--------------------------------------------------
-    def check_or_create_table(self, cur, table_name):
+    def check_or_create_table(self, table_name, cur=None, fields=None):
+        if not fields:
+            fields = vacancy_table
 
         cur = self.con.cursor()
 
         with self.con:
-            cur.execute(f"""CREATE TABLE IF NOT EXISTS {table_name} ({vacancy_table});""")
+            cur.execute(f"""CREATE TABLE IF NOT EXISTS {table_name} ({fields});""")
             print(f'table {table_name} has been crated or exists')
 
     def push_to_bd(self, results_dict, profession_list=None, agregator_id=None, shorts_session_name=None):
@@ -141,10 +143,10 @@ class DataBaseOperations:
             pro_set = pro
 
             for pro in pro_set:
-                self.check_or_create_table(cur, pro)
+                self.check_or_create_table(cur=cur, table_name=pro)
                 self.push_to_db_write_message(cur, pro, results_dict, response_dict, agregator_id, shorts_session_name)
         else:
-            self.check_or_create_table(cur, pro)
+            self.check_or_create_table(cur=cur, table_name=pro)
             response_dict = self.push_to_db_write_message(cur, pro, results_dict, response_dict, agregator_id, shorts_session_name)
         return response_dict
 
@@ -191,23 +193,39 @@ class DataBaseOperations:
 
             response_dict[pro] = False
 
-            new_post = f"""INSERT INTO {pro} (
-            chat_name, title, body, profession, vacancy, vacancy_url, company, english, relocation, job_type,
-            city, salary, experience, contacts, time_of_public, created_at, agregator_link, session, sub, tags,
-            full_tags, full_anti_tags, short_session_numbers, level)
-                        VALUES ('{results_dict['chat_name']}', '{results_dict['title']}', '{results_dict['body']}',
-                        '{pro}', '{results_dict['vacancy']}', '{results_dict['vacancy_url']}', '{results_dict['company']}',
-                        '{results_dict['english']}', '{results_dict['relocation']}', '{results_dict['job_type']}',
-                        '{results_dict['city']}', '{results_dict['salary']}', '{results_dict['experience']}',
-                        '{results_dict['contacts']}', '{results_dict['time_of_public']}', '{datetime.now()}', '{agregator_id}',
-                        '{results_dict['session']}', '{results_dict['sub']}', '{results_dict['tags']}', '{results_dict['full_tags']}',
-                        '{results_dict['full_anti_tags']}', '{shorts_session_name}', '{results_dict['level']}');"""
-            # print('query in db: ', new_post)
+            fields_list = []
+            values_str = ''
+            for key in results_dict:
+                if results_dict[key] and key != 'id':
+                    fields_list.append(key)
+                    if type(results_dict[key]) is int:
+                        values_str += f"{results_dict[key]}, "
+                    else:
+                        values_str += f"'{results_dict[key]}', "
+            new_post = f"""INSERT INTO {pro} ({', '.join(fields_list)}) VALUES ({values_str[:-2]})"""
+
+            values_str += f"{results_dict['id']}, "
+            fields_list.append("id")
+            new_post_to_vacancies_table = f"""INSERT INTO {vacancies_database} ({', '.join(fields_list)}) VALUES ({values_str[:-2]})"""
+
+            # new_post = f"""INSERT INTO {pro} (
+            # chat_name, title, body, profession, vacancy, vacancy_url, company, english, relocation, job_type,
+            # city, salary, experience, contacts, time_of_public, created_at, agregator_link, session, sub, tags,
+            # full_tags, full_anti_tags, short_session_numbers, level)
+            #             VALUES ('{results_dict['chat_name']}', '{results_dict['title']}', '{results_dict['body']}',
+            #             '{pro}', '{results_dict['vacancy']}', '{results_dict['vacancy_url']}', '{results_dict['company']}',
+            #             '{results_dict['english']}', '{results_dict['relocation']}', '{results_dict['job_type']}',
+            #             '{results_dict['city']}', '{results_dict['salary']}', '{results_dict['experience']}',
+            #             '{results_dict['contacts']}', '{results_dict['time_of_public']}', '{datetime.now()}', '{agregator_id}',
+            #             '{results_dict['session']}', '{results_dict['sub']}', '{results_dict['tags']}', '{results_dict['full_tags']}',
+            #             '{results_dict['full_anti_tags']}', '{shorts_session_name}', '{results_dict['level']}');"""
             with self.con:
                 try:
                     cur.execute(new_post)
                     print(self.quant, f'+++++++++++++ The vacancy has been added to DB {pro}\n')
-
+                    cur.execute(new_post_to_vacancies_table)
+                    # print(self.quant, f'+++++++++++++ The vacancy has been added to DB {vacancies_database}\n')
+                    # self.quant += 1
                     try:
                         self.push_vacancy_to_main_stats(profession=pro, dict=results_dict)
                         print(f'+++++++++++++ Added to statistics\n')
