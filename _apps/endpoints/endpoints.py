@@ -155,7 +155,9 @@ async def main_endpoints():
 
     @app.route("/vacancies", methods = ['GET'])
     async def get_all_vacancies_for_web():
-        return await get_all_vacancies_for_web()
+        limit = request.args.get('limit')
+        start_id = request.args.get('id')
+        return await get_all_vacancies_for_web(start_id=start_id, limit=limit)
 
     @app.route("/get-all-vacancies-admin")
     async def get_all_vacancies_admin():
@@ -324,7 +326,7 @@ async def main_endpoints():
             return {'error': response}
         return all_vacancies
 
-    async def get_all_vacancies_for_web():
+    async def get_all_vacancies_for_web(start_id, limit):
         all_vacancies = {}
         all_vacancies['vacancies'] = {}
         # all_vacancies['amount'] = ''
@@ -338,8 +340,9 @@ async def main_endpoints():
         #     all_vacancies['amount'] = amount_response
 
         response = db.get_all_from_db(
-            table_name=variable.table_for_web,
-            order='LIMIT 25',
+            table_name='all_vacancies_sorted',
+            order=f'ORDER BY admin_id DESC LIMIT {limit}',
+            param = f'WHERE admin_id < {start_id}',
             field=preview_fields_for_web
         )
         if type(response) is list:

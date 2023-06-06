@@ -4,7 +4,7 @@ from helper_functions.database_update_data.database_update import DatabaseUpdate
 
 
 # update = DatabaseUpdate()
-# update.create_view()
+# update.update_id()
 
 endpoints.run_endpoints()
 

@@ -324,7 +324,7 @@ views_fields_for_web = "id, body, profession, vacancy, vacancy_url, company, " \
                      "job_type, city, salary, time_of_public, created_at, sub, level, " \
                      "salary_from_usd_month, salary_to_usd_month"
 
-preview_fields_for_web = "id, profession, vacancy, company, " \
+preview_fields_for_web = "admin_id, id, profession, vacancy, company, " \
                      "job_type, city, salary, time_of_public, created_at, level"
 
 table_for_web = 'all_vacancies'
