@@ -119,6 +119,7 @@ class InviteBot():
         self.parser_at_work = False
         self.shorts_at_work = False
         self.unlock_message = None
+        self.unlock_message_autopushing = None
         self.show_vacancies = {
             'table': '',
             'offset': 0,
@@ -138,6 +139,9 @@ class InviteBot():
         self.db = DataBaseOperations(report=self.report)
         self.tg_parser = WriteToDbMessages(report=self.report)
         self.temporary_data = {}
+        self.manual_admin_shorts = None
+        self.autopushing_task = None
+        self.wait_until_manual_will_stop = None
         logging.basicConfig(level=logging.DEBUG, filename="py_log.log",filemode="w")
 
         if token_in:
@@ -312,6 +316,10 @@ class InviteBot():
             for text in text_list:
                 await self.bot_aiogram.send_message(message.chat.id, text)
 
+        @self.dp.message_handler(commands=['get'])
+        async def silent_get_news(message: types.Message):
+            await get_news(silent=True)
+
         @self.dp.message_handler(commands=['silent_get_news'])
         async def silent_get_news(message: types.Message):
             await get_news(silent=True)
@@ -476,17 +484,22 @@ class InviteBot():
                 profession_list = variable.profession_list_for_pushing_by_schedule
                 await self.bot_aiogram.send_message(message.chat.id, f"professions in the list: {profession_list}")
 
-                self.task = asyncio.create_task(
+                unlock_kb = await self.compose_keyboard_in_bar(buttons=['Unlock admin and stop autopushing'])
+                self.unlock_message_autopushing = await self.bot_aiogram.send_message(message.chat.id,
+                                                                          'the admin panel will be locked until the end of the operation. '
+                                                                          'Or press the unlock button (only available to you)',
+                                                                          reply_markup=unlock_kb)
+
+                self.autopushing_task = asyncio.create_task(
                     self.hard_pushing_by_schedule(
                         message=message,
                         profession_list=profession_list
                     )
                 )
-
-                # await self.hard_pushing_by_schedule(
-                #     message=message,
-                #     profession_list=profession_list
-                # )
+                await self.autopushing_task
+                if self.unlock_message_autopushing:
+                    await self.unlock_message_autopushing.delete()
+                self.autopushing_task = None
 
         @self.dp.message_handler(commands=['stop_hard_pushing_by_schedule'])
         async def hard_pushing_by_schedule_commands(message: types.Message):
@@ -1689,6 +1702,9 @@ class InviteBot():
             if callback.data == 'consolidated_table':
                 await output_consolidated_table(callback.message)
 
+            if callback.data == 'one_day':
+                await output_one_day(callback.message)
+
             if callback.data == 'go_by_admin':  # next step if callback.data[2:] in self.valid_profession_list:
                 # make the keyboard with all professions
                 # if int(callback.message.from_user.id) in variable.white_admin_list:
@@ -1722,16 +1738,15 @@ class InviteBot():
                         params="WHERE id=1"
                     )
                     # add the button
-                    unlock_kb = ReplyKeyboardMarkup(resize_keyboard=True)
-                    button_unlock = KeyboardButton('Unlock admin')
-                    unlock_kb.add(button_unlock)
+                    unlock_kb = await self.compose_keyboard_in_bar(buttons=['Unlock admin'])
                     self.unlock_message = await self.bot_aiogram.send_message(callback.message.chat.id,
                                                                               'the admin panel will be locked until the end of the operation. '
                                                                               'Or press the unlock button (only available to you)',
                                                                               reply_markup=unlock_kb)
                     pass
 
-                    await self.send_vacancy_to_admin_channel(callback.message, callback.data)
+                    self.manual_admin_shorts = asyncio.create_task(self.send_vacancy_to_admin_channel(callback.message, callback.data))
+                    self.manual_admin_shorts = None
                 else:
                     await self.bot_aiogram.send_message(callback.message.chat.id,
                                                         "Sorry shorts at work now. Please wait some time")
@@ -1752,16 +1767,29 @@ class InviteBot():
 
             elif 'PUSH' in callback.data and 'shorts' in callback.data:
 
+                if not self.unlock_message:
+                    unlock_kb = await self.compose_keyboard_in_bar(buttons=['Unlock admin'])
+                    self.unlock_message = await self.bot_aiogram.send_message(callback.message.chat.id,
+                                                                              'the admin panel will be locked until the end of the operation. '
+                                                                              'Or press the unlock button (only available to you)',
+                                                                              reply_markup=unlock_kb)
                 helper.add_to_report_file(
                     path=variable.path_push_shorts_report_file,
                     write_mode='a',
                     text=f"[BUTTON] shorts callback.data: {callback.data}\n"
                 )
 
-                await self.push_shorts_attempt_to_make_multi_function(
+                self.manual_admin_shorts = asyncio.create_task(self.push_shorts_attempt_to_make_multi_function(
                     message=callback.message,
                     callback_data=callback.data
                 )
+                )
+
+                await self.manual_admin_shorts
+                self.manual_admin_shorts = None
+                if self.unlock_message:
+                    await self.unlock_message.delete()
+                self.manual_admin_shorts = None
 
             if callback.data == 'all':
                 await self.push_shorts_attempt_to_make_multi_function(
@@ -1878,6 +1906,20 @@ class InviteBot():
                     if self.unlock_message:
                         await self.unlock_message.delete()
                         self.unlock_message = None
+
+                    if self.unlock_message_autopushing:
+                        await self.unlock_message_autopushing.delete()
+
+                    if self.manual_admin_shorts:
+                        self.manual_admin_shorts.cancel()
+                        self.manual_admin_shorts = None
+                        await self.bot_aiogram.send_message(message.chat.id, "Manual pushing has been stopped")
+
+                    if self.autopushing_task:
+                        self.autopushing_task.cancel()
+                        self.autopushing_task = None
+                        await self.bot_aiogram.send_message(message.chat.id, "Autopushing has been stopped")
+
                     if self.task:
                         self.task.cancel()
                         self.task = None
@@ -1946,6 +1988,7 @@ class InviteBot():
                                                                 callback_data='go_by_admin')
                     but_stat_today = InlineKeyboardButton('One day statistics', callback_data='one_day_statistics')
                     but_excel_all_statistics = InlineKeyboardButton('Whole posted vacancies (EXCEL)', callback_data='consolidated_table')
+                    but_excel_one_day_vacancies = InlineKeyboardButton('ONE DAY (EXCEL)', callback_data='one_day')
                     but_hard_push = InlineKeyboardButton('HARD PUSHING 🧨🧨🧨', callback_data='hard_push')
 
                     # self.markup.row(but_show, but_send_digest_full)
@@ -1953,6 +1996,7 @@ class InviteBot():
                     self.markup.add(but_show)
                     self.markup.add(but_stat_today)
                     self.markup.add(but_excel_all_statistics)
+                    self.markup.add(but_excel_one_day_vacancies)
                     self.markup.add(but_hard_push)
                     self.markup.add(but_do_by_admin)
 
@@ -2646,6 +2690,35 @@ class InviteBot():
                         self.db.delete_data(table_name=i, param=f"WHERE id={id}")
                         print(f'Was deleted id={id} from {i}')
 
+        async def output_one_day(message):
+            responses = []
+            date_now = datetime.now() - timedelta(hours=21)
+            date_now = date_now.strftime('%Y-%m-%d')
+            for table in [variable.admin_database, variable.archive_database]:
+                response = self.db.get_all_from_db(
+                    table_name=table,
+                    param=f"where DATE(created_at)>='{date_now}'",
+                    field=variable.admin_table_fields
+                )
+                if response:
+                    responses.extend(response)
+
+            excel_dict = {}
+            for vacancy in responses:
+                vacancy_dict = await helper.to_dict_from_admin_response(vacancy, variable.admin_table_fields)
+                for key in vacancy_dict:
+                    if key not in excel_dict:
+                        excel_dict[key] = []
+                    excel_dict[key].append(vacancy_dict[key])
+
+            df = pd.DataFrame(excel_dict)
+
+            df.to_excel(f'./excel/excel/one_day_vacancies.xlsx', sheet_name='Sheet1')
+            print('File has been written')
+            await self.send_file_to_user(message, f'excel/excel/one_day_vacancies.xlsx')
+
+
+
         async def output_consolidated_table(message):
             dates = []
 
@@ -3309,13 +3382,15 @@ class InviteBot():
                     parser = parser(bot_dict={'bot': self.bot_aiogram, 'chat_id': message.chat.id})
                     parser_response = await parser.get_content_from_one_link(url)
 
+                    text = ''
                     if parser_response['response_dict']:
-                        text = f"Vacancy found in db by title-body with another url\n" \
-                               f"url: {parser_response['response_dict']['vacancy_url'] if ' vacancy_url' in parser_response['response_dict'] else '-'}\n" \
-                               f"title: {parser_response['response_dict']['title'][:40]}\n" \
-                               f"profession: {parser_response['response_dict']['profession']}\n" \
-                               f"tags: {parser_response['response_dict']['full_tags'] if parser_response['response_dict']['full_tags'] else '-'}\n" \
-                               f"anti_tags: {parser_response['response_dict']['full_anti_tags'] if parser_response['response_dict']['full_anti_tags'] else '-'}\n"
+                        if parser_response['response']['vacancy']:
+                            text += f"Status: {parser_response['response']['vacancy'].capitalize()}\n"
+                        text += f"url: {parser_response['response_dict']['response_dict']['vacancy_url'] if 'vacancy_url' in parser_response['response_dict']['response_dict'] else '-'}\n"
+                        text += f"title: {parser_response['response_dict']['response_dict']['title'][:40]}\n"
+                        text += f"profession: {parser_response['response_dict']['response_dict']['profession']}\n"
+                        text += f"tags: {parser_response['response_dict']['response_dict']['full_tags'] if parser_response['response_dict']['response_dict']['full_tags'] else '-'}\n"
+                        text += f"anti_tags: {parser_response['response_dict']['response_dict']['full_anti_tags'] if parser_response['response_dict']['response_dict']['full_anti_tags'] else '-'}\n"
                     else:
                         text = f"{parser_response['response']['vacancy']}\n" \
                                f"profession: {parser_response['profession']['profession'] if parser_response['profession']['profession'] else '-'}\n" \
@@ -3325,11 +3400,11 @@ class InviteBot():
                     #     text = 'Vacancy found in db by title-body with another url'
                     # else:
                     #     text = parser_response['response']['vacancy']
-                    await self.bot_aiogram.send_message(message.chat.id, text)
+                    await self.bot_aiogram.send_message(message.chat.id, text, disable_web_page_preview=True)
                 else:
                     await self.bot_aiogram.send_message(message.chat.id, f"NO PARSER for {domain}")
             except Exception as e:
-                await self.bot_aiogram.send_message(message.chat.id, str(e))
+                await self.bot_aiogram.send_message(message.chat.id, f'Error in single url: {str(e)}')
 
 
         async def add_subs():
@@ -4685,7 +4760,8 @@ class InviteBot():
                 if salary_shorts:
                     message_for_send += f"{salary_shorts[:40]}, "
             # end of code
-
+                print(24)
+                pass
             if len(message_for_send) > 4096:
                 message_for_send = message_for_send[0:4092] + '...'
 
@@ -4739,6 +4815,13 @@ class InviteBot():
         profession_list['profession'] = []
         profession_list['profession'] = [profession, ]
 
+        if vacancy_from_admin_dict['approved'] and  'by admin' in vacancy_from_admin_dict['approved']:
+            vacancy_from_admin_dict['approved'] += f"approves by admin: {profession}"
+        else:
+            vacancy_from_admin_dict['approved'] = f"approves by admin: {profession}"
+
+        if self.report:
+            self.report.parsing_report(approved=f'approves by admin: {profession}')
         response_from_db = self.db.push_to_bd(
             results_dict=vacancy_from_admin_dict,
             profession_list=profession_list,
@@ -4751,7 +4834,8 @@ class InviteBot():
             id_admin_last_session_table,
             table_from=variable.admin_database,
             table_to=variable.archive_database,
-            response=None
+            response=None,
+            change_parameters_dict=None
     ):
 
         if not response:
@@ -4768,21 +4852,26 @@ class InviteBot():
                 fields=variable.admin_table_fields
             )
 
-            # response = response[0]
-            query = f"""INSERT INTO {table_to} (
-                    chat_name, title, body, profession, vacancy, vacancy_url, company, english, relocation,
-                    job_type, city, salary, experience, contacts, time_of_public, created_at, agregator_link,
-                    session, sended_to_agregator, sub, tags, full_tags, full_anti_tags, short_session_numbers)
-                            VALUES (
-                            '{response_dict['chat_name']}', '{response_dict['title']}', '{response_dict['body']}',
-                            '{response_dict['profession']}', '{response_dict['vacancy']}', '{response_dict['vacancy_url']}',
-                            '{response_dict['company']}',
-                            '{response_dict['english']}', '{response_dict['relocation']}', '{response_dict['job_type']}',
-                            '{response_dict['city']}', '{response_dict['salary']}', '{response_dict['experience']}',
-                            '{response_dict['contacts']}', '{response_dict['time_of_public']}', '{response_dict['created_at']}',
-                            '{response_dict['agregator_link']}', '{response_dict['session']}', '{response_dict['sended_to_agregator']}',
-                            '{response_dict['sub']}', '{response_dict['tags']}', '{response_dict['full_tags']}',
-                            '{response_dict['full_anti_tags']}', '{response_dict['short_session_numbers']}');"""
+            if change_parameters_dict:
+                for key in change_parameters_dict:
+                    response_dict[key] = change_parameters_dict[key]
+
+            response_dict = await helper.replace_NoneType(response_dict)
+            query = self.db.compose_query(vacancy_dict=response_dict, table_name=table_to, define_id=False)
+            # query = f"""INSERT INTO {table_to} (
+            #         chat_name, title, body, profession, vacancy, vacancy_url, company, english, relocation,
+            #         job_type, city, salary, experience, contacts, time_of_public, created_at, agregator_link,
+            #         session, sended_to_agregator, sub, tags, full_tags, full_anti_tags, short_session_numbers)
+            #                 VALUES (
+            #                 '{response_dict['chat_name']}', '{response_dict['title']}', '{response_dict['body']}',
+            #                 '{response_dict['profession']}', '{response_dict['vacancy']}', '{response_dict['vacancy_url']}',
+            #                 '{response_dict['company']}',
+            #                 '{response_dict['english']}', '{response_dict['relocation']}', '{response_dict['job_type']}',
+            #                 '{response_dict['city']}', '{response_dict['salary']}', '{response_dict['experience']}',
+            #                 '{response_dict['contacts']}', '{response_dict['time_of_public']}', '{response_dict['created_at']}',
+            #                 '{response_dict['agregator_link']}', '{response_dict['session']}', '{response_dict['sended_to_agregator']}',
+            #                 '{response_dict['sub']}', '{response_dict['tags']}', '{response_dict['full_tags']}',
+            #                 '{response_dict['full_anti_tags']}', '{response_dict['short_session_numbers']}');"""
             self.db.run_free_request(
                 request=query,
                 output_text="\nThe vacancy has removed from admin to archive\n"
@@ -4811,7 +4900,10 @@ class InviteBot():
             len_prof_list = len(prof_list)
             if len_prof_list < 2:
 
-                await self.transfer_vacancy_from_to_table(id_admin_last_session_table)
+                await self.transfer_vacancy_from_to_table(
+                    id_admin_last_session_table=id_admin_last_session_table,
+                    change_parameters_dict={'approved': 'rejects by admin'}
+                )
                 self.db.delete_data(
                     table_name='admin_last_session',
                     param=f"WHERE id={id_admin_last_session_table}"
@@ -5159,8 +5251,6 @@ class InviteBot():
 
                     if not hard_pushing:
                         response = self.db.get_all_from_db(table_name='admin_temporary', without_sort=True)
-                        # for i in response:
-                        #     print(i)
 
                         print(8)
                         response = self.db.get_all_from_db(
@@ -5215,6 +5305,9 @@ class InviteBot():
                         self.temporary_data['out']['title'] = []
                     if 'body' not in self.temporary_data['out']:
                         self.temporary_data['out']['body'] = []
+                    if 'vacancy_url' not in self.temporary_data['out']:
+                        self.temporary_data['out']['vacancy_url'] = []
+
 
                     print(11)
                     pass
@@ -5234,6 +5327,10 @@ class InviteBot():
                     self.temporary_data['out']['body'].append(vacancy_from_admin_dict['body']) \
                         if not hard_pushing \
                         else self.temporary_data['out']['body'].append(str(vacancy['body']))
+
+                    self.temporary_data['out']['vacancy_url'].append(vacancy_from_admin_dict['vacancy_url']) \
+                        if not hard_pushing \
+                        else self.temporary_data['out']['vacancy_url'].append(str(vacancy['vacancy_url']))
 
                     try:
                         helper.add_to_report_file(
@@ -5291,10 +5388,12 @@ class InviteBot():
                             vacancy_from_admin_dict=vacancy_from_admin_dict,
                             full=False
                         )
+                        print(25)
                         await self.compose_message_for_send_dict(
                             composed_message_dict,
                             profession
                         )
+                        print(26)
                         # push to profession tables
                         await self.compose_data_and_push_to_db(
                             vacancy_from_admin_dict=vacancy_from_admin_dict,
@@ -5304,6 +5403,7 @@ class InviteBot():
                         prof_list = vacancy_from_admin_dict['profession'].split(', ')
                         profession_list['profession'] = [profession, ]
 
+                        print(27)
                         # update vacancy by profession field
                         await self.update_vacancy_admin_last_session(
                             results_dict=None,
@@ -5356,6 +5456,7 @@ class InviteBot():
                             self.report.parsing_report(out_id_admin=self.temporary_data['out']['id_admin'][n], report_type='shorts')
                             self.report.parsing_report(out_title=self.temporary_data['out']['title'][n], report_type='shorts')
                             self.report.parsing_report(out_body=self.temporary_data['out']['body'][n], report_type='shorts')
+                            self.report.parsing_report(out_body=self.temporary_data['out']['vacancy_url'][n], report_type='shorts')
                             self.report.parsing_switch_next(switch=True, report_type='shorts')
                             for key in self.temporary_data['in']:
                                 self.temporary_data['in'][key].pop(index)
@@ -5364,6 +5465,7 @@ class InviteBot():
                             self.report.parsing_report(out_id_admin=self.temporary_data['out']['id_admin'][n], report_type='shorts')
                             self.report.parsing_report(out_title=self.temporary_data['out']['title'][n], report_type='shorts')
                             self.report.parsing_report(out_body=self.temporary_data['out']['body'][n], report_type='shorts')
+                            self.report.parsing_report(out_body=self.temporary_data['out']['vacancy_url'][n], report_type='shorts')
                             self.report.parsing_switch_next(switch=True, report_type='shorts')
 
                     if 'in' in self.temporary_data and self.temporary_data['in']['id_admin_channel']:
@@ -5427,14 +5529,13 @@ class InviteBot():
             params="WHERE id=1"
         )
 
+
     async def hard_pushing_by_schedule(self, message, profession_list):
-        unlock_kb = ReplyKeyboardMarkup(resize_keyboard=True)
-        button_unlock = KeyboardButton('Unlock admin and stop autopushing')
-        unlock_kb.add(button_unlock)
-        self.unlock_message = await self.bot_aiogram.send_message(message.chat.id,
-                                                                  'the admin panel will be locked until the end of the operation. '
-                                                                  'Or press the unlock button (only available to you)',
-                                                                  reply_markup=unlock_kb)
+
+        # if self.manual_admin_shorts:
+        #     self.wait_until_manual_will_stop = asyncio.create_task(self.wait_until(argument=self.manual_admin_shorts))
+        # await self.wait_until_manual_will_stop
+
         table_set = set()
         time_marker = ''
 
@@ -5488,45 +5589,54 @@ class InviteBot():
 
             if current_time >= 9 and current_time < 12 and not time_dict['09'] and not time_dict['09']:
                 print('hard pushing 09 is starting')
-                await self.push_shorts_attempt_to_make_multi_function(
-                    message=message,
-                    callback_data="each",
-                    hard_pushing=True,
-                    hard_push_profession=profession_list,
-                    channel_for_pushing=True
-                )
-                time_dict['09'] = True
-                time_dict['17'] = False
-                time_dict['12'] = False
-                time_marker = '9'
+                while self.manual_admin_shorts:
+                    await asyncio.sleep(10)
+                else:
+                    await self.push_shorts_attempt_to_make_multi_function(
+                        message=message,
+                        callback_data="each",
+                        hard_pushing=True,
+                        hard_push_profession=profession_list,
+                        channel_for_pushing=True
+                    )
+                    time_dict['09'] = True
+                    time_dict['17'] = False
+                    time_dict['12'] = False
+                    time_marker = '9'
 
             elif current_time >= 12 and current_time < 20 and not time_dict['12']:
                 print('hard pushing 12 is starting')
-                await self.push_shorts_attempt_to_make_multi_function(
-                    message=message,
-                    callback_data="each",
-                    hard_pushing=True,
-                    hard_push_profession=profession_list,
-                    channel_for_pushing=True
-                )
-                time_dict['12'] = True
-                time_dict['09'] = False
-                time_dict['17'] = False
-                time_marker = '12'
+                while self.manual_admin_shorts:
+                    await asyncio.sleep(10)
+                else:
+                    await self.push_shorts_attempt_to_make_multi_function(
+                        message=message,
+                        callback_data="each",
+                        hard_pushing=True,
+                        hard_push_profession=profession_list,
+                        channel_for_pushing=True
+                    )
+                    time_dict['12'] = True
+                    time_dict['09'] = False
+                    time_dict['17'] = False
+                    time_marker = '12'
 
             elif current_time >= 17 and current_time < 24 and not time_dict['17']:
                 print('hard pushing 17 is starting')
-                await self.push_shorts_attempt_to_make_multi_function(
-                    message=message,
-                    callback_data="each",
-                    hard_pushing=True,
-                    hard_push_profession=profession_list,
-                    channel_for_pushing=True
-                )
-                time_dict['17'] = True
-                time_dict['12'] = False
-                time_dict['09'] = False
-                time_marker = '17'
+                while self.manual_admin_shorts:
+                    await asyncio.sleep(10)
+                else:
+                    await self.push_shorts_attempt_to_make_multi_function(
+                        message=message,
+                        callback_data="each",
+                        hard_pushing=True,
+                        hard_push_profession=profession_list,
+                        channel_for_pushing=True
+                    )
+                    time_dict['17'] = True
+                    time_dict['12'] = False
+                    time_dict['09'] = False
+                    time_marker = '17'
 
             if time_marker:
                 self.db.update_table(
@@ -5763,6 +5873,17 @@ class InviteBot():
                                                 f'There are have not any vacancies in {profession}\n'
                                                 f'Please choose others', reply_markup=self.markup)
             await asyncio.sleep(random.randrange(2, 3))
+
+    async def compose_keyboard_in_bar(self, buttons:list):
+        unlock_kb = ReplyKeyboardMarkup(resize_keyboard=True)
+        for button in buttons:
+            button_unlock = KeyboardButton(button)
+            unlock_kb.add(button_unlock)
+        return unlock_kb
+
+    async def wait_until(self, argument):
+        while argument:
+            await asyncio.sleep(10)
 
 def run(double=False, token_in=None):
     InviteBot(

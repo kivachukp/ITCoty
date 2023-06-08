@@ -114,6 +114,7 @@ class VacancyFilter:
                 if result['result']:
                     self.profession['profession'].append(result['result'])
                     self.profession['tag'] += result['tags']
+                if result['anti_tags']:
                     self.profession['anti_tag'] += result['anti_tags']
 
             if not self.profession['profession']:

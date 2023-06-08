@@ -9,7 +9,7 @@ vacancies_database = 'vacancies'
 countries_cities_table = 'countries_cities'
 last_autopushing_time_database = 'last_autopushing_time'
 short_session_database = 'shorts_session_name'
-
+reject_table = 'reject'
 
 
 profession_table_fields = "id, chat_name, title, body, profession, vacancy, vacancy_url, company, english, relocation, " \
@@ -30,8 +30,8 @@ tables_for_search_vacancy_existing = [admin_database, 'archive']
 # all_tables_for_vacancy_search = ['designer', 'game', 'product', 'mobile', 'pm', 'sales_manager', 'analyst', 'frontend',
 #                      'marketing', 'devops', 'hr', 'backend', 'qa', 'junior', admin_database, archive_database]
 
-profession_list_for_pushing_by_schedule = ['pm', 'qa', 'devops', 'mobile', 'game', 'frontend', 'backend', 'marketing',
-                                           'designer', 'analyst']
+profession_list_for_pushing_by_schedule = ['marketing', 'sales_manager', 'analyst', 'designer', 'pm', 'qa', 'devops',
+                                           'mobile', 'game', 'frontend', 'backend']
 all_tables_for_vacancy_search = []
 all_tables_for_vacancy_search.extend([admin_database, archive_database])
 all_tables_for_vacancy_search.extend(valid_professions)
@@ -63,7 +63,7 @@ shorts_copy_path = "./excel/copy_shorts.txt"
 
 sites_search_words = ['designer', 'ui', 'junior', 'стажер', 'стажировка', 'product manager', 'project manager', 'python', 'php']
 
-table_list_for_checking_message_in_db = ['admin_last_session', 'archive']
+table_list_for_checking_message_in_db = ['admin_last_session', 'archive', 'reject']
 
 pre_message_for_shorts = '<i>Функционал дайджеста находится в состоянии альфа-тестирования, приносим свои ' \
                                    f'извинения, мы работаем над тем чтобы вы получали информацию максимально ' \

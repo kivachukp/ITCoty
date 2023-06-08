@@ -2,7 +2,7 @@ import configparser
 import json
 import re
 from utils.additional_variables.additional_variables import admin_database, archive_database, admin_table_fields, \
-    valid_professions
+    valid_professions, reject_table as reject_database
 from utils.additional_variables.additional_variables import table_list_for_checking_message_in_db, \
     short_session_database, vacancy_table, additional_elements, vacancies_database
 import psycopg2
@@ -132,98 +132,42 @@ class DataBaseOperations:
     def push_to_bd(self, results_dict, profession_list=None, agregator_id=None, shorts_session_name=None):
 
         response_dict = {}
-        if not self.con:
-            self.connect_db()
-        cur = self.con.cursor()
-
         pro = profession_list['profession']
         self.quant = 1
 # -------------------------- create short message --------------------------------
-        if type(pro) is list or type(pro) is set:
+        if type(pro) in [list, set, tuple]:
             pro_set = pro
-
-            for pro in pro_set:
-                self.check_or_create_table(cur=cur, table_name=pro)
-                self.push_to_db_write_message(cur, pro, results_dict, response_dict, agregator_id, shorts_session_name)
         else:
-            self.check_or_create_table(cur=cur, table_name=pro)
-            response_dict = self.push_to_db_write_message(cur, pro, results_dict, response_dict, agregator_id, shorts_session_name)
+            pro_set = [pro]
+
+        for pro in pro_set:
+            self.check_or_create_table(table_name=pro)
+            response_dict = self.push_to_db_write_message(pro, results_dict, response_dict, agregator_id, shorts_session_name)
         return response_dict
 
-    def push_to_db_write_message(self, cur, pro, results_dict, response_dict, agregator_id, shorts_session_name=None):
+    def push_to_db_write_message(self, pro, results_dict, response_dict, agregator_id, shorts_session_name=None, cur=None):
 
         logs.write_log(f"scraping_db: function: push_to_db_write_message")
 
-        results_dict['title'] = self.clear_title_or_body(results_dict['title'])
-        results_dict['body'] = self.clear_title_or_body(results_dict['body'])
-        results_dict['company'] = self.clear_title_or_body(results_dict['company'])
-
-        query = f"""SELECT * FROM {pro} WHERE title='{results_dict['title']}' AND body='{results_dict['body']}'"""
-        query_double = f"""SELECT * FROM {pro}
-                        WHERE title LIKE '%{results_dict['title'].strip()}%' AND
-                        body LIKE '%{results_dict['body'].strip()}%'"""
-        with self.con:
-            try:
-                cur.execute(query)
-                r = cur.fetchall()
-            except Exception as e:
-                print(f'\nError in request or exists in DB {e}\n')
-
-        with self.con:
-            try:
-                cur.execute(query_double)
-                r2 = cur.fetchall()
-            except Exception as e:
-                print(f'\nError in request or exists in DB {e}\n')
-
-        if not r and r2:
-            pass
-
-        if not r and not r2:
-
-            # to get the one sub only
+        vacancy_exists = self.check_vacancy_exists_in_db(tables_list=[pro], title=results_dict['title'], body=results_dict['body'])
+        if not vacancy_exists['has_been_found']:
+            results_dict['sub'] = helper.decompose_from_str_to_list(data_str=results_dict['sub']) if results_dict['sub'] else None
             if results_dict['sub']:
-                results_dict['sub'] = helper.decompose_from_str_to_list(
-                    data_str=results_dict['sub']
-                )
                 if pro in results_dict['sub']:
                     results_dict['sub'] = f"{pro}: {', '.join(results_dict['sub'][pro])}"
                 else:
                     results_dict['sub'] = f"{pro}: "
-
             response_dict[pro] = False
 
-            fields_list = []
-            values_str = ''
-            for key in results_dict:
-                if results_dict[key] and key != 'id':
-                    fields_list.append(key)
-                    if type(results_dict[key]) is int:
-                        values_str += f"{results_dict[key]}, "
-                    else:
-                        values_str += f"'{results_dict[key]}', "
-            new_post = f"""INSERT INTO {pro} ({', '.join(fields_list)}) VALUES ({values_str[:-2]})"""
+            new_post = self.compose_query(vacancy_dict = results_dict, table_name=pro, define_id=False)
+            new_post_to_vacancies_table = self.compose_query(vacancy_dict=results_dict, table_name=vacancies_database, define_id=True)
 
-            values_str += f"{results_dict['id']}, "
-            fields_list.append("id")
-            new_post_to_vacancies_table = f"""INSERT INTO {vacancies_database} ({', '.join(fields_list)}) VALUES ({values_str[:-2]})"""
-
-            # new_post = f"""INSERT INTO {pro} (
-            # chat_name, title, body, profession, vacancy, vacancy_url, company, english, relocation, job_type,
-            # city, salary, experience, contacts, time_of_public, created_at, agregator_link, session, sub, tags,
-            # full_tags, full_anti_tags, short_session_numbers, level)
-            #             VALUES ('{results_dict['chat_name']}', '{results_dict['title']}', '{results_dict['body']}',
-            #             '{pro}', '{results_dict['vacancy']}', '{results_dict['vacancy_url']}', '{results_dict['company']}',
-            #             '{results_dict['english']}', '{results_dict['relocation']}', '{results_dict['job_type']}',
-            #             '{results_dict['city']}', '{results_dict['salary']}', '{results_dict['experience']}',
-            #             '{results_dict['contacts']}', '{results_dict['time_of_public']}', '{datetime.now()}', '{agregator_id}',
-            #             '{results_dict['session']}', '{results_dict['sub']}', '{results_dict['tags']}', '{results_dict['full_tags']}',
-            #             '{results_dict['full_anti_tags']}', '{shorts_session_name}', '{results_dict['level']}');"""
+            cur = self.con.cursor()
             with self.con:
                 try:
                     cur.execute(new_post)
                     print(self.quant, f'+++++++++++++ The vacancy has been added to DB {pro}\n')
-                    cur.execute(new_post_to_vacancies_table)
+                    # cur.execute(new_post_to_vacancies_table)
                     # print(self.quant, f'+++++++++++++ The vacancy has been added to DB {vacancies_database}\n')
                     # self.quant += 1
                     try:
@@ -804,13 +748,11 @@ class DataBaseOperations:
                 print(e)
 
     def push_to_admin_table(self, results_dict, profession, check_or_exists=True, table_name=admin_database, params=None):
-        results_dict['title'] = self.clear_title_or_body(results_dict['title'])
-        results_dict['body'] = self.clear_title_or_body(results_dict['body'])
+        # results_dict['title'] = self.clear_title_or_body(results_dict['title'])
+        # results_dict['body'] = self.clear_title_or_body(results_dict['body'])
 
         if check_or_exists:
-
-            tables_list_for_vacancy_searching = set()
-            tables_list_for_vacancy_searching.union(profession['profession'] if type(profession['profession']) is set else set(profession['profession']))
+            tables_list_for_vacancy_searching = set(profession['profession']).copy()
             tables_list_for_vacancy_searching.discard('no_sort')
             tables_list_for_vacancy_searching = tables_list_for_vacancy_searching.union(additional_elements)
 
@@ -821,40 +763,16 @@ class DataBaseOperations:
             if has_been_found['has_been_found']:
                 return {"has_been_found": True, "response_dict": has_been_found['response_dict']}
 
-        results_dict['company'] = self.clear_title_or_body(results_dict['company'])
-        results_dict['profession'] = helper.compose_simple_list_to_str(data_list=profession['profession'], separator=', ')
-        results_dict['company'] = self.clear_title_or_body(results_dict['company'])
-        results_dict['profession'] = helper.compose_simple_list_to_str(data_list=profession['profession'], separator=', ')
-        results_dict['sub'] = helper.compose_to_str_from_list(data_list=profession['sub'])
-        if not results_dict['time_of_public']:
-            results_dict['time_of_public'] = datetime.now()
-        results_dict['tags'] = helper.get_tags(profession)
-        results_dict['full_tags'] = profession['tag'].replace("'", "")
-        results_dict['full_anti_tags'] = profession['anti_tag'].replace("'", "")
-        results_dict['level'] = profession['level']
-        results_dict['created_at'] = datetime.now()
-        results_dict = helper.get_additional_values_fields(
-            dict_in=results_dict
-        )
+            has_been_found = self.check_vacancy_exists_in_db(
+                tables_list=tables_list_for_vacancy_searching,
+                title=self.clear_title_or_body(results_dict['title']),
+                body=self.clear_title_or_body(results_dict['body']))
+            if has_been_found['has_been_found']:
+                return {"has_been_found": True, "response_dict": has_been_found['response_dict']}
         if results_dict['profession'] == 'no_sort':
             table_name = archive_database
 
-        print('+++city: ', results_dict['city']) if 'city' in results_dict else None
-        print('+++salary from: ', results_dict['salary_from']) if 'salary_from' in results_dict else None
-        print('+++salary to: ', results_dict['salary_to']) if 'salary_to' in results_dict else None
-        print('+++salary currency: ', results_dict['salary_currency']) if 'salary_currency' in results_dict else None
-        print('+++salary period: ', results_dict['salary_period']) if 'salary_period' in results_dict else None
-
-        fields_list = []
-        values_str = ''
-        for key in results_dict:
-            if results_dict[key]:
-                fields_list.append(key)
-                if type(results_dict[key]) is int:
-                    values_str += f"{results_dict[key]}, "
-                else:
-                    values_str += f"'{results_dict[key]}', "
-        new_post = f"""INSERT INTO {table_name} ({', '.join(fields_list)}) VALUES ({values_str[:-2]})"""
+        new_post = self.compose_query(vacancy_dict=results_dict, table_name=table_name)
 
         if not self.con:
             self.connect_db()
@@ -867,6 +785,7 @@ class DataBaseOperations:
                 if self.report:
                     self.report.parsing_report(profession=results_dict['profession'])
                     self.report.parsing_report(has_been_added_to_db=True)
+                return {"has_been_found": False, "response_dict": results_dict}
 
             except Exception as e:
                 if self.report:
@@ -874,70 +793,87 @@ class DataBaseOperations:
                     self.report.parsing_report(error=str(e))
 
                 print(f'-------------- Didn\'t push in ADMIN LAST SESSION {e}\n')
-                pass
+                return {"has_been_found": False, "response_dict": results_dict}
 
-        return {"has_been_found": False, "response_dict": {}}
 
     def check_vacancy_exists_in_db(self, tables_list, title, body):
-        title = self.clear_title_or_body(title)
-        body = self.clear_title_or_body(body)
 
-        tables_fields = admin_table_fields
+        response_check = []
+        response_check2 = []
+        response_check3 = []
+        # if results_dict['title']:
+        #     results_dict['title'] = self.clear_title_or_body(results_dict['title'])
+        # if results_dict['body']:
+        #     results_dict['body'] = self.clear_title_or_body(results_dict['body'])
+        # if results_dict['company']:
+        #     results_dict['company'] = self.clear_title_or_body(results_dict['company'])
+        for table in tables_list:
+            query = f"""SELECT * FROM {table} WHERE title='{title}'"""
+            query2 = f"""SELECT * FROM {table}
+                            WHERE title LIKE '%{title.strip()}%'"""
+            query3 = f"""SELECT * FROM {table} WHERE title='{self.clear_title_or_body(title)}'"""
+            query += f" AND body='{body}'" if body else ""
+            query2 += f" AND body LIKE '%{body.strip()}%'" if body else ""
+            query3 += f" AND body='{self.clear_title_or_body(body)}'" if body else ""
+            try:
+                response_check = self.run_free_request(request=query)
+                response_check2 = self.run_free_request(request=query2)
+                response_check3 = self.run_free_request(request=query3)
+            except Exception as ex:
+                print(f'error in push_to_db_write_message: {ex}')
 
-        for one_element in tables_list:
-            response = self.get_all_from_db(
-                table_name=f'{one_element}',
-                param=f"WHERE title='{title}' AND body='{body}'",
-                field=tables_fields
-            )
-            response_like = self.get_all_from_db(
-                table_name=f'{one_element}',
-                param=f"WHERE title LIKE '{title}' AND body LIKE '{body}'",
-                field=tables_fields
-            )
-            if response != response_like:
-                print("\n\nALARM!! ALARM!! ALARM!\n\n")
-                print(f"response True") if response else print(f"response False")
-                print(f"response_like True") if response_like else print(f"response_like False")
-
-
-            if response or response_like:
-                response = response_like if not response else response
-                response_dict = helper.to_dict_from_admin_response_sync(
-                    response=response[0],
-                    fields=tables_fields
-                )
-                if self.report:
-                    self.report.parsing_report(
-                        found_title=response_dict['title'],
-                        found_body=response_dict['body'],
-                        found_id=response_dict['id'],
-                        found_vacancy_link=response_dict['vacancy_url']
-                    )
-                    self.report.parsing_report(has_been_added_to_db=False)
-
-                print(f'!!!!!!!!!!! Vacancy exists in {one_element} table\n')
-                return {"has_been_found": True, "response_dict": response_dict}
-
-            # if not response and response_like:
-            #     response_dict = helper.to_dict_from_admin_response_sync(
-            #         response=response_like[0],
-            #         fields=tables_fields
-            #     )
-            #     if self.report:
-            #         self.report.parsing_report(
-            #             found_title=response_dict['title'],
-            #             found_body=response_dict['body'],
-            #             found_id=response_dict['id'],
-            #             found_vacancy_link=response_dict['vacancy_url']
-            #         )
-            #         self.report.parsing_report(has_been_added_to_db=False)
-            #         # self.report.parsing_switch_next(switch=True)
-            #
-            #     print(f'!!!!!!!!!!! Vacancy exists in {one_element} table\n')
-            #     return True
-
+            if response_check or response_check2 or response_check3:
+                for response in [response_check, response_check2, response_check3]:
+                    if response:
+                        response_dict = helper.to_dict_from_admin_response_sync(
+                            response=response[0], fields=admin_table_fields
+                        )
+                        if response_dict:
+                            return {"has_been_found": True, "response_dict": response_dict}
         return {"has_been_found": False, "response_dict": {}}
+
+        #
+        #
+        # title = self.clear_title_or_body(title)
+        # body = self.clear_title_or_body(body)
+        #
+        # tables_fields = admin_table_fields
+        #
+        # for one_element in tables_list:
+        #     response = self.get_all_from_db(
+        #         table_name=f'{one_element}',
+        #         param=f"WHERE title='{title}' AND body='{body}'",
+        #         field=tables_fields
+        #     )
+        #     response_like = self.get_all_from_db(
+        #         table_name=f'{one_element}',
+        #         param=f"WHERE title LIKE '{title}' AND body LIKE '{body}'",
+        #         field=tables_fields
+        #     )
+        #     if response != response_like:
+        #         print("\n\nALARM!! ALARM!! ALARM!\n\n")
+        #         print(f"response True") if response else print(f"response False")
+        #         print(f"response_like True") if response_like else print(f"response_like False")
+        #
+        #
+        #     if response or response_like:
+        #         response = response_like if not response else response
+        #         response_dict = helper.to_dict_from_admin_response_sync(
+        #             response=response[0],
+        #             fields=tables_fields
+        #         )
+        #         if self.report:
+        #             self.report.parsing_report(
+        #                 found_title=response_dict['title'],
+        #                 found_body=response_dict['body'],
+        #                 found_id=response_dict['id'],
+        #                 found_vacancy_link=response_dict['vacancy_url']
+        #             )
+        #             self.report.parsing_report(has_been_added_to_db=False)
+        #
+        #         print(f'!!!!!!!!!!! Vacancy exists in {one_element} table\n')
+        #         return {"has_been_found": True, "response_dict": response_dict}
+        # return {"has_been_found": False, "response_dict": {}}
 
     def push_followers_statistics(self, channel_statistic_dict:dict):
 
@@ -1695,11 +1631,11 @@ class DataBaseOperations:
             cur.execute(query)
             print(f'table {table_name} has been crated or exists')
 
-    def push_to_db_common(self, table_name, fields_values_dict, params=None, notification=False):
+    def push_to_db_common(self, table_name, fields_values_dict, params=None, report=False, notification=False):
         if params:
             set_fields = ''
             for key in fields_values_dict:
-                if type(fields_values_dict[key]) in [str, bool]:
+                if type(fields_values_dict[key]) in [str, bool, datetime]:
                     if type(fields_values_dict[key]) is str and "'" in fields_values_dict[key]:
                         set_fields += f"{key}=$${fields_values_dict[key]}$$, "
                     else:
@@ -1710,27 +1646,25 @@ class DataBaseOperations:
             query = f"UPDATE {table_name} SET {set_fields} {params}"
 
         else:
-            keys_str = ''
-            values_str = ''
-            for key in fields_values_dict:
-                keys_str += f"{key}, "
-                if type(fields_values_dict[key]) in [str, bool]:
-                    if type(fields_values_dict[key]) is str and "'" in fields_values_dict[key]:
-                        values_str += f"$${fields_values_dict[key]}$$, "
-                    else:
-                        values_str += f"'{fields_values_dict[key]}', "
-                else:
-                    values_str += f"{fields_values_dict[key]}, "
-            keys_str = keys_str[:-2]
-            values_str = values_str[:-2]
-            query = f"INSERT INTO {table_name} ({keys_str}) VALUES ({values_str})"
+            query = self.compose_query(vacancy_dict=fields_values_dict, table_name=table_name)
         if notification:
             print(query)
         cur = self.con.cursor()
         with self.con:
-            cur.execute(query)
-            if notification:
-                print('Done')
+            try:
+                cur.execute(query)
+                if report and self.report:
+                    self.report.parsing_report(profession=fields_values_dict['profession'])
+                    self.report.parsing_report(has_been_added_to_db=True)
+                if notification:
+                    # print('Done')
+                    print(f'+++++++++++++ It has been added to DB {table_name}\n')
+            except Exception as ex:
+                print(f"error in push_to_db_common function: {ex}")
+                if report and self.report:
+                    self.report.parsing_report(has_been_added_to_db=False)
+                    self.report.parsing_report(error=str(ex))
+
 
     def update_job_types(self, table_list):
         for table in table_list:
@@ -1749,4 +1683,32 @@ class DataBaseOperations:
             )
             url = vacancy_dict['vacancy_url']
 
-
+    def compose_query(self, vacancy_dict, table_name, define_id=None):
+        # fields_list = []
+        # values_str = ''
+        # for key in vacancy_dict:
+        #     if vacancy_dict[key] and key != 'id':
+        #         fields_list.append(key)
+        #         if type(vacancy_dict[key]) is int:
+        #             values_str += f"{vacancy_dict[key]}, "
+        #         else:
+        #             values_str += f"'{vacancy_dict[key]}', "
+        #     elif define_id:
+        #         fields_list.append(key)
+        #         values_str += f"{vacancy_dict[key]}, "
+        # return f"""INSERT INTO {table_name} ({', '.join(fields_list)}) VALUES ({values_str[:-2]})"""
+        keys_str = ''
+        values_str = ''
+        for key in vacancy_dict:
+            if vacancy_dict[key]:
+                keys_str += f"{key}, "
+                if type(vacancy_dict[key]) in [str, bool, datetime]:
+                    if type(vacancy_dict[key]) is str and "'" in vacancy_dict[key]:
+                        values_str += f"$${vacancy_dict[key]}$$, "
+                    else:
+                        values_str += f"'{vacancy_dict[key]}', "
+                else:
+                    values_str += f"{vacancy_dict[key]}, "
+        keys_str = keys_str[:-2]
+        values_str = values_str[:-2]
+        return f"INSERT INTO {table_name} ({keys_str}) VALUES ({values_str})"

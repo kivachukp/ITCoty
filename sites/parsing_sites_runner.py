@@ -28,7 +28,7 @@ logs = Logs()
 config = configparser.ConfigParser()
 config.read("./settings_/config.ini")
 
-parser_sites = {'hh.ru': HHGetInformation, 'hh.kz': HHKzGetInformation, 'rabota.by': RabotaGetInformation,
+parser_sites = {'nn.hh.ru': HHGetInformation, 'spb.hh.ru': HHGetInformation, 'hh.ru': HHGetInformation, 'hh.kz': HHKzGetInformation, 'rabota.by': RabotaGetInformation,
                 'praca.by': PracaGetInformation, 'remotehub.com': RemotehubGetInformation,
                 'remote-job.ru': RemoteJobGetInformation, 'jobs.devby.io' : DevGetInformation,
                 'russia.superjob.ru': SuperJobGetInformation, 'superjob.ru': SuperJobGetInformation,

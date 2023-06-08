@@ -297,6 +297,7 @@ class HHGetInformation:
 
                         response = await self.helper_parser_site.write_each_vacancy(results_dict)
 
+                        print('sort profession (33)')
                         await self.output_logs(
                             about_vacancy=response,
                             vacancy=vacancy,
