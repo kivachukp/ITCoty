@@ -42,6 +42,7 @@ class VacancyFilter:
         check_level = True if 'check_level' not in kwargs else kwargs['check_level']
         only_one_profession_sub = True if 'only_one_profession_sub' not in kwargs else kwargs['only_one_profession_sub']
         low = False if 'low' not in kwargs else kwargs['low']
+        vacancy_dict = kwargs['vacancy_dict'] if 'vacancy_dict' in kwargs and kwargs['vacancy_dict'] else None
 
         self.profession['tag'] = ''
         self.profession['anti_tag'] = ''
@@ -96,9 +97,12 @@ class VacancyFilter:
                     return {'profession': self.profession, 'params': {}}
 
             # ---------------- professions -----------------
-            vacancy_name = self.get_vacancy_name(
-                text=vacancy
-            ).capitalize()
+            if not vacancy_dict or (vacancy_dict and not vacancy_dict['vacancy']):
+                vacancy_name = self.get_vacancy_name(
+                    text=vacancy
+                ).capitalize()
+            else:
+                vacancy_name = vacancy_dict['vacancy']
 
             if vacancy_name and (vacancy_name == title or '#' in title):
                 search_profession_text = vacancy_name
@@ -110,6 +114,7 @@ class VacancyFilter:
                 if result['result']:
                     self.profession['profession'].append(result['result'])
                     self.profession['tag'] += result['tags']
+                if result['anti_tags']:
                     self.profession['anti_tag'] += result['anti_tags']
 
             if not self.profession['profession']:
@@ -190,15 +195,22 @@ class VacancyFilter:
         tags = ''
         anti_tags = ''
 
-        if low:
-            vacancy = vacancy.lower()
+        # if low:
+        #     vacancy = vacancy.lower()
         if not check_only_mex:
             for word in pattern['ma']:
-                if low:
-                    word = word.lower()
+                # if low:
+                #     word = word.lower()
                 match = []
+                if '[' not in word:
+                    word = word.lower()
+                    vacancy_ma = vacancy.lower()
+                else:
+                    vacancy_ma = vacancy
+                if word in ['qa', 'QA']:
+                    pass
                 try:
-                    match = set(re.findall(rf"{word}", vacancy))
+                    match = set(re.findall(rf"{word}", vacancy_ma))
                 except Exception as e:
                     with open('./excel/filter_jan_errors.txt', 'a+', encoding='utf-8') as f:
                         f.write(f"word = {word}\nvacancy = {vacancy}\nerror = {e}\n------------\n\n")
@@ -211,11 +223,17 @@ class VacancyFilter:
 
         if result and mex:
             for anti_word in pattern['mex']:
-                if low:
-                    anti_word = anti_word.lower()
+                # if low:
+                #     anti_word = anti_word.lower()
                 match = []
+                if '[' not in anti_word:
+                    anti_word = anti_word.lower()
+                    vacancy_mex = vacancy.lower()
+                else:
+                    vacancy_mex = vacancy
+
                 try:
-                    match = set(re.findall(rf"{anti_word}", vacancy))
+                    match = set(re.findall(rf"{anti_word}", vacancy_mex))
                 except Exception as e:
                     with open('./excel/filter_jan_errors.txt', 'a+', encoding='utf-8') as f:
                         f.write(f"word = {anti_word}\nvacancy = {vacancy}\nerror = {e}\n------------\n\n")
@@ -358,10 +376,10 @@ class VacancyFilter:
         return self.profession
 
     def search_profession(self, vacancy, item, mex=True, pattern_key=None):
-            if item in self.not_lower_professions:
-                low = False
-            else:
-                low = True
+            # if item in self.not_lower_professions:
+            low = False
+            # else:
+            #     low = True
 
             if item == 'product':
                 item = 'pm'

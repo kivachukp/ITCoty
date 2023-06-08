@@ -3,6 +3,7 @@ import configparser
 import datetime
 import json
 import os
+import time
 from multiprocessing import Process
 
 import psycopg2
@@ -10,7 +11,7 @@ from aiogram.types import Message, Chat
 from flask import Flask
 import random
 from db_operations.scraping_db import DataBaseOperations
-from utils.additional_variables.additional_variables import admin_database, admin_table_fields, search_table_fields
+from utils.additional_variables.additional_variables import admin_database, admin_table_fields
 from helper_functions.helper_functions import to_dict_from_admin_response
 from flask_cors import CORS
 from flask import request
@@ -182,6 +183,8 @@ async def main_endpoints():
 
     @app.route("/search-by-text", methods = ['POST'])
     async def search_by_text():
+        print(request.json)
+        time.sleep(9)
         query_search = Predictive(request_from_frontend=request.json)
         query = query_search.get_full_query()
         search_tables = query_search.get_search_tables()
@@ -190,10 +193,15 @@ async def main_endpoints():
             response = db.get_all_from_db(
                 table_name=table,
                 param=query,
+                order = "ORDER BY time_of_public DESC LIMIT 20",
                 field=admin_table_fields
             )
             if response:
-                responses_from_db.extend(response)
+                if type(response) is not str:
+                    responses_from_db.extend(response)
+                else:
+                    print('BAD response: ', response)
+                    print(f'QUERY is:\n{query}')
         responses_dict = await package_list_to_dict(responses_from_db)
         responses_dict = {'numbers': len(responses_dict), 'vacancies': responses_dict}
         return responses_dict
@@ -442,11 +450,12 @@ async def main_endpoints():
 
     async def package_list_to_dict(responses_list):
         result_dict = {}
-        if responses_list:
+        if responses_list and type(responses_list) is not str:
             count = 0
             for response in responses_list:
-                result_dict[str(count)] = helper.to_dict_from_admin_response_sync(response,
-                                                                                               variable.admin_table_fields)
+                result = helper.to_dict_from_admin_response_sync(response, variable.admin_table_fields)
+                if result:
+                    result_dict[str(count)] = result
                 count += 1
         return result_dict
 
