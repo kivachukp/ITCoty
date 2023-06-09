@@ -700,3 +700,21 @@ async def get_salary_usd_month(vacancy_dict, **kwargs):
         print('*' * 6)
         # if not update_data:
         return vacancy_dict
+
+async def transform_salary(results_dict):
+    salary_format = ''
+    if results_dict['salary_from']:
+        salary_format += f"from {results_dict['salary_from']}"
+    if results_dict['salary_to']:
+        salary_format += f" to {results_dict['salary_to']}"
+    if results_dict['salary_currency']:
+        salary_format += f" {results_dict['salary_currency']}"
+    if results_dict['salary_period']:
+        salary_format += f" {results_dict['salary_period'].lower()}"
+    return salary_format
+
+async def replace_NoneType(results_dict):
+    for key in results_dict:
+        if results_dict[key] == None:
+            results_dict[key] = ''
+    return results_dict

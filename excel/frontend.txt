@@ -1,0 +1,4293 @@
+Quantity juniors: 311
+
+1
+💡Senior Data Engineer
+prof: backend, frontend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA analyst={DWH}
+MA frontend={frontend}
+MA frontend={React}
+MA backend={Python}
+MA backend={Ruby}
+MA backend={Data Engineer}
+MA backend={ETL}
+MA backend={Senior Data Engineer}
+MA backend={Ruby on Rails}
+
+
+backend: python, ruby, data_engineer; frontend: react; analyst: data_analyst
+----------
+
+2
+Frontend Developer
+prof: frontend
+MA vacancy={Откликнуться}
+MA frontend={Frontend}
+MA frontend={Frontend developer}
+
+
+frontend: react
+----------
+
+3
+developer
+prof: frontend, backend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={React}
+MA backend={C#}
+
+
+frontend: react; backend: c
+----------
+
+4
+Middle+ Python Developer
+prof: qa, frontend, backend
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={work}
+MA frontend={Django}
+MA backend={python, Python}
+MA backend={Python Developer}
+MA qa={автотесты}
+
+
+qa: ; frontend: django; backend: python
+----------
+
+5
+Инженер внедрения и технической поддержки
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={javascript}
+MA backend={python}
+
+None
+frontend: ; backend: python
+----------
+
+6
+Разработчик мобильных приложений React Native
+prof: mobile, frontend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA vacancy={ищем}
+MA mobile={React Native}
+MA mobile={приложений React Native}
+MA frontend={React}
+MA frontend={ React }
+
+
+mobile: ios, cross_mobile, react_native; frontend: react
+----------
+
+7
+Начальник отдела разработки (ASP.NET / C# / PHP)
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={React}
+MA frontend={Vue}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Back-end}
+MA backend={C#}
+MA backend={ .NET}
+
+
+frontend: vue, react; backend: c, php, net
+----------
+
+8
+Разработчик игр (TypeScript+Phaser)
+prof: marketing, frontend, backend
+MA vacancy={работа}
+MA frontend={JavaScript}
+MA marketing={контент}
+MA backend={JavaS}
+
+
+marketing: ; frontend: ; backend: java
+----------
+
+9
+Выделитесь среди публикаций на hh.ru. Забрендируйте вакансии компании. Получайте
+prof: marketing, frontend, backend
+MA vacancy={work}
+MA frontend={React}
+MA frontend={ React }
+MA frontend={JavaScript}
+MA marketing={контент}
+MA backend={JavaS}
+
+
+marketing: ; frontend: react; backend: java
+----------
+
+10
+Разработчик C#/.net
+prof: frontend, backend
+MA vacancy={ищем}
+MA frontend={Vue}
+MA backend={C#}
+MA backend={ .NET}
+
+
+frontend: vue; backend: c, net
+----------
+
+11
+Инженер по тестированию (QA)
+prof: qa, frontend, backend
+MA vacancy={ищем}
+MA frontend={Angular}
+MA backend={Python}
+MA backend={Delphi}
+MA qa={автотестов}
+MA qa={тестировщик}
+MA qa={Postman}
+
+None
+qa: ; frontend: angular; backend: python, delphi
+----------
+
+12
+Mobile developer (React Native) Аккредитованная ИТ-компания
+prof: mobile, frontend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA mobile={Mobile}
+MA mobile={React Native}
+MA frontend={React}
+
+
+mobile: android, cross_mobile, react_native; frontend: react
+----------
+
+13
+Team Lead C# (RPA Team)
+prof: frontend, backend
+MA vacancy={work}
+MA vacancy={ищем}
+MA frontend={frontend}
+MA frontend={Angular}
+MA frontend={React}
+MA frontend={ React }
+MA frontend={javascript}
+MA backend={C#}
+MA backend={ .NET}
+
+None
+frontend: react, angular; backend: c, net
+----------
+
+14
+Начальник отдела управления базами данных Управления информационных технологий
+prof: devops, frontend, backend
+MA vacancy={работа}
+MA frontend={VueJS}
+MA frontend={Vue}
+MA frontend={Javascript}
+MA devops={баз данных}
+MA backend={PHP}
+MA backend={Back-end}
+MA backend={Laravel}
+MA backend={Laravel}
+MA backend={Javas}
+
+None
+devops: ; frontend: vue; backend: php, java, laravel
+----------
+
+15
+Инженер поддержки ПО
+prof: backend, devops, frontend, analyst
+MA vacancy={работа}
+MA analyst={аналитик}
+MA frontend={Angular}
+MA devops={DevSecOps}
+MA backend={Python}
+MA backend={Java }
+MA backend={Java , Java1}
+
+
+backend: python, java; devops: ; frontend: angular; analyst: 
+----------
+
+16
+TeamLead в отдел web разработки
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={JavaScript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={JavaS}
+
+
+frontend: ; backend: php, java
+----------
+
+17
+Protocol (Blockchain) Developer
+prof: frontend, backend
+MA vacancy={work}
+MA frontend={JavaScript}
+MA backend={Python}
+MA backend={Golang}
+MA backend={JavaS}
+
+
+frontend: ; backend: python, java, golang
+----------
+
+18
+Fullstack разработчик (.NET)
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={work}
+MA frontend={Angular}
+MA backend={C#}
+MA backend={ .NET}
+
+None
+frontend: angular; backend: c, net
+----------
+
+19
+.NET разработчик
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={frontend}
+MA backend={C#}
+MA backend={backend}
+
+
+frontend: ; backend: c
+----------
+
+20
+Главный специалист отдела управления базами данных Управления информационных технологий
+prof: devops, frontend, backend
+MA vacancy={работа}
+MA frontend={VueJS}
+MA frontend={Vue}
+MA frontend={Javascript}
+MA devops={баз данных}
+MA backend={PHP}
+MA backend={Back-end}
+MA backend={Laravel}
+MA backend={Laravel}
+MA backend={Javas}
+
+None
+devops: ; frontend: vue; backend: php, java, laravel
+----------
+
+21
+Smart Contract Developer/Solidity Developer (Remote)
+prof: mobile, frontend, backend
+MA vacancy={work}
+MA mobile={ios}
+MA frontend={JavaScript}
+MA backend={backend}
+MA backend={Node.js}
+MA backend={JavaS}
+
+
+mobile: ios; frontend: ; backend: java, nodejs
+----------
+
+22
+Bitrix24 - разработчик(с жильем)
+prof: frontend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={Bitrix}
+
+
+frontend: bitrix
+----------
+
+23
+Программист по работе с сайтами (фулстек | full stack)
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={JavaScript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Laravel}
+MA backend={Laravel}
+MA backend={JavaS}
+MA junior={от 1 года}
+
+
+junior: frontend, backend; frontend: ; backend: php, java, laravel
+----------
+
+24
+Руководитель группы разработки
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={frontend}
+MA frontend={React}
+MA frontend={JavaScript}
+MA backend={backend}
+MA backend={JavaS}
+
+None
+frontend: react; backend: java
+----------
+
+25
+TeamLead в отдел web разработки
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={JavaScript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={JavaS}
+
+None
+frontend: ; backend: php, java
+----------
+
+26
+Руководитель группы разработки
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={frontend}
+MA frontend={Angular}
+MA frontend={JavaScript}
+MA backend={backend}
+MA backend={NodeJS}
+MA backend={JavaS}
+
+None
+frontend: angular; backend: java, nodejs
+----------
+
+27
+PHP-разработчик/Web-программист (Full Stack, Back/Front End) Битрикс, Удаленная работа
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA frontend={Front End}
+MA backend={PHP}
+MA backend={PHP-разработчик}
+
+None
+frontend: bitrix; backend: php, java
+----------
+
+28
+Инженер по тестированию (ОРД)
+prof: frontend, analyst, qa, backend, devops
+MA vacancy={работа}
+MA vacancy={ищем}
+MA analyst={аналитик}
+MA frontend={Frontend}
+MA frontend={React}
+MA frontend={ React }
+MA devops={DevOps}
+MA devops={DevOps}
+MA backend={Golang}
+MA backend={Backend}
+MA qa={автотестов}
+MA qa={тестировщик}
+MA qa={Postman}
+
+
+frontend: react; analyst: ; qa: ; backend: golang; devops: 
+----------
+
+29
+Angular Junior Developer
+prof: frontend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={Angular}
+MA junior={Junior}
+
+None
+junior: frontend; frontend: vue, react, angular
+----------
+
+30
+Fullstack Developer C#
+prof: frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Angular}
+MA backend={C#}
+MA backend={ .NET}
+
+None
+frontend: angular; backend: c, net
+----------
+
+31
+Программист C/C++ (middle/senior, frontend, Qt, Linux)
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={frontend}
+MA backend={C++}
+
+None
+frontend: ; backend: c
+----------
+
+32
+PHP Senior
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={job}
+MA frontend={Angular}
+MA frontend={React}
+MA frontend={Vue}
+MA frontend={JavaScript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Laravel}
+MA backend={#backend}
+MA backend={Laravel}
+MA backend={backend}
+MA backend={#backend}
+MA backend={JavaS}
+
+None
+frontend: vue, react, angular; backend: php, java, laravel
+----------
+
+33
+Middle+ Python Developer
+prof: qa, frontend, backend
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={work}
+MA frontend={Django}
+MA backend={python, Python}
+MA backend={Python Developer}
+MA qa={автотесты}
+
+None
+qa: ; frontend: django; backend: python
+----------
+
+34
+#frontend #ищу #вакансия #работа #удаленка #fulltime
+prof: frontend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={frontend}
+
+None
+frontend: vue
+----------
+
+35
+Младший аккаунт-менеджер
+prof: marketing, frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA frontend={верстальщик}
+MA marketing={маркетинга}
+MA marketing={маркетолог}
+MA backend={Java }
+MA backend={Java }
+
+None
+marketing: ; frontend: ; backend: java
+----------
+
+36
+опытных Аккаунт Менеджеров:
+prof: frontend, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={frontend}
+MA frontend={JavaScript}
+MA backend={backend}
+MA backend={Java }
+MA backend={Java , JavaS}
+
+None
+frontend: ; backend: java
+----------
+
+37
+Старший инженер по ручному тестированию
+prof: backend, qa, frontend, analyst
+MA vacancy={работа}
+MA analyst={аналитик}
+MA frontend={frontend}
+MA backend={backend}
+MA qa={тестировщик}
+
+None
+backend: ; qa: ; frontend: ; analyst: 
+----------
+
+38
+.NET Разработчик
+prof: devops, frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA frontend={frontend}
+MA frontend={Angular}
+MA devops={SRE}
+MA backend={C#}
+MA backend={ .NET}
+
+None
+devops: ; frontend: angular; backend: c, net
+----------
+
+39
+Разработчик C#
+prof: qa, devops, frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={Frontend}
+MA frontend={Angular}
+MA devops={Базы данных}
+MA backend={back-end}
+MA backend={C#}
+MA backend={Backend}
+MA backend={ .NET}
+MA qa={автотесты}
+MA qa={тестировщик}
+
+None
+qa: ; devops: ; frontend: angular; backend: c, net
+----------
+
+40
+Ведущий php-программист
+prof: qa, frontend, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={верстальщик}
+MA frontend={Битрикс}
+MA frontend={JavaScript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Laravel}
+MA backend={Laravel}
+MA backend={JavaS}
+MA qa={тестировщик}
+
+None
+qa: ; frontend: bitrix; backend: php, java, laravel
+----------
+
+41
+Lead C# (Asp.Net)
+prof: mobile, frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={ищем}
+MA mobile={Swift}
+MA frontend={Angular}
+MA backend={C#}
+
+None
+mobile: ios; frontend: angular; backend: c
+----------
+
+42
+Программист
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={JavaScript}
+MA backend={Back-end}
+MA backend={C#}
+MA backend={JavaS}
+
+None
+frontend: ; backend: c, java
+----------
+
+43
+Go Developer
+prof: frontend, backend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={Angular}
+MA frontend={Vue}
+MA backend={Golang}
+
+None
+frontend: vue, angular; backend: golang
+----------
+
+44
+Веб-разработчик PHP (Middle)
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA frontend={Веб-разработчик}
+MA backend={PHP}
+MA backend={ PHP}
+
+None
+frontend: react; backend: php, java, laravel
+----------
+
+45
+Инженер-программист
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Bitrix}
+MA backend={PHP}
+MA backend={ PHP}
+
+None
+frontend: bitrix; backend: php
+----------
+
+46
+Инженер-программист (Junior Frontend Developer) (удаленная работа не рассматривается)
+prof: frontend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={Frontend}
+MA junior={Junior}
+
+None
+junior: frontend; frontend: angular
+----------
+
+47
+Ведущий инженер-разработчик
+prof: backend, frontend, analyst
+MA vacancy={работа}
+MA analyst={аналитик}
+MA frontend={JavaScript}
+MA backend={ETL}
+MA backend={NodeJS}
+MA backend={JavaS}
+
+None
+backend: java, nodejs, data_engineer; frontend: ; analyst: 
+----------
+
+48
+ML-engineer
+prof: frontend, backend
+MA vacancy={ищем}
+MA frontend={Django}
+MA backend={Python}
+MA backend={back-end}
+MA backend={MLOps}
+MA junior={от 1 года}
+
+None
+junior: frontend, backend; frontend: django; backend: python, ml
+----------
+
+49
+Ведущий Битрикс-программист / PHP-разработчик (middle, senior)
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA backend={PHP}
+MA backend={PHP-разработчик}
+MA backend={ PHP}
+
+None
+frontend: bitrix; backend: php, one_c
+----------
+
+50
+Разработчик IoT решений Frontend (AWADA)
+prof: frontend
+MA vacancy={работа}
+MA frontend={Frontend}
+
+None
+frontend: 
+----------
+
+51
+Руководитель Центра компетенций (Разработка)/Fullstack teamlead (JAVA/React)
+prof: frontend
+MA vacancy={ищем}
+MA frontend={React}
+
+None
+frontend: react
+----------
+
+52
+Team Lead/Руководитель команды
+prof: frontend, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Angular}
+MA frontend={Vue}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Golang}
+
+None
+frontend: vue, angular; backend: php, golang
+----------
+
+53
+Middle/ Senior .NET/C# developer
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={frontend}
+MA frontend={Angular}
+MA frontend={React}
+MA frontend={Vue}
+MA backend={C#}
+MA backend={ .NET}
+
+None
+frontend: vue, react, angular; backend: c, net
+----------
+
+54
+NET Fullstack Developer (Middle) (удаленная работа не рассматривается)
+prof: frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={Angular}
+MA frontend={React}
+MA frontend={ React }
+MA frontend={JavaScript}
+MA backend={ .NET}
+MA backend={JavaS}
+
+None
+frontend: react, angular; backend: java, net
+----------
+
+55
+Team Lead/Руководитель группы разработки
+prof: frontend, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Frontend}
+MA frontend={React}
+MA frontend={ React }
+MA frontend={JavaScript}
+MA frontend={Django}
+MA backend={Python}
+MA backend={Backend}
+MA backend={Node.js}
+MA backend={JavaS}
+
+None
+frontend: react, django; backend: python, java, nodejs
+----------
+
+56
+Специалист по внедрению Битрикс24
+prof: frontend
+MA vacancy={работа}
+MA frontend={Битрикс}
+
+None
+frontend: bitrix
+----------
+
+57
+.NET Разработчик
+prof: devops, frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA frontend={frontend}
+MA frontend={Angular}
+MA devops={SRE}
+MA backend={C#}
+MA backend={ .NET}
+
+None
+devops: ; frontend: angular; backend: c, net
+----------
+
+58
+Разработчик AR/WebAR (на полставки)
+prof: marketing, frontend, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={JavaScript}
+MA marketing={контент}
+MA backend={JavaS}
+
+None
+marketing: ; frontend: ; backend: java
+----------
+
+59
+Senior .NET Developer (.NET Core / React)
+prof: frontend, backend
+MA vacancy={work}
+MA frontend={React}
+MA backend={ .NET}
+
+None
+frontend: react; backend: c, net
+----------
+
+60
+Seo-специалист / Seo-оптимизатор
+prof: marketing, hr, frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={Bitrix}
+MA marketing={копирайтер}
+MA marketing={SEO}
+MA hr={ HR}
+MA backend={PHP}
+MA backend={ PHP}
+
+None
+marketing: copyrighter, seo; hr: ; frontend: bitrix; backend: php
+----------
+
+61
+.NET разработчик (Senior)
+prof: devops, frontend, backend
+MA vacancy={work}
+MA frontend={React}
+MA frontend={Vue}
+MA frontend={JavaScript}
+MA devops={DevOps}
+MA devops={DevOps}
+MA devops={баз данных}
+MA backend={C#}
+MA backend={ .NET}
+MA backend={JavaS}
+
+None
+devops: ; frontend: vue, react; backend: c, java, net
+----------
+
+62
+with a bonus
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={work}
+MA vacancy={vacancy}
+MA frontend={frontend}
+MA backend={Python}
+MA backend={backend}
+MA backend={C++ Qt Developer}
+MA backend={C++}
+
+None
+frontend: ; backend: python, c
+----------
+
+63
+#vacancy #job #вакансия #работа #fullstack #react #java
+prof: frontend, analyst, backend, devops, hr
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={работа}
+MA vacancy={vacancy}
+MA analyst={аналитик}
+MA frontend={frontend}
+MA frontend={React}
+MA devops={баз данных}
+MA hr={ HR}
+MA backend={Java,}
+MA backend={backend}
+MA backend={Java,}
+
+None
+frontend: react; analyst: ; backend: java; devops: ; hr: 
+----------
+
+64
+Middle+ Laravel PHP разработчик
+prof: frontend, backend
+MA vacancy={вакансия}
+MA frontend={React}
+MA frontend={Vue}
+MA frontend={JavaScript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Laravel, laravel}
+MA backend={PHP разработчик}
+MA backend={Laravel}
+MA backend={JavaS}
+
+None
+frontend: vue, react; backend: php, java, laravel
+----------
+
+65
+человека в команду
+prof: frontend, backend
+MA vacancy={ищем}
+MA frontend={javascript}
+MA backend={python}
+MA backend={Backend}
+MA backend={node js}
+
+None
+frontend: ; backend: python, nodejs
+----------
+
+66
+Веб-программист java (стажер/junior)
+prof: frontend
+MA vacancy={вакансия}
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Веб-программист}
+MA junior={стажер}
+MA junior={junior}
+
+None
+junior: frontend; frontend: 
+----------
+
+67
+Младший разработчик чат-ботов / младший лингвист-разработчик / младший компьютерный лингвист
+prof: qa, frontend, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={JavaScript}
+MA backend={Python}
+MA backend={JavaS}
+MA qa={Postman}
+
+None
+qa: ; frontend: ; backend: python, java
+----------
+
+68
+Frontend Developer Junior
+prof: frontend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={Frontend}
+MA junior={Junior}
+
+None
+junior: frontend; frontend: vue, react
+----------
+
+69
+Специалист службы анализа и поддержки продаж
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA backend={Python}
+
+None
+frontend: bitrix; backend: python
+----------
+
+70
+Младший аккаунт-менеджер
+prof: marketing, frontend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={верстальщик}
+MA marketing={маркетинга}
+MA marketing={копирайтер}
+MA marketing={контент}
+
+None
+marketing: copyrighter; frontend: 
+----------
+
+71
+Python (Django/Flask) разработчик, экосистема осознанного питания hungrie
+prof: frontend, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Django}
+MA backend={Python}
+
+None
+frontend: django; backend: python
+----------
+
+72
+Middle/Middle+ Python Developer
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA frontend={веб-разработчик}
+MA frontend={Django}
+MA backend={python, Python}
+MA backend={Python Developer}
+
+None
+frontend: django; backend: python
+----------
+
+73
+Fullstack разработчика!
+prof: devops, hr, frontend, backend
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={работа}
+MA vacancy={vacancy}
+MA frontend={frontend}
+MA frontend={React}
+MA devops={баз данных}
+MA hr={ HR}
+MA backend={Java,}
+MA backend={backend}
+MA backend={Java,}
+
+None
+devops: ; hr: ; frontend: react; backend: java
+----------
+
+74
+developer to develop our European operations.
+prof: frontend, backend
+MA vacancy={work}
+MA vacancy={vacancy}
+MA frontend={JavaScript}
+MA backend={back-end}
+MA backend={C#}
+MA backend={ .NET,  #NET}
+MA backend={JavaS}
+
+None
+frontend: ; backend: c, java, net
+----------
+
+75
+PHP Senior
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={job}
+MA frontend={Angular}
+MA frontend={React}
+MA frontend={Vue}
+MA frontend={JavaScript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Laravel}
+MA backend={#backend}
+MA backend={Laravel}
+MA backend={backend}
+MA backend={#backend}
+MA backend={JavaS}
+
+None
+frontend: vue, react, angular; backend: php, java, laravel
+----------
+
+76
+Middle/Middle+ Python Developer
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA frontend={веб-разработчик}
+MA frontend={Django}
+MA backend={python, Python}
+MA backend={Python Developer}
+
+None
+frontend: django; backend: python
+----------
+
+77
+#вакансия #dotnet #москва #офис  #fulltime
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={JavaScript}
+MA backend={C#}
+MA backend={ .NET}
+MA backend={JavaS}
+
+None
+frontend: ; backend: c, java, net
+----------
+
+78
+PHP Senior
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={job}
+MA frontend={Angular}
+MA frontend={React}
+MA frontend={Vue}
+MA frontend={JavaScript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Laravel}
+MA backend={#backend}
+MA backend={Laravel}
+MA backend={backend}
+MA backend={#backend}
+MA backend={JavaS}
+
+None
+frontend: vue, react, angular; backend: php, java, laravel
+----------
+
+79
+#JS #React #lowcode #JS #Node.js #developer #разработчик #Junior #fullstack
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={frontend}
+MA frontend={React}
+MA backend={Node.js}
+MA junior={Junior}
+
+None
+junior: frontend, backend; frontend: react; backend: java, nodejs
+----------
+
+80
+🔹iOS Developer (Middle+)
+prof: sales_manager, frontend, backend
+MA vacancy={vacancy}
+MA sales_manager={Lead Generation}
+MA frontend={React}
+MA backend={Node.js}
+
+None
+sales_manager: ; frontend: react; backend: nodejs
+----------
+
+81
+Спикер по веб-разработке
+prof: marketing, backend, frontend, analyst
+MA vacancy={ищем}
+MA analyst={аналитик}
+MA frontend={React}
+MA frontend={веб-разработчик}
+MA frontend={JavaScript}
+MA marketing={маркетинга}
+MA backend={JavaS}
+
+None
+marketing: ; backend: java; frontend: react; analyst: 
+----------
+
+82
+Web-разработчик
+prof: frontend, backend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={Joomla}
+MA frontend={Drupal}
+MA frontend={веб-разработчик}
+MA frontend={JavaScript}
+MA frontend={Wordpress}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={JavaS}
+MA junior={от 1 года}
+
+None
+junior: frontend, backend; frontend: wordpress, joomla, drupal; backend: php, java
+----------
+
+83
+SQL-разработчик
+prof: devops, frontend, backend
+MA vacancy={работа}
+MA frontend={JavaScript}
+MA devops={баз данных}
+MA backend={C#}
+MA backend={JavaS}
+
+None
+devops: ; frontend: ; backend: c, java
+----------
+
+84
+Retention manager
+prof: marketing, frontend, backend
+MA vacancy={работа}
+MA frontend={Vue}
+MA marketing={копирайтер}
+MA marketing={контент}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Ruby}
+MA backend={Ruby on Rails}
+
+None
+marketing: copyrighter; frontend: vue; backend: php, ruby
+----------
+
+85
+Python (Django/Flask) разработчик
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Django}
+MA backend={Python}
+
+None
+frontend: django; backend: python
+----------
+
+86
+Cистемный аналитик / cистемный архитектор
+prof: qa, frontend, backend
+MA vacancy={работа}
+MA frontend={JavaScript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Python}
+MA backend={JavaS}
+MA qa={тестировщик}
+
+None
+qa: ; frontend: ; backend: python, php, java
+----------
+
+87
+Remote Senior React Native Developer
+prof: mobile, frontend
+MA vacancy={work}
+MA mobile={React Native Developer}
+MA mobile={React Native}
+MA mobile={Senior React Native}
+MA frontend={React}
+MA frontend={ React }
+
+None
+mobile: cross_mobile, react_native; frontend: react
+----------
+
+88
+.NET разработчик 
+prof: frontend, backend
+MA vacancy={work}
+MA frontend={JavaScript}
+MA backend={C#}
+MA backend={ .NET}
+MA backend={JavaS}
+
+None
+frontend: ; backend: c, java, net
+----------
+
+89
+Backend разработчик на 1С-Битрикс
+prof: frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA backend={Backend разработчик}
+MA backend={Backend}
+MA backend={1С}
+
+None
+frontend: bitrix; backend: php, one_c
+----------
+
+90
+Менеджер интернет-проектов
+prof: backend, frontend, analyst
+MA vacancy={работа}
+MA analyst={аналитик}
+MA frontend={front end}
+MA backend={back end}
+
+None
+backend: ; frontend: ; analyst: 
+----------
+
+91
+Менеджер В2В
+prof: sales_manager, frontend, backend
+MA vacancy={работа}
+MA sales_manager={менеджера по продаж}
+MA frontend={Битрикс}
+MA backend={1С}
+
+None
+sales_manager: ; frontend: bitrix; backend: one_c
+----------
+
+92
+Преподаватель программирования (программист, наставник)
+prof: frontend, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Битрикс}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={1С}
+
+None
+frontend: bitrix; backend: php, one_c
+----------
+
+93
+Junior Web-разработчик (1С-Битрикс)
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA backend={1С}
+MA junior={Junior}
+
+None
+junior: frontend, backend; frontend: bitrix; backend: php, java, one_c
+----------
+
+94
+Senior React Native Engineer
+prof: frontend
+MA vacancy={work}
+MA mobile={React Native}
+MA mobile={Senior React Native}
+MA frontend={React}
+MA frontend={ React }
+
+None
+mobile: ios, android, cross_mobile, flutter, react_native; frontend: react
+----------
+
+95
+Software Engineer (React Native)
+prof: mobile, frontend
+MA vacancy={work}
+MA mobile={React Native}
+MA frontend={React}
+
+None
+mobile: android, cross_mobile, react_native; frontend: react, django
+----------
+
+96
+#вакансия #битрикс24 #москва #fulltime
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={Битрикс}
+MA frontend={Bitrix}
+MA backend={PHP}
+MA backend={ PHP}
+
+None
+frontend: bitrix; backend: php
+----------
+
+97
+✅ PHP-разработчик
+Корпорация «ЭЛАР» — российская ИТ-компания, сформировавшая в России рынок оцифровки и занявшая лидирующую позицию в отрасли
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={Angular}
+MA frontend={React}
+MA frontend={Битрикс}
+MA frontend={ React }
+MA frontend={Vue}
+MA backend={PHP}
+MA backend={PHP-разработчик}
+MA backend={ PHP}
+MA backend={1С}
+MA backend={Node js}
+
+None
+frontend: vue, react, angular, bitrix; backend: php, nodejs, one_c
+----------
+
+98
+Ведущий Разработчик Oracle в Платформенную команду
+prof: devops, frontend, backend
+MA vacancy={работа}
+MA frontend={Vue}
+MA frontend={JavaScript}
+MA devops={баз данных}
+MA backend={Spring}
+MA backend={Python}
+MA backend={Java }
+MA backend={Java , JavaS}
+
+None
+devops: ; frontend: vue; backend: python, java
+----------
+
+99
+Businesses Development/Account Manager
+prof: sales_manager, frontend, backend
+MA vacancy={work}
+MA sales_manager={Sales manager}
+MA frontend={Drupal}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Laravel}
+MA backend={Laravel}
+MA backend={IT architect}
+
+None
+sales_manager: ; frontend: drupal; backend: php, laravel
+----------
+
+100
+DQ-разработчик
+prof: mobile, frontend, backend
+MA vacancy={работа}
+MA mobile={Kotlin}
+MA frontend={Angular}
+MA backend={Golang}
+MA backend={ETL}
+
+None
+mobile: android; frontend: angular; backend: golang, data_engineer
+----------
+
+101
+Младший разработчик интерфейсов (удаленно)
+prof: frontend, backend
+MA vacancy={вакансия}
+MA frontend={верстальщик}
+MA frontend={JavaScript}
+MA backend={JavaS}
+
+None
+frontend: ; backend: java
+----------
+
+102
+Python (Django) Developer (удалённо)
+prof: frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA frontend={Django}
+MA backend={Python}
+
+None
+frontend: django; backend: python
+----------
+
+103
+Ведущий Разработчик Oracle в Платформенную команду
+prof: devops, frontend, backend
+MA vacancy={работа}
+MA frontend={Vue}
+MA frontend={JavaScript}
+MA devops={баз данных}
+MA backend={Spring}
+MA backend={Python}
+MA backend={Java }
+MA backend={Java , JavaS}
+
+None
+devops: ; frontend: vue; backend: python, java
+----------
+
+104
+Младший менеджер по работе с маркетплейсами
+prof: marketing, frontend
+MA vacancy={работа}
+MA frontend={Bitrix}
+MA marketing={контент}
+
+None
+marketing: ; frontend: bitrix
+----------
+
+105
+Младший менеджер по работе с маркетплейсами ( Ozon / YandexMarket / Aliexpress / SberMegaMarket )
+prof: marketing, frontend
+MA vacancy={работа}
+MA frontend={Bitrix}
+MA marketing={SEO}
+MA marketing={контент}
+
+None
+marketing: seo; frontend: bitrix
+----------
+
+106
+Разработчик C# .Net Core для WEB-приложения на сервисной архитектуре
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Angular}
+MA backend={C#}
+MA backend={ .NET}
+
+None
+frontend: angular; backend: c, net
+----------
+
+107
+Программист Битрикс (Bitrix)
+prof: frontend
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA vacancy={Откликнуться}
+MA frontend={Битрикс}
+MA frontend={Bitrix}
+
+None
+frontend: bitrix
+----------
+
+108
+Веб-разработчик (Junior)
+prof: frontend
+MA vacancy={работа}
+MA frontend={Веб-разработчик}
+MA junior={Junior}
+
+None
+junior: frontend; frontend: 
+----------
+
+109
+Специалист технической поддержки
+prof: marketing, frontend
+MA vacancy={ищем}
+MA frontend={Битрикс}
+MA marketing={контент-менеджер}
+MA marketing={контент}
+MA junior={Junior}
+
+None
+marketing: content_manager; junior: marketing, frontend; frontend: bitrix
+----------
+
+110
+PHP Senior
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={job}
+MA frontend={Angular}
+MA frontend={React}
+MA frontend={Vue}
+MA frontend={JavaScript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Laravel}
+MA backend={#backend}
+MA backend={Laravel}
+MA backend={backend}
+MA backend={#backend}
+MA backend={JavaS}
+
+None
+frontend: vue, react, angular; backend: php, java, laravel
+----------
+
+111
+Back-end Node
+prof: devops, frontend, backend
+MA vacancy={вакансия}
+MA vacancy={Компания}
+MA vacancy={vacancy}
+MA frontend={javascript}
+MA devops={базы данных}
+MA devops={баз данных}
+MA backend={Back-end}
+MA backend={node.js, node_js, Node.js}
+
+None
+devops: ; frontend: ; backend: nodejs
+----------
+
+112
+лид Java разработчика в наш быстрорастущий проект! https://comfi
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={React}
+MA frontend={ React }
+MA backend={Spring}
+MA backend={#Java }
+MA backend={Java }
+MA backend={Java разработчик}
+MA backend={Java , Java\xa0}
+
+None
+frontend: react; backend: java
+----------
+
+113
+PHP (Bitrix) разработчика
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={work}
+MA frontend={Bitrix}
+MA backend={PHP}
+MA backend={ PHP}
+
+None
+frontend: bitrix; backend: php
+----------
+
+114
+C# - разработчика
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={JavaScript}
+MA backend={C#}
+MA backend={#Backend}
+MA backend={Backend}
+MA backend={JavaS}
+
+None
+frontend: ; backend: c, java
+----------
+
+115
+Разработчик PHP
+prof: devops, frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA frontend={React}
+MA frontend={JavaScript}
+MA devops={базы данных}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={JavaS}
+
+None
+devops: ; frontend: react; backend: php, java
+----------
+
+116
+iOS - профессионал для реально сложных задач (мессенджер)
+prof: mobile, frontend
+MA vacancy={вакансия}
+MA vacancy={Компания}
+MA mobile={iOS-разработчик}
+MA mobile={Swift}
+MA frontend={React}
+
+None
+mobile: ios; frontend: react
+----------
+
+117
+Frontend React разработчик
+prof: frontend
+MA vacancy={work}
+MA vacancy={работа}
+MA frontend={Frontend}
+MA frontend={React}
+MA frontend={ React }
+
+None
+frontend: react
+----------
+
+118
+Фронтенд-разработчик (Senior)
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Angular}
+MA frontend={JavaScript}
+MA backend={Java }
+MA backend={Java , JavaS}
+
+None
+frontend: angular; backend: java
+----------
+
+119
+ Fullstack разработчик C# (React)
+prof: frontend, backend
+MA vacancy={work}
+MA frontend={React}
+MA frontend={ React }
+MA frontend={JavaScript}
+MA backend={C#}
+MA backend={ .NET}
+MA backend={JavaS}
+
+None
+frontend: react; backend: c, java, net
+----------
+
+120
+Senior React developer
+prof: mobile, frontend
+MA vacancy={работа}
+MA mobile={React developer}
+MA frontend={React}
+MA frontend={ React }
+
+None
+mobile: cross_mobile, react_native; frontend: react
+----------
+
+121
+Senior/Lead ReactJS developer
+prof: frontend
+MA vacancy={job}
+MA vacancy={work}
+MA vacancy={работа}
+MA frontend={React}
+
+None
+frontend: react
+----------
+
+122
+Solution Architect
+prof: frontend, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={frontend}
+MA backend={Python}
+MA backend={backend}
+MA backend={Java/}
+
+None
+frontend: ; backend: python, java
+----------
+
+123
+Bitrix / PHP-разработчик
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Bitrix}
+MA backend={PHP}
+MA backend={PHP-разработчик}
+MA backend={ PHP}
+
+None
+frontend: bitrix; backend: php
+----------
+
+124
+React программист (Yii2)
+prof: frontend
+MA vacancy={работа}
+MA frontend={React}
+
+None
+frontend: react
+----------
+
+125
+Fullstack developer
+prof: frontend, backend
+MA vacancy={вакансия}
+MA frontend={VueJS}
+MA frontend={Vue}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Laravel}
+MA backend={Laravel}
+
+None
+frontend: vue; backend: php, laravel
+----------
+
+126
+JavaScript School Trainee
+prof: junior, frontend, backend
+MA vacancy={job}
+MA vacancy={work}
+MA frontend={JavaScript}
+MA backend={JavaS}
+MA junior={Trainee}
+
+None
+junior: frontend, backend; frontend: react; backend: java
+----------
+
+127
+Fullstack разработчик
+prof: devops, frontend, backend
+MA vacancy={работа}
+MA frontend={frontend}
+MA frontend={React}
+MA frontend={ React }
+MA frontend={Vue}
+MA frontend={JavaScript}
+MA devops={баз данных}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={back-end}
+MA backend={Laravel}
+MA backend={Laravel}
+MA backend={JavaS}
+
+None
+devops: ; frontend: vue, react; backend: php, java, laravel
+----------
+
+128
+Эксперт по информационной безопасности
+prof: hr, frontend, backend
+MA vacancy={работа}
+MA frontend={frontend}
+MA frontend={Vue}
+MA hr={ HR}
+MA backend={backend}
+MA backend={Node.js}
+
+None
+hr: ; frontend: vue; backend: nodejs
+----------
+
+129
+Fullstack Developer (C# + .Net + React) Middle
+prof: frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={React}
+MA frontend={ React }
+MA frontend={JavaScript}
+MA backend={C#}
+MA backend={ .NET}
+MA backend={JavaS}
+
+None
+frontend: react; backend: c, java, net
+----------
+
+130
+Middle Django/Fullstack-разработчик в офис или удаленно
+prof: frontend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Django}
+
+None
+frontend: react, django
+----------
+
+131
+РНР-разработчик
+prof: marketing, frontend, backend
+MA vacancy={work}
+MA frontend={React}
+MA frontend={Битрикс}
+MA frontend={Vue}
+MA frontend={Javascript}
+MA frontend={Bitrix}
+MA marketing={копирайтер}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Backend}
+MA backend={Javas}
+
+None
+marketing: copyrighter; frontend: vue, react, bitrix; backend: php, java
+----------
+
+132
+Middle Full stack Developer
+prof: backend, devops, frontend, analyst
+MA vacancy={работа}
+MA vacancy={ищем}
+MA analyst={аналитик}
+MA frontend={Vue}
+MA frontend={Wordpress}
+MA frontend={Bitrix}
+MA devops={devops}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={backend разработчик}
+MA backend={C#}
+MA backend={Laravel}
+MA backend={Laravel}
+MA backend={backend}
+
+None
+backend: c, php, laravel; devops: ; frontend: vue, wordpress, bitrix; analyst: 
+----------
+
+133
+Разработчик Битрикс 24
+prof: frontend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Битрикс}
+
+None
+frontend: vue, bitrix
+----------
+
+134
+Старший инженер по тестированию ПО (manual)
+prof: qa, frontend, backend
+MA vacancy={работа}
+MA frontend={Frontend}
+MA backend={Python}
+MA backend={Backend}
+MA qa={Postman}
+
+None
+qa: ; frontend: ; backend: python
+----------
+
+135
+Web-разработчик
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={React}
+MA frontend={Битрикс}
+MA frontend={Vue}
+MA frontend={Веб-разработчик}
+MA frontend={JavaScript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Laravel}
+MA backend={Laravel}
+MA backend={1С}
+MA backend={JavaS}
+
+None
+frontend: vue, react, bitrix; backend: php, java, laravel, one_c
+----------
+
+136
+Fullstack Web-разработчик
+prof: frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA frontend={React}
+MA frontend={ React }
+MA frontend={JavaScript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Laravel, laravel}
+MA backend={Laravel}
+MA backend={JavaS}
+
+None
+frontend: react; backend: php, java, laravel
+----------
+
+137
+Senior React Developer
+prof: frontend
+MA vacancy={work}
+MA frontend={React}
+MA frontend={ React }
+
+None
+frontend: react
+----------
+
+138
+Solution Architect
+prof: frontend, backend
+MA vacancy={ищем}
+MA frontend={React}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Laravel}
+MA backend={Laravel}
+MA backend={C++}
+
+None
+frontend: react; backend: c, php, laravel
+----------
+
+139
+Senior Vue.js Developer
+prof: frontend
+MA vacancy={work}
+MA frontend={Vue}
+
+None
+frontend: vue
+----------
+
+140
+JavaScript School Trainee
+prof: junior, frontend, backend
+MA vacancy={job}
+MA vacancy={work}
+MA frontend={JavaScript}
+MA backend={JavaS}
+MA junior={Trainee}
+
+None
+junior: frontend, backend; frontend: react; backend: java
+----------
+
+141
+Разработчик JS/TS (фронт и бэк), работа с фреймворками Meteor, Node, Nest
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Vue}
+MA frontend={JavaScript}
+MA backend={Node.js}
+MA backend={JavaS}
+
+None
+frontend: vue; backend: java, nodejs
+----------
+
+142
+Fullstack Node.js/Vue.js developer
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Vue}
+MA backend={Node.js}
+
+None
+frontend: vue, react, angular; backend: java, nodejs
+----------
+
+143
+Go - разработчик (senior)
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Vue}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={backend}
+MA backend={ Go }
+
+None
+frontend: vue; backend: php, golang
+----------
+
+144
+PHP developer
+Experience range
+prof: frontend, backend
+MA vacancy={work}
+MA frontend={Vue}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={PHP developer}
+
+None
+frontend: vue; backend: php
+----------
+
+145
+Senior Front-End Developer (Angular)
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={work}
+MA vacancy={работа}
+MA frontend={Frontend}
+MA frontend={Angular}
+MA frontend={JavaScript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={JavaS}
+
+None
+frontend: angular; backend: php, java
+----------
+
+146
+опытного backend разработчика для усиления нашей команды
+prof: game, frontend, backend
+MA vacancy={ищем}
+MA game={games}
+MA frontend={React}
+MA backend={backend разработчик}
+MA backend={backend}
+
+None
+game: ; frontend: react; backend: 
+----------
+
+147
+опытного специалиста на позицию Front-end разработчика
+prof: frontend
+MA vacancy={вакансия}
+MA vacancy={Компания}
+MA vacancy={ищем}
+MA frontend={frontend}
+
+None
+frontend: react
+----------
+
+148
+I am Front-end developer.
+prof: frontend, backend
+MA vacancy={job}
+MA frontend={frontend}
+MA frontend={React}
+MA frontend={ React }
+MA frontend={javascript}
+MA backend={Python}
+MA backend={#backend}
+MA backend={backend}
+MA backend={#backend}
+
+None
+frontend: react; backend: python
+----------
+
+149
+#вакансия  #удаленно #ReactNative #TypeScript #JS #Figma #mobile #developer #разработчик #frontend 
+prof: mobile, frontend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA vacancy={ищем}
+MA mobile={ReactNative}
+MA frontend={frontend}
+MA frontend={React}
+
+None
+mobile: cross_mobile, react_native; frontend: react
+----------
+
+150
+Middle React JS Developer
+prof: frontend
+MA vacancy={job}
+MA vacancy={work}
+MA frontend={React}
+MA frontend={ React }
+
+None
+frontend: vue, react
+----------
+
+151
+Node.JS - разработчик
+prof: frontend, qa, backend, devops, hr
+MA vacancy={работа}
+MA frontend={Frontend}
+MA frontend={Angular}
+MA frontend={JavaScript}
+MA devops={баз данных}
+MA hr={ HR}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Backend}
+MA backend={Node.js}
+MA backend={JavaS}
+MA qa={тестировщик}
+
+None
+frontend: angular; qa: ; backend: php, java, nodejs; devops: ; hr: 
+----------
+
+152
+Web разработчик backend (Django)
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Django}
+MA backend={backend}
+
+None
+frontend: django; backend: python
+----------
+
+153
+ Backend web developer PHP (Веб-разработчик PHP)
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={Веб-разработчик}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Backend}
+
+None
+frontend: ; backend: php, laravel
+----------
+
+154
+Руководитель разработки (ТехЛид) Python/Django
+prof: frontend, backend
+MA vacancy={work}
+MA frontend={Django}
+MA backend={Python}
+
+None
+frontend: django; backend: python
+----------
+
+155
+React Native Developer
+prof: mobile, frontend
+MA vacancy={work}
+MA mobile={React Native Developer}
+MA mobile={React Native}
+MA frontend={React}
+
+None
+mobile: android, cross_mobile, react_native; frontend: react
+----------
+
+156
+Senior Frontend Developer (React)
+prof: frontend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Frontend}
+MA frontend={React}
+
+None
+frontend: react
+----------
+
+157
+Ведущий Python (Django) разработчик
+prof: frontend, backend
+MA vacancy={work}
+MA frontend={Django}
+MA backend={Python}
+
+None
+frontend: django; backend: python
+----------
+
+158
+Frontend Developer (Angular) Jun+/Middle
+prof: frontend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Frontend}
+MA frontend={Angular}
+
+None
+frontend: vue, react, angular
+----------
+
+159
+Middle/Senior React Native Developer
+prof: mobile, frontend
+MA vacancy={work}
+MA mobile={React Native Developer}
+MA mobile={React Native}
+MA mobile={Senior React Native}
+MA frontend={React}
+MA frontend={ React }
+
+None
+mobile: cross_mobile, react_native; frontend: react
+----------
+
+160
+Vue Developer
+prof: frontend
+MA vacancy={work}
+MA frontend={Vue}
+
+None
+frontend: vue
+----------
+
+161
+Middle/Senior Frontend Developer
+prof: frontend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Frontend}
+
+None
+frontend: vue, react, angular
+----------
+
+162
+React Native developer
+prof: mobile, frontend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA mobile={React Native}
+MA frontend={React}
+
+None
+mobile: cross_mobile, react_native; frontend: react
+----------
+
+163
+Middle/Senior Fullstack developer (Laravel + Vue.js)
+prof: frontend, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Vue}
+MA backend={Laravel}
+MA backend={Laravel}
+
+None
+frontend: vue; backend: php, java, laravel, golang
+----------
+
+164
+React Native разработчик / Middle, Middle+
+prof: mobile, frontend
+MA vacancy={Компания}
+MA vacancy={ищем}
+MA mobile={React Native разработчик}
+MA mobile={React Native}
+MA frontend={React}
+
+None
+mobile: android, cross_mobile, flutter, react_native; frontend: react
+----------
+
+165
+PHP middle разработчик (+Битрикс)
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA backend={PHP}
+
+None
+frontend: bitrix; backend: php, laravel, one_c
+----------
+
+166
+Битрикс разработчик
+prof: frontend
+MA vacancy={work}
+MA vacancy={работа}
+MA frontend={Битрикс}
+
+None
+frontend: bitrix
+----------
+
+167
+Web-разработчик
+prof: devops, frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={React}
+MA frontend={Битрикс}
+MA frontend={Vue}
+MA frontend={Веб-разработчик}
+MA frontend={Веб-программист}
+MA frontend={JavaScript}
+MA devops={DevOps}
+MA devops={DevOps}
+MA backend={PHP}
+MA backend={Spring}
+MA backend={ PHP}
+MA backend={Python}
+MA backend={laravel}
+MA backend={1С}
+MA backend={Java }
+MA backend={Java , Java., JavaS}
+
+None
+devops: ; frontend: vue, react, bitrix; backend: python, php, java, one_c
+----------
+
+168
+Senior Vue.JS Разработчик 
+prof: frontend
+MA vacancy={ищем}
+MA frontend={Vue}
+
+None
+frontend: vue, react
+----------
+
+169
+FullStack web-разработчик (TypeScript/JavaScript/PHP)
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={JavaScript}
+MA backend={PHP}
+MA backend={JavaS}
+
+None
+frontend: vue, react, angular; backend: php, java, nodejs, laravel
+----------
+
+170
+Fullstack developer (LemonPie, НКО)
+prof: frontend, backend
+MA vacancy={вакансия}
+MA frontend={VueJS}
+MA frontend={Vue}
+MA backend={PHP}
+
+None
+frontend: vue; backend: php
+----------
+
+171
+Digital менеджер
+prof: marketing, devops, frontend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Битрикс}
+MA marketing={маркетинга}
+MA marketing={копирайтер}
+MA marketing={SEO}
+MA devops={администратор}
+
+None
+marketing: copyrighter, seo; devops: ; frontend: bitrix
+----------
+
+172
+Специалист службы анализа и поддержки продаж
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA backend={Python}
+
+None
+frontend: bitrix; backend: python
+----------
+
+173
+Senior ReactJS Developer
+prof: frontend
+MA vacancy={job}
+MA vacancy={work}
+MA frontend={React}
+
+None
+frontend: react
+----------
+
+174
+Программист
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Vue}
+MA frontend={Django}
+MA backend={Python}
+MA backend={Java }
+MA backend={Java }
+
+None
+frontend: vue, django; backend: python, java
+----------
+
+175
+Верстальщик
+prof: frontend
+MA vacancy={работа}
+MA frontend={Верстальщик}
+
+None
+frontend: 
+----------
+
+176
+Дизайнер-верстальщик (фриланс)
+prof: frontend
+MA vacancy={Компания}
+MA frontend={верстальщик}
+
+None
+frontend: bitrix
+----------
+
+177
+Архитектор JavaScript
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={JavaScript}
+MA backend={JavaS}
+
+None
+frontend: ; backend: java, nodejs, data_engineer
+----------
+
+178
+Senior Vue.JS Разработчик - Маркетплейс
+prof: frontend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Vue}
+
+None
+frontend: vue
+----------
+
+179
+Middle JavaScript / React Developer
+prof: frontend, backend
+MA vacancy={work}
+MA frontend={React}
+MA frontend={ React }
+MA frontend={JavaScript}
+MA backend={JavaS}
+
+None
+frontend: vue, react, angular; backend: java, nodejs
+----------
+
+180
+ReactNative developer (Middle/Middle+)
+prof: mobile, frontend
+MA vacancy={работа}
+MA mobile={ReactNative}
+MA frontend={React}
+
+None
+mobile: ios, android, cross_mobile, react_native; frontend: react
+----------
+
+181
+Middle fullstack developer (Python+Vue.js)/ удаленно
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Vue}
+MA backend={Python}
+
+None
+frontend: vue, django; backend: python, java
+----------
+
+182
+Senior Frontend (Angular)
+prof: frontend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Frontend}
+MA frontend={Angular}
+
+None
+frontend: angular
+----------
+
+183
+ReactNative developer (Middle/Middle+)
+prof: mobile, frontend
+MA vacancy={работа}
+MA mobile={ReactNative}
+MA frontend={React}
+
+None
+mobile: ios, android, cross_mobile, react_native; frontend: react
+----------
+
+184
+Fullstack Engineer/Angular, .Net Core, C# engineer.
+prof: hr, frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA frontend={Angular}
+MA hr={кадр}
+MA backend={back-end}
+MA backend={C#}
+
+None
+hr: ; frontend: angular; backend: c
+----------
+
+185
++Middle Developer [ React]
+prof: frontend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={React}
+
+None
+frontend: react
+----------
+
+186
+Эксперт Мониторинга
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={JavaScript}
+MA backend={JavaS}
+
+None
+frontend: ; backend: java
+----------
+
+187
+Проектировщик пользовательских интерфейсов и сценариев (UX дизайнер)
+prof: backend, frontend, analyst
+MA vacancy={работа}
+MA vacancy={ищем}
+MA analyst={аналитик}
+MA frontend={Битрикс}
+MA backend={1С}
+
+None
+backend: one_c; frontend: bitrix; analyst: 
+----------
+
+188
+Fullstack разработчик (C# + Angular)
+prof: frontend, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Angular}
+MA backend={C#}
+MA backend={ .NET}
+
+None
+frontend: angular; backend: c, net
+----------
+
+189
+Fullstack разработчик (Symfony, Wordpress, SQL) (удаленно)
+prof: frontend
+MA vacancy={работа}
+MA frontend={Wordpress}
+
+None
+frontend: vue, wordpress
+----------
+
+190
+Senior Разработчик PHP / Bitrix
+prof: frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Bitrix}
+MA backend={PHP}
+MA backend={ PHP}
+
+None
+frontend: bitrix; backend: php, java, one_c
+----------
+
+191
+#вакансия #vacancy #remote #удаленно #middle #парттайм #parttime #vuejs #js
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA vacancy={vacancy}
+MA frontend={VueJS}
+MA frontend={Vue}
+MA backend={Laravel}
+MA backend={Laravel}
+
+None
+frontend: vue; backend: php, laravel
+----------
+
+192
+Компания «Mullticard Payment»
+prof: frontend, backend
+MA vacancy={Компания}
+MA frontend={frontend}
+MA frontend={Vue}
+MA backend={Backend}
+MA junior={Junior}
+
+None
+junior: frontend, backend; frontend: vue; backend: 
+----------
+
+193
+Программист-верстальщик 
+prof: frontend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA vacancy={Откликнуться}
+MA frontend={верстальщик}
+
+None
+frontend: 
+----------
+
+194
+#вакансия  #удаленно #ReactNative #TypeScript #JS #Figma #mobile #developer #разработчик #frontend 
+prof: mobile, frontend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA vacancy={ищем}
+MA mobile={ReactNative}
+MA frontend={frontend}
+MA frontend={React}
+
+None
+mobile: cross_mobile, react_native; frontend: react
+----------
+
+195
+🔥Frontend Developer Angular🔥
+prof: frontend
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={vacancy}
+MA frontend={Frontend}
+MA frontend={Frontend developer}
+
+None
+frontend: angular
+----------
+
+196
+​React Native разработчик Middle +/Senior (mobile dev)
+prof: mobile, frontend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA vacancy={ищем}
+MA mobile={React Native разработчик}
+MA mobile={React Native}
+MA frontend={React}
+
+None
+mobile: cross_mobile, react_native; frontend: react
+----------
+
+197
+js Developer!
+prof: frontend, backend
+MA vacancy={vacancy}
+MA frontend={Vue}
+MA frontend={JavaScript}
+MA backend={JavaS}
+
+None
+frontend: vue; backend: java
+----------
+
+198
+Главный разработчик Javascript
+prof: frontend
+MA vacancy={вакансия}
+MA vacancy={Компания}
+MA vacancy={vacancy}
+MA frontend={javascript}
+
+None
+frontend: vue, react, angular
+----------
+
+199
+Fullstack разработчик (.Net + Vue)
+prof: frontend
+MA vacancy={work}
+MA vacancy={ищем}
+MA frontend={Vue}
+
+None
+frontend: vue
+----------
+
+200
+Программист C#/ASP.NET
+prof: frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={React}
+MA frontend={JavaScript}
+MA backend={C#}
+MA backend={ .NET}
+MA backend={JavaS}
+
+None
+frontend: react; backend: c, java, net
+----------
+
+201
+HTML-верстальщик
+prof: frontend
+MA vacancy={работа}
+MA frontend={верстальщик}
+
+None
+frontend: wordpress
+----------
+
+202
+Bitrix developer
+prof: frontend
+MA vacancy={вакансия}
+MA frontend={Bitrix}
+
+None
+frontend: bitrix
+----------
+
+203
+Программист Битрикс24 / Разработчик PHP Developer
+prof: frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={PHP Developer}
+
+None
+frontend: bitrix; backend: php, one_c
+----------
+
+204
+Frontend - разработчик
+prof: frontend
+MA vacancy={работа}
+MA frontend={Frontend}
+
+None
+frontend: vue
+----------
+
+205
+Middle/Senior  C# ASP .Net Core Developer
+prof: devops, frontend, backend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA vacancy={ищем}
+MA frontend={Angular}
+MA frontend={React}
+MA frontend={ React }
+MA frontend={Vue}
+MA frontend={JavaScript}
+MA devops={базы данных}
+MA backend={C#}
+MA backend={1С}
+MA backend={ .NET}
+MA backend={JavaS}
+
+None
+devops: ; frontend: vue, react, angular; backend: c, java, net, one_c
+----------
+
+206
+RPA разработчик
+prof: hr, frontend, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={JavaScript}
+MA hr={кадр}
+MA backend={Python}
+MA backend={Java,}
+MA backend={C#}
+MA backend={Java }
+MA backend={ .NET}
+MA backend={Java , Java,, JavaS}
+
+None
+hr: ; frontend: ; backend: python, c, java, net
+----------
+
+207
+Full stack разработчик php 7.4 & 8 (yii2) + frontend vue js
+prof: frontend
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={frontend}
+
+None
+frontend: 
+----------
+
+208
+Senior Frontend Developer
+prof: frontend
+MA vacancy={работа}
+MA frontend={Frontend}
+
+None
+frontend: react
+----------
+
+209
+Python/Django разработчик
+prof: frontend, backend
+MA vacancy={work}
+MA frontend={Django}
+MA backend={Python}
+
+None
+frontend: django; backend: python
+----------
+
+210
+BI developer
+prof: backend, frontend, analyst
+MA vacancy={ищем}
+MA analyst={аналитик}
+MA frontend={JavaScript}
+MA backend={Python}
+MA backend={ETL}
+MA backend={JavaS}
+
+None
+backend: python, java, data_engineer; frontend: ; analyst: 
+----------
+
+211
+Senior Fullstack Developer/ Фулстек разработчик (.net/react)
+prof: frontend, backend
+MA vacancy={работа}
+MA vacancy={Ищем разработчика}
+MA vacancy={ищем}
+MA frontend={React}
+MA frontend={ React }
+MA backend={C#}
+MA backend={ .NET}
+MA backend={Node.js}
+
+None
+frontend: react; backend: c, net, nodejs
+----------
+
+212
+Frontend teamlead
+prof: frontend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Frontend}
+
+None
+frontend: vue, react
+----------
+
+213
+Ведущий Fullstack разработчик
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={JavaScript, javascript}
+MA backend={JavaS}
+
+None
+frontend: ; backend: java
+----------
+
+214
+профессионального Frontend Developer (React JS) с опытом от 3-х лет на проектную работу (2 месяца)
+prof: frontend
+MA vacancy={work}
+MA vacancy={vacancy}
+MA vacancy={ищем}
+MA frontend={frontend}
+MA frontend={frontend developer}
+
+None
+frontend: react
+----------
+
+215
+skilled Frontend engineer for our internal Engineering team
+prof: frontend
+MA vacancy={вакансия}
+MA vacancy={work}
+MA vacancy={vacancy}
+MA frontend={frontend}
+MA frontend={frontend engineer}
+
+None
+frontend: angular
+----------
+
+216
+JavaScript Developer
+prof: frontend
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={work}
+MA vacancy={Компания}
+MA vacancy={vacancy}
+MA frontend={javascript}
+
+None
+frontend: react
+----------
+
+217
+Full Stack девелопера в команду разработки ERP системы по продаже авиа запчастей и поддержания летной годности
+prof: frontend, backend
+MA vacancy={вакансия}
+MA frontend={Angular}
+MA frontend={React}
+MA frontend={Vue}
+MA frontend={JavaScript, javascript}
+MA backend={Node.js}
+MA backend={JavaS}
+MA junior={от 1 года}
+
+None
+junior: frontend, backend; frontend: vue, react, angular; backend: java, nodejs
+----------
+
+218
+Shopify Developer‼️
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={work}
+MA vacancy={vacancy}
+MA frontend={frontend}
+MA backend={Ruby}
+MA backend={Backend}
+MA backend={Node.js}
+
+None
+frontend: ; backend: ruby, nodejs
+----------
+
+219
+# #ukrainianineurope #work #softwareengineer #python #Django
+prof: frontend, backend
+MA vacancy={work}
+MA vacancy={vacancy}
+MA frontend={Django}
+MA backend={python}
+
+None
+frontend: django; backend: python
+----------
+
+220
+(Senior) Full Stack Engineer
+prof: mobile, frontend, backend
+MA vacancy={job}
+MA vacancy={work}
+MA mobile={ios}
+MA mobile={Kotlin}
+MA mobile={React Native}
+MA frontend={React}
+MA frontend={ React }
+MA backend={Spring}
+MA backend={backend}
+
+None
+mobile: ios, android, cross_mobile, react_native; frontend: react; backend: java
+----------
+
+221
+фулстек разработчика #middle для разработки мобильного приложения
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA vacancy={vacancy}
+MA frontend={frontend}
+MA frontend={javascript}
+MA backend={#backend}
+MA backend={backend}
+MA backend={#backend}
+
+None
+frontend: ; backend: 
+----------
+
+222
+🔎 Преподаватель JavaScript 
+prof: frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA frontend={JavaScript}
+MA backend={JavaS}
+
+None
+frontend: vue, react, angular; backend: java, nodejs
+----------
+
+223
+разработчик на проектную работу
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={Компания}
+MA vacancy={Откликнуться}
+MA frontend={Vue}
+MA backend={Node.js}
+
+None
+frontend: vue; backend: nodejs
+----------
+
+224
+//75830603?from=_search_list&query=reACT%20NATIVE
+prof: mobile, frontend
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={работа}
+MA vacancy={vacancy}
+MA mobile={Android}
+MA mobile={React Native}
+MA mobile={ReactNative}
+MA frontend={React}
+MA frontend={ React }
+
+None
+mobile: android, cross_mobile, react_native; frontend: react
+----------
+
+225
+коллегу
+prof: qa, frontend, backend
+MA vacancy={работа}
+MA vacancy={vacancy}
+MA vacancy={ищем}
+MA frontend={React}
+MA frontend={Javascript}
+MA backend={#backend}
+MA backend={backend}
+MA backend={NodeJS}
+MA backend={#backend}
+MA backend={Node.js}
+MA backend={Javas}
+MA qa={тестировщик}
+
+None
+qa: ; frontend: react; backend: java, nodejs
+----------
+
+226
+Team Lead команды разработки "Мобильный и интернет-банк для юридических лиц"
+prof: qa, frontend, backend
+MA vacancy={работа}
+MA frontend={Angular}
+MA backend={Java,}
+MA backend={Java }
+MA backend={Java , Java,}
+MA qa={тестировщик}
+
+None
+qa: ; frontend: angular; backend: java
+----------
+
+227
+Senior Rust разработчик
+prof: devops, frontend, backend
+MA vacancy={работа}
+MA frontend={JavaScript}
+MA devops={баз данных}
+MA backend={Python}
+MA backend={JavaS}
+
+None
+devops: ; frontend: ; backend: python, java
+----------
+
+228
+NestJs
+prof: mobile, frontend, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA mobile={Flutter}
+MA mobile={ReactNative}
+MA frontend={React}
+MA frontend={Vue}
+MA backend={Laravel}
+MA backend={Laravel}
+MA backend={NodeJS}
+MA backend={Node.js}
+
+None
+mobile: cross_mobile, flutter, react_native; frontend: vue, react; backend: php, nodejs, laravel
+----------
+
+229
+Комьюнити менеджер / координатор образовательных событий
+prof: marketing, frontend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={Frontend}
+MA marketing={маркетолог}
+
+None
+marketing: ; frontend: 
+----------
+
+230
+Senior Frontend Devepoler (Vue.js)
+prof: frontend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA vacancy={ищем}
+MA frontend={Frontend}
+MA frontend={Vue}
+
+None
+frontend: vue
+----------
+
+231
+Senior Frontend Devepoler (Vue.js)
+prof: frontend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA vacancy={ищем}
+MA frontend={Frontend}
+MA frontend={Vue}
+
+None
+frontend: vue
+----------
+
+232
+Комьюнити менеджер / Координатор образовательных событий
+prof: marketing, frontend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={Frontend}
+MA marketing={маркетолог}
+
+None
+marketing: ; frontend: 
+----------
+
+233
+Помощник IT специалиста
+prof: marketing, hr, frontend
+MA vacancy={работа}
+MA frontend={Wordpress}
+MA marketing={SEO}
+MA marketing={SMM}
+MA marketing={контекстной рекламе}
+MA marketing={контент}
+MA hr={кадр}
+
+None
+marketing: smm, seo, context; hr: ; frontend: wordpress
+----------
+
+234
+Помощник веб-программиста (стажер, удаленная работа)
+prof: frontend
+MA vacancy={работа}
+MA frontend={веб-программист}
+MA junior={стажер}
+
+None
+junior: frontend; frontend: 
+----------
+
+235
+Fullstack developer 
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Frontend}
+MA frontend={React}
+MA frontend={JavaScript}
+MA frontend={Django}
+MA backend={Python}
+MA backend={backend}
+MA backend={JavaS}
+
+None
+frontend: react, django; backend: python, java
+----------
+
+236
+Блокчейн разработчик
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={JavaScript}
+MA backend={Golang}
+MA backend={C#}
+MA backend={C++}
+MA backend={Node.js}
+MA backend={JavaS}
+
+None
+frontend: ; backend: c, java, nodejs, golang
+----------
+
+237
+Senior Frontend Developer
+prof: frontend
+MA vacancy={работа}
+MA frontend={Frontend}
+
+None
+frontend: react
+----------
+
+238
+Руководитель группы разработки (.NET/С#)
+prof: devops, frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={React}
+MA devops={DevOps}
+MA devops={DevOps}
+MA backend={C#}
+MA backend={ .NET}
+
+None
+devops: ; frontend: react; backend: c, net
+----------
+
+239
+разработчик
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={Компания}
+MA frontend={React}
+MA frontend={ React }
+MA frontend={JavaScript}
+MA backend={JavaS}
+
+None
+frontend: react; backend: java
+----------
+
+240
+Fullstack разработчика!
+prof: devops, frontend, backend
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={работа}
+MA vacancy={vacancy}
+MA frontend={frontend}
+MA frontend={React}
+MA devops={баз данных}
+MA backend={Java,}
+MA backend={backend}
+MA backend={Java,}
+
+None
+devops: ; frontend: react; backend: java
+----------
+
+241
+Junior
+prof: junior, mobile, frontend
+MA vacancy={Откликнуться}
+MA mobile={React Native Developer}
+MA mobile={React Native}
+MA frontend={React}
+MA frontend={ React }
+MA junior={Junior}
+
+None
+junior: mobile, frontend; mobile: cross_mobile, react_native; frontend: react
+----------
+
+242
+🔥#vacancy #Fullstack #Poland🔥                                                                  International IT-company is looking for Full Stack Developer (React, Node.js)
+prof: frontend, backend
+MA vacancy={job}
+MA vacancy={work}
+MA vacancy={vacancy}
+MA frontend={React}
+MA backend={Node.js}
+
+None
+frontend: react; backend: nodejs
+----------
+
+243
+Poland
+prof: mobile, frontend, backend
+MA vacancy={job}
+MA vacancy={work}
+MA vacancy={vacancy}
+MA mobile={Mobile}
+MA mobile={Kotlin}
+MA mobile={Flutter}
+MA frontend={React}
+MA backend={Spring}
+MA backend={#Java }
+MA backend={Java Developer}
+MA backend={Java }
+MA backend={Java }
+
+None
+mobile: android, cross_mobile, flutter; frontend: react; backend: java
+----------
+
+244
+🔺Vacancy: Senior Full Stack Developer with a focus on back-end (using Java/Kotlin)
+prof: mobile, frontend, backend
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={work}
+MA vacancy={vacancy}
+MA mobile={Kotlin}
+MA frontend={frontend}
+MA frontend={React}
+MA frontend={ React }
+MA frontend={javascript}
+MA backend={back-end}
+MA backend={#backend}
+MA backend={backend}
+MA backend={#backend}
+MA backend={Java/}
+
+None
+mobile: android; frontend: react; backend: java
+----------
+
+245
+js developer
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={JavaScript}
+MA backend={#backend}
+MA backend={Backend, backend}
+MA backend={#backend}
+MA backend={node.js, Node.js}
+MA backend={JavaS}
+
+None
+frontend: ; backend: java, nodejs
+----------
+
+246
+#вакансия  #fullstack #Node #React #Lead #удаленно  #работа #разработчик #developer 
+prof: frontend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA vacancy={ищем}
+MA frontend={React}
+
+None
+frontend: react
+----------
+
+247
+Web-разработчик
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Веб-разработчик, веб-разработчик}
+MA frontend={JavaScript}
+MA frontend={Bitrix}
+MA backend={backend}
+MA backend={JavaS}
+
+None
+frontend: bitrix; backend: java
+----------
+
+248
+Front-End Developer
+prof: mobile, frontend, backend
+MA vacancy={работа}
+MA mobile={Flutter}
+MA frontend={Vue}
+MA frontend={JavaScript}
+MA backend={JavaS}
+
+None
+mobile: cross_mobile, flutter; frontend: vue; backend: java
+----------
+
+249
+Junior С# (ASP.NET) Developer
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={JavaScript}
+MA backend={C#}
+MA backend={ .NET}
+MA backend={JavaS}
+MA junior={Junior}
+
+None
+junior: frontend, backend; frontend: ; backend: c, java, net
+----------
+
+250
+Web-developer (стажер)
+prof: frontend
+MA vacancy={работа}
+MA frontend={Web-developer}
+MA junior={стажер}
+
+None
+junior: frontend; frontend: react, angular, drupal
+----------
+
+251
+Rust Developer
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Vue}
+MA frontend={JavaScript}
+MA backend={Python}
+MA backend={Java,}
+MA backend={Ruby}
+MA backend={C++}
+MA backend={Java,, JavaS}
+
+None
+frontend: vue; backend: python, c, java, ruby
+----------
+
+252
+Руководитель разработки (ТехЛид) Python/Django
+prof: frontend, backend
+MA vacancy={work}
+MA frontend={Django}
+MA backend={Python}
+
+None
+frontend: django; backend: python
+----------
+
+253
+Бизнес-аналитик/Специалист по внедрению/Стажер в отдел внедрения (Bitrix24, ИТ-компания)
+prof: junior, frontend, analyst
+MA vacancy={ищем}
+MA analyst={аналитик}
+MA analyst={Бизнес-аналитик}
+MA frontend={Bitrix}
+MA junior={Стажер}
+
+None
+junior: frontend, analyst; frontend: bitrix; analyst: ba
+----------
+
+254
+Senior Front
+prof: frontend, backend
+MA vacancy={work}
+MA vacancy={Компания}
+MA vacancy={Откликнуться}
+MA frontend={Angular}
+MA frontend={JavaScript}
+MA backend={PHP}
+MA backend={Spring}
+MA backend={ PHP}
+MA backend={JavaS}
+
+None
+frontend: angular; backend: php, java
+----------
+
+255
+Frontend Engineer
+prof: frontend
+MA vacancy={Компания}
+MA frontend={Frontend}
+MA frontend={Frontend Engineer}
+
+None
+frontend: react
+----------
+
+256
+Middle+/Senior FrontEnd Developer (JS, React), удаленно
+prof: frontend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA frontend={FrontEnd}
+MA frontend={React}
+
+None
+frontend: react
+----------
+
+257
+Менеджер продаж IT компании (Битрикс, приложения, дизайн)
+prof: frontend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={Битрикс}
+
+None
+frontend: bitrix
+----------
+
+258
+Старший Python Developer (Django), проекты в строительной сфере
+prof: frontend, backend
+MA vacancy={work}
+MA frontend={Django}
+MA backend={Python}
+MA backend={Python Developer}
+
+None
+frontend: django; backend: python
+----------
+
+259
+Веб-программист (Web-разработчик)
+prof: frontend
+MA vacancy={работа}
+MA frontend={Веб-программист}
+
+None
+frontend: wordpress, bitrix
+----------
+
+260
+Специалист поддержки и сервиса Битрикс24, удаленно
+prof: frontend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Битрикс}
+
+None
+frontend: bitrix
+----------
+
+261
+Senior Frontend Developer (Accounts Team, Remote)
+prof: frontend
+MA vacancy={work}
+MA frontend={Frontend}
+
+None
+frontend: vue, react, angular
+----------
+
+262
+C# .Net Middle Developer
+prof: frontend, backend
+MA vacancy={work}
+MA frontend={JavaScript}
+MA backend={back-end}
+MA backend={C#}
+MA backend={ .NET}
+MA backend={JavaS}
+
+None
+frontend: ; backend: c, java, net
+----------
+
+263
+Программист Битрикс Fullstack bitrix разработчик
+prof: frontend
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Битрикс}
+
+None
+frontend: bitrix
+----------
+
+264
+Разработчик 1С-Битрикс / Bitrix программист
+prof: frontend, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Битрикс}
+MA frontend={Bitrix}
+MA backend={1С}
+
+None
+frontend: bitrix; backend: php, one_c
+----------
+
+265
+Разработчик 1С-Битрикс (PHP), удаленно
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA backend={PHP}
+MA backend={1С}
+
+None
+frontend: bitrix; backend: php, one_c
+----------
+
+266
+WordPress developer (Middle)
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={JavaScript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={JavaS}
+
+None
+frontend: ; backend: php, java
+----------
+
+267
+PHP–разработчик для Битрикс 24
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA backend={PHP}
+
+None
+frontend: bitrix; backend: php, java
+----------
+
+268
+Разработчик PHP / Bitrix (удалённо)
+prof: frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Bitrix}
+MA backend={PHP}
+MA backend={ PHP}
+
+None
+frontend: vue, bitrix; backend: php, java, one_c
+----------
+
+269
+Frontend Developer (Middle) Angular
+prof: frontend
+MA vacancy={работа}
+MA frontend={Frontend}
+MA frontend={Angular}
+
+None
+frontend: angular
+----------
+
+270
+Linux Kernel/Инженер-программист (Ядра Linux)
+prof: mobile, frontend
+MA vacancy={работа}
+MA mobile={android}
+MA frontend={Веб-разработчик}
+
+None
+mobile: android; frontend: 
+----------
+
+271
+Frontend Developer
+prof: frontend
+MA vacancy={work}
+MA frontend={Frontend}
+
+None
+frontend: vue, react, angular
+----------
+
+272
+React / React Native Developer (Limassol)
+prof: mobile, frontend
+MA vacancy={work}
+MA mobile={React Native Developer}
+MA mobile={React Native}
+MA frontend={React}
+MA frontend={ React }
+
+None
+mobile: cross_mobile, react_native; frontend: react
+----------
+
+273
+C# developer (Middle/Senior)
+prof: backend, frontend, analyst
+MA vacancy={work}
+MA vacancy={работа}
+MA analyst={аналитик}
+MA frontend={верстальщик}
+MA frontend={Vue}
+MA frontend={JavaScript}
+MA backend={C#}
+MA backend={ .NET}
+MA backend={JavaS}
+
+None
+backend: c, java, net; frontend: vue; analyst: 
+----------
+
+274
+Бизнес-аналитик (внедрение Битрикс24)
+prof: frontend, analyst
+MA vacancy={работа}
+MA vacancy={Компания}
+MA analyst={аналитик}
+MA analyst={Бизнес-аналитик}
+MA frontend={Битрикс}
+
+None
+frontend: bitrix; analyst: ba
+----------
+
+275
+Программист PHP/ Разработчик 1С Битрикс
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={1С}
+
+None
+frontend: bitrix; backend: php, one_c
+----------
+
+276
+Архитектор Linux
+prof: frontend, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA frontend={Django}
+MA backend={Python}
+
+None
+frontend: django; backend: python
+----------
+
+277
+Senior Python (Django) разработчик
+prof: frontend, backend
+MA vacancy={work}
+MA frontend={Django}
+MA backend={Python}
+
+None
+frontend: django; backend: python
+----------
+
+278
+Full stack разработчик / Full stack developer JavaScript/PHP
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={JavaScript}
+MA backend={PHP}
+MA backend={JavaS}
+
+None
+frontend: vue, react; backend: php, java
+----------
+
+279
+Веб-разработчик удаленно
+prof: frontend
+MA vacancy={работа}
+MA frontend={Веб-разработчик}
+
+None
+frontend: wordpress
+----------
+
+280
+Full-stack web developer
+prof: junior, frontend, backend
+MA vacancy={работа}
+MA frontend={Vue}
+MA frontend={Javascript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Javas}
+MA junior={от 1 года}
+
+None
+junior: frontend, backend; frontend: vue; backend: php, java
+----------
+
+281
+Программист Wordpress
+prof: frontend
+MA vacancy={работа}
+MA frontend={Wordpress}
+
+None
+frontend: wordpress, bitrix
+----------
+
+282
+Fullstack-разработчик
+prof: backend, frontend, analyst
+MA vacancy={работа}
+MA analyst={аналитик}
+MA frontend={React}
+MA frontend={Vue}
+MA frontend={JavaScript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Laravel}
+MA backend={Laravel}
+MA backend={NodeJS}
+MA backend={JavaS}
+
+None
+backend: php, java, nodejs, laravel; frontend: vue, react; analyst: 
+----------
+
+283
+Программист / разработчик Битрикс24 (удаленно)
+prof: frontend
+MA vacancy={work}
+MA vacancy={Компания}
+MA frontend={Битрикс}
+
+None
+frontend: bitrix
+----------
+
+284
+Веб-разработчик 1С-Битрикс - Middle- (поддержка сайтов, удаленно)
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA frontend={Веб-разработчик}
+MA backend={1С}
+
+None
+frontend: bitrix; backend: php, one_c
+----------
+
+285
+Бэкенд-программист (удаленная работа)
+prof: mobile, frontend, backend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA mobile={Android}
+MA frontend={React}
+MA frontend={Битрикс}
+MA frontend={Bitrix}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={1С}
+
+None
+mobile: android; frontend: react, bitrix; backend: php, one_c
+----------
+
+286
+Web-разработчик full stack
+prof: marketing, frontend, backend
+MA vacancy={работа}
+MA frontend={Bitrix}
+MA marketing={SEO}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={1С}
+
+None
+marketing: seo; frontend: bitrix; backend: php, one_c
+----------
+
+287
+Программист на PHP / разработчик 1C-Битрикс (удаленно)
+prof: frontend, backend
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA backend={PHP}
+MA backend={ PHP}
+
+None
+frontend: bitrix; backend: php, one_c
+----------
+
+288
+TechLead
+prof: frontend, backend
+MA vacancy={work}
+MA frontend={Django}
+MA backend={Python}
+
+None
+frontend: django; backend: python
+----------
+
+289
+Senior Python/Django разработчик
+prof: frontend, backend
+MA vacancy={work}
+MA frontend={Django}
+MA backend={Python}
+
+None
+frontend: django; backend: python
+----------
+
+290
+Главный разработчик дистанционного обучения (WebTutor)
+prof: frontend, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Vue}
+MA frontend={JavaScript}
+MA backend={JavaS}
+
+None
+frontend: vue; backend: java
+----------
+
+291
+Middle разработчик С#.NET
+prof: frontend, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Vue}
+MA backend={C#}
+
+None
+frontend: vue; backend: c
+----------
+
+292
+Middle Frontend Developer (Vue.js)
+prof: frontend
+MA vacancy={work}
+MA vacancy={работа}
+MA frontend={Frontend}
+MA frontend={Vue}
+
+None
+frontend: vue, react
+----------
+
+293
+Проектный менеджер
+prof: marketing, frontend
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA frontend={Bitrix}
+MA marketing={Контекстолог}
+MA marketing={маркетинга}
+MA marketing={Авитолог}
+MA marketing={Копирайтер}
+MA marketing={SMM}
+MA marketing={Marketing}
+MA marketing={Авитолог}
+
+None
+marketing: smm, copyrighter, context; frontend: bitrix
+----------
+
+294
+Team Lead/Senior devoloper Bitrix24
+prof: frontend
+MA vacancy={работа}
+MA frontend={Bitrix}
+
+None
+frontend: bitrix
+----------
+
+295
+Разработчик Bitrix
+prof: frontend
+MA vacancy={работа}
+MA frontend={Bitrix}
+
+None
+frontend: bitrix
+----------
+
+296
+Специалист бэк-офиса
+prof: junior, frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA backend={1С}
+MA junior={от 1 года}
+
+None
+junior: frontend, backend; frontend: bitrix; backend: one_c
+----------
+
+297
+React developer / React разработчик (Middle и выше)
+prof: mobile, frontend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA mobile={React developer}
+MA frontend={React}
+MA frontend={ React }
+
+None
+mobile: android, cross_mobile, react_native; frontend: react, wordpress
+----------
+
+298
+Руководитель отдела разработки middle+ / Senior (Team Leader)
+prof: marketing, frontend, backend
+MA vacancy={job}
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Vue}
+MA marketing={Marketing}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Laravel}
+MA backend={php developer}
+MA backend={Laravel}
+
+None
+marketing: ; frontend: vue; backend: php, laravel
+----------
+
+299
+React developer / React разработчик (Middle и выше)
+prof: mobile, frontend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA mobile={React developer}
+MA frontend={React}
+MA frontend={ React }
+
+None
+mobile: android, cross_mobile, react_native; frontend: react, wordpress
+----------
+
+300
+js developer
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={vacancy}
+MA frontend={JavaScript}
+MA backend={JavaS}
+
+None
+frontend: ; backend: java
+----------
+
+301
+#вакансия
+prof: mobile, frontend
+MA vacancy={вакансия}
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA mobile={ios}
+MA mobile={Mobile}
+MA mobile={Swift}
+MA frontend={React}
+
+None
+mobile: ios; frontend: react
+----------
+
+302
+React Native Developer
+prof: mobile, frontend
+MA vacancy={вакансия}
+MA vacancy={vacancy}
+MA mobile={React native}
+MA frontend={React}
+
+None
+mobile: cross_mobile, react_native; frontend: react
+----------
+
+303
+: Middle React developer;
+prof: mobile, frontend
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA mobile={React developer}
+MA frontend={Frontend}
+MA frontend={React}
+MA frontend={ React }
+
+None
+mobile: cross_mobile, react_native; frontend: react
+----------
+
+304
+Creative Frintend Developer
+prof: frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA frontend={frontend}
+MA frontend={React}
+MA frontend={JavaScript}
+MA backend={JavaS}
+
+None
+frontend: react; backend: java
+----------
+
+305
+Middle+/Senior FrontEnd Developer (JS, React), удаленно
+prof: frontend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA frontend={FrontEnd}
+MA frontend={React}
+
+None
+frontend: react
+----------
+
+306
+Middle+/Senior FrontEnd Developer (JS, React), удалённо
+prof: frontend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA frontend={FrontEnd}
+MA frontend={React}
+
+None
+frontend: react
+----------
+
+307
+Middle+/Senior FrontEnd Developer (JS, React), удаленно
+prof: frontend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA frontend={FrontEnd}
+MA frontend={React}
+
+None
+frontend: react
+----------
+
+308
+Team leader / Бизнес аналитик (руководитель проектов) Битрикс24
+prof: frontend, pm, analyst
+MA vacancy={работа}
+MA vacancy={Компания}
+MA pm={руководитель проект}
+MA pm={руководитель проект}
+MA pm={руководитель проект}
+MA pm={руководитель проект}
+MA analyst={аналитик}
+MA analyst={Бизнес аналитик}
+MA frontend={Битрикс}
+
+None
+frontend: bitrix; pm: project; analyst: ba
+----------
+
+309
+bitrix frontend
+prof: marketing, frontend
+MA vacancy={job}
+MA vacancy={Откликнуться}
+MA frontend={Битрикс}
+MA marketing={SMM}
+
+None
+marketing: smm; frontend: bitrix
+----------
+
+310
+Разработчик C# Junior (ASP.NET)
+prof: frontend, backend
+MA vacancy={work}
+MA frontend={Javascript}
+MA backend={C#}
+MA backend={Javas}
+MA junior={Junior}
+
+None
+junior: frontend, backend; frontend: ; backend: c, java
+----------
+
+311
+PHP-разработчик Junior (Bitrix и Laravel)
+prof: frontend, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA frontend={Bitrix}
+MA backend={PHP}
+MA backend={PHP-разработчик}
+MA backend={Laravel}
+MA backend={Laravel}
+MA junior={Junior}
+
+None
+junior: frontend, backend; frontend: bitrix; backend: php, laravel, one_c
+----------
+

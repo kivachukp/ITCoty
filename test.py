@@ -1,6 +1,8 @@
 
-from helper_functions.database_update_data.database_update_data import DatabaseUpdateData
-#
-update = DatabaseUpdateData()
-update.create_table('vacancies')
-update.update_id('vacancies')
+import re
+
+with open('./test.txt', 'r', encoding='utf=8') as file:
+    text = file.read()
+    text = re.sub(r'\n{2,}', '\n\n', text)
+print(text)
+

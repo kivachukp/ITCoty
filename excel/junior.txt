@@ -1,0 +1,3499 @@
+QA(
+prof: junior
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={работа}
+MA junior={Junior}
+
+
+----------
+Junior iOS разработчик (ИТ компания, удалённая работа)
+prof: junior, mobile
+MA vacancy={работа}
+MA mobile={iOS разработчик}
+MA mobile={iOS разработчик}
+MA junior={Junior}
+
+None
+----------
+Community manager/Сommunications manager (Mosbuild)
+prof: junior, marketing
+MA vacancy={work}
+MA marketing={SMM}
+MA marketing={Marketing}
+MA junior={junior}
+
+None
+----------
+Community manager (TransRussia)
+prof: junior, marketing
+MA vacancy={work}
+MA marketing={SMM}
+MA marketing={Marketing}
+MA junior={junior}
+
+None
+----------
+Автор-лектор на курс "Автоматизация тестирования на Javа"
+prof: junior, backend
+MA vacancy={работа}
+MA backend={Java }
+MA backend={Java }
+MA junior={junior}
+
+None
+----------
+Junior Salesforce Developer
+prof: junior
+MA vacancy={work}
+MA junior={Junior}
+
+None
+----------
+Junior Legal counsel / Юрисконсульт
+prof: junior
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+----------
+Junior PHP разработчик
+prof: junior, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={PHP разработчик}
+MA junior={Junior}
+
+None
+----------
+Junior product-manager / junior product marketing manager (направление - косметика)
+prof: junior, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA marketing={marketing manager}
+MA junior={junior, Junior}
+
+None
+----------
+DevOps инженер (Junior, Middle)
+prof: junior
+MA vacancy={work}
+MA vacancy={работа}
+MA devops={DevOps}
+MA devops={DevOps}
+MA junior={Junior}
+
+None
+----------
+Стажер в Направление по аналитике продаж и сервиса
+prof: junior, analyst
+MA vacancy={работа}
+MA vacancy={Откликнуться}
+MA vacancy={ищем}
+MA analyst={аналитик}
+MA junior={Стажер}
+
+None
+----------
+Junior PHP developer
+prof: junior, backend
+MA vacancy={работа}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={PHP developer}
+MA junior={Junior}
+
+None
+----------
+pythondeveloper
+English: B1
+prof: junior
+MA vacancy={job}
+MA junior={internship}
+
+None
+----------
+Менеджер по продажам / Junior Sales Manager (удаленно)
+prof: junior, sales_manager
+MA vacancy={ищем}
+MA sales_manager={Менеджер по продаж}
+MA sales_manager={Sales Manager}
+MA junior={Junior}
+
+None
+----------
+Младший специалист по закупкам
+prof: junior, devops, analyst
+MA vacancy={работа}
+MA analyst={аналитик}
+MA devops={баз данных}
+MA junior={от 1 года}
+
+None
+----------
+Оператор/Видеомонтажер
+prof: junior, hr, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA marketing={контент}
+MA hr={кадр}
+MA junior={от 1 года}
+
+None
+----------
+Junior account manager
+prof: junior
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+----------
+Junior Supply Planner
+prof: junior
+MA vacancy={work}
+MA junior={Junior}
+
+None
+----------
+Разработчик / Developer С++ (Junior/Middle)
+prof: junior, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA backend={С++}
+MA junior={Junior}
+
+None
+----------
+📌Middle Developer Ruby on Rails
+prof: junior, backend
+MA vacancy={вакансия}
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA backend={ruby}
+MA backend={ruby on rails}
+MA junior={Junior}
+
+None
+----------
+Помощник SEO-специалиста (Junior SEO оптимизатор), удаленно
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={SEO-специалист}
+MA marketing={SEO}
+MA junior={Junior}
+
+None
+----------
+Junior product-manager / junior product marketing manager (направление - косметика)
+prof: junior, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA marketing={marketing manager}
+MA junior={junior, Junior}
+
+None
+----------
+Менеджер по продажам b2b Junior
+prof: junior, sales_manager
+MA vacancy={работа}
+MA vacancy={Компания}
+MA sales_manager={Менеджер по продаж}
+MA junior={Junior}
+
+None
+----------
+Младший специалист по работе с ключевыми клиентами (Key Account Specialist)
+prof: junior, analyst
+MA vacancy={Компания}
+MA analyst={аналитик}
+MA junior={от 1 года}
+
+None
+----------
+Маркетолог-стажер
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={Маркетолог}
+MA junior={стажер}
+
+None
+----------
+Junior разработчик С#.NET
+prof: junior
+MA vacancy={работа}
+MA vacancy={ищем}
+MA junior={Junior}
+
+None
+----------
+Программист-стажер 1С
+prof: junior, backend
+MA vacancy={ищем}
+MA backend={1С}
+MA junior={стажер}
+
+None
+----------
+Дизайнер - стажер [GoGym]
+prof: junior, designer
+MA vacancy={работа}
+MA designer={Дизайнер}
+MA junior={стажер}
+
+None
+----------
+Account manager 
+prof: junior, backend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA backend={ C }
+MA junior={от 1 года}
+
+None
+----------
+Junior Regional Sales Manager OMODA CHERY
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Sales Manager}
+MA junior={Junior}
+
+None
+----------
+Junior+/Middle UI/UX designer
+prof: junior, designer
+MA vacancy={работа}
+MA vacancy={ищем}
+MA designer={UX}
+MA designer={UI}
+MA designer={ UI/UX designer}
+MA designer={UI/UX}
+MA designer={designer}
+MA junior={Junior}
+
+None
+----------
+Junior Regional Sales Manager (EXEED)
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Sales Manager}
+MA junior={Junior}
+
+None
+----------
+Junior UX/UI designer (внутренние продукты)
+prof: junior, designer
+MA vacancy={работа}
+MA vacancy={ищем}
+MA designer={UX}
+MA designer={UX/UI}
+MA designer={UI}
+MA designer={UI designer}
+MA designer={designer}
+MA junior={Junior}
+
+None
+----------
+Стажер в команду образовательных проектов (brainz by CROC)
+prof: junior, sales_manager, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA sales_manager={CRO}
+MA marketing={CRO}
+MA junior={Стажер}
+
+None
+----------
+Junior Brand Manager
+prof: junior
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+----------
+Brand executive
+prof: junior, marketing
+MA vacancy={work}
+MA marketing={Marketing}
+MA junior={junior}
+
+None
+----------
+Менеджер по продажам / Junior Sales Manager
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Менеджер по продаж}
+MA sales_manager={Sales Manager}
+MA junior={Junior}
+
+None
+----------
+JavaScript School Trainee
+prof: junior, frontend, backend
+MA vacancy={job}
+MA vacancy={work}
+MA frontend={JavaScript}
+MA backend={JavaS}
+MA junior={Trainee}
+
+None
+----------
+Junior product-manager / junior product marketing manager (Health & Beauty)
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={marketing manager}
+MA junior={junior, Junior}
+
+None
+----------
+JavaScript School Trainee
+prof: junior, frontend, backend
+MA vacancy={job}
+MA vacancy={work}
+MA frontend={JavaScript}
+MA backend={JavaS}
+MA junior={Trainee}
+
+None
+----------
+📌Middle Developer Ruby on Rails
+prof: junior, backend
+MA vacancy={вакансия}
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA backend={ruby}
+MA backend={ruby on rails}
+MA junior={Junior}
+
+None
+----------
+Менеджер по персоналу (подбор и кдп)
+prof: junior, hr, backend
+MA vacancy={работа}
+MA hr={Кадр}
+MA backend={1С}
+MA junior={от 1 года}
+
+None
+----------
+Инженер-программист C/C++ (C/C++ Embedded Junior/Middle Developer)
+prof: junior, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA backend={C++}
+MA junior={Junior}
+
+None
+----------
+Контент менеджер TikTok
+prof: junior, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA marketing={маркетолог}
+MA marketing={контент}
+MA junior={от 1 года}
+
+None
+----------
+Junior маркетолог
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={маркетолог}
+MA junior={Junior}
+
+None
+----------
+⭕️ Junior+ / Middle PHP Developer
+🏢
+prof: junior
+MA vacancy={вакансия}
+MA vacancy={job}
+MA junior={Junior}
+
+None
+----------
+Sales Manager Trainee
+prof: junior, sales_manager
+MA vacancy={work}
+MA sales_manager={Sales Manager}
+MA junior={Trainee}
+
+None
+----------
+Junior Ruby on Rails Developer
+prof: junior, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA backend={Ruby}
+MA backend={Ruby on Rails}
+MA junior={Junior}
+
+None
+----------
+Бренд менеджер в КРОК.
+prof: junior, sales_manager, hr, marketing
+MA vacancy={работа}
+MA sales_manager={CRO}
+MA marketing={CRO}
+MA marketing={контент}
+MA hr={ HR}
+MA junior={Junior}
+
+None
+----------
+Junior Brand Manager (Footwear Outdoor)
+prof: junior
+MA vacancy={work}
+MA junior={Junior}
+
+None
+----------
+Junior
+prof: junior, mobile, frontend
+MA vacancy={Откликнуться}
+MA mobile={React Native Developer}
+MA mobile={React Native}
+MA frontend={React}
+MA frontend={ React }
+MA junior={Junior}
+
+None
+----------
+Начинающий рекрутер/HR-менеджер/Стажер в HR-отдел
+prof: junior, hr
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={ищем}
+MA hr={ HR}
+MA junior={Стажер}
+
+None
+----------
+Стажёр в отдел маркетинга
+prof: junior, marketing
+MA vacancy={ищем}
+MA marketing={маркетинга}
+MA junior={Стажёр}
+
+None
+----------
+Менеджер в команду Марии Шаповаловой
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={менеджера по продаж}
+MA junior={стажер}
+
+None
+----------
+Стажер в юридический департамент
+prof: junior
+MA vacancy={работа}
+MA junior={Стажер}
+
+None
+----------
+Стажер к бухгалтеру в группу учета ТМЦ
+prof: junior
+MA vacancy={работа}
+MA junior={Стажер}
+
+None
+----------
+Младший бренд-менеджер/Junior Brand manager/менеджер по маркетингу и рекламе
+prof: junior
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+----------
+Методист-аналитик (стажер)
+prof: junior, analyst
+MA vacancy={работа}
+MA vacancy={Компания}
+MA analyst={аналитик}
+MA junior={стажер}
+
+None
+----------
+Менеджер по продажам (стажер)
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Менеджер по продаж}
+MA junior={стажер}
+
+None
+----------
+Стажер-программист 1С
+prof: junior, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA backend={1С}
+MA junior={Стажер}
+
+None
+----------
+Бизнес-аналитик/Специалист по внедрению/Стажер в отдел внедрения (Bitrix24, ИТ-компания)
+prof: junior, frontend, analyst
+MA vacancy={ищем}
+MA analyst={аналитик}
+MA analyst={Бизнес-аналитик}
+MA frontend={Bitrix}
+MA junior={Стажер}
+
+None
+----------
+Стажер в отдел продаж
+prof: junior
+MA vacancy={работа}
+MA vacancy={Компания}
+MA vacancy={ищем}
+MA junior={Стажер}
+
+None
+----------
+Стажер СММ
+prof: junior
+MA vacancy={работа}
+MA junior={Стажер}
+
+None
+----------
+Junior Consultant, Market Research
+prof: junior, marketing
+MA vacancy={work}
+MA marketing={Market Research}
+MA junior={Junior}
+
+None
+----------
+QA
+prof: junior, qa
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={Компания}
+MA vacancy={vacancy}
+MA qa={QA Manual}
+MA qa={тестировщик}
+MA qa={Postman}
+MA junior={junior, Junior}
+
+None
+----------
+Бизнес-аналитик junior (Аналитик базы 1С Документооборот)
+prof: junior, backend, analyst
+MA vacancy={работа}
+MA analyst={Аналитик, аналитик}
+MA analyst={Бизнес-аналитик}
+MA backend={1С}
+MA junior={junior}
+
+None
+----------
+Бизнес - аналитик (стажер)
+prof: junior, analyst
+MA vacancy={работа}
+MA analyst={аналитик}
+MA junior={стажер}
+
+None
+----------
+Специалист бэк-офиса
+prof: junior, frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA backend={1С}
+MA junior={от 1 года}
+
+None
+----------
+Стажер B2b маркетинга (со знанием SMM и планированием)
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={маркетинга}
+MA marketing={SMM}
+MA junior={Стажер}
+
+None
+----------
+Junior Brand Manager
+prof: junior
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+----------
+Младший маркетолог / Junior маркетолог
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={маркетолог}
+MA junior={Junior}
+
+None
+----------
+Full-stack web developer
+prof: junior, frontend, backend
+MA vacancy={работа}
+MA frontend={Vue}
+MA frontend={Javascript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Javas}
+MA junior={от 1 года}
+
+None
+----------
+I
+prof: junior, mobile
+MA vacancy={job}
+MA mobile={Flutter Developer, flutter developer}
+MA mobile={Flutter}
+MA junior={Junior}
+
+None
+----------
+#вакнсия
+prof: junior, mobile, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA mobile={android}
+MA mobile={Android}
+MA mobile={Kotlin}
+MA backend={Java }
+MA backend={Java , Java2}
+MA junior={от 1 года}
+
+None
+----------
+devops junior
+prof: junior, devops
+MA vacancy={работа}
+MA devops={администратор}
+MA devops={Системный администратор}
+MA junior={Junior}
+
+None
+----------
+Junior Backend разработчик
+prof: junior, backend
+MA vacancy={job}
+MA backend={Backend разработчик}
+MA backend={Backend}
+MA junior={Junior}
+
+None
+----------
+Junior Full-Stack Developer (remote)
+prof: junior
+MA vacancy={работа}
+MA vacancy={ищем}
+MA junior={Junior}
+
+None
+----------
+Разработчик мобильных приложений iOS (Стажер)
+prof: junior
+MA vacancy={работа}
+MA junior={Стажер}
+
+None
+----------
+Junior Full-Stack Developer (remote)
+prof: junior
+MA vacancy={работа}
+MA vacancy={ищем}
+MA junior={Junior}
+
+None
+----------
+Маркетолог (junior)
+prof: junior, marketing
+MA vacancy={работа}
+MA vacancy={Компания}
+MA marketing={Маркетолог}
+MA junior={junior}
+
+None
+----------
+sales_manager junior
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Business Development}
+MA sales_manager={Sales Manager}
+MA sales_manager={Business Development Manager}
+MA junior={Junior}
+
+
+----------
+QA(
+prof: junior
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={работа}
+MA junior={Junior}
+
+
+junior: 
+----------
+
+Junior iOS разработчик (ИТ компания, удалённая работа)
+prof: junior, mobile
+MA vacancy={работа}
+MA mobile={iOS разработчик}
+MA mobile={iOS разработчик}
+MA junior={Junior}
+
+None
+junior: mobile; mobile: ios, android, cross_mobile, react_native
+----------
+
+Community manager/Сommunications manager (Mosbuild)
+prof: junior, marketing
+MA vacancy={work}
+MA marketing={SMM}
+MA marketing={Marketing}
+MA junior={junior}
+
+None
+junior: marketing; marketing: smm
+----------
+
+Community manager (TransRussia)
+prof: junior, marketing
+MA vacancy={work}
+MA marketing={SMM}
+MA marketing={Marketing}
+MA junior={junior}
+
+None
+junior: marketing; marketing: smm
+----------
+
+Автор-лектор на курс "Автоматизация тестирования на Javа"
+prof: junior, backend
+MA vacancy={работа}
+MA backend={Java }
+MA backend={Java }
+MA junior={junior}
+
+None
+junior: backend; backend: java
+----------
+
+Junior Salesforce Developer
+prof: junior
+MA vacancy={work}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+Junior Legal counsel / Юрисконсульт
+prof: junior
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+Junior PHP разработчик
+prof: junior, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={PHP разработчик}
+MA junior={Junior}
+
+None
+junior: backend; backend: php, laravel
+----------
+
+Junior product-manager / junior product marketing manager (направление - косметика)
+prof: junior, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA marketing={marketing manager}
+MA junior={junior, Junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+DevOps инженер (Junior, Middle)
+prof: junior
+MA vacancy={work}
+MA vacancy={работа}
+MA devops={DevOps}
+MA devops={DevOps}
+MA junior={Junior}
+
+None
+junior: devops; devops: 
+----------
+
+Стажер в Направление по аналитике продаж и сервиса
+prof: junior, analyst
+MA vacancy={работа}
+MA vacancy={Откликнуться}
+MA vacancy={ищем}
+MA analyst={аналитик}
+MA junior={Стажер}
+
+None
+junior: analyst; analyst: 
+----------
+
+Junior PHP developer
+prof: junior, backend
+MA vacancy={работа}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={PHP developer}
+MA junior={Junior}
+
+None
+junior: backend; backend: php, java
+----------
+
+pythondeveloper
+English: B1
+prof: junior
+MA vacancy={job}
+MA junior={internship}
+
+None
+junior: 
+----------
+
+Менеджер по продажам / Junior Sales Manager (удаленно)
+prof: junior, sales_manager
+MA vacancy={ищем}
+MA sales_manager={Менеджер по продаж}
+MA sales_manager={Sales Manager}
+MA junior={Junior}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+Младший специалист по закупкам
+prof: junior, devops, analyst
+MA vacancy={работа}
+MA analyst={аналитик}
+MA devops={баз данных}
+MA junior={от 1 года}
+
+None
+junior: devops, analyst; devops: ; analyst: 
+----------
+
+Оператор/Видеомонтажер
+prof: junior, hr, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA marketing={контент}
+MA hr={кадр}
+MA junior={от 1 года}
+
+None
+junior: hr, marketing; hr: ; marketing: 
+----------
+
+Junior account manager
+prof: junior
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+Junior Supply Planner
+prof: junior
+MA vacancy={work}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+Разработчик / Developer С++ (Junior/Middle)
+prof: junior, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA backend={С++}
+MA junior={Junior}
+
+None
+junior: backend; backend: c
+----------
+
+📌Middle Developer Ruby on Rails
+prof: junior, backend
+MA vacancy={вакансия}
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA backend={ruby}
+MA backend={ruby on rails}
+MA junior={Junior}
+
+None
+junior: backend; backend: ruby
+----------
+
+Помощник SEO-специалиста (Junior SEO оптимизатор), удаленно
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={SEO-специалист}
+MA marketing={SEO}
+MA junior={Junior}
+
+None
+junior: marketing; marketing: seo, link_builder
+----------
+
+Junior product-manager / junior product marketing manager (направление - косметика)
+prof: junior, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA marketing={marketing manager}
+MA junior={junior, Junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+Менеджер по продажам b2b Junior
+prof: junior, sales_manager
+MA vacancy={работа}
+MA vacancy={Компания}
+MA sales_manager={Менеджер по продаж}
+MA junior={Junior}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+Младший специалист по работе с ключевыми клиентами (Key Account Specialist)
+prof: junior, analyst
+MA vacancy={Компания}
+MA analyst={аналитик}
+MA junior={от 1 года}
+
+None
+junior: analyst; analyst: 
+----------
+
+Маркетолог-стажер
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={Маркетолог}
+MA junior={стажер}
+
+None
+junior: marketing; marketing: smm
+----------
+
+Junior разработчик С#.NET
+prof: junior
+MA vacancy={работа}
+MA vacancy={ищем}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+Программист-стажер 1С
+prof: junior, backend
+MA vacancy={ищем}
+MA backend={1С}
+MA junior={стажер}
+
+None
+junior: backend; backend: one_c
+----------
+
+Дизайнер - стажер [GoGym]
+prof: junior, designer
+MA vacancy={работа}
+MA designer={Дизайнер}
+MA junior={стажер}
+
+None
+junior: designer; designer: ddd
+----------
+
+Account manager 
+prof: junior, backend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA backend={ C }
+MA junior={от 1 года}
+
+None
+junior: backend; backend: c
+----------
+
+Junior Regional Sales Manager OMODA CHERY
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Sales Manager}
+MA junior={Junior}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+Junior+/Middle UI/UX designer
+prof: junior, designer
+MA vacancy={работа}
+MA vacancy={ищем}
+MA designer={UX}
+MA designer={UI}
+MA designer={ UI/UX designer}
+MA designer={UI/UX}
+MA designer={designer}
+MA junior={Junior}
+
+None
+junior: designer; designer: ui_ux, ddd
+----------
+
+Junior Regional Sales Manager (EXEED)
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Sales Manager}
+MA junior={Junior}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+Junior UX/UI designer (внутренние продукты)
+prof: junior, designer
+MA vacancy={работа}
+MA vacancy={ищем}
+MA designer={UX}
+MA designer={UX/UI}
+MA designer={UI}
+MA designer={UI designer}
+MA designer={designer}
+MA junior={Junior}
+
+None
+junior: designer; designer: ui_ux
+----------
+
+Стажер в команду образовательных проектов (brainz by CROC)
+prof: junior, sales_manager, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA sales_manager={CRO}
+MA marketing={CRO}
+MA junior={Стажер}
+
+None
+junior: sales_manager, marketing; sales_manager: ; marketing: 
+----------
+
+Junior Brand Manager
+prof: junior
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+Brand executive
+prof: junior, marketing
+MA vacancy={work}
+MA marketing={Marketing}
+MA junior={junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+Менеджер по продажам / Junior Sales Manager
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Менеджер по продаж}
+MA sales_manager={Sales Manager}
+MA junior={Junior}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+JavaScript School Trainee
+prof: junior, frontend, backend
+MA vacancy={job}
+MA vacancy={work}
+MA frontend={JavaScript}
+MA backend={JavaS}
+MA junior={Trainee}
+
+None
+junior: frontend, backend; frontend: react; backend: java
+----------
+
+Junior product-manager / junior product marketing manager (Health & Beauty)
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={marketing manager}
+MA junior={junior, Junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+JavaScript School Trainee
+prof: junior, frontend, backend
+MA vacancy={job}
+MA vacancy={work}
+MA frontend={JavaScript}
+MA backend={JavaS}
+MA junior={Trainee}
+
+None
+junior: frontend, backend; frontend: react; backend: java
+----------
+
+📌Middle Developer Ruby on Rails
+prof: junior, backend
+MA vacancy={вакансия}
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA backend={ruby}
+MA backend={ruby on rails}
+MA junior={Junior}
+
+None
+junior: backend; backend: ruby
+----------
+
+Менеджер по персоналу (подбор и кдп)
+prof: junior, hr, backend
+MA vacancy={работа}
+MA hr={Кадр}
+MA backend={1С}
+MA junior={от 1 года}
+
+None
+junior: hr, backend; hr: ; backend: one_c
+----------
+
+Инженер-программист C/C++ (C/C++ Embedded Junior/Middle Developer)
+prof: junior, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA backend={C++}
+MA junior={Junior}
+
+None
+junior: backend; backend: python, c
+----------
+
+Контент менеджер TikTok
+prof: junior, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA marketing={маркетолог}
+MA marketing={контент}
+MA junior={от 1 года}
+
+None
+junior: marketing; marketing: 
+----------
+
+Junior маркетолог
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={маркетолог}
+MA junior={Junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+⭕️ Junior+ / Middle PHP Developer
+🏢
+prof: junior
+MA vacancy={вакансия}
+MA vacancy={job}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+Sales Manager Trainee
+prof: junior, sales_manager
+MA vacancy={work}
+MA sales_manager={Sales Manager}
+MA junior={Trainee}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+Junior Ruby on Rails Developer
+prof: junior, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA backend={Ruby}
+MA backend={Ruby on Rails}
+MA junior={Junior}
+
+None
+junior: backend; backend: ruby
+----------
+
+Бренд менеджер в КРОК.
+prof: junior, sales_manager, hr, marketing
+MA vacancy={работа}
+MA sales_manager={CRO}
+MA marketing={CRO}
+MA marketing={контент}
+MA hr={ HR}
+MA junior={Junior}
+
+None
+junior: sales_manager, hr, marketing; sales_manager: ; hr: ; marketing: 
+----------
+
+Junior Brand Manager (Footwear Outdoor)
+prof: junior
+MA vacancy={work}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+Junior
+prof: junior, mobile, frontend
+MA vacancy={Откликнуться}
+MA mobile={React Native Developer}
+MA mobile={React Native}
+MA frontend={React}
+MA frontend={ React }
+MA junior={Junior}
+
+None
+junior: mobile, frontend; mobile: cross_mobile, react_native; frontend: react
+----------
+
+Начинающий рекрутер/HR-менеджер/Стажер в HR-отдел
+prof: junior, hr
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={ищем}
+MA hr={ HR}
+MA junior={Стажер}
+
+None
+junior: hr; hr: 
+----------
+
+Стажёр в отдел маркетинга
+prof: junior, marketing
+MA vacancy={ищем}
+MA marketing={маркетинга}
+MA junior={Стажёр}
+
+None
+junior: marketing; marketing: 
+----------
+
+Менеджер в команду Марии Шаповаловой
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={менеджера по продаж}
+MA junior={стажер}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+Стажер в юридический департамент
+prof: junior
+MA vacancy={работа}
+MA junior={Стажер}
+
+None
+junior: 
+----------
+
+Стажер к бухгалтеру в группу учета ТМЦ
+prof: junior
+MA vacancy={работа}
+MA junior={Стажер}
+
+None
+junior: 
+----------
+
+Младший бренд-менеджер/Junior Brand manager/менеджер по маркетингу и рекламе
+prof: junior
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+Методист-аналитик (стажер)
+prof: junior, analyst
+MA vacancy={работа}
+MA vacancy={Компания}
+MA analyst={аналитик}
+MA junior={стажер}
+
+None
+junior: analyst; analyst: 
+----------
+
+Менеджер по продажам (стажер)
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Менеджер по продаж}
+MA junior={стажер}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+Стажер-программист 1С
+prof: junior, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA backend={1С}
+MA junior={Стажер}
+
+None
+junior: backend; backend: one_c
+----------
+
+Бизнес-аналитик/Специалист по внедрению/Стажер в отдел внедрения (Bitrix24, ИТ-компания)
+prof: junior, frontend, analyst
+MA vacancy={ищем}
+MA analyst={аналитик}
+MA analyst={Бизнес-аналитик}
+MA frontend={Bitrix}
+MA junior={Стажер}
+
+None
+junior: frontend, analyst; frontend: bitrix; analyst: ba
+----------
+
+Стажер в отдел продаж
+prof: junior
+MA vacancy={работа}
+MA vacancy={Компания}
+MA vacancy={ищем}
+MA junior={Стажер}
+
+None
+junior: 
+----------
+
+Стажер СММ
+prof: junior
+MA vacancy={работа}
+MA junior={Стажер}
+
+None
+junior: 
+----------
+
+Junior Consultant, Market Research
+prof: junior, marketing
+MA vacancy={work}
+MA marketing={Market Research}
+MA junior={Junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+QA
+prof: junior, qa
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={Компания}
+MA vacancy={vacancy}
+MA qa={QA Manual}
+MA qa={тестировщик}
+MA qa={Postman}
+MA junior={junior, Junior}
+
+None
+junior: qa; qa: manual_qa
+----------
+
+Бизнес-аналитик junior (Аналитик базы 1С Документооборот)
+prof: junior, backend, analyst
+MA vacancy={работа}
+MA analyst={Аналитик, аналитик}
+MA analyst={Бизнес-аналитик}
+MA backend={1С}
+MA junior={junior}
+
+None
+junior: backend, analyst; backend: one_c; analyst: ba
+----------
+
+Бизнес - аналитик (стажер)
+prof: junior, analyst
+MA vacancy={работа}
+MA analyst={аналитик}
+MA junior={стажер}
+
+None
+junior: analyst; analyst: ba
+----------
+
+Специалист бэк-офиса
+prof: junior, frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA backend={1С}
+MA junior={от 1 года}
+
+None
+junior: frontend, backend; frontend: bitrix; backend: one_c
+----------
+
+Стажер B2b маркетинга (со знанием SMM и планированием)
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={маркетинга}
+MA marketing={SMM}
+MA junior={Стажер}
+
+None
+junior: marketing; marketing: smm
+----------
+
+Junior Brand Manager
+prof: junior
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+Младший маркетолог / Junior маркетолог
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={маркетолог}
+MA junior={Junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+Full-stack web developer
+prof: junior, frontend, backend
+MA vacancy={работа}
+MA frontend={Vue}
+MA frontend={Javascript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Javas}
+MA junior={от 1 года}
+
+None
+junior: frontend, backend; frontend: vue; backend: php, java
+----------
+
+I
+prof: junior, mobile
+MA vacancy={job}
+MA mobile={Flutter Developer, flutter developer}
+MA mobile={Flutter}
+MA junior={Junior}
+
+None
+junior: mobile; mobile: cross_mobile, flutter
+----------
+
+#вакнсия
+prof: junior, mobile, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA mobile={android}
+MA mobile={Android}
+MA mobile={Kotlin}
+MA backend={Java }
+MA backend={Java , Java2}
+MA junior={от 1 года}
+
+None
+junior: mobile, backend; mobile: android; backend: java
+----------
+
+devops junior
+prof: junior, devops
+MA vacancy={работа}
+MA devops={администратор}
+MA devops={Системный администратор}
+MA junior={Junior}
+
+None
+junior: devops; devops: 
+----------
+
+Junior Backend разработчик
+prof: junior, backend
+MA vacancy={job}
+MA backend={Backend разработчик}
+MA backend={Backend}
+MA junior={Junior}
+
+None
+junior: backend; backend: php
+----------
+
+Junior Full-Stack Developer (remote)
+prof: junior
+MA vacancy={работа}
+MA vacancy={ищем}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+Разработчик мобильных приложений iOS (Стажер)
+prof: junior
+MA vacancy={работа}
+MA junior={Стажер}
+
+None
+junior: 
+----------
+
+Junior Full-Stack Developer (remote)
+prof: junior
+MA vacancy={работа}
+MA vacancy={ищем}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+Маркетолог (junior)
+prof: junior, marketing
+MA vacancy={работа}
+MA vacancy={Компания}
+MA marketing={Маркетолог}
+MA junior={junior}
+
+None
+junior: marketing; marketing: seo
+----------
+
+sales_manager junior
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Business Development}
+MA sales_manager={Sales Manager}
+MA sales_manager={Business Development Manager}
+MA junior={Junior}
+
+
+junior: sales_manager; sales_manager: 
+----------
+
+Quantity juniors: 81
+
+1-QA(
+prof: junior
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={работа}
+MA junior={Junior}
+
+
+junior: 
+----------
+
+2-Junior iOS разработчик (ИТ компания, удалённая работа)
+prof: junior, mobile
+MA vacancy={работа}
+MA mobile={iOS разработчик}
+MA mobile={iOS разработчик}
+MA junior={Junior}
+
+None
+junior: mobile; mobile: ios, android, cross_mobile, react_native
+----------
+
+3-Community manager/Сommunications manager (Mosbuild)
+prof: junior, marketing
+MA vacancy={work}
+MA marketing={SMM}
+MA marketing={Marketing}
+MA junior={junior}
+
+None
+junior: marketing; marketing: smm
+----------
+
+4-Community manager (TransRussia)
+prof: junior, marketing
+MA vacancy={work}
+MA marketing={SMM}
+MA marketing={Marketing}
+MA junior={junior}
+
+None
+junior: marketing; marketing: smm
+----------
+
+5-Автор-лектор на курс "Автоматизация тестирования на Javа"
+prof: junior, backend
+MA vacancy={работа}
+MA backend={Java }
+MA backend={Java }
+MA junior={junior}
+
+None
+junior: backend; backend: java
+----------
+
+6-Junior Salesforce Developer
+prof: junior
+MA vacancy={work}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+7-Junior Legal counsel / Юрисконсульт
+prof: junior
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+8-Junior PHP разработчик
+prof: junior, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={PHP разработчик}
+MA junior={Junior}
+
+None
+junior: backend; backend: php, laravel
+----------
+
+9-Junior product-manager / junior product marketing manager (направление - косметика)
+prof: junior, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA marketing={marketing manager}
+MA junior={junior, Junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+10-DevOps инженер (Junior, Middle)
+prof: junior
+MA vacancy={work}
+MA vacancy={работа}
+MA devops={DevOps}
+MA devops={DevOps}
+MA junior={Junior}
+
+None
+junior: devops; devops: 
+----------
+
+11-Стажер в Направление по аналитике продаж и сервиса
+prof: junior, analyst
+MA vacancy={работа}
+MA vacancy={Откликнуться}
+MA vacancy={ищем}
+MA analyst={аналитик}
+MA junior={Стажер}
+
+None
+junior: analyst; analyst: 
+----------
+
+12-Junior PHP developer
+prof: junior, backend
+MA vacancy={работа}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={PHP developer}
+MA junior={Junior}
+
+None
+junior: backend; backend: php, java
+----------
+
+13-pythondeveloper
+English: B1
+prof: junior
+MA vacancy={job}
+MA junior={internship}
+
+None
+junior: 
+----------
+
+14-Менеджер по продажам / Junior Sales Manager (удаленно)
+prof: junior, sales_manager
+MA vacancy={ищем}
+MA sales_manager={Менеджер по продаж}
+MA sales_manager={Sales Manager}
+MA junior={Junior}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+15-Младший специалист по закупкам
+prof: junior, devops, analyst
+MA vacancy={работа}
+MA analyst={аналитик}
+MA devops={баз данных}
+MA junior={от 1 года}
+
+None
+junior: devops, analyst; devops: ; analyst: 
+----------
+
+16-Оператор/Видеомонтажер
+prof: junior, hr, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA marketing={контент}
+MA hr={кадр}
+MA junior={от 1 года}
+
+None
+junior: hr, marketing; hr: ; marketing: 
+----------
+
+17-Junior account manager
+prof: junior
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+18-Junior Supply Planner
+prof: junior
+MA vacancy={work}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+19-Разработчик / Developer С++ (Junior/Middle)
+prof: junior, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA backend={С++}
+MA junior={Junior}
+
+None
+junior: backend; backend: c
+----------
+
+20-📌Middle Developer Ruby on Rails
+prof: junior, backend
+MA vacancy={вакансия}
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA backend={ruby}
+MA backend={ruby on rails}
+MA junior={Junior}
+
+None
+junior: backend; backend: ruby
+----------
+
+21-Помощник SEO-специалиста (Junior SEO оптимизатор), удаленно
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={SEO-специалист}
+MA marketing={SEO}
+MA junior={Junior}
+
+None
+junior: marketing; marketing: seo, link_builder
+----------
+
+22-Junior product-manager / junior product marketing manager (направление - косметика)
+prof: junior, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA marketing={marketing manager}
+MA junior={junior, Junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+23-Менеджер по продажам b2b Junior
+prof: junior, sales_manager
+MA vacancy={работа}
+MA vacancy={Компания}
+MA sales_manager={Менеджер по продаж}
+MA junior={Junior}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+24-Младший специалист по работе с ключевыми клиентами (Key Account Specialist)
+prof: junior, analyst
+MA vacancy={Компания}
+MA analyst={аналитик}
+MA junior={от 1 года}
+
+None
+junior: analyst; analyst: 
+----------
+
+25-Маркетолог-стажер
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={Маркетолог}
+MA junior={стажер}
+
+None
+junior: marketing; marketing: smm
+----------
+
+26-Junior разработчик С#.NET
+prof: junior
+MA vacancy={работа}
+MA vacancy={ищем}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+27-Программист-стажер 1С
+prof: junior, backend
+MA vacancy={ищем}
+MA backend={1С}
+MA junior={стажер}
+
+None
+junior: backend; backend: one_c
+----------
+
+28-Дизайнер - стажер [GoGym]
+prof: junior, designer
+MA vacancy={работа}
+MA designer={Дизайнер}
+MA junior={стажер}
+
+None
+junior: designer; designer: ddd
+----------
+
+29-Account manager 
+prof: junior, backend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA backend={ C }
+MA junior={от 1 года}
+
+None
+junior: backend; backend: c
+----------
+
+30-Junior Regional Sales Manager OMODA CHERY
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Sales Manager}
+MA junior={Junior}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+31-Junior+/Middle UI/UX designer
+prof: junior, designer
+MA vacancy={работа}
+MA vacancy={ищем}
+MA designer={UX}
+MA designer={UI}
+MA designer={ UI/UX designer}
+MA designer={UI/UX}
+MA designer={designer}
+MA junior={Junior}
+
+None
+junior: designer; designer: ui_ux, ddd
+----------
+
+32-Junior Regional Sales Manager (EXEED)
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Sales Manager}
+MA junior={Junior}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+33-Junior UX/UI designer (внутренние продукты)
+prof: junior, designer
+MA vacancy={работа}
+MA vacancy={ищем}
+MA designer={UX}
+MA designer={UX/UI}
+MA designer={UI}
+MA designer={UI designer}
+MA designer={designer}
+MA junior={Junior}
+
+None
+junior: designer; designer: ui_ux
+----------
+
+34-Стажер в команду образовательных проектов (brainz by CROC)
+prof: junior, sales_manager, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA sales_manager={CRO}
+MA marketing={CRO}
+MA junior={Стажер}
+
+None
+junior: sales_manager, marketing; sales_manager: ; marketing: 
+----------
+
+35-Junior Brand Manager
+prof: junior
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+36-Brand executive
+prof: junior, marketing
+MA vacancy={work}
+MA marketing={Marketing}
+MA junior={junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+37-Менеджер по продажам / Junior Sales Manager
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Менеджер по продаж}
+MA sales_manager={Sales Manager}
+MA junior={Junior}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+38-JavaScript School Trainee
+prof: junior, frontend, backend
+MA vacancy={job}
+MA vacancy={work}
+MA frontend={JavaScript}
+MA backend={JavaS}
+MA junior={Trainee}
+
+None
+junior: frontend, backend; frontend: react; backend: java
+----------
+
+39-Junior product-manager / junior product marketing manager (Health & Beauty)
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={marketing manager}
+MA junior={junior, Junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+40-JavaScript School Trainee
+prof: junior, frontend, backend
+MA vacancy={job}
+MA vacancy={work}
+MA frontend={JavaScript}
+MA backend={JavaS}
+MA junior={Trainee}
+
+None
+junior: frontend, backend; frontend: react; backend: java
+----------
+
+41-📌Middle Developer Ruby on Rails
+prof: junior, backend
+MA vacancy={вакансия}
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA backend={ruby}
+MA backend={ruby on rails}
+MA junior={Junior}
+
+None
+junior: backend; backend: ruby
+----------
+
+42-Менеджер по персоналу (подбор и кдп)
+prof: junior, hr, backend
+MA vacancy={работа}
+MA hr={Кадр}
+MA backend={1С}
+MA junior={от 1 года}
+
+None
+junior: hr, backend; hr: ; backend: one_c
+----------
+
+43-Инженер-программист C/C++ (C/C++ Embedded Junior/Middle Developer)
+prof: junior, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA backend={C++}
+MA junior={Junior}
+
+None
+junior: backend; backend: python, c
+----------
+
+44-Контент менеджер TikTok
+prof: junior, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA marketing={маркетолог}
+MA marketing={контент}
+MA junior={от 1 года}
+
+None
+junior: marketing; marketing: 
+----------
+
+45-Junior маркетолог
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={маркетолог}
+MA junior={Junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+46-⭕️ Junior+ / Middle PHP Developer
+🏢
+prof: junior
+MA vacancy={вакансия}
+MA vacancy={job}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+47-Sales Manager Trainee
+prof: junior, sales_manager
+MA vacancy={work}
+MA sales_manager={Sales Manager}
+MA junior={Trainee}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+48-Junior Ruby on Rails Developer
+prof: junior, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA backend={Ruby}
+MA backend={Ruby on Rails}
+MA junior={Junior}
+
+None
+junior: backend; backend: ruby
+----------
+
+49-Бренд менеджер в КРОК.
+prof: junior, sales_manager, hr, marketing
+MA vacancy={работа}
+MA sales_manager={CRO}
+MA marketing={CRO}
+MA marketing={контент}
+MA hr={ HR}
+MA junior={Junior}
+
+None
+junior: sales_manager, hr, marketing; sales_manager: ; hr: ; marketing: 
+----------
+
+50-Junior Brand Manager (Footwear Outdoor)
+prof: junior
+MA vacancy={work}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+51-Junior
+prof: junior, mobile, frontend
+MA vacancy={Откликнуться}
+MA mobile={React Native Developer}
+MA mobile={React Native}
+MA frontend={React}
+MA frontend={ React }
+MA junior={Junior}
+
+None
+junior: mobile, frontend; mobile: cross_mobile, react_native; frontend: react
+----------
+
+52-Начинающий рекрутер/HR-менеджер/Стажер в HR-отдел
+prof: junior, hr
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={ищем}
+MA hr={ HR}
+MA junior={Стажер}
+
+None
+junior: hr; hr: 
+----------
+
+53-Стажёр в отдел маркетинга
+prof: junior, marketing
+MA vacancy={ищем}
+MA marketing={маркетинга}
+MA junior={Стажёр}
+
+None
+junior: marketing; marketing: 
+----------
+
+54-Менеджер в команду Марии Шаповаловой
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={менеджера по продаж}
+MA junior={стажер}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+55-Стажер в юридический департамент
+prof: junior
+MA vacancy={работа}
+MA junior={Стажер}
+
+None
+junior: 
+----------
+
+56-Стажер к бухгалтеру в группу учета ТМЦ
+prof: junior
+MA vacancy={работа}
+MA junior={Стажер}
+
+None
+junior: 
+----------
+
+57-Младший бренд-менеджер/Junior Brand manager/менеджер по маркетингу и рекламе
+prof: junior
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+58-Методист-аналитик (стажер)
+prof: junior, analyst
+MA vacancy={работа}
+MA vacancy={Компания}
+MA analyst={аналитик}
+MA junior={стажер}
+
+None
+junior: analyst; analyst: 
+----------
+
+59-Менеджер по продажам (стажер)
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Менеджер по продаж}
+MA junior={стажер}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+60-Стажер-программист 1С
+prof: junior, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA backend={1С}
+MA junior={Стажер}
+
+None
+junior: backend; backend: one_c
+----------
+
+61-Бизнес-аналитик/Специалист по внедрению/Стажер в отдел внедрения (Bitrix24, ИТ-компания)
+prof: junior, frontend, analyst
+MA vacancy={ищем}
+MA analyst={аналитик}
+MA analyst={Бизнес-аналитик}
+MA frontend={Bitrix}
+MA junior={Стажер}
+
+None
+junior: frontend, analyst; frontend: bitrix; analyst: ba
+----------
+
+62-Стажер в отдел продаж
+prof: junior
+MA vacancy={работа}
+MA vacancy={Компания}
+MA vacancy={ищем}
+MA junior={Стажер}
+
+None
+junior: 
+----------
+
+63-Стажер СММ
+prof: junior
+MA vacancy={работа}
+MA junior={Стажер}
+
+None
+junior: 
+----------
+
+64-Junior Consultant, Market Research
+prof: junior, marketing
+MA vacancy={work}
+MA marketing={Market Research}
+MA junior={Junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+65-QA
+prof: junior, qa
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={Компания}
+MA vacancy={vacancy}
+MA qa={QA Manual}
+MA qa={тестировщик}
+MA qa={Postman}
+MA junior={junior, Junior}
+
+None
+junior: qa; qa: manual_qa
+----------
+
+66-Бизнес-аналитик junior (Аналитик базы 1С Документооборот)
+prof: junior, backend, analyst
+MA vacancy={работа}
+MA analyst={Аналитик, аналитик}
+MA analyst={Бизнес-аналитик}
+MA backend={1С}
+MA junior={junior}
+
+None
+junior: backend, analyst; backend: one_c; analyst: ba
+----------
+
+67-Бизнес - аналитик (стажер)
+prof: junior, analyst
+MA vacancy={работа}
+MA analyst={аналитик}
+MA junior={стажер}
+
+None
+junior: analyst; analyst: ba
+----------
+
+68-Специалист бэк-офиса
+prof: junior, frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA backend={1С}
+MA junior={от 1 года}
+
+None
+junior: frontend, backend; frontend: bitrix; backend: one_c
+----------
+
+69-Стажер B2b маркетинга (со знанием SMM и планированием)
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={маркетинга}
+MA marketing={SMM}
+MA junior={Стажер}
+
+None
+junior: marketing; marketing: smm
+----------
+
+70-Junior Brand Manager
+prof: junior
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+71-Младший маркетолог / Junior маркетолог
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={маркетолог}
+MA junior={Junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+72-Full-stack web developer
+prof: junior, frontend, backend
+MA vacancy={работа}
+MA frontend={Vue}
+MA frontend={Javascript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Javas}
+MA junior={от 1 года}
+
+None
+junior: frontend, backend; frontend: vue; backend: php, java
+----------
+
+73-I
+prof: junior, mobile
+MA vacancy={job}
+MA mobile={Flutter Developer, flutter developer}
+MA mobile={Flutter}
+MA junior={Junior}
+
+None
+junior: mobile; mobile: cross_mobile, flutter
+----------
+
+74-#вакнсия
+prof: junior, mobile, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA mobile={android}
+MA mobile={Android}
+MA mobile={Kotlin}
+MA backend={Java }
+MA backend={Java , Java2}
+MA junior={от 1 года}
+
+None
+junior: mobile, backend; mobile: android; backend: java
+----------
+
+75-devops junior
+prof: junior, devops
+MA vacancy={работа}
+MA devops={администратор}
+MA devops={Системный администратор}
+MA junior={Junior}
+
+None
+junior: devops; devops: 
+----------
+
+76-Junior Backend разработчик
+prof: junior, backend
+MA vacancy={job}
+MA backend={Backend разработчик}
+MA backend={Backend}
+MA junior={Junior}
+
+None
+junior: backend; backend: php
+----------
+
+77-Junior Full-Stack Developer (remote)
+prof: junior
+MA vacancy={работа}
+MA vacancy={ищем}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+78-Разработчик мобильных приложений iOS (Стажер)
+prof: junior
+MA vacancy={работа}
+MA junior={Стажер}
+
+None
+junior: 
+----------
+
+79-Junior Full-Stack Developer (remote)
+prof: junior
+MA vacancy={работа}
+MA vacancy={ищем}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+80-Маркетолог (junior)
+prof: junior, marketing
+MA vacancy={работа}
+MA vacancy={Компания}
+MA marketing={Маркетолог}
+MA junior={junior}
+
+None
+junior: marketing; marketing: seo
+----------
+
+81-sales_manager junior
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Business Development}
+MA sales_manager={Sales Manager}
+MA sales_manager={Business Development Manager}
+MA junior={Junior}
+
+
+junior: sales_manager; sales_manager: 
+----------
+
+Quantity juniors: 81
+
+1
+QA(
+prof: junior
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={работа}
+MA junior={Junior}
+
+
+junior: 
+----------
+
+2
+Junior iOS разработчик (ИТ компания, удалённая работа)
+prof: junior, mobile
+MA vacancy={работа}
+MA mobile={iOS разработчик}
+MA mobile={iOS разработчик}
+MA junior={Junior}
+
+None
+junior: mobile; mobile: ios, android, cross_mobile, react_native
+----------
+
+3
+Community manager/Сommunications manager (Mosbuild)
+prof: junior, marketing
+MA vacancy={work}
+MA marketing={SMM}
+MA marketing={Marketing}
+MA junior={junior}
+
+None
+junior: marketing; marketing: smm
+----------
+
+4
+Community manager (TransRussia)
+prof: junior, marketing
+MA vacancy={work}
+MA marketing={SMM}
+MA marketing={Marketing}
+MA junior={junior}
+
+None
+junior: marketing; marketing: smm
+----------
+
+5
+Автор-лектор на курс "Автоматизация тестирования на Javа"
+prof: junior, backend
+MA vacancy={работа}
+MA backend={Java }
+MA backend={Java }
+MA junior={junior}
+
+None
+junior: backend; backend: java
+----------
+
+6
+Junior Salesforce Developer
+prof: junior
+MA vacancy={work}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+7
+Junior Legal counsel / Юрисконсульт
+prof: junior
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+8
+Junior PHP разработчик
+prof: junior, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={PHP разработчик}
+MA junior={Junior}
+
+None
+junior: backend; backend: php, laravel
+----------
+
+9
+Junior product-manager / junior product marketing manager (направление - косметика)
+prof: junior, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA marketing={marketing manager}
+MA junior={junior, Junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+10
+DevOps инженер (Junior, Middle)
+prof: junior
+MA vacancy={work}
+MA vacancy={работа}
+MA devops={DevOps}
+MA devops={DevOps}
+MA junior={Junior}
+
+None
+junior: devops; devops: 
+----------
+
+11
+Стажер в Направление по аналитике продаж и сервиса
+prof: junior, analyst
+MA vacancy={работа}
+MA vacancy={Откликнуться}
+MA vacancy={ищем}
+MA analyst={аналитик}
+MA junior={Стажер}
+
+None
+junior: analyst; analyst: 
+----------
+
+12
+Junior PHP developer
+prof: junior, backend
+MA vacancy={работа}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={PHP developer}
+MA junior={Junior}
+
+None
+junior: backend; backend: php, java
+----------
+
+13
+pythondeveloper
+English: B1
+prof: junior
+MA vacancy={job}
+MA junior={internship}
+
+None
+junior: 
+----------
+
+14
+Менеджер по продажам / Junior Sales Manager (удаленно)
+prof: junior, sales_manager
+MA vacancy={ищем}
+MA sales_manager={Менеджер по продаж}
+MA sales_manager={Sales Manager}
+MA junior={Junior}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+15
+Младший специалист по закупкам
+prof: junior, devops, analyst
+MA vacancy={работа}
+MA analyst={аналитик}
+MA devops={баз данных}
+MA junior={от 1 года}
+
+None
+junior: devops, analyst; devops: ; analyst: 
+----------
+
+16
+Оператор/Видеомонтажер
+prof: junior, hr, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA marketing={контент}
+MA hr={кадр}
+MA junior={от 1 года}
+
+None
+junior: hr, marketing; hr: ; marketing: 
+----------
+
+17
+Junior account manager
+prof: junior
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+18
+Junior Supply Planner
+prof: junior
+MA vacancy={work}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+19
+Разработчик / Developer С++ (Junior/Middle)
+prof: junior, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA backend={С++}
+MA junior={Junior}
+
+None
+junior: backend; backend: c
+----------
+
+20
+📌Middle Developer Ruby on Rails
+prof: junior, backend
+MA vacancy={вакансия}
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA backend={ruby}
+MA backend={ruby on rails}
+MA junior={Junior}
+
+None
+junior: backend; backend: ruby
+----------
+
+21
+Помощник SEO-специалиста (Junior SEO оптимизатор), удаленно
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={SEO-специалист}
+MA marketing={SEO}
+MA junior={Junior}
+
+None
+junior: marketing; marketing: seo, link_builder
+----------
+
+22
+Junior product-manager / junior product marketing manager (направление - косметика)
+prof: junior, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA marketing={marketing manager}
+MA junior={junior, Junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+23
+Менеджер по продажам b2b Junior
+prof: junior, sales_manager
+MA vacancy={работа}
+MA vacancy={Компания}
+MA sales_manager={Менеджер по продаж}
+MA junior={Junior}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+24
+Младший специалист по работе с ключевыми клиентами (Key Account Specialist)
+prof: junior, analyst
+MA vacancy={Компания}
+MA analyst={аналитик}
+MA junior={от 1 года}
+
+None
+junior: analyst; analyst: 
+----------
+
+25
+Маркетолог-стажер
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={Маркетолог}
+MA junior={стажер}
+
+None
+junior: marketing; marketing: smm
+----------
+
+26
+Junior разработчик С#.NET
+prof: junior
+MA vacancy={работа}
+MA vacancy={ищем}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+27
+Программист-стажер 1С
+prof: junior, backend
+MA vacancy={ищем}
+MA backend={1С}
+MA junior={стажер}
+
+None
+junior: backend; backend: one_c
+----------
+
+28
+Дизайнер - стажер [GoGym]
+prof: junior, designer
+MA vacancy={работа}
+MA designer={Дизайнер}
+MA junior={стажер}
+
+None
+junior: designer; designer: ddd
+----------
+
+29
+Account manager 
+prof: junior, backend
+MA vacancy={работа}
+MA vacancy={Компания}
+MA backend={ C }
+MA junior={от 1 года}
+
+None
+junior: backend; backend: c
+----------
+
+30
+Junior Regional Sales Manager OMODA CHERY
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Sales Manager}
+MA junior={Junior}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+31
+Junior+/Middle UI/UX designer
+prof: junior, designer
+MA vacancy={работа}
+MA vacancy={ищем}
+MA designer={UX}
+MA designer={UI}
+MA designer={ UI/UX designer}
+MA designer={UI/UX}
+MA designer={designer}
+MA junior={Junior}
+
+None
+junior: designer; designer: ui_ux, ddd
+----------
+
+32
+Junior Regional Sales Manager (EXEED)
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Sales Manager}
+MA junior={Junior}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+33
+Junior UX/UI designer (внутренние продукты)
+prof: junior, designer
+MA vacancy={работа}
+MA vacancy={ищем}
+MA designer={UX}
+MA designer={UX/UI}
+MA designer={UI}
+MA designer={UI designer}
+MA designer={designer}
+MA junior={Junior}
+
+None
+junior: designer; designer: ui_ux
+----------
+
+34
+Стажер в команду образовательных проектов (brainz by CROC)
+prof: junior, sales_manager, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA sales_manager={CRO}
+MA marketing={CRO}
+MA junior={Стажер}
+
+None
+junior: sales_manager, marketing; sales_manager: ; marketing: 
+----------
+
+35
+Junior Brand Manager
+prof: junior
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+36
+Brand executive
+prof: junior, marketing
+MA vacancy={work}
+MA marketing={Marketing}
+MA junior={junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+37
+Менеджер по продажам / Junior Sales Manager
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Менеджер по продаж}
+MA sales_manager={Sales Manager}
+MA junior={Junior}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+38
+JavaScript School Trainee
+prof: junior, frontend, backend
+MA vacancy={job}
+MA vacancy={work}
+MA frontend={JavaScript}
+MA backend={JavaS}
+MA junior={Trainee}
+
+None
+junior: frontend, backend; frontend: react; backend: java
+----------
+
+39
+Junior product-manager / junior product marketing manager (Health & Beauty)
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={marketing manager}
+MA junior={junior, Junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+40
+JavaScript School Trainee
+prof: junior, frontend, backend
+MA vacancy={job}
+MA vacancy={work}
+MA frontend={JavaScript}
+MA backend={JavaS}
+MA junior={Trainee}
+
+None
+junior: frontend, backend; frontend: react; backend: java
+----------
+
+41
+📌Middle Developer Ruby on Rails
+prof: junior, backend
+MA vacancy={вакансия}
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA backend={ruby}
+MA backend={ruby on rails}
+MA junior={Junior}
+
+None
+junior: backend; backend: ruby
+----------
+
+42
+Менеджер по персоналу (подбор и кдп)
+prof: junior, hr, backend
+MA vacancy={работа}
+MA hr={Кадр}
+MA backend={1С}
+MA junior={от 1 года}
+
+None
+junior: hr, backend; hr: ; backend: one_c
+----------
+
+43
+Инженер-программист C/C++ (C/C++ Embedded Junior/Middle Developer)
+prof: junior, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA backend={C++}
+MA junior={Junior}
+
+None
+junior: backend; backend: python, c
+----------
+
+44
+Контент менеджер TikTok
+prof: junior, marketing
+MA vacancy={работа}
+MA vacancy={ищем}
+MA marketing={маркетолог}
+MA marketing={контент}
+MA junior={от 1 года}
+
+None
+junior: marketing; marketing: 
+----------
+
+45
+Junior маркетолог
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={маркетолог}
+MA junior={Junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+46
+⭕️ Junior+ / Middle PHP Developer
+🏢
+prof: junior
+MA vacancy={вакансия}
+MA vacancy={job}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+47
+Sales Manager Trainee
+prof: junior, sales_manager
+MA vacancy={work}
+MA sales_manager={Sales Manager}
+MA junior={Trainee}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+48
+Junior Ruby on Rails Developer
+prof: junior, backend
+MA vacancy={работа}
+MA vacancy={ищем}
+MA backend={Ruby}
+MA backend={Ruby on Rails}
+MA junior={Junior}
+
+None
+junior: backend; backend: ruby
+----------
+
+49
+Бренд менеджер в КРОК.
+prof: junior, sales_manager, hr, marketing
+MA vacancy={работа}
+MA sales_manager={CRO}
+MA marketing={CRO}
+MA marketing={контент}
+MA hr={ HR}
+MA junior={Junior}
+
+None
+junior: sales_manager, hr, marketing; sales_manager: ; hr: ; marketing: 
+----------
+
+50
+Junior Brand Manager (Footwear Outdoor)
+prof: junior
+MA vacancy={work}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+51
+Junior
+prof: junior, mobile, frontend
+MA vacancy={Откликнуться}
+MA mobile={React Native Developer}
+MA mobile={React Native}
+MA frontend={React}
+MA frontend={ React }
+MA junior={Junior}
+
+None
+junior: mobile, frontend; mobile: cross_mobile, react_native; frontend: react
+----------
+
+52
+Начинающий рекрутер/HR-менеджер/Стажер в HR-отдел
+prof: junior, hr
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA vacancy={ищем}
+MA hr={ HR}
+MA junior={Стажер}
+
+None
+junior: hr; hr: 
+----------
+
+53
+Стажёр в отдел маркетинга
+prof: junior, marketing
+MA vacancy={ищем}
+MA marketing={маркетинга}
+MA junior={Стажёр}
+
+None
+junior: marketing; marketing: 
+----------
+
+54
+Менеджер в команду Марии Шаповаловой
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={менеджера по продаж}
+MA junior={стажер}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+55
+Стажер в юридический департамент
+prof: junior
+MA vacancy={работа}
+MA junior={Стажер}
+
+None
+junior: 
+----------
+
+56
+Стажер к бухгалтеру в группу учета ТМЦ
+prof: junior
+MA vacancy={работа}
+MA junior={Стажер}
+
+None
+junior: 
+----------
+
+57
+Младший бренд-менеджер/Junior Brand manager/менеджер по маркетингу и рекламе
+prof: junior
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+58
+Методист-аналитик (стажер)
+prof: junior, analyst
+MA vacancy={работа}
+MA vacancy={Компания}
+MA analyst={аналитик}
+MA junior={стажер}
+
+None
+junior: analyst; analyst: 
+----------
+
+59
+Менеджер по продажам (стажер)
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Менеджер по продаж}
+MA junior={стажер}
+
+None
+junior: sales_manager; sales_manager: 
+----------
+
+60
+Стажер-программист 1С
+prof: junior, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA backend={1С}
+MA junior={Стажер}
+
+None
+junior: backend; backend: one_c
+----------
+
+61
+Бизнес-аналитик/Специалист по внедрению/Стажер в отдел внедрения (Bitrix24, ИТ-компания)
+prof: junior, frontend, analyst
+MA vacancy={ищем}
+MA analyst={аналитик}
+MA analyst={Бизнес-аналитик}
+MA frontend={Bitrix}
+MA junior={Стажер}
+
+None
+junior: frontend, analyst; frontend: bitrix; analyst: ba
+----------
+
+62
+Стажер в отдел продаж
+prof: junior
+MA vacancy={работа}
+MA vacancy={Компания}
+MA vacancy={ищем}
+MA junior={Стажер}
+
+None
+junior: 
+----------
+
+63
+Стажер СММ
+prof: junior
+MA vacancy={работа}
+MA junior={Стажер}
+
+None
+junior: 
+----------
+
+64
+Junior Consultant, Market Research
+prof: junior, marketing
+MA vacancy={work}
+MA marketing={Market Research}
+MA junior={Junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+65
+QA
+prof: junior, qa
+MA vacancy={вакансия}
+MA vacancy={job}
+MA vacancy={Компания}
+MA vacancy={vacancy}
+MA qa={QA Manual}
+MA qa={тестировщик}
+MA qa={Postman}
+MA junior={junior, Junior}
+
+None
+junior: qa; qa: manual_qa
+----------
+
+66
+Бизнес-аналитик junior (Аналитик базы 1С Документооборот)
+prof: junior, backend, analyst
+MA vacancy={работа}
+MA analyst={Аналитик, аналитик}
+MA analyst={Бизнес-аналитик}
+MA backend={1С}
+MA junior={junior}
+
+None
+junior: backend, analyst; backend: one_c; analyst: ba
+----------
+
+67
+Бизнес - аналитик (стажер)
+prof: junior, analyst
+MA vacancy={работа}
+MA analyst={аналитик}
+MA junior={стажер}
+
+None
+junior: analyst; analyst: ba
+----------
+
+68
+Специалист бэк-офиса
+prof: junior, frontend, backend
+MA vacancy={вакансия}
+MA vacancy={работа}
+MA frontend={Битрикс}
+MA backend={1С}
+MA junior={от 1 года}
+
+None
+junior: frontend, backend; frontend: bitrix; backend: one_c
+----------
+
+69
+Стажер B2b маркетинга (со знанием SMM и планированием)
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={маркетинга}
+MA marketing={SMM}
+MA junior={Стажер}
+
+None
+junior: marketing; marketing: smm
+----------
+
+70
+Junior Brand Manager
+prof: junior
+MA vacancy={работа}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+71
+Младший маркетолог / Junior маркетолог
+prof: junior, marketing
+MA vacancy={работа}
+MA marketing={маркетолог}
+MA junior={Junior}
+
+None
+junior: marketing; marketing: 
+----------
+
+72
+Full-stack web developer
+prof: junior, frontend, backend
+MA vacancy={работа}
+MA frontend={Vue}
+MA frontend={Javascript}
+MA backend={PHP}
+MA backend={ PHP}
+MA backend={Javas}
+MA junior={от 1 года}
+
+None
+junior: frontend, backend; frontend: vue; backend: php, java
+----------
+
+73
+I
+prof: junior, mobile
+MA vacancy={job}
+MA mobile={Flutter Developer, flutter developer}
+MA mobile={Flutter}
+MA junior={Junior}
+
+None
+junior: mobile; mobile: cross_mobile, flutter
+----------
+
+74
+#вакнсия
+prof: junior, mobile, backend
+MA vacancy={work}
+MA vacancy={работа}
+MA vacancy={Компания}
+MA mobile={android}
+MA mobile={Android}
+MA mobile={Kotlin}
+MA backend={Java }
+MA backend={Java , Java2}
+MA junior={от 1 года}
+
+None
+junior: mobile, backend; mobile: android; backend: java
+----------
+
+75
+devops junior
+prof: junior, devops
+MA vacancy={работа}
+MA devops={администратор}
+MA devops={Системный администратор}
+MA junior={Junior}
+
+None
+junior: devops; devops: 
+----------
+
+76
+Junior Backend разработчик
+prof: junior, backend
+MA vacancy={job}
+MA backend={Backend разработчик}
+MA backend={Backend}
+MA junior={Junior}
+
+None
+junior: backend; backend: php
+----------
+
+77
+Junior Full-Stack Developer (remote)
+prof: junior
+MA vacancy={работа}
+MA vacancy={ищем}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+78
+Разработчик мобильных приложений iOS (Стажер)
+prof: junior
+MA vacancy={работа}
+MA junior={Стажер}
+
+None
+junior: 
+----------
+
+79
+Junior Full-Stack Developer (remote)
+prof: junior
+MA vacancy={работа}
+MA vacancy={ищем}
+MA junior={Junior}
+
+None
+junior: 
+----------
+
+80
+Маркетолог (junior)
+prof: junior, marketing
+MA vacancy={работа}
+MA vacancy={Компания}
+MA marketing={Маркетолог}
+MA junior={junior}
+
+None
+junior: marketing; marketing: seo
+----------
+
+81
+sales_manager junior
+prof: junior, sales_manager
+MA vacancy={работа}
+MA sales_manager={Business Development}
+MA sales_manager={Sales Manager}
+MA sales_manager={Business Development Manager}
+MA junior={Junior}
+
+
+junior: sales_manager; sales_manager: 
+----------
+

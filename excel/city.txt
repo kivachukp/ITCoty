@@ -1,0 +1,695 @@
+---------------
+from parser:  Madagascar
+result: , Madagascar---------------
+from parser:  Germany
+result: , Germany---------------
+from parser:  Paola, Malta
+result: Paola, Malta---------------
+from parser:  Ireland
+result: , Ireland---------------
+from parser:  Charlotte, NC, United States
+result: , United States---------------
+from parser:  Anywhere
+result: , United States---------------
+from parser:  Anywhere
+result: , United States---------------
+from parser:  Bolton, United Kingdom
+result: Bolton, United Kingdom---------------
+from parser:  Bolton, United Kingdom
+result: Bolton, United Kingdom---------------
+from parser:  Blackburn, United Kingdom
+result: Blackburn, United Kingdom---------------
+from parser:  Blackburn, United Kingdom
+result: Blackburn, United Kingdom---------------
+from parser:  United States
+result: , United States---------------
+from parser:  Blackburn, United Kingdom
+result: Blackburn, United Kingdom---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Sydney, Australia
+result: City of Sydney, Australia---------------
+from parser:  Sydney, Australia
+result: City of Sydney, Australia---------------
+from parser:  Sydney, Australia
+result: City of Sydney, Australia---------------
+from parser:  Sydney, Australia
+result: City of Sydney, Australia---------------
+from parser:  Sydney, Australia
+result: City of Sydney, Australia---------------
+from parser:  Sydney, Australia
+result: City of Sydney, Australia---------------
+from parser:  Melbourne, Australia
+result: East Melbourne, Australia---------------
+from parser:  Melbourne, Australia
+result: East Melbourne, Australia---------------
+from parser:  Melbourne, Australia
+result: East Melbourne, Australia---------------
+from parser:  Melbourne, Australia
+result: East Melbourne, Australia---------------
+from parser:  Melbourne, Australia
+result: East Melbourne, Australia---------------
+from parser:  Melbourne, Australia
+result: East Melbourne, Australia---------------
+from parser:  Sydney, Australia
+result: City of Sydney, Australia---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States and Canada
+result: False---------------
+from parser:  North and South America
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  London, United Kingdom
+result: City of London, United Kingdom---------------
+from parser:  Nagpur, India
+result: Nagpur, India---------------
+from parser:  Goteborg, Sweden
+result: , Sweden---------------
+from parser:  Sydney, Australia
+result: City of Sydney, Australia---------------
+from parser:  United States and Canada
+result: False---------------
+from parser:  North and South America
+result: , United States---------------
+from parser:  London, United Kingdom
+result: City of London, United Kingdom---------------
+from parser:  Sydney, Australia
+result: City of Sydney, Australia---------------
+from parser:  United States and Canada
+result: False---------------
+from parser:  North and South America
+result: , United States---------------
+from parser:  London, United Kingdom
+result: City of London, United Kingdom---------------
+from parser:  Sydney, Australia
+result: City of Sydney, Australia---------------
+from parser:  United States and Canada
+result: False---------------
+from parser:  North and South America
+result: , United States---------------
+from parser:  London, United Kingdom
+result: City of London, United Kingdom---------------
+from parser:  Sydney, Australia
+result: City of Sydney, Australia---------------
+from parser:  United States and Canada
+result: False---------------
+from parser:  North and South America
+result: , United States---------------
+from parser:  Sheffield, United Kingdom
+result: Sheffield, United Kingdom---------------
+from parser:  London, United Kingdom
+result: City of London, United Kingdom---------------
+from parser:  Sheffield, United Kingdom
+result: Sheffield, United Kingdom---------------
+from parser:  London, United Kingdom
+result: City of London, United Kingdom---------------
+from parser:  Sydney, Australia
+result: City of Sydney, Australia---------------
+from parser:  United States and Canada
+result: False---------------
+from parser:  North and South America
+result: , United States---------------
+from parser:  Sheffield, United Kingdom
+result: Sheffield, United Kingdom---------------
+from parser:  Hyderabad, India
+result: Hyderabad, India---------------
+from parser:  Hyderabad, India
+result: Hyderabad, India---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Denmark
+result: , Denmark---------------
+from parser:  Thailand
+result: , Thailand---------------
+from parser:  Thailand
+result: , Thailand---------------
+from parser:  Thailand
+result: , Thailand---------------
+from parser:  Thailand
+result: , Thailand---------------
+from parser:  Thailand
+result: , Thailand---------------
+from parser:  Thailand
+result: , Thailand---------------
+from parser:  Thailand
+result: , Thailand---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  New York, NY, United States
+result: New York, ---------------
+from parser:  Medellin, Colombia
+result: Medellin, Philippines---------------
+from parser:  New York, NY, United States
+result: New York, ---------------
+from parser:  Raleigh, NC, United States
+result: Raleigh, ---------------
+from parser:  Toronto, ON, Canada
+result: Toronto, ---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Dixon, IL, United States
+result: Dixon, ---------------
+from parser:  Chicago, United States
+result: Chicago, United States---------------
+from parser:  Mexico
+result: , Mexico---------------
+from parser:  United Kingdom
+result: , United Kingdom---------------
+from parser:  Anna, IL, United States
+result: Anna, ---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Alton, IL, United States
+result: Alton, ---------------
+from parser:  Monmouth, IL, United States
+result: Monmouth, ---------------
+from parser:  United States
+result: , United States---------------
+from parser:  Latin America
+result: , United States---------------
+from parser:  United States and Canada
+result: False---------------
+from parser:  North and South America
+result: , United States---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  Anna, IL, United States
+result: Anna, ---------------
+from parser:  Czech Republic
+result: , Czech Republic---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Palestine
+result: Palestine, ---------------
+from parser:  Palestine
+result: Palestine, ---------------
+from parser:  Palestine
+result: Palestine, ---------------
+from parser:  Palestine
+result: Palestine, ---------------
+from parser:  Palestine
+result: Palestine, ---------------
+from parser:  Fairfax, VA, United States
+result: Fairfax, ---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Kyrgyzstan
+result: , Kyrgyzstan---------------
+from parser:  Kyrgyzstan
+result: , Kyrgyzstan---------------
+from parser:  Kyrgyzstan
+result: , Kyrgyzstan---------------
+from parser:  Kyrgyzstan
+result: , Kyrgyzstan---------------
+from parser:  Kyrgyzstan
+result: , Kyrgyzstan---------------
+from parser:  Sibiu, Romania
+result: Comuna Poiana Sibiului, Romania---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Europe
+result: False---------------
+from parser:  Latin America
+result: , United States---------------
+from parser:  Latin America
+result: , United States---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Brownhills, United Kingdom
+result: Brownhills, United Kingdom---------------
+from parser:  Brazil
+result: , Brazil---------------
+from parser:  Latin America
+result: , United States---------------
+from parser:  North and South America
+result: , United States---------------
+from parser:  Brazil
+result: , Brazil---------------
+from parser:  Latin America
+result: , United States---------------
+from parser:  North and South America
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  India
+result: , India---------------
+from parser:  Sirsa, India
+result: Sirsa, India---------------
+from parser:  Mumbai, India
+result: Moon, ---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  Bengaluru, India
+result: Bangalore Rural, India---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Franksville,WI, United States
+result: Franksville, ---------------
+from parser:  Medford, MA, United States
+result: Medford, ---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Foster City, CA, United States
+result: Foster City, ---------------
+from parser:  Texas City, TX, United States
+result: Texas City, ---------------
+from parser:  Latin America
+result: , United States---------------
+from parser:  Bangalore, India
+result: Bangalore Rural, India---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Bangalore, India
+result: Bangalore Rural, India---------------
+from parser:  Miami, FL, United States
+result: Miami, ---------------
+from parser:  South Korea
+result: , South Korea---------------
+from parser:  Latin America
+result: , United States---------------
+from parser:  India
+result: , India---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  McLean, VA, United States
+result: McLean, ---------------
+from parser:  United Arab Emirates
+result: , United Arab Emirates---------------
+from parser:  Atlanta, GA, United States
+result: Atlanta, ---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Europe
+result: False---------------
+from parser:  Mumbai, India
+result: Moon, ---------------
+from parser:  Netherlands
+result: , Netherlands---------------
+from parser:  Imsida, Malta
+result: Miss, ---------------
+from parser:  Singapore, Singapore
+result: , Singapore---------------
+from parser:  Singapore, Singapore
+result: , Singapore---------------
+from parser:  Phnom Penh, Cambodia
+result: Phnom Penh, Cambodia---------------
+from parser:  Phnom Penh, Cambodia
+result: Phnom Penh, Cambodia---------------
+from parser:  Phnom Penh, Cambodia
+result: Phnom Penh, Cambodia---------------
+from parser:  City of Pa, Philippines
+result: City of Panabo, Philippines---------------
+from parser:  City of Paranaque, Philippines
+result: , Philippines---------------
+from parser:  City of Paranaque, Philippines
+result: , Philippines---------------
+from parser:  Bangkok, Thailand
+result: Bangkok, Thailand---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Laos
+result: , Laos---------------
+from parser:  China
+result: , China---------------
+from parser:  Vietnam
+result: , Vietnam---------------
+from parser:  Thailand
+result: , Thailand---------------
+from parser:  United States
+result: , United States---------------
+from parser:  Wolverhampton, United Kingdom
+result: Wolverhampton, United Kingdom---------------
+from parser:  Cromwell, New Zealand
+result: Cromwell, New Zealand---------------
+from parser:  Clyde, New Zealand
+result: Clyde, ---------------
+from parser:  Invercargill, New Zealand
+result: Invercargill, New Zealand---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Latin America
+result: , United States---------------
+from parser:  United States and Canada
+result: False---------------
+from parser:  North and South America
+result: , United States---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  Palestine
+result: Palestine, ---------------
+from parser:  Palestine
+result: Palestine, ---------------
+from parser:  Palestine
+result: Palestine, ---------------
+from parser:  Palestine
+result: Palestine, ---------------
+from parser:  Fairfax, VA, United States
+result: Fairfax, ---------------
+from parser:  Kyrgyzstan
+result: , Kyrgyzstan---------------
+from parser:  Kyrgyzstan
+result: , Kyrgyzstan---------------
+from parser:  Kyrgyzstan
+result: , Kyrgyzstan---------------
+from parser:  Kyrgyzstan
+result: , Kyrgyzstan---------------
+from parser:  Latin America
+result: , United States---------------
+from parser:  North and South America
+result: , United States---------------
+from parser:  Brazil
+result: , Brazil---------------
+from parser:  Latin America
+result: , United States---------------
+from parser:  North and South America
+result: , United States---------------
+from parser:  Sirsa, India
+result: Sirsa, India---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Latin America
+result: , United States---------------
+from parser:  United States and Canada
+result: False---------------
+from parser:  North and South America
+result: , United States---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  Palestine
+result: Palestine, ---------------
+from parser:  Palestine
+result: Palestine, ---------------
+from parser:  Palestine
+result: Palestine, ---------------
+from parser:  Palestine
+result: Palestine, ---------------
+from parser:  Fairfax, VA, United States
+result: Fairfax, ---------------
+from parser:  Kyrgyzstan
+result: , Kyrgyzstan---------------
+from parser:  Kyrgyzstan
+result: , Kyrgyzstan---------------
+from parser:  Kyrgyzstan
+result: , Kyrgyzstan---------------
+from parser:  Kyrgyzstan
+result: , Kyrgyzstan---------------
+from parser:  Latin America
+result: , United States---------------
+from parser:  North and South America
+result: , United States---------------
+from parser:  Brazil
+result: , Brazil---------------
+from parser:  Latin America
+result: , United States---------------
+from parser:  North and South America
+result: , United States---------------
+from parser:  Sirsa, India
+result: Sirsa, India---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  United States
+result: , United States---------------
+from parser:  Texas City, TX, United States
+result: Texas City, ---------------
+from parser:  Atlanta, GA, United States
+result: Atlanta, ---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Imsida, Malta
+result: Miss, ---------------
+from parser:  Laos
+result: , Laos---------------
+from parser:  China
+result: , China---------------
+from parser:  Vietnam
+result: , Vietnam---------------
+from parser:  Thailand
+result: , Thailand---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Kazakhstan
+result: , Kazakhstan---------------
+from parser:  United States
+result: , United States---------------
+from parser:  Singapore, Singapore
+result: , Singapore---------------
+from parser:  Thibodaux, LA, United States
+result: Thibodaux, ---------------
+from parser:  United States
+result: , United States---------------
+from parser:  Geelong, Australia
+result: East Geelong, Australia---------------
+from parser:  Philippines
+result: , Philippines---------------
+from parser:  Brazil
+result: , Brazil---------------
+from parser:  Anywhere
+result: False---------------
+from parser:  Chicago, IL, United States
+result: Chicago, ---------------
+from parser:  Colombia
+result: , Colombia---------------
+from parser:  United States
+result: , United States---------------
+from parser:  Miamisburg, OH, United States
+result: Miamisburg, 

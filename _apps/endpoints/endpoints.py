@@ -3,6 +3,7 @@ import configparser
 from datetime import date, timedelta
 import json
 import os
+import time
 from multiprocessing import Process
 import time
 import psycopg2
@@ -221,6 +222,30 @@ async def main_endpoints():
         all_vacancies = await compose_request_to_db(request_data)
         return all_vacancies
 
+    @app.route("/search-by-text", methods = ['POST'])
+    async def search_by_text():
+        print(request.json)
+        time.sleep(9)
+        query_search = Predictive(request_from_frontend=request.json)
+        query = query_search.get_full_query()
+        search_tables = query_search.get_search_tables()
+        responses_from_db = []
+        for table in search_tables:
+            response = db.get_all_from_db(
+                table_name=table,
+                param=query,
+                order = "ORDER BY time_of_public DESC LIMIT 20",
+                field=admin_table_fields
+            )
+            if response:
+                if type(response) is not str:
+                    responses_from_db.extend(response)
+                else:
+                    print('BAD response: ', response)
+                    print(f'QUERY is:\n{query}')
+        responses_dict = await package_list_to_dict(responses_from_db)
+        responses_dict = {'numbers': len(responses_dict), 'vacancies': responses_dict}
+        return responses_dict
 
     @app.route("/get-vacancy-offset", methods = ['POST'])
     async def get_vacancy_offset():
@@ -542,7 +567,7 @@ async def main_endpoints():
 
     async def package_list_to_dict(responses_list, fields_list=variable.admin_table_fields):
         result_dict = {}
-        if responses_list:
+        if responses_list and type(responses_list) is not str:
             count = 0
             for response in responses_list:
                 result_dict[str(count)] = helper.to_dict_from_admin_response_sync(response, fields_list)
@@ -550,7 +575,6 @@ async def main_endpoints():
         return result_dict
 
     app.run(host=localhost, port=int(os.environ.get('PORT', 5000)))
-
 
 
 def run_endpoints():
