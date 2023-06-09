@@ -26992,3 +26992,3011 @@ Message_ID: 53267
 DB ID vacancy: 53267
 TITLE: Всім привіт!👋
 SUB: qa: aqa
+----------02-06-2023-----------
+[BUTTON] admin callback.data: admin/game
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3353
+Temporary data: {'id_admin_channel': '3353', 'id_admin_last_session_table': '165000', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165000
+TITLE: Middle/Senior Game Designer
+SUB: game: 
+----------02-06-2023-----------
+[BUTTON] admin callback.data: admin/game
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3370
+Temporary data: {'id_admin_channel': '3370', 'id_admin_last_session_table': '165000', 'sended_to_agregator': '5039'}
+DB ID vacancy: 165000
+TITLE: Middle/Senior Game Designer
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3370
+Temporary data: {'id_admin_channel': '3370', 'id_admin_last_session_table': '165000', 'sended_to_agregator': '5039'}
+DB ID vacancy: 165000
+TITLE: Middle/Senior Game Designer
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3370
+Temporary data: {'id_admin_channel': '3370', 'id_admin_last_session_table': '165000', 'sended_to_agregator': '5039'}
+DB ID vacancy: 165000
+TITLE: Middle/Senior Game Designer
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3370
+Temporary data: {'id_admin_channel': '3370', 'id_admin_last_session_table': '165000', 'sended_to_agregator': '5039'}
+DB ID vacancy: 165000
+TITLE: Middle/Senior Game Designer
+SUB: game: 
+----------02-06-2023-----------
+[BUTTON] admin callback.data: admin/game
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3387
+Temporary data: {'id_admin_channel': '3387', 'id_admin_last_session_table': '165000', 'sended_to_agregator': '5039'}
+DB ID vacancy: 165000
+TITLE: Middle/Senior Game Designer
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3387
+Temporary data: {'id_admin_channel': '3387', 'id_admin_last_session_table': '165000', 'sended_to_agregator': '5039'}
+DB ID vacancy: 165000
+TITLE: Middle/Senior Game Designer
+SUB: game: 
+----------02-06-2023-----------
+[BUTTON] admin callback.data: admin/game
+----------02-06-2023-----------
+[BUTTON] admin callback.data: admin/game
+----------02-06-2023-----------
+[BUTTON] admin callback.data: admin/game
+----------02-06-2023-----------
+[BUTTON] admin callback.data: admin/game
+----------02-06-2023-----------
+[BUTTON] admin callback.data: admin/game
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3412
+Temporary data: {'id_admin_channel': '3412', 'id_admin_last_session_table': '165000', 'sended_to_agregator': '5039'}
+DB ID vacancy: 165000
+TITLE: Middle/Senior Game Designer
+SUB: game: 
+Message_ID: 3411
+Temporary data: {'id_admin_channel': '3411', 'id_admin_last_session_table': '164946', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164946
+TITLE: Core Game Designer (Middle)
+SUB: game: 
+Message_ID: 3410
+Temporary data: {'id_admin_channel': '3410', 'id_admin_last_session_table': '164821', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164821
+TITLE: Hardware Developer
+SUB: game: 
+Message_ID: 3409
+Temporary data: {'id_admin_channel': '3409', 'id_admin_last_session_table': '164633', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164633
+TITLE: Game Designer (Hyper Casual, удаленно)
+SUB: game: 
+Message_ID: 3408
+Temporary data: {'id_admin_channel': '3408', 'id_admin_last_session_table': '164614', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164614
+TITLE: Level-дизайнер Unity
+SUB: game: 
+Message_ID: 3407
+Temporary data: {'id_admin_channel': '3407', 'id_admin_last_session_table': '164569', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164569
+TITLE: Game Support Representative - German Speaker
+SUB: game: 
+Message_ID: 3406
+Temporary data: {'id_admin_channel': '3406', 'id_admin_last_session_table': '164397', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164397
+TITLE: [Level Design] TPS/FPS Military-Styled Action Shooter Game Various Levels Required
+SUB: game: 
+Message_ID: 3405
+Temporary data: {'id_admin_channel': '3405', 'id_admin_last_session_table': '164313', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164313
+TITLE: Middle Game Designer (Casual, удаленно)
+SUB: game: 
+Message_ID: 3404
+Temporary data: {'id_admin_channel': '3404', 'id_admin_last_session_table': '164175', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164175
+TITLE: Middle Unreal Engine UI Developer
+SUB: game: 
+Message_ID: 3403
+Temporary data: {'id_admin_channel': '3403', 'id_admin_last_session_table': '164146', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164146
+TITLE: Middle game designer/Геймдизайнер
+SUB: game: 
+Message_ID: 3402
+Temporary data: {'id_admin_channel': '3402', 'id_admin_last_session_table': '164134', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164134
+TITLE: Сценарист (Gamedev)
+SUB: game: 
+Message_ID: 3401
+Temporary data: {'id_admin_channel': '3401', 'id_admin_last_session_table': '163749', 'sended_to_agregator': 'None'}
+DB ID vacancy: 163749
+TITLE: Unreal Engine developer
+SUB: game: 
+Message_ID: 3400
+Temporary data: {'id_admin_channel': '3400', 'id_admin_last_session_table': '163706', 'sended_to_agregator': 'None'}
+DB ID vacancy: 163706
+TITLE: Senior Game designer
+SUB: game: 
+Message_ID: 3399
+Temporary data: {'id_admin_channel': '3399', 'id_admin_last_session_table': '163367', 'sended_to_agregator': 'None'}
+DB ID vacancy: 163367
+TITLE: Game Designer
+SUB: game: 
+Message_ID: 3398
+Temporary data: {'id_admin_channel': '3398', 'id_admin_last_session_table': '163268', 'sended_to_agregator': 'None'}
+DB ID vacancy: 163268
+TITLE: Middle/Senior Unity Разработчик (мобильные многопользовательские игры)
+SUB: game: 
+Message_ID: 3397
+Temporary data: {'id_admin_channel': '3397', 'id_admin_last_session_table': '163141', 'sended_to_agregator': 'None'}
+DB ID vacancy: 163141
+TITLE: Видео монтажер-сторителер
+SUB: game: 
+------------------------
+----------02-06-2023-----------
+[BUTTON] admin callback.data: admin/junior
+----------02-06-2023-----------
+[BUTTON] admin callback.data: admin/junior
+----------02-06-2023-----------
+[BUTTON] admin callback.data: admin/junior
+----------02-06-2023-----------
+[BUTTON] admin callback.data: admin/junior
+----------02-06-2023-----------
+[BUTTON] admin callback.data: admin/junior
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+Message_ID: 3513
+Temporary data: {'id_admin_channel': '3513', 'id_admin_last_session_table': '165149', 'sended_to_agregator': '76626'}
+DB ID vacancy: 165149
+TITLE: Начинающий специалист Самолет плюс
+SUB: junior: 
+Message_ID: 3512
+Temporary data: {'id_admin_channel': '3512', 'id_admin_last_session_table': '165148', 'sended_to_agregator': '76613'}
+DB ID vacancy: 165148
+TITLE: Стажер в маркетинговую компанию (проект Яндекс)
+SUB: junior: 
+Message_ID: 3511
+Temporary data: {'id_admin_channel': '3511', 'id_admin_last_session_table': '165147', 'sended_to_agregator': '76627'}
+DB ID vacancy: 165147
+TITLE: Начинающий специалист/Стажёр
+SUB: junior: 
+Message_ID: 3510
+Temporary data: {'id_admin_channel': '3510', 'id_admin_last_session_table': '165146', 'sended_to_agregator': '76625'}
+DB ID vacancy: 165146
+TITLE: Стажер в подразделение рекрутинга (Головной банк)
+SUB: junior: 
+Message_ID: 3509
+Temporary data: {'id_admin_channel': '3509', 'id_admin_last_session_table': '165145', 'sended_to_agregator': '76617'}
+DB ID vacancy: 165145
+TITLE: Инженер-стажер/программист-стажер
+SUB: junior: 
+Message_ID: 3508
+Temporary data: {'id_admin_channel': '3508', 'id_admin_last_session_table': '165144', 'sended_to_agregator': '76620'}
+DB ID vacancy: 165144
+TITLE: Стажера в отдел по подбору персонала (Recruitment Department)
+SUB: junior: 
+Message_ID: 3507
+Temporary data: {'id_admin_channel': '3507', 'id_admin_last_session_table': '165123', 'sended_to_agregator': '76619'}
+DB ID vacancy: 165123
+TITLE: Стажер в группу развития цифровых продуктов (дата-инженер)
+SUB: backend: python; junior: backend
+Message_ID: 3506
+Temporary data: {'id_admin_channel': '3506', 'id_admin_last_session_table': '165132', 'sended_to_agregator': '76615'}
+DB ID vacancy: 165132
+TITLE: Стажер-разработчик Python
+SUB: backend: python; junior: backend
+Message_ID: 3505
+Temporary data: {'id_admin_channel': '3505', 'id_admin_last_session_table': '165138', 'sended_to_agregator': '76614'}
+DB ID vacancy: 165138
+TITLE: Стажер-программист 1С
+SUB: backend: one_c; junior: backend
+Message_ID: 3504
+Temporary data: {'id_admin_channel': '3504', 'id_admin_last_session_table': '165126', 'sended_to_agregator': '76618'}
+DB ID vacancy: 165126
+TITLE: Аналитик (Стажер)
+SUB: analyst: ; junior: analyst
+Message_ID: 3503
+Temporary data: {'id_admin_channel': '3503', 'id_admin_last_session_table': '165124', 'sended_to_agregator': '76628'}
+DB ID vacancy: 165124
+TITLE: Помощник (стажер) отдела кадрового администрирования
+SUB: hr: ; junior: hr
+Message_ID: 3502
+Temporary data: {'id_admin_channel': '3502', 'id_admin_last_session_table': '165120', 'sended_to_agregator': '76621'}
+DB ID vacancy: 165120
+TITLE: Стажер-аналитик
+SUB: analyst: ; junior: analyst
+Message_ID: 3501
+Temporary data: {'id_admin_channel': '3501', 'id_admin_last_session_table': '165119', 'sended_to_agregator': '76622'}
+DB ID vacancy: 165119
+TITLE: Стажер Opentext
+SUB: junior: 
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+Message_ID: 3501
+Temporary data: {'id_admin_channel': '3501', 'id_admin_last_session_table': '165119', 'sended_to_agregator': '76622'}
+DB ID vacancy: 165119
+TITLE: Стажер Opentext
+SUB: junior: 
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+Message_ID: 3501
+Temporary data: {'id_admin_channel': '3501', 'id_admin_last_session_table': '165119', 'sended_to_agregator': '76622'}
+DB ID vacancy: 165119
+TITLE: Стажер Opentext
+SUB: junior: 
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+Message_ID: 3501
+Temporary data: {'id_admin_channel': '3501', 'id_admin_last_session_table': '165119', 'sended_to_agregator': '76622'}
+DB ID vacancy: 165119
+TITLE: Стажер Opentext
+SUB: junior: 
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+Message_ID: 3501
+Temporary data: {'id_admin_channel': '3501', 'id_admin_last_session_table': '165119', 'sended_to_agregator': '76622'}
+DB ID vacancy: 165119
+TITLE: Стажер Opentext
+SUB: junior: 
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+Message_ID: 3501
+Temporary data: {'id_admin_channel': '3501', 'id_admin_last_session_table': '165119', 'sended_to_agregator': '76622'}
+DB ID vacancy: 165119
+TITLE: Стажер Opentext
+SUB: junior: 
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+Message_ID: 3501
+Temporary data: {'id_admin_channel': '3501', 'id_admin_last_session_table': '165119', 'sended_to_agregator': '76622'}
+DB ID vacancy: 165119
+TITLE: Стажер Opentext
+SUB: junior: 
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+Message_ID: 3501
+Temporary data: {'id_admin_channel': '3501', 'id_admin_last_session_table': '165119', 'sended_to_agregator': '76622'}
+DB ID vacancy: 165119
+TITLE: Стажер Opentext
+SUB: junior: 
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+Message_ID: 3501
+Temporary data: {'id_admin_channel': '3501', 'id_admin_last_session_table': '165119', 'sended_to_agregator': '76622'}
+DB ID vacancy: 165119
+TITLE: Стажер Opentext
+SUB: junior: 
+Message_ID: 3500
+Temporary data: {'id_admin_channel': '3500', 'id_admin_last_session_table': '165118', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165118
+TITLE: Вожатый в летний образовательный лагерь
+SUB: junior: 
+Message_ID: 3499
+Temporary data: {'id_admin_channel': '3499', 'id_admin_last_session_table': '165117', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165117
+TITLE: Веб дизайнер стажер
+SUB: designer: ; junior: designer
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+Message_ID: 3499
+Temporary data: {'id_admin_channel': '3499', 'id_admin_last_session_table': '165117', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165117
+TITLE: Веб дизайнер стажер
+SUB: designer: ; junior: designer
+----------04-06-2023-----------
+[BUTTON] admin callback.data: admin/game
+----------04-06-2023-----------
+[BUTTON] admin callback.data: admin/game
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3534
+Temporary data: {'id_admin_channel': '3534', 'id_admin_last_session_table': '165018', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165018
+TITLE: Game Designer / Гейм-дизайнер
+SUB: game: 
+Message_ID: 3533
+Temporary data: {'id_admin_channel': '3533', 'id_admin_last_session_table': '165002', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165002
+TITLE: Game UX/UI Designer
+SUB: game: 
+Message_ID: 3532
+Temporary data: {'id_admin_channel': '3532', 'id_admin_last_session_table': '164946', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164946
+TITLE: Core Game Designer (Middle)
+SUB: game: 
+Message_ID: 3531
+Temporary data: {'id_admin_channel': '3531', 'id_admin_last_session_table': '164821', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164821
+TITLE: Hardware Developer
+SUB: game: 
+Message_ID: 3530
+Temporary data: {'id_admin_channel': '3530', 'id_admin_last_session_table': '164633', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164633
+TITLE: Game Designer (Hyper Casual, удаленно)
+SUB: game: 
+Message_ID: 3529
+Temporary data: {'id_admin_channel': '3529', 'id_admin_last_session_table': '164614', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164614
+TITLE: Level-дизайнер Unity
+SUB: game: 
+----------04-06-2023-----------
+[BUTTON] admin callback.data: admin/game
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3547
+Temporary data: {'id_admin_channel': '3547', 'id_admin_last_session_table': '164614', 'sended_to_agregator': '5081'}
+DB ID vacancy: 164614
+TITLE: Level-дизайнер Unity
+SUB: game: 
+----------04-06-2023-----------
+[BUTTON] admin callback.data: admin/game
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3560
+Temporary data: {'id_admin_channel': '3560', 'id_admin_last_session_table': '164614', 'sended_to_agregator': '5081'}
+DB ID vacancy: 164614
+TITLE: Level-дизайнер Unity
+SUB: game: 
+Message_ID: 3559
+Temporary data: {'id_admin_channel': '3559', 'id_admin_last_session_table': '164569', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164569
+TITLE: Game Support Representative - German Speaker
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3559
+Temporary data: {'id_admin_channel': '3559', 'id_admin_last_session_table': '164569', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164569
+TITLE: Game Support Representative - German Speaker
+SUB: game: 
+Message_ID: 3558
+Temporary data: {'id_admin_channel': '3558', 'id_admin_last_session_table': '164397', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164397
+TITLE: [Level Design] TPS/FPS Military-Styled Action Shooter Game Various Levels Required
+SUB: game: 
+----------05-06-2023-----------
+[BUTTON] admin callback.data: admin/qa
+----------05-06-2023-----------
+[BUTTON] admin callback.data: admin/junior
+----------05-06-2023-----------
+[BUTTON] admin callback.data: admin/junior
+----------05-06-2023-----------
+[BUTTON] admin callback.data: admin/junior
+callback_data.split()[-1]: pm
+Message_ID: 163514
+DB ID vacancy: 163514
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 163515
+DB ID vacancy: 163515
+TITLE: Project manager SMM
+SUB: pm: project
+Message_ID: 163416
+DB ID vacancy: 163416
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 164259
+DB ID vacancy: 164259
+TITLE: Руководитель проектной группы/Руководитель портфеля проектов
+SUB: pm: project
+Message_ID: 163417
+DB ID vacancy: 163417
+TITLE: Project Manager/Product Owner
+SUB: pm: project
+Message_ID: 163418
+DB ID vacancy: 163418
+TITLE: Product Manager в E-commerce
+SUB: pm: product
+Message_ID: 163422
+DB ID vacancy: 163422
+TITLE: Project Manager - Сreative production (GameDev)
+SUB: pm: project
+Message_ID: 163423
+DB ID vacancy: 163423
+TITLE: Product-Manager
+SUB: pm: product
+Message_ID: 163435
+DB ID vacancy: 163435
+TITLE: Менеджер по продукту (медицинские услуги)
+SUB: pm: project
+Message_ID: 163837
+DB ID vacancy: 163837
+TITLE: Руководитель проекта/Производитель работ/Прораб(Объекты культурного наследия), Удаленная работа
+SUB: pm: project
+Message_ID: 163855
+DB ID vacancy: 163855
+TITLE: Руководитель направления Mock интервью
+SUB: pm: project
+Message_ID: 164232
+DB ID vacancy: 164232
+TITLE: Менеджер по продукту (УЗИ оборудование)
+SUB: pm: project
+Message_ID: 164030
+DB ID vacancy: 164030
+TITLE: Менеджер проекта парки аттракционов
+SUB: pm: project
+Message_ID: 163439
+DB ID vacancy: 163439
+TITLE: Middle Product Manager / Менеджер продукта
+SUB: pm: project
+Message_ID: 163307
+DB ID vacancy: 163307
+TITLE: Project-manager (Junior) / Менеджер проекта
+SUB: pm: project; junior: pm
+Message_ID: 164036
+DB ID vacancy: 164036
+TITLE: Chief Product Officer
+SUB: pm: product
+Message_ID: 164043
+DB ID vacancy: 164043
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 164047
+DB ID vacancy: 164047
+TITLE: IT Project manager
+SUB: pm: project
+Message_ID: 164049
+DB ID vacancy: 164049
+TITLE: Руководитель направления/ менеджер проекта
+SUB: pm: project
+Message_ID: 164052
+DB ID vacancy: 164052
+TITLE: Junior Product Manager (Intern)
+SUB: pm: project
+Message_ID: 163443
+DB ID vacancy: 163443
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 164433
+DB ID vacancy: 164433
+TITLE: Менеджер проекта
+SUB: pm: project
+Message_ID: 163813
+DB ID vacancy: 163813
+TITLE: Project manager
+SUB: pm: project
+Message_ID: 164769
+DB ID vacancy: 164769
+TITLE: Руководитель проекта (строительство)
+SUB: pm: project
+Message_ID: 163338
+DB ID vacancy: 163338
+TITLE: Internal Project Manager/Director
+SUB: pm: project
+Message_ID: 163415
+DB ID vacancy: 163415
+TITLE: Technical Project Manager / Technical Product Owner
+SUB: pm: project
+Message_ID: 164430
+DB ID vacancy: 164430
+TITLE: Менеджер по продукту (услуги)
+SUB: pm: project
+Message_ID: 164188
+DB ID vacancy: 164188
+TITLE: Junior project manager EVENT
+SUB: pm: project; junior: pm
+Message_ID: 163448
+DB ID vacancy: 163448
+TITLE: Руководитель проекта системы обучения (Digital)
+SUB: pm: project
+Message_ID: 163453
+DB ID vacancy: 163453
+TITLE: Руководитель проекта (база отдыха "Соколинское" Выборгский район Ленинградской области)
+SUB: pm: project
+Message_ID: 163456
+DB ID vacancy: 163456
+TITLE: Project Manager (Integrations)
+SUB: pm: project
+Message_ID: 163459
+DB ID vacancy: 163459
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 163457
+DB ID vacancy: 163457
+TITLE: Руководитель проекта
+SUB: pm: project
+Message_ID: 163465
+DB ID vacancy: 163465
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 163475
+DB ID vacancy: 163475
+TITLE: Руководитель проекта
+SUB: pm: project
+Message_ID: 163476
+DB ID vacancy: 163476
+TITLE: IT Project Manager
+SUB: pm: project
+Message_ID: 163112
+DB ID vacancy: 163112
+TITLE: Бизнес-партнер по персоналу
+SUB: pm: project
+Message_ID: 163478
+DB ID vacancy: 163478
+TITLE: Project manager (Senior)
+SUB: pm: project
+Message_ID: 163479
+DB ID vacancy: 163479
+TITLE: Project manager
+SUB: pm: project
+Message_ID: 163480
+DB ID vacancy: 163480
+TITLE: Project Manager (Gamedev)
+SUB: pm: project
+Message_ID: 163187
+DB ID vacancy: 163187
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 163488
+DB ID vacancy: 163488
+TITLE: Менеджер (управление строительством)
+SUB: pm: project
+Message_ID: 163492
+DB ID vacancy: 163492
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 163243
+DB ID vacancy: 163243
+TITLE: Product Owner (Веб-сайт)
+SUB: pm: product
+Message_ID: 163495
+DB ID vacancy: 163495
+TITLE: Менеджер проекта
+SUB: pm: project
+Message_ID: 163245
+DB ID vacancy: 163245
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 163257
+DB ID vacancy: 163257
+TITLE: Менеджер проекта (project-менеджер)
+SUB: pm: project
+Message_ID: 163500
+DB ID vacancy: 163500
+TITLE: Руководитель проектов / Директор по строительству
+SUB: pm: project
+Message_ID: 163501
+DB ID vacancy: 163501
+TITLE: IT Project Manager
+SUB: pm: project
+Message_ID: 163502
+DB ID vacancy: 163502
+TITLE: Руководитель проекта
+SUB: pm: project
+Message_ID: 163506
+DB ID vacancy: 163506
+TITLE: Senior Project Manager
+SUB: pm: project
+Message_ID: 163507
+DB ID vacancy: 163507
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 163262
+DB ID vacancy: 163262
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 163509
+DB ID vacancy: 163509
+TITLE: Руководитель IT проектов
+SUB: pm: project
+Message_ID: 163512
+DB ID vacancy: 163512
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 163517
+DB ID vacancy: 163517
+TITLE: Руководитель проектов / Middle
+SUB: pm: project
+Message_ID: 163568
+DB ID vacancy: 163568
+TITLE: Руководитель направления
+SUB: pm: project
+Message_ID: 163574
+DB ID vacancy: 163574
+TITLE: Senior Project Manager
+SUB: pm: project
+Message_ID: 163694
+DB ID vacancy: 163694
+TITLE: Менеджер IT проектов (project manager)
+SUB: pm: project
+Message_ID: 163276
+DB ID vacancy: 163276
+TITLE: SaaS Product Manager, Remote
+SUB: pm: product
+Message_ID: 163987
+DB ID vacancy: 163987
+TITLE: Project Manager в компанию по созданию нейронных сетей
+SUB: pm: project
+Message_ID: 163069
+DB ID vacancy: 163069
+TITLE: Portuguese / English Medical Interpreter 
+SUB: pm: project
+Message_ID: 163086
+DB ID vacancy: 163086
+TITLE: CX Consult / digital product development
+SUB: pm: project
+Message_ID: 163087
+DB ID vacancy: 163087
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 164257
+DB ID vacancy: 164257
+TITLE: Project manager в аутсорсинговую IT компанию
+SUB: pm: project
+Message_ID: 163424
+DB ID vacancy: 163424
+TITLE: Менеджер по продукту
+SUB: pm: project
+Message_ID: 163442
+DB ID vacancy: 163442
+TITLE: Senior Product Manager (retention)
+SUB: pm: product
+Message_ID: 163445
+DB ID vacancy: 163445
+TITLE: Менеджер по продукту UI/UX
+SUB: pm: project
+Message_ID: 163466
+DB ID vacancy: 163466
+TITLE: Quality Project Manager
+SUB: pm: project
+Message_ID: 163477
+DB ID vacancy: 163477
+TITLE: Руководитель проекта (промышленное предприятие)
+SUB: pm: project
+Message_ID: 163483
+DB ID vacancy: 163483
+TITLE: Специалист по сопровождению проектов
+SUB: pm: project
+Message_ID: 163493
+DB ID vacancy: 163493
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 163496
+DB ID vacancy: 163496
+TITLE: Руководитель ИТ-проектов
+SUB: pm: project
+Message_ID: 163499
+DB ID vacancy: 163499
+TITLE: Менеджер проекта
+SUB: pm: project
+Message_ID: 163508
+DB ID vacancy: 163508
+TITLE: Менеджер проекта (бюджетирование, управленческий учет, контроллинг)
+SUB: pm: project
+Message_ID: 163752
+DB ID vacancy: 163752
+TITLE: Event Manager
+SUB: pm: project
+Message_ID: 163765
+DB ID vacancy: 163765
+TITLE: SMM-стратег / Руководитель проектов
+SUB: pm: project
+Message_ID: 163766
+DB ID vacancy: 163766
+TITLE: Руководитель проекта СММ
+SUB: pm: project
+Message_ID: 163814
+DB ID vacancy: 163814
+TITLE: Руководитель проекта по рекрутменту
+SUB: pm: project
+Message_ID: 164327
+DB ID vacancy: 164327
+TITLE: Специалист по работе с клиентами (удаленно)
+SUB: pm: project
+Message_ID: 163825
+DB ID vacancy: 163825
+TITLE: Project manager / Руководителя направления по маркетплейсам
+SUB: pm: project
+Message_ID: 163826
+DB ID vacancy: 163826
+TITLE: Руководитель направления продаж «Антивандальные ограждения и строительство»
+SUB: pm: project
+Message_ID: 163827
+DB ID vacancy: 163827
+TITLE: Руководитель / Управляющий проекта / Менеджер проекта
+SUB: pm: project
+Message_ID: 163829
+DB ID vacancy: 163829
+TITLE: Senior Project Manager (Crypto & Blockchain)
+SUB: pm: project
+Message_ID: 164329
+DB ID vacancy: 164329
+TITLE: Project Manager (Marketing Integrations)
+SUB: pm: project
+Message_ID: 164000
+DB ID vacancy: 164000
+TITLE: Lead Product Manager
+SUB: pm: product
+Message_ID: 164006
+DB ID vacancy: 164006
+TITLE: IT Project manager - B2C website and app
+SUB: pm: project
+Message_ID: 164061
+DB ID vacancy: 164061
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 164067
+DB ID vacancy: 164067
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 164140
+DB ID vacancy: 164140
+TITLE: Junior Project Manager
+SUB: pm: project; junior: pm
+Message_ID: 164227
+DB ID vacancy: 164227
+TITLE: Product Manager в направление "Жизнь в городе"
+SUB: pm: product
+Message_ID: 164215
+DB ID vacancy: 164215
+TITLE: Construction Project Coordinator
+SUB: pm: project
+Message_ID: 164216
+DB ID vacancy: 164216
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 164220
+DB ID vacancy: 164220
+TITLE: Senior project manager
+SUB: pm: project
+Message_ID: 164228
+DB ID vacancy: 164228
+TITLE: Менеджер по продукту
+SUB: pm: project
+Message_ID: 164234
+DB ID vacancy: 164234
+TITLE: Product Manager (онлайн сервис бронирования отелей)
+SUB: pm: project
+Message_ID: 164244
+DB ID vacancy: 164244
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 164246
+DB ID vacancy: 164246
+TITLE: Project manager (hotels)
+SUB: pm: project
+Message_ID: 164248
+DB ID vacancy: 164248
+TITLE: Менеджер проекта
+SUB: pm: project
+Message_ID: 164250
+DB ID vacancy: 164250
+TITLE: Project manager (Финтех продукт)
+SUB: pm: project
+Message_ID: 164251
+DB ID vacancy: 164251
+TITLE: Руководитель направления по управлению безопасностью подрядных организаций
+SUB: pm: project
+Message_ID: 164252
+DB ID vacancy: 164252
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 164255
+DB ID vacancy: 164255
+TITLE: Руководитель проекта
+SUB: pm: project
+Message_ID: 164258
+DB ID vacancy: 164258
+TITLE: Руководитель проекта
+SUB: pm: project
+Message_ID: 164261
+DB ID vacancy: 164261
+TITLE: Руководитель проектов (LIMS)
+SUB: pm: project
+Message_ID: 164306
+DB ID vacancy: 164306
+TITLE: Проджект менеджер digital IT проектов
+SUB: pm: project
+Message_ID: 164320
+DB ID vacancy: 164320
+TITLE: Менеджер по продукту UI/UX
+SUB: pm: project
+Message_ID: 164324
+DB ID vacancy: 164324
+TITLE: Руководитель проектной группы
+SUB: pm: project
+Message_ID: 164332
+DB ID vacancy: 164332
+TITLE: Руководитель проекта (Big data)
+SUB: pm: project
+Message_ID: 164375
+DB ID vacancy: 164375
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 164434
+DB ID vacancy: 164434
+TITLE: Project Coordinator / Clinical Trial Assistant
+SUB: pm: project
+Message_ID: 164459
+DB ID vacancy: 164459
+TITLE: Региональный менеджер проекта аутсорсинга (Ритейл)
+SUB: pm: project
+Message_ID: 164706
+DB ID vacancy: 164706
+TITLE: Project manager (бронирование отелей)
+SUB: pm: project
+Message_ID: 164726
+DB ID vacancy: 164726
+TITLE: Менеджер по продукту (Гидравлика)
+SUB: pm: project
+Message_ID: 164786
+DB ID vacancy: 164786
+TITLE: Project Manager (Marketing Integrations)
+SUB: pm: project
+Message_ID: 163895
+DB ID vacancy: 163895
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 164089
+DB ID vacancy: 164089
+TITLE: Transition Manager / Project Manager - File Share Migration to Cloud
+SUB: pm: project
+Message_ID: 164709
+DB ID vacancy: 164709
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 164707
+DB ID vacancy: 164707
+TITLE: Project Manager со скилами бизнес-анализа и системного-анализа
+SUB: pm: project
+Message_ID: 164505
+DB ID vacancy: 164505
+TITLE: IT Project manager (аналитика)
+SUB: pm: project
+Message_ID: 164538
+DB ID vacancy: 164538
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 164606
+DB ID vacancy: 164606
+TITLE: Middle Project manager
+SUB: pm: project
+Message_ID: 164631
+DB ID vacancy: 164631
+TITLE: Product Manager
+SUB: pm: project
+Message_ID: 164642
+DB ID vacancy: 164642
+TITLE: Product Manager (стажер)
+SUB: pm: product
+Message_ID: 164654
+DB ID vacancy: 164654
+TITLE: Junior Project Manager
+SUB: pm: project; junior: pm
+Message_ID: 164764
+DB ID vacancy: 164764
+TITLE: Проектный менеджер
+SUB: pm: project
+Message_ID: 164788
+DB ID vacancy: 164788
+TITLE: IT Project Manager
+SUB: pm: project
+Message_ID: 164765
+DB ID vacancy: 164765
+TITLE: Руководитель направления по развитию и продвижению портфеля проектов
+SUB: pm: project
+Message_ID: 164540
+DB ID vacancy: 164540
+TITLE: Senior Project Assistant
+SUB: pm: project
+Message_ID: 164771
+DB ID vacancy: 164771
+TITLE: Marketing Project Manager / Менеджер образовательных проектов в команде маркетинга
+SUB: pm: 
+Message_ID: 164772
+DB ID vacancy: 164772
+TITLE: Project manager
+SUB: pm: project
+Message_ID: 164775
+DB ID vacancy: 164775
+TITLE: Руководитель проектов по управленческому учету
+SUB: pm: project
+Message_ID: 164780
+DB ID vacancy: 164780
+TITLE: Руководитель IT проекта / Senior IT project manager
+SUB: pm: project
+Message_ID: 164782
+DB ID vacancy: 164782
+TITLE: Project manager / Менеджер проекта (удаленно)
+SUB: pm: project
+Message_ID: 164735
+DB ID vacancy: 164735
+TITLE: Senior Product Manager (SaaS)
+SUB: pm: product
+Message_ID: 164711
+DB ID vacancy: 164711
+TITLE: Senior Product Manager
+SUB: pm: product
+Message_ID: 164787
+DB ID vacancy: 164787
+TITLE: Digital Project Manager
+SUB: pm: project
+Message_ID: 164792
+DB ID vacancy: 164792
+TITLE: Заместитель руководителя проекта
+SUB: pm: project
+Message_ID: 164763
+DB ID vacancy: 164763
+TITLE: Project Manager в финансовую компанию Umnozhenie
+SUB: pm: project
+----------05-06-2023-----------
+[BUTTON] admin callback.data: admin/junior
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+Message_ID: 3714
+Temporary data: {'id_admin_channel': '3714', 'id_admin_last_session_table': '164654', 'sended_to_agregator': '5210'}
+DB ID vacancy: 164654
+TITLE: Junior Project Manager
+SUB: pm: project; junior: pm
+Message_ID: 3713
+Temporary data: {'id_admin_channel': '3713', 'id_admin_last_session_table': '165117', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165117
+TITLE: Веб дизайнер стажер
+SUB: designer: ; junior: designer
+Message_ID: 3712
+Temporary data: {'id_admin_channel': '3712', 'id_admin_last_session_table': '165116', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165116
+TITLE: Стажер по экономике и бюджетированию
+SUB: junior: 
+Message_ID: 3711
+Temporary data: {'id_admin_channel': '3711', 'id_admin_last_session_table': '165115', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165115
+TITLE: Специалист по внедрению (стажер)
+SUB: junior: 
+Message_ID: 3710
+Temporary data: {'id_admin_channel': '3710', 'id_admin_last_session_table': '165113', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165113
+TITLE: QA Intern (3-Month Internship)
+SUB: junior: 
+Message_ID: 3709
+Temporary data: {'id_admin_channel': '3709', 'id_admin_last_session_table': '165112', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165112
+TITLE: Стажер в Департамент Корпоративного Кредитования
+SUB: junior: 
+Message_ID: 3708
+Temporary data: {'id_admin_channel': '3708', 'id_admin_last_session_table': '165110', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165110
+TITLE: Товаровед магазина "Самокат" (Комсомольский 38)
+SUB: backend: one_c; junior: backend
+Message_ID: 3707
+Temporary data: {'id_admin_channel': '3707', 'id_admin_last_session_table': '165109', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165109
+TITLE: Ресерчер/Junior HR
+SUB: hr: ; junior: hr
+Message_ID: 3706
+Temporary data: {'id_admin_channel': '3706', 'id_admin_last_session_table': '165103', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165103
+TITLE: Junior Digital Marketing Manager (US market)
+SUB: marketing: ; junior: marketing
+Message_ID: 3705
+Temporary data: {'id_admin_channel': '3705', 'id_admin_last_session_table': '165102', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165102
+TITLE: Junior Developer C#
+SUB: junior: 
+Message_ID: 3704
+Temporary data: {'id_admin_channel': '3704', 'id_admin_last_session_table': '165093', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165093
+TITLE: Junior С developer
+SUB: junior: 
+Message_ID: 3703
+Temporary data: {'id_admin_channel': '3703', 'id_admin_last_session_table': '165089', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165089
+TITLE: Инженер-программист Junior C#
+SUB: backend: c; junior: backend
+Message_ID: 3702
+Temporary data: {'id_admin_channel': '3702', 'id_admin_last_session_table': '165086', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165086
+TITLE: Контент-менеджер Битрикс (junior-программист)
+SUB: marketing: content_manager; junior: marketing
+Message_ID: 3701
+Temporary data: {'id_admin_channel': '3701', 'id_admin_last_session_table': '165095', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165095
+TITLE: Seo специалист junior
+SUB: marketing: seo; junior: marketing
+Message_ID: 3700
+Temporary data: {'id_admin_channel': '3700', 'id_admin_last_session_table': '165085', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165085
+TITLE: Младший специалист/Стажёр
+SUB: junior: 
+Message_ID: 3699
+Temporary data: {'id_admin_channel': '3699', 'id_admin_last_session_table': '165083', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165083
+TITLE: Junior бренд-менеджер
+SUB: junior: 
+Message_ID: 3698
+Temporary data: {'id_admin_channel': '3698', 'id_admin_last_session_table': '165082', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165082
+TITLE: Системный аналитик (Junior)
+SUB: analyst: sys_analyst; junior: analyst
+Message_ID: 3697
+Temporary data: {'id_admin_channel': '3697', 'id_admin_last_session_table': '165075', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165075
+TITLE: Junior project manager
+SUB: pm: project; junior: pm
+Message_ID: 3696
+Temporary data: {'id_admin_channel': '3696', 'id_admin_last_session_table': '165074', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165074
+TITLE: Junior Java Developer
+SUB: backend: java; junior: backend
+Message_ID: 3695
+Temporary data: {'id_admin_channel': '3695', 'id_admin_last_session_table': '165047', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165047
+TITLE: Project менеджер
+SUB: pm: project; junior: pm
+Message_ID: 3694
+Temporary data: {'id_admin_channel': '3694', 'id_admin_last_session_table': '165043', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165043
+TITLE: Junior разработчик баз данных
+SUB: devops: ; junior: devops
+Message_ID: 3693
+Temporary data: {'id_admin_channel': '3693', 'id_admin_last_session_table': '165071', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165071
+TITLE: Junior HR
+SUB: hr: ; junior: hr
+Message_ID: 3692
+Temporary data: {'id_admin_channel': '3692', 'id_admin_last_session_table': '164991', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164991
+TITLE: Sales Trainee
+SUB: junior: 
+Message_ID: 3691
+Temporary data: {'id_admin_channel': '3691', 'id_admin_last_session_table': '164964', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164964
+TITLE: Ведущий менеджер по работе с маркетплейсом OZON
+SUB: junior: 
+Message_ID: 3690
+Temporary data: {'id_admin_channel': '3690', 'id_admin_last_session_table': '165032', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165032
+TITLE: Стажер в международную компанию GetTransfer.com
+SUB: junior: 
+Message_ID: 3689
+Temporary data: {'id_admin_channel': '3689', 'id_admin_last_session_table': '164936', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164936
+TITLE: Менеджер Wildberries и OZON
+SUB: junior: 
+Message_ID: 3688
+Temporary data: {'id_admin_channel': '3688', 'id_admin_last_session_table': '164932', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164932
+TITLE: Стажер-ученик по созданию игровых креативов
+SUB: junior: 
+Message_ID: 3687
+Temporary data: {'id_admin_channel': '3687', 'id_admin_last_session_table': '164922', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164922
+TITLE: Менеджер по продажам IT-проектов / Junior Sales Manager (удаленно)
+SUB: junior: sales_manager; sales_manager: 
+Message_ID: 3686
+Temporary data: {'id_admin_channel': '3686', 'id_admin_last_session_table': '164891', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164891
+TITLE: Junior PHP-разработчик
+SUB: backend: php; junior: backend
+Message_ID: 3685
+Temporary data: {'id_admin_channel': '3685', 'id_admin_last_session_table': '164874', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164874
+TITLE: PHP (Laravel) разработчик (junior+)
+SUB: backend: php; junior: backend
+Message_ID: 3684
+Temporary data: {'id_admin_channel': '3684', 'id_admin_last_session_table': '165131', 'sended_to_agregator': '76616'}
+DB ID vacancy: 165131
+TITLE: Intern Project manager / Стажер проджект менеджер
+SUB: pm: project; junior: pm
+Message_ID: 3683
+Temporary data: {'id_admin_channel': '3683', 'id_admin_last_session_table': '164806', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164806
+TITLE: Python Developer Trainee
+SUB: backend: python; junior: backend
+Message_ID: 3682
+Temporary data: {'id_admin_channel': '3682', 'id_admin_last_session_table': '165111', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165111
+TITLE: Тестировщик-стажер
+SUB: qa: ; junior: qa
+Message_ID: 3681
+Temporary data: {'id_admin_channel': '3681', 'id_admin_last_session_table': '165078', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165078
+TITLE: Аккаунт-менеджер в креативное агентство (junior)
+SUB: marketing: ; junior: marketing
+Message_ID: 3680
+Temporary data: {'id_admin_channel': '3680', 'id_admin_last_session_table': '164747', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164747
+TITLE: Стажер-ученик по созданию игровых креативов
+SUB: junior: 
+Message_ID: 3679
+Temporary data: {'id_admin_channel': '3679', 'id_admin_last_session_table': '164690', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164690
+TITLE: Стажер отдела продаж со знанием иностранного языка
+SUB: junior: 
+Message_ID: 3678
+Temporary data: {'id_admin_channel': '3678', 'id_admin_last_session_table': '164687', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164687
+TITLE: Web мастер (seo специалист, seo оптимизатор, технический специалист, стажер, копирайтер)
+SUB: marketing: copyrighter; junior: marketing
+Message_ID: 3677
+Temporary data: {'id_admin_channel': '3677', 'id_admin_last_session_table': '164686', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164686
+TITLE: Стажер по продвижению товаров в Маркетплейсах
+SUB: junior: 
+Message_ID: 3676
+Temporary data: {'id_admin_channel': '3676', 'id_admin_last_session_table': '164685', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164685
+TITLE: Стажер-программист 1С
+SUB: backend: one_c; junior: backend
+Message_ID: 3675
+Temporary data: {'id_admin_channel': '3675', 'id_admin_last_session_table': '164684', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164684
+TITLE: Стажер-аналитик
+SUB: analyst: ; junior: analyst
+Message_ID: 3674
+Temporary data: {'id_admin_channel': '3674', 'id_admin_last_session_table': '164683', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164683
+TITLE: Стажер-разработчик Oracle
+SUB: junior: 
+Message_ID: 3673
+Temporary data: {'id_admin_channel': '3673', 'id_admin_last_session_table': '164682', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164682
+TITLE: Аналитик-стажер
+SUB: analyst: ; junior: analyst
+Message_ID: 3672
+Temporary data: {'id_admin_channel': '3672', 'id_admin_last_session_table': '164680', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164680
+TITLE: Стажер - проектировщик
+SUB: junior: 
+Message_ID: 3671
+Temporary data: {'id_admin_channel': '3671', 'id_admin_last_session_table': '164679', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164679
+TITLE: Стажёр в отдел маркетинга
+SUB: marketing: ; junior: marketing
+Message_ID: 3670
+Temporary data: {'id_admin_channel': '3670', 'id_admin_last_session_table': '164678', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164678
+TITLE: SEO-специалист (стажер)
+SUB: marketing: copyrighter; junior: marketing
+Message_ID: 3669
+Temporary data: {'id_admin_channel': '3669', 'id_admin_last_session_table': '164677', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164677
+TITLE: Стажер-аналитик
+SUB: analyst: ; junior: analyst
+Message_ID: 3668
+Temporary data: {'id_admin_channel': '3668', 'id_admin_last_session_table': '164676', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164676
+TITLE: Горный мастер ОГР/Стажер мастера ОГР
+SUB: junior: 
+Message_ID: 3667
+Temporary data: {'id_admin_channel': '3667', 'id_admin_last_session_table': '164703', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164703
+TITLE: Дизайнер мебели (Удаленно)
+SUB: junior: 
+Message_ID: 3666
+Temporary data: {'id_admin_channel': '3666', 'id_admin_last_session_table': '164673', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164673
+TITLE: Менеджер/стажер по операциям с недвижимостью (м.Верхние Лихоборы)
+SUB: junior: 
+Message_ID: 3665
+Temporary data: {'id_admin_channel': '3665', 'id_admin_last_session_table': '164672', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164672
+TITLE: Стажёр-программист 1С
+SUB: backend: one_c; junior: backend
+Message_ID: 3664
+Temporary data: {'id_admin_channel': '3664', 'id_admin_last_session_table': '164670', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164670
+TITLE: Системный аналитик (Стажер)
+SUB: analyst: sys_analyst; junior: analyst
+Message_ID: 3663
+Temporary data: {'id_admin_channel': '3663', 'id_admin_last_session_table': '164668', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164668
+TITLE: Дизайнер инфографики / стажёр (джуниор) для товаров на маркетплейсах
+SUB: junior: designer; designer: 
+Message_ID: 3662
+Temporary data: {'id_admin_channel': '3662', 'id_admin_last_session_table': '164666', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164666
+TITLE: HR-менеджер
+SUB: junior: 
+Message_ID: 3661
+Temporary data: {'id_admin_channel': '3661', 'id_admin_last_session_table': '164665', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164665
+TITLE: Стажер-разработчик
+SUB: junior: 
+Message_ID: 3660
+Temporary data: {'id_admin_channel': '3660', 'id_admin_last_session_table': '164662', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164662
+TITLE: Junior PHP-программист для работы с Joomla (удаленно)
+SUB: backend: php; junior: backend
+Message_ID: 3659
+Temporary data: {'id_admin_channel': '3659', 'id_admin_last_session_table': '164651', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164651
+TITLE: Младший специалист по адаптации
+SUB: hr: ; junior: hr
+Message_ID: 3658
+Temporary data: {'id_admin_channel': '3658', 'id_admin_last_session_table': '164649', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164649
+TITLE: Специалист по тестированию (junior)
+SUB: junior: 
+Message_ID: 3657
+Temporary data: {'id_admin_channel': '3657', 'id_admin_last_session_table': '164648', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164648
+TITLE: Программист-разработчик (Junior)
+SUB: junior: 
+Message_ID: 3656
+Temporary data: {'id_admin_channel': '3656', 'id_admin_last_session_table': '164644', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164644
+TITLE: Junior Backend разработчик (Удалённо)
+SUB: backend: php; junior: backend
+Message_ID: 3655
+Temporary data: {'id_admin_channel': '3655', 'id_admin_last_session_table': '164674', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164674
+TITLE: Стажер (практика M&A)
+SUB: junior: 
+Message_ID: 3654
+Temporary data: {'id_admin_channel': '3654', 'id_admin_last_session_table': '164619', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164619
+TITLE: Junior ВЕБ дизайнер (в офисе)
+SUB: junior: designer; designer: 
+Message_ID: 3653
+Temporary data: {'id_admin_channel': '3653', 'id_admin_last_session_table': '164611', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164611
+TITLE: Менеджер Wildberries и OZON
+SUB: junior: 
+Message_ID: 3652
+Temporary data: {'id_admin_channel': '3652', 'id_admin_last_session_table': '164615', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164615
+TITLE: Стажер в отдел тестирования
+SUB: junior: 
+Message_ID: 3651
+Temporary data: {'id_admin_channel': '3651', 'id_admin_last_session_table': '164549', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164549
+TITLE: Специалист в PR-отдел/Стажер
+SUB: junior: 
+Message_ID: 3650
+Temporary data: {'id_admin_channel': '3650', 'id_admin_last_session_table': '164548', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164548
+TITLE: Разработчик (Стажер)
+SUB: junior: 
+Message_ID: 3649
+Temporary data: {'id_admin_channel': '3649', 'id_admin_last_session_table': '164547', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164547
+TITLE: Стажер в отдел по работе с персоналом
+SUB: junior: 
+Message_ID: 3648
+Temporary data: {'id_admin_channel': '3648', 'id_admin_last_session_table': '164532', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164532
+TITLE: Начинающий SEO-специалист (junior)
+SUB: marketing: copyrighter; junior: marketing
+Message_ID: 3647
+Temporary data: {'id_admin_channel': '3647', 'id_admin_last_session_table': '164531', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164531
+TITLE: Junior Service Desk Technician (Contact Center)
+SUB: junior: 
+Message_ID: 3646
+Temporary data: {'id_admin_channel': '3646', 'id_admin_last_session_table': '164530', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164530
+TITLE: Junior Talent Partner / Старший специалист по привлечению и развитию талантов
+SUB: junior: 
+Message_ID: 3645
+Temporary data: {'id_admin_channel': '3645', 'id_admin_last_session_table': '164529', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164529
+TITLE: Golang-разработчик (junior)
+SUB: backend: golang; junior: backend
+Message_ID: 3644
+Temporary data: {'id_admin_channel': '3644', 'id_admin_last_session_table': '164526', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164526
+TITLE: Junior дизайнер/Junior Designer
+SUB: designer: ; junior: designer
+Message_ID: 3643
+Temporary data: {'id_admin_channel': '3643', 'id_admin_last_session_table': '164525', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164525
+TITLE: Junior Back-end разработчик Центра прикладного анализа больших данных
+SUB: backend: golang; junior: backend
+Message_ID: 3642
+Temporary data: {'id_admin_channel': '3642', 'id_admin_last_session_table': '164653', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164653
+TITLE: Младший административный специалист
+SUB: backend: one_c; junior: backend
+Message_ID: 3641
+Temporary data: {'id_admin_channel': '3641', 'id_admin_last_session_table': '164523', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164523
+TITLE: Junior manager
+SUB: junior: 
+Message_ID: 3640
+Temporary data: {'id_admin_channel': '3640', 'id_admin_last_session_table': '164647', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164647
+TITLE: Junior QA
+SUB: junior: 
+Message_ID: 3639
+Temporary data: {'id_admin_channel': '3639', 'id_admin_last_session_table': '164541', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164541
+TITLE: Стажер в отдел по подбору персонала / Intern in Recruitment Department
+SUB: junior: 
+Message_ID: 3638
+Temporary data: {'id_admin_channel': '3638', 'id_admin_last_session_table': '164534', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164534
+TITLE: Junior User Acquisition Manager (Удаленно)
+SUB: marketing: ; junior: marketing
+Message_ID: 3637
+Temporary data: {'id_admin_channel': '3637', 'id_admin_last_session_table': '165076', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165076
+TITLE: Разработчик автотестов (Junior)
+SUB: qa: ; junior: qa
+------------------------
+callback_data.split()[-1]: pm
+Message_ID: 165151
+DB ID vacancy: 165151
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 165150
+DB ID vacancy: 165150
+TITLE: Project manager SMM
+SUB: pm: project
+callback_data.split()[-1]: pm
+Message_ID: 165150
+DB ID vacancy: 165150
+TITLE: Project manager SMM
+SUB: pm: project
+----------06-06-2023-----------
+[BUTTON] admin callback.data: admin/junior
+----------06-06-2023-----------
+[BUTTON] admin callback.data: admin/junior
+----------06-06-2023-----------
+[BUTTON] admin callback.data: admin/junior
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+Message_ID: 3720
+Temporary data: {'id_admin_channel': '3720', 'id_admin_last_session_table': '165287', 'sended_to_agregator': 'None'}
+DB ID vacancy: 165287
+TITLE: Junior Developer C#
+SUB: junior: backend; backend: c
+----------06-06-2023-----------
+[BUTTON] admin callback.data: admin/junior
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+Message_ID: 3722
+Temporary data: {'id_admin_channel': '3722', 'id_admin_last_session_table': '165287', 'sended_to_agregator': '5305'}
+DB ID vacancy: 165287
+TITLE: Junior Developer C#
+SUB: junior: backend; backend: c
+------------------------
+----------06-06-2023-----------
+[BUTTON] admin callback.data: admin/junior
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+Message_ID: 3724
+Temporary data: {'id_admin_channel': '3724', 'id_admin_last_session_table': '165287', 'sended_to_agregator': '5305'}
+DB ID vacancy: 165287
+TITLE: Junior Developer C#
+SUB: junior: backend; backend: c
+------------------------
+----------06-06-2023-----------
+[BUTTON] admin callback.data: admin/junior
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+Message_ID: 3726
+Temporary data: {'id_admin_channel': '3726', 'id_admin_last_session_table': '165287', 'sended_to_agregator': '5305'}
+DB ID vacancy: 165287
+TITLE: Junior Developer C#
+SUB: junior: backend; backend: c
+------------------------
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+----------06-06-2023-----------
+[BUTTON] admin callback.data: admin/junior
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+----------06-06-2023-----------
+[BUTTON] admin callback.data: admin/junior
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+[BUTTON] shorts callback.data: PUSH shorts to junior
+callback_data.split()[-1]: junior
+Message_ID: 3730
+Temporary data: {'id_admin_channel': '3730', 'id_admin_last_session_table': '165287', 'sended_to_agregator': '5305'}
+DB ID vacancy: 165287
+TITLE: Junior Developer C#
+SUB: junior: backend; backend: c
+------------------------
+callback_data.split()[-1]: pm
+Message_ID: 165150
+DB ID vacancy: 165150
+TITLE: Project manager SMM
+SUB: pm: project
+Message_ID: 165171
+DB ID vacancy: 165171
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 165169
+DB ID vacancy: 165169
+TITLE: SaaS Product Manager, Remote
+SUB: pm: product
+Message_ID: 165166
+DB ID vacancy: 165166
+TITLE: Руководитель направления
+SUB: pm: project
+Message_ID: 165167
+DB ID vacancy: 165167
+TITLE: Руководитель проектов / Middle
+SUB: pm: project
+Message_ID: 165168
+DB ID vacancy: 165168
+TITLE: Руководитель IT проектов
+SUB: pm: project
+Message_ID: 165170
+DB ID vacancy: 165170
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 165209
+DB ID vacancy: 165209
+TITLE: Senior Project Manager
+SUB: pm: project
+Message_ID: 165208
+DB ID vacancy: 165208
+TITLE: Руководитель проекта
+SUB: pm: project
+Message_ID: 165207
+DB ID vacancy: 165207
+TITLE: IT Project Manager
+SUB: pm: project
+Message_ID: 165206
+DB ID vacancy: 165206
+TITLE: Руководитель проектов / Директор по строительству
+SUB: pm: project
+Message_ID: 165205
+DB ID vacancy: 165205
+TITLE: Менеджер проекта (project-менеджер)
+SUB: pm: project
+Message_ID: 165204
+DB ID vacancy: 165204
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 165203
+DB ID vacancy: 165203
+TITLE: Менеджер проекта
+SUB: pm: project
+Message_ID: 165202
+DB ID vacancy: 165202
+TITLE: Product Owner (Веб-сайт)
+SUB: pm: product
+Message_ID: 165201
+DB ID vacancy: 165201
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 165200
+DB ID vacancy: 165200
+TITLE: Менеджер (управление строительством)
+SUB: pm: project
+Message_ID: 165199
+DB ID vacancy: 165199
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 165198
+DB ID vacancy: 165198
+TITLE: Project Manager (Gamedev)
+SUB: pm: project
+Message_ID: 165197
+DB ID vacancy: 165197
+TITLE: Project manager
+SUB: pm: project
+Message_ID: 165196
+DB ID vacancy: 165196
+TITLE: Руководитель проекта
+SUB: pm: project
+Message_ID: 165195
+DB ID vacancy: 165195
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 165194
+DB ID vacancy: 165194
+TITLE: Руководитель проекта
+SUB: pm: project
+Message_ID: 165193
+DB ID vacancy: 165193
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165192
+DB ID vacancy: 165192
+TITLE: Project Manager (Integrations)
+SUB: pm: project
+Message_ID: 165191
+DB ID vacancy: 165191
+TITLE: Руководитель проекта (база отдыха "Соколинское" Выборгский район Ленинградской области)
+SUB: pm: project
+Message_ID: 165190
+DB ID vacancy: 165190
+TITLE: Руководитель проекта системы обучения (Digital)
+SUB: pm: project
+Message_ID: 165189
+DB ID vacancy: 165189
+TITLE: Junior project manager EVENT
+SUB: pm: project; junior: pm
+Message_ID: 165188
+DB ID vacancy: 165188
+TITLE: Менеджер по продукту (услуги)
+SUB: pm: project
+Message_ID: 165187
+DB ID vacancy: 165187
+TITLE: Technical Project Manager / Technical Product Owner
+SUB: pm: project
+Message_ID: 165186
+DB ID vacancy: 165186
+TITLE: Internal Project Manager/Director
+SUB: pm: project
+Message_ID: 165185
+DB ID vacancy: 165185
+TITLE: Руководитель проекта (строительство)
+SUB: pm: project
+Message_ID: 165184
+DB ID vacancy: 165184
+TITLE: Project manager
+SUB: pm: project
+Message_ID: 165183
+DB ID vacancy: 165183
+TITLE: Менеджер проекта
+SUB: pm: project
+Message_ID: 165182
+DB ID vacancy: 165182
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 165181
+DB ID vacancy: 165181
+TITLE: Junior Product Manager (Intern)
+SUB: pm: project
+Message_ID: 165180
+DB ID vacancy: 165180
+TITLE: Руководитель направления/ менеджер проекта
+SUB: pm: project
+Message_ID: 165179
+DB ID vacancy: 165179
+TITLE: Middle Product Manager / Менеджер продукта
+SUB: pm: project
+Message_ID: 165178
+DB ID vacancy: 165178
+TITLE: Менеджер проекта парки аттракционов
+SUB: pm: project
+Message_ID: 165176
+DB ID vacancy: 165176
+TITLE: Руководитель направления Mock интервью
+SUB: pm: project
+Message_ID: 165175
+DB ID vacancy: 165175
+TITLE: Руководитель проекта/Производитель работ/Прораб(Объекты культурного наследия), Удаленная работа
+SUB: pm: project
+Message_ID: 165174
+DB ID vacancy: 165174
+TITLE: Product Manager в E-commerce
+SUB: pm: product
+Message_ID: 165173
+DB ID vacancy: 165173
+TITLE: Project Manager/Product Owner
+SUB: pm: project
+Message_ID: 165172
+DB ID vacancy: 165172
+TITLE: Руководитель проектной группы/Руководитель портфеля проектов
+SUB: pm: project
+Message_ID: 165163
+DB ID vacancy: 165163
+TITLE: Project manager (Senior)
+SUB: pm: project
+Message_ID: 165164
+DB ID vacancy: 165164
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165165
+DB ID vacancy: 165165
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 165177
+DB ID vacancy: 165177
+TITLE: Менеджер по продукту (УЗИ оборудование)
+SUB: pm: project
+Message_ID: 165152
+DB ID vacancy: 165152
+TITLE: Менеджер IT проектов (project manager)
+SUB: pm: project
+Message_ID: 165153
+DB ID vacancy: 165153
+TITLE: Senior Project Manager
+SUB: pm: project
+Message_ID: 165154
+DB ID vacancy: 165154
+TITLE: Project Manager - Сreative production (GameDev)
+SUB: pm: project
+Message_ID: 165155
+DB ID vacancy: 165155
+TITLE: Product-Manager
+SUB: pm: product
+Message_ID: 165156
+DB ID vacancy: 165156
+TITLE: Менеджер по продукту (медицинские услуги)
+SUB: pm: project
+Message_ID: 165157
+DB ID vacancy: 165157
+TITLE: Project-manager (Junior) / Менеджер проекта
+SUB: pm: project; junior: pm
+Message_ID: 165158
+DB ID vacancy: 165158
+TITLE: Chief Product Officer
+SUB: pm: product
+Message_ID: 165159
+DB ID vacancy: 165159
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 165160
+DB ID vacancy: 165160
+TITLE: IT Project manager
+SUB: pm: project
+Message_ID: 165161
+DB ID vacancy: 165161
+TITLE: IT Project Manager
+SUB: pm: project
+Message_ID: 165162
+DB ID vacancy: 165162
+TITLE: Бизнес-партнер по персоналу
+SUB: pm: project
+Message_ID: 165210
+DB ID vacancy: 165210
+TITLE: Project Manager в компанию по созданию нейронных сетей
+SUB: pm: project
+Message_ID: 165211
+DB ID vacancy: 165211
+TITLE: Portuguese / English Medical Interpreter 
+SUB: pm: project
+Message_ID: 165212
+DB ID vacancy: 165212
+TITLE: CX Consult / digital product development
+SUB: pm: project
+Message_ID: 165213
+DB ID vacancy: 165213
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165255
+DB ID vacancy: 165255
+TITLE: Senior Project Manager (Crypto & Blockchain)
+SUB: pm: project
+Message_ID: 165225
+DB ID vacancy: 165225
+TITLE: Руководитель проекта
+SUB: pm: project
+Message_ID: 165214
+DB ID vacancy: 165214
+TITLE: Менеджер проекта
+SUB: pm: project
+Message_ID: 165215
+DB ID vacancy: 165215
+TITLE: Senior project manager
+SUB: pm: project
+Message_ID: 165216
+DB ID vacancy: 165216
+TITLE: Менеджер по продукту
+SUB: pm: project
+Message_ID: 165217
+DB ID vacancy: 165217
+TITLE: Product Manager (онлайн сервис бронирования отелей)
+SUB: pm: project
+Message_ID: 165218
+DB ID vacancy: 165218
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 165219
+DB ID vacancy: 165219
+TITLE: Project manager (hotels)
+SUB: pm: project
+Message_ID: 165220
+DB ID vacancy: 165220
+TITLE: Менеджер проекта
+SUB: pm: project
+Message_ID: 165221
+DB ID vacancy: 165221
+TITLE: Project manager (Финтех продукт)
+SUB: pm: project
+Message_ID: 165222
+DB ID vacancy: 165222
+TITLE: Руководитель направления по управлению безопасностью подрядных организаций
+SUB: pm: project
+Message_ID: 165223
+DB ID vacancy: 165223
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165224
+DB ID vacancy: 165224
+TITLE: Руководитель проекта
+SUB: pm: project
+Message_ID: 165226
+DB ID vacancy: 165226
+TITLE: Руководитель проектов (LIMS)
+SUB: pm: project
+Message_ID: 165227
+DB ID vacancy: 165227
+TITLE: Проджект менеджер digital IT проектов
+SUB: pm: project
+Message_ID: 165228
+DB ID vacancy: 165228
+TITLE: Менеджер по продукту UI/UX
+SUB: pm: project
+Message_ID: 165229
+DB ID vacancy: 165229
+TITLE: Руководитель проектной группы
+SUB: pm: project
+Message_ID: 165230
+DB ID vacancy: 165230
+TITLE: Руководитель проекта (Big data)
+SUB: pm: project
+Message_ID: 165231
+DB ID vacancy: 165231
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 165232
+DB ID vacancy: 165232
+TITLE: Project Coordinator / Clinical Trial Assistant
+SUB: pm: project
+Message_ID: 165233
+DB ID vacancy: 165233
+TITLE: Региональный менеджер проекта аутсорсинга (Ритейл)
+SUB: pm: project
+Message_ID: 165234
+DB ID vacancy: 165234
+TITLE: Project manager (бронирование отелей)
+SUB: pm: project
+Message_ID: 165235
+DB ID vacancy: 165235
+TITLE: Менеджер по продукту (Гидравлика)
+SUB: pm: project
+Message_ID: 165236
+DB ID vacancy: 165236
+TITLE: Project Manager (Marketing Integrations)
+SUB: pm: project
+Message_ID: 165237
+DB ID vacancy: 165237
+TITLE: Project manager в аутсорсинговую IT компанию
+SUB: pm: project
+Message_ID: 165238
+DB ID vacancy: 165238
+TITLE: Менеджер по продукту
+SUB: pm: project
+Message_ID: 165239
+DB ID vacancy: 165239
+TITLE: Senior Product Manager (retention)
+SUB: pm: product
+Message_ID: 165240
+DB ID vacancy: 165240
+TITLE: Менеджер по продукту UI/UX
+SUB: pm: project
+Message_ID: 165241
+DB ID vacancy: 165241
+TITLE: Quality Project Manager
+SUB: pm: project
+Message_ID: 165242
+DB ID vacancy: 165242
+TITLE: Руководитель проекта (промышленное предприятие)
+SUB: pm: project
+Message_ID: 165243
+DB ID vacancy: 165243
+TITLE: Специалист по сопровождению проектов
+SUB: pm: project
+Message_ID: 165244
+DB ID vacancy: 165244
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 165245
+DB ID vacancy: 165245
+TITLE: Руководитель ИТ-проектов
+SUB: pm: project
+Message_ID: 165246
+DB ID vacancy: 165246
+TITLE: Менеджер проекта (бюджетирование, управленческий учет, контроллинг)
+SUB: pm: project
+Message_ID: 165247
+DB ID vacancy: 165247
+TITLE: Event Manager
+SUB: pm: project
+Message_ID: 165248
+DB ID vacancy: 165248
+TITLE: SMM-стратег / Руководитель проектов
+SUB: pm: project
+Message_ID: 165249
+DB ID vacancy: 165249
+TITLE: Руководитель проекта СММ
+SUB: pm: project
+Message_ID: 165250
+DB ID vacancy: 165250
+TITLE: Руководитель проекта по рекрутменту
+SUB: pm: project
+Message_ID: 165251
+DB ID vacancy: 165251
+TITLE: Специалист по работе с клиентами (удаленно)
+SUB: pm: project
+Message_ID: 165252
+DB ID vacancy: 165252
+TITLE: Project manager / Руководителя направления по маркетплейсам
+SUB: pm: project
+Message_ID: 165253
+DB ID vacancy: 165253
+TITLE: Руководитель направления продаж «Антивандальные ограждения и строительство»
+SUB: pm: project
+Message_ID: 165254
+DB ID vacancy: 165254
+TITLE: Руководитель / Управляющий проекта / Менеджер проекта
+SUB: pm: project
+Message_ID: 165256
+DB ID vacancy: 165256
+TITLE: Project Manager (Marketing Integrations)
+SUB: pm: project
+Message_ID: 165257
+DB ID vacancy: 165257
+TITLE: Lead Product Manager
+SUB: pm: product
+Message_ID: 165258
+DB ID vacancy: 165258
+TITLE: IT Project manager - B2C website and app
+SUB: pm: project
+Message_ID: 165259
+DB ID vacancy: 165259
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165260
+DB ID vacancy: 165260
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165261
+DB ID vacancy: 165261
+TITLE: Junior Project Manager
+SUB: pm: project; junior: pm
+Message_ID: 165262
+DB ID vacancy: 165262
+TITLE: Product Manager в направление "Жизнь в городе"
+SUB: pm: product
+Message_ID: 165263
+DB ID vacancy: 165263
+TITLE: Construction Project Coordinator
+SUB: pm: project
+Message_ID: 165264
+DB ID vacancy: 165264
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165265
+DB ID vacancy: 165265
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165266
+DB ID vacancy: 165266
+TITLE: Transition Manager / Project Manager - File Share Migration to Cloud
+SUB: pm: project
+Message_ID: 164713
+DB ID vacancy: 164713
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 165283
+DB ID vacancy: 165283
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165285
+DB ID vacancy: 165285
+TITLE: Руководитель проектов по управленческому учету
+SUB: pm: project
+Message_ID: 164728
+DB ID vacancy: 164728
+TITLE: Product owner (семейный банк)
+SUB: pm: product
+Message_ID: 164727
+DB ID vacancy: 164727
+TITLE: Senior Product Manager (Mobile Apps)
+SUB: pm: product
+Message_ID: 165279
+DB ID vacancy: 165279
+TITLE: Руководитель направления по развитию и продвижению портфеля проектов
+SUB: pm: project
+Message_ID: 164722
+DB ID vacancy: 164722
+TITLE: Product/Project manager (IOS)
+SUB: pm: project
+Message_ID: 164734
+DB ID vacancy: 164734
+TITLE: Менеджер по продукту (Игры/игрушки)
+SUB: pm: project
+Message_ID: 164720
+DB ID vacancy: 164720
+TITLE: Product Manager Equipment Central Asia
+SUB: pm: product
+Message_ID: 164721
+DB ID vacancy: 164721
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 164715
+DB ID vacancy: 164715
+TITLE: Project Manager (to Serbia / Cyprus)
+SUB: pm: project
+Message_ID: 165280
+DB ID vacancy: 165280
+TITLE: Senior Project Assistant
+SUB: pm: project
+Message_ID: 165281
+DB ID vacancy: 165281
+TITLE: Marketing Project Manager / Менеджер образовательных проектов в команде маркетинга
+SUB: pm: 
+Message_ID: 165282
+DB ID vacancy: 165282
+TITLE: Project manager
+SUB: pm: project
+Message_ID: 165284
+DB ID vacancy: 165284
+TITLE: Проектный менеджер
+SUB: pm: project
+Message_ID: 164654
+DB ID vacancy: 164654
+TITLE: Junior Project Manager
+SUB: pm: project; junior: pm
+Message_ID: 165286
+DB ID vacancy: 165286
+TITLE: Product Manager (стажер)
+SUB: pm: product
+Message_ID: 165278
+DB ID vacancy: 165278
+TITLE: IT Project manager (аналитика)
+SUB: pm: project
+Message_ID: 165277
+DB ID vacancy: 165277
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 165276
+DB ID vacancy: 165276
+TITLE: Заместитель руководителя проекта
+SUB: pm: project
+Message_ID: 165275
+DB ID vacancy: 165275
+TITLE: Digital Project Manager
+SUB: pm: project
+Message_ID: 165274
+DB ID vacancy: 165274
+TITLE: Senior Product Manager
+SUB: pm: product
+Message_ID: 165273
+DB ID vacancy: 165273
+TITLE: Senior Product Manager (SaaS)
+SUB: pm: product
+Message_ID: 165272
+DB ID vacancy: 165272
+TITLE: Project manager / Менеджер проекта (удаленно)
+SUB: pm: project
+Message_ID: 165271
+DB ID vacancy: 165271
+TITLE: Руководитель IT проекта / Senior IT project manager
+SUB: pm: project
+Message_ID: 165270
+DB ID vacancy: 165270
+TITLE: Project Manager со скилами бизнес-анализа и системного-анализа
+SUB: pm: project
+Message_ID: 165269
+DB ID vacancy: 165269
+TITLE: IT Project Manager
+SUB: pm: project
+Message_ID: 164762
+DB ID vacancy: 164762
+TITLE: Руководитель проектного офиса
+SUB: pm: project
+Message_ID: 164760
+DB ID vacancy: 164760
+TITLE: Менеджер проекта
+SUB: pm: project
+Message_ID: 164758
+DB ID vacancy: 164758
+TITLE: Руководитель проектов (Туапсе)
+SUB: pm: project
+Message_ID: 164757
+DB ID vacancy: 164757
+TITLE: Руководитель направления внутреннего контроля
+SUB: pm: project
+Message_ID: 164755
+DB ID vacancy: 164755
+TITLE: Руководитель проекта департамента технического заказчика
+SUB: pm: project
+Message_ID: 164753
+DB ID vacancy: 164753
+TITLE: Руководитель проекта по логистике
+SUB: pm: project
+Message_ID: 164751
+DB ID vacancy: 164751
+TITLE: Руководитель проекта (строительство)
+SUB: pm: project
+Message_ID: 165267
+DB ID vacancy: 165267
+TITLE: Product Manager
+SUB: pm: project
+Message_ID: 164763
+DB ID vacancy: 164763
+TITLE: Project Manager в финансовую компанию Umnozhenie
+SUB: pm: project
+Message_ID: 165268
+DB ID vacancy: 165268
+TITLE: Middle Project manager
+SUB: pm: project
+Message_ID: 164743
+DB ID vacancy: 164743
+TITLE: Руководитель проекта по товароучету с функциями КРО
+SUB: pm: project
+Message_ID: 164739
+DB ID vacancy: 164739
+TITLE: Менеджер по продукту
+SUB: pm: project
+Message_ID: 164736
+DB ID vacancy: 164736
+TITLE: Product Owner
+SUB: pm: product
+Message_ID: 165131
+DB ID vacancy: 165131
+TITLE: Intern Project manager / Стажер проджект менеджер
+SUB: pm: project; junior: pm
+Message_ID: 165075
+DB ID vacancy: 165075
+TITLE: Junior project manager
+SUB: pm: project; junior: pm
+Message_ID: 165047
+DB ID vacancy: 165047
+TITLE: Project менеджер
+SUB: pm: project; junior: pm
+Message_ID: 164777
+DB ID vacancy: 164777
+TITLE: IT Project Manager
+SUB: pm: project
+Message_ID: 164729
+DB ID vacancy: 164729
+TITLE: Product Lead Мед/Тех
+SUB: pm: product
+Message_ID: 164742
+DB ID vacancy: 164742
+TITLE: Product Owner Social Casino (white label mobile app)
+SUB: pm: product
+Message_ID: 165063
+DB ID vacancy: 165063
+TITLE: Product Manager Gamedev
+SUB: pm: project
+Message_ID: 165058
+DB ID vacancy: 165058
+TITLE: Руководитель направления по созданию единого детского профиля (детский Сбер ID)
+SUB: pm: project
+Message_ID: 165038
+DB ID vacancy: 165038
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165023
+DB ID vacancy: 165023
+TITLE: Project Manager с функциями Product Manager
+SUB: pm: project
+Message_ID: 165033
+DB ID vacancy: 165033
+TITLE: Product Owner / Chief petty officer / Head of product
+SUB: pm: product
+Message_ID: 164895
+DB ID vacancy: 164895
+TITLE: Project manager
+SUB: pm: project
+------------------------
+callback_data.split()[-1]: qa
+callback_data.split()[-1]: pm
+Message_ID: 165294
+DB ID vacancy: 165294
+TITLE: Project manager SMM
+SUB: pm: project
+Message_ID: 165322
+DB ID vacancy: 165322
+TITLE: Менеджер по продукту (УЗИ оборудование)
+SUB: pm: project
+Message_ID: 165323
+DB ID vacancy: 165323
+TITLE: Менеджер IT проектов (project manager)
+SUB: pm: project
+Message_ID: 165324
+DB ID vacancy: 165324
+TITLE: Senior Project Manager
+SUB: pm: project
+Message_ID: 165295
+DB ID vacancy: 165295
+TITLE: Менеджер проекта
+SUB: pm: project
+Message_ID: 165296
+DB ID vacancy: 165296
+TITLE: Product Owner (Веб-сайт)
+SUB: pm: product
+Message_ID: 165297
+DB ID vacancy: 165297
+TITLE: Product-Manager
+SUB: pm: product
+Message_ID: 165298
+callback_data.split()[-1]: pm
+Message_ID: 165462
+DB ID vacancy: 165462
+TITLE: Project manager SMM
+SUB: pm: project
+Message_ID: 165298
+DB ID vacancy: 165298
+TITLE: Менеджер по продукту (медицинские услуги)
+SUB: pm: project
+Message_ID: 165299
+DB ID vacancy: 165299
+TITLE: Project-manager (Junior) / Менеджер проекта
+SUB: pm: project; junior: pm
+Message_ID: 165300
+DB ID vacancy: 165300
+TITLE: Chief Product Officer
+SUB: pm: product
+Message_ID: 165301
+DB ID vacancy: 165301
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 165302
+DB ID vacancy: 165302
+TITLE: IT Project manager
+SUB: pm: project
+Message_ID: 165303
+DB ID vacancy: 165303
+TITLE: IT Project Manager
+SUB: pm: project
+Message_ID: 165304
+DB ID vacancy: 165304
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 165305
+DB ID vacancy: 165305
+TITLE: SaaS Product Manager, Remote
+SUB: pm: product
+Message_ID: 165325
+DB ID vacancy: 165325
+TITLE: Project Manager - Сreative production (GameDev)
+SUB: pm: project
+Message_ID: 165352
+DB ID vacancy: 165352
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 165306
+DB ID vacancy: 165306
+TITLE: Руководитель направления
+SUB: pm: project
+Message_ID: 165307
+DB ID vacancy: 165307
+TITLE: Руководитель проектов / Middle
+SUB: pm: project
+Message_ID: 165308
+DB ID vacancy: 165308
+TITLE: Руководитель IT проектов
+SUB: pm: project
+Message_ID: 165309
+DB ID vacancy: 165309
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 165310
+DB ID vacancy: 165310
+TITLE: Бизнес-партнер по персоналу
+SUB: pm: project
+Message_ID: 165311
+DB ID vacancy: 165311
+TITLE: Senior Project Manager
+SUB: pm: project
+Message_ID: 165312
+DB ID vacancy: 165312
+TITLE: Руководитель проекта
+SUB: pm: project
+Message_ID: 165313
+DB ID vacancy: 165313
+TITLE: IT Project Manager
+SUB: pm: project
+Message_ID: 165314
+DB ID vacancy: 165314
+TITLE: Руководитель проектов / Директор по строительству
+SUB: pm: project
+Message_ID: 165315
+DB ID vacancy: 165315
+TITLE: Менеджер проекта (project-менеджер)
+SUB: pm: project
+Message_ID: 165316
+DB ID vacancy: 165316
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 165326
+DB ID vacancy: 165326
+TITLE: Руководитель проекта
+SUB: pm: project
+Message_ID: 165327
+DB ID vacancy: 165327
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 165328
+DB ID vacancy: 165328
+TITLE: Руководитель проекта
+SUB: pm: project
+Message_ID: 165329
+DB ID vacancy: 165329
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165334
+DB ID vacancy: 165334
+TITLE: Менеджер по продукту (услуги)
+SUB: pm: project
+Message_ID: 165335
+DB ID vacancy: 165335
+TITLE: Technical Project Manager / Technical Product Owner
+SUB: pm: project
+Message_ID: 165336
+DB ID vacancy: 165336
+TITLE: Internal Project Manager/Director
+SUB: pm: project
+Message_ID: 165337
+DB ID vacancy: 165337
+TITLE: Руководитель проекта (строительство)
+SUB: pm: project
+Message_ID: 165338
+DB ID vacancy: 165338
+TITLE: Project manager
+SUB: pm: project
+Message_ID: 165339
+DB ID vacancy: 165339
+TITLE: Менеджер проекта
+SUB: pm: project
+Message_ID: 165340
+DB ID vacancy: 165340
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 165320
+DB ID vacancy: 165320
+TITLE: Project manager
+SUB: pm: project
+Message_ID: 165317
+DB ID vacancy: 165317
+TITLE: Менеджер (управление строительством)
+SUB: pm: project
+Message_ID: 165318
+DB ID vacancy: 165318
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 165319
+DB ID vacancy: 165319
+TITLE: Project Manager (Gamedev)
+SUB: pm: project
+Message_ID: 165321
+DB ID vacancy: 165321
+TITLE: Менеджер проекта парки аттракционов
+SUB: pm: project
+Message_ID: 165468
+DB ID vacancy: 165468
+TITLE: Менеджер по продукту (УЗИ оборудование)
+SUB: pm: project
+Message_ID: 165467
+DB ID vacancy: 165467
+TITLE: Менеджер проекта
+SUB: pm: project
+Message_ID: 165466
+DB ID vacancy: 165466
+TITLE: Senior Project Manager
+SUB: pm: project
+Message_ID: 165465
+DB ID vacancy: 165465
+TITLE: Менеджер IT проектов (project manager)
+SUB: pm: project
+Message_ID: 165464
+DB ID vacancy: 165464
+TITLE: Product Owner (Веб-сайт)
+SUB: pm: product
+Message_ID: 165463
+DB ID vacancy: 165463
+TITLE: Product-Manager
+SUB: pm: product
+Message_ID: 165351
+DB ID vacancy: 165351
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165350
+DB ID vacancy: 165350
+TITLE: Project manager (Senior)
+SUB: pm: project
+Message_ID: 165349
+DB ID vacancy: 165349
+TITLE: Руководитель проектной группы/Руководитель портфеля проектов
+SUB: pm: project
+Message_ID: 165348
+DB ID vacancy: 165348
+TITLE: Project Manager/Product Owner
+SUB: pm: project
+Message_ID: 165347
+DB ID vacancy: 165347
+TITLE: Product Manager в E-commerce
+SUB: pm: product
+Message_ID: 165346
+DB ID vacancy: 165346
+TITLE: Руководитель проекта/Производитель работ/Прораб(Объекты культурного наследия), Удаленная работа
+SUB: pm: project
+Message_ID: 165345
+DB ID vacancy: 165345
+TITLE: Руководитель направления Mock интервью
+SUB: pm: project
+Message_ID: 165344
+DB ID vacancy: 165344
+TITLE: Middle Product Manager / Менеджер продукта
+SUB: pm: project
+Message_ID: 165343
+DB ID vacancy: 165343
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 165342
+DB ID vacancy: 165342
+TITLE: Руководитель направления/ менеджер проекта
+SUB: pm: project
+Message_ID: 165341
+DB ID vacancy: 165341
+TITLE: Junior Product Manager (Intern)
+SUB: pm: project
+Message_ID: 165330
+DB ID vacancy: 165330
+TITLE: Project Manager (Integrations)
+SUB: pm: project
+Message_ID: 165331
+DB ID vacancy: 165331
+TITLE: Руководитель проекта (база отдыха "Соколинское" Выборгский район Ленинградской области)
+SUB: pm: project
+Message_ID: 165332
+DB ID vacancy: 165332
+TITLE: Руководитель проекта системы обучения (Digital)
+SUB: pm: project
+Message_ID: 165333
+DB ID vacancy: 165333
+TITLE: Junior project manager EVENT
+SUB: pm: project; junior: pm
+Message_ID: 165353
+DB ID vacancy: 165353
+TITLE: Project Manager в компанию по созданию нейронных сетей
+SUB: pm: project
+Message_ID: 165354
+DB ID vacancy: 165354
+TITLE: Portuguese / English Medical Interpreter 
+SUB: pm: project
+Message_ID: 165355
+DB ID vacancy: 165355
+TITLE: CX Consult / digital product development
+SUB: pm: project
+Message_ID: 165356
+DB ID vacancy: 165356
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165388
+DB ID vacancy: 165388
+TITLE: Специалист по сопровождению проектов
+SUB: pm: project
+Message_ID: 165357
+DB ID vacancy: 165357
+TITLE: Руководитель / Управляющий проекта / Менеджер проекта
+SUB: pm: project
+Message_ID: 165358
+DB ID vacancy: 165358
+TITLE: Senior Project Manager (Crypto & Blockchain)
+SUB: pm: project
+Message_ID: 165359
+DB ID vacancy: 165359
+TITLE: Руководитель проекта
+SUB: pm: project
+Message_ID: 165360
+DB ID vacancy: 165360
+TITLE: Менеджер проекта
+SUB: pm: project
+Message_ID: 165361
+DB ID vacancy: 165361
+TITLE: Senior project manager
+SUB: pm: project
+Message_ID: 165362
+DB ID vacancy: 165362
+TITLE: Менеджер по продукту
+SUB: pm: project
+Message_ID: 165363
+DB ID vacancy: 165363
+TITLE: Product Manager (онлайн сервис бронирования отелей)
+SUB: pm: project
+Message_ID: 165364
+DB ID vacancy: 165364
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 165365
+DB ID vacancy: 165365
+TITLE: Project manager (hotels)
+SUB: pm: project
+Message_ID: 165380
+DB ID vacancy: 165380
+TITLE: Менеджер по продукту (Гидравлика)
+SUB: pm: project
+Message_ID: 165381
+DB ID vacancy: 165381
+TITLE: Project Manager (Marketing Integrations)
+SUB: pm: project
+Message_ID: 165382
+DB ID vacancy: 165382
+TITLE: Project manager в аутсорсинговую IT компанию
+SUB: pm: project
+Message_ID: 165383
+DB ID vacancy: 165383
+TITLE: Менеджер по продукту
+SUB: pm: project
+Message_ID: 165384
+DB ID vacancy: 165384
+TITLE: Senior Product Manager (retention)
+SUB: pm: product
+Message_ID: 165385
+DB ID vacancy: 165385
+TITLE: Менеджер по продукту UI/UX
+SUB: pm: project
+Message_ID: 165386
+DB ID vacancy: 165386
+TITLE: Quality Project Manager
+SUB: pm: project
+Message_ID: 165387
+DB ID vacancy: 165387
+TITLE: Руководитель проекта (промышленное предприятие)
+SUB: pm: project
+Message_ID: 165389
+DB ID vacancy: 165389
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 165390
+DB ID vacancy: 165390
+TITLE: Руководитель ИТ-проектов
+SUB: pm: project
+Message_ID: 165391
+DB ID vacancy: 165391
+TITLE: Менеджер проекта (бюджетирование, управленческий учет, контроллинг)
+SUB: pm: project
+Message_ID: 165392
+DB ID vacancy: 165392
+TITLE: Event Manager
+SUB: pm: project
+Message_ID: 165393
+DB ID vacancy: 165393
+TITLE: SMM-стратег / Руководитель проектов
+SUB: pm: project
+Message_ID: 165394
+DB ID vacancy: 165394
+TITLE: Руководитель проекта СММ
+SUB: pm: project
+Message_ID: 165395
+DB ID vacancy: 165395
+TITLE: Руководитель проекта по рекрутменту
+SUB: pm: project
+Message_ID: 165396
+DB ID vacancy: 165396
+TITLE: Специалист по работе с клиентами (удаленно)
+SUB: pm: project
+Message_ID: 165397
+DB ID vacancy: 165397
+TITLE: Project manager / Руководителя направления по маркетплейсам
+SUB: pm: project
+Message_ID: 165398
+DB ID vacancy: 165398
+TITLE: Руководитель направления продаж «Антивандальные ограждения и строительство»
+SUB: pm: project
+Message_ID: 165399
+DB ID vacancy: 165399
+TITLE: Project Manager (Marketing Integrations)
+SUB: pm: project
+Message_ID: 165404
+DB ID vacancy: 165404
+TITLE: Junior Project Manager
+SUB: pm: project; junior: pm
+Message_ID: 165405
+DB ID vacancy: 165405
+TITLE: Product Manager в направление "Жизнь в городе"
+SUB: pm: product
+Message_ID: 165406
+DB ID vacancy: 165406
+TITLE: Construction Project Coordinator
+SUB: pm: project
+Message_ID: 165407
+DB ID vacancy: 165407
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165366
+DB ID vacancy: 165366
+TITLE: Менеджер проекта
+SUB: pm: project
+Message_ID: 165367
+DB ID vacancy: 165367
+TITLE: Project manager (Финтех продукт)
+SUB: pm: project
+Message_ID: 165368
+DB ID vacancy: 165368
+TITLE: Руководитель направления по управлению безопасностью подрядных организаций
+SUB: pm: project
+Message_ID: 165369
+DB ID vacancy: 165369
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165370
+DB ID vacancy: 165370
+TITLE: Руководитель проекта
+SUB: pm: project
+Message_ID: 165371
+DB ID vacancy: 165371
+TITLE: Руководитель проектов (LIMS)
+SUB: pm: project
+Message_ID: 165372
+DB ID vacancy: 165372
+TITLE: Проджект менеджер digital IT проектов
+SUB: pm: project
+Message_ID: 165373
+DB ID vacancy: 165373
+TITLE: Менеджер по продукту UI/UX
+SUB: pm: project
+Message_ID: 165374
+DB ID vacancy: 165374
+TITLE: Руководитель проектной группы
+SUB: pm: project
+Message_ID: 165375
+DB ID vacancy: 165375
+TITLE: Руководитель проекта (Big data)
+SUB: pm: project
+Message_ID: 165376
+DB ID vacancy: 165376
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 165377
+DB ID vacancy: 165377
+TITLE: Project Coordinator / Clinical Trial Assistant
+SUB: pm: project
+Message_ID: 165378
+DB ID vacancy: 165378
+TITLE: Региональный менеджер проекта аутсорсинга (Ритейл)
+SUB: pm: project
+Message_ID: 165379
+DB ID vacancy: 165379
+TITLE: Project manager (бронирование отелей)
+SUB: pm: project
+Message_ID: 165400
+DB ID vacancy: 165400
+TITLE: Lead Product Manager
+SUB: pm: product
+Message_ID: 165401
+DB ID vacancy: 165401
+TITLE: IT Project manager - B2C website and app
+SUB: pm: project
+Message_ID: 165402
+DB ID vacancy: 165402
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165403
+DB ID vacancy: 165403
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165408
+DB ID vacancy: 165408
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165409
+DB ID vacancy: 165409
+TITLE: Transition Manager / Project Manager - File Share Migration to Cloud
+SUB: pm: project
+Message_ID: 165449
+DB ID vacancy: 165449
+TITLE: Руководитель проектного офиса
+SUB: pm: project
+Message_ID: 165428
+DB ID vacancy: 165428
+TITLE: Руководитель проекта по товароучету с функциями КРО
+SUB: pm: project
+Message_ID: 165427
+DB ID vacancy: 165427
+TITLE: Middle Project manager
+SUB: pm: project
+Message_ID: 165426
+DB ID vacancy: 165426
+TITLE: Project Manager в финансовую компанию Umnozhenie
+SUB: pm: project
+Message_ID: 165425
+DB ID vacancy: 165425
+TITLE: Product Manager
+SUB: pm: project
+Message_ID: 165424
+DB ID vacancy: 165424
+TITLE: Руководитель проекта (строительство)
+SUB: pm: project
+Message_ID: 165446
+DB ID vacancy: 165446
+TITLE: Руководитель IT проекта / Senior IT project manager
+SUB: pm: project
+Message_ID: 165448
+DB ID vacancy: 165448
+TITLE: IT Project Manager
+SUB: pm: project
+Message_ID: 165435
+DB ID vacancy: 165435
+TITLE: Руководитель проекта департамента технического заказчика
+SUB: pm: project
+Message_ID: 165436
+DB ID vacancy: 165436
+TITLE: Project manager
+SUB: pm: project
+Message_ID: 165437
+DB ID vacancy: 165437
+TITLE: Проектный менеджер
+SUB: pm: project
+Message_ID: 165438
+DB ID vacancy: 165438
+TITLE: Junior Project Manager
+SUB: pm: project; junior: pm
+Message_ID: 165439
+DB ID vacancy: 165439
+TITLE: Product Manager (стажер)
+SUB: pm: product
+Message_ID: 165440
+DB ID vacancy: 165440
+TITLE: IT Project manager (аналитика)
+SUB: pm: project
+Message_ID: 165441
+DB ID vacancy: 165441
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 165442
+DB ID vacancy: 165442
+TITLE: Заместитель руководителя проекта
+SUB: pm: project
+Message_ID: 165443
+DB ID vacancy: 165443
+TITLE: Digital Project Manager
+SUB: pm: project
+Message_ID: 165444
+DB ID vacancy: 165444
+TITLE: Senior Product Manager
+SUB: pm: product
+Message_ID: 165445
+DB ID vacancy: 165445
+TITLE: Project manager / Менеджер проекта (удаленно)
+SUB: pm: project
+Message_ID: 165447
+DB ID vacancy: 165447
+TITLE: Project Manager со скилами бизнес-анализа и системного-анализа
+SUB: pm: project
+Message_ID: 165410
+DB ID vacancy: 165410
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165411
+DB ID vacancy: 165411
+TITLE: Руководитель проектов по управленческому учету
+SUB: pm: project
+Message_ID: 165412
+DB ID vacancy: 165412
+TITLE: Product owner (семейный банк)
+SUB: pm: product
+Message_ID: 165413
+DB ID vacancy: 165413
+TITLE: Senior Product Manager (Mobile Apps)
+SUB: pm: product
+Message_ID: 165414
+DB ID vacancy: 165414
+TITLE: Руководитель направления по развитию и продвижению портфеля проектов
+SUB: pm: project
+Message_ID: 165415
+DB ID vacancy: 165415
+TITLE: Product/Project manager (IOS)
+SUB: pm: project
+Message_ID: 165416
+DB ID vacancy: 165416
+TITLE: Менеджер по продукту (Игры/игрушки)
+SUB: pm: project
+Message_ID: 165417
+DB ID vacancy: 165417
+TITLE: Product Manager Equipment Central Asia
+SUB: pm: product
+Message_ID: 165418
+DB ID vacancy: 165418
+TITLE: Product Manager
+SUB: pm: product
+Message_ID: 165419
+DB ID vacancy: 165419
+TITLE: Руководитель проектов
+SUB: pm: project
+Message_ID: 165420
+DB ID vacancy: 165420
+TITLE: Менеджер проекта
+SUB: pm: project
+Message_ID: 165421
+DB ID vacancy: 165421
+TITLE: Руководитель проектов (Туапсе)
+SUB: pm: project
+Message_ID: 165422
+DB ID vacancy: 165422
+TITLE: Руководитель направления внутреннего контроля
+SUB: pm: project
+Message_ID: 165423
+DB ID vacancy: 165423
+TITLE: Руководитель проекта по логистике
+SUB: pm: project
+Message_ID: 165429
+DB ID vacancy: 165429
+TITLE: Менеджер по продукту
+SUB: pm: project
+Message_ID: 165430
+DB ID vacancy: 165430
+TITLE: Product Owner
+SUB: pm: product
+Message_ID: 165431
+DB ID vacancy: 165431
+TITLE: Senior Product Manager (SaaS)
+SUB: pm: product
+Message_ID: 165432
+DB ID vacancy: 165432
+TITLE: Project Manager (to Serbia / Cyprus)
+SUB: pm: project
+Message_ID: 165433
+DB ID vacancy: 165433
+TITLE: Senior Project Assistant
+SUB: pm: project
+Message_ID: 165434
+DB ID vacancy: 165434
+TITLE: Marketing Project Manager / Менеджер образовательных проектов в команде маркетинга
+SUB: pm: 
+Message_ID: 165450
+DB ID vacancy: 165450
+TITLE: Project manager
+SUB: pm: project
+Message_ID: 165453
+DB ID vacancy: 165453
+TITLE: Junior project manager
+SUB: pm: project; junior: pm
+Message_ID: 165452
+DB ID vacancy: 165452
+TITLE: Product Owner / Chief petty officer / Head of product
+SUB: pm: product
+Message_ID: 165451
+DB ID vacancy: 165451
+TITLE: Руководитель направления по созданию единого детского профиля (детский Сбер ID)
+SUB: pm: project
+Message_ID: 165461
+DB ID vacancy: 165461
+TITLE: Product Manager Gamedev
+SUB: pm: project
+Message_ID: 165460
+DB ID vacancy: 165460
+TITLE: Intern Project manager / Стажер проджект менеджер
+SUB: pm: project; junior: pm
+Message_ID: 165459
+DB ID vacancy: 165459
+TITLE: Project Manager с функциями Product Manager
+SUB: pm: project
+Message_ID: 165458
+DB ID vacancy: 165458
+TITLE: Project Manager
+SUB: pm: project
+Message_ID: 165457
+DB ID vacancy: 165457
+TITLE: Product Owner Social Casino (white label mobile app)
+SUB: pm: product
+Message_ID: 165456
+DB ID vacancy: 165456
+TITLE: Product Lead Мед/Тех
+SUB: pm: product
+Message_ID: 165455
+DB ID vacancy: 165455
+TITLE: IT Project Manager
+SUB: pm: project
+Message_ID: 165454
+DB ID vacancy: 165454
+TITLE: Project менеджер
+SUB: pm: project; junior: pm
+------------------------
+callback_data.split()[-1]: qa
+Message_ID: 163234
+DB ID vacancy: 163234
+TITLE: QA Engineer (Full-stack)
+SUB: qa: 
+callback_data.split()[-1]: sales_manager
+Message_ID: 141920
+DB ID vacancy: 141920
+TITLE: Administrative assistant 
+SUB: sales_manager: 
+Message_ID: 141923
+DB ID vacancy: 141923
+TITLE: BUSINESS DEVELOPMENT EXECUTIVE
+SUB: sales_manager: 
+Message_ID: 141924
+DB ID vacancy: 141924
+TITLE: Social Media Specialist
+SUB: sales_manager: 
+Message_ID: 141929
+DB ID vacancy: 141929
+TITLE: Fearless Business Development Manager
+SUB: sales_manager: 
+----------08-06-2023-----------
+[BUTTON] admin callback.data: admin/game
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3741
+Temporary data: {'id_admin_channel': '3741', 'id_admin_last_session_table': '164397', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164397
+TITLE: [Level Design] TPS/FPS Military-Styled Action Shooter Game Various Levels Required
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3741
+Temporary data: {'id_admin_channel': '3741', 'id_admin_last_session_table': '164397', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164397
+TITLE: [Level Design] TPS/FPS Military-Styled Action Shooter Game Various Levels Required
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3741
+Temporary data: {'id_admin_channel': '3741', 'id_admin_last_session_table': '164397', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164397
+TITLE: [Level Design] TPS/FPS Military-Styled Action Shooter Game Various Levels Required
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3741
+Temporary data: {'id_admin_channel': '3741', 'id_admin_last_session_table': '164397', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164397
+TITLE: [Level Design] TPS/FPS Military-Styled Action Shooter Game Various Levels Required
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3741
+Temporary data: {'id_admin_channel': '3741', 'id_admin_last_session_table': '164397', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164397
+TITLE: [Level Design] TPS/FPS Military-Styled Action Shooter Game Various Levels Required
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3741
+Temporary data: {'id_admin_channel': '3741', 'id_admin_last_session_table': '164397', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164397
+TITLE: [Level Design] TPS/FPS Military-Styled Action Shooter Game Various Levels Required
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3741
+Temporary data: {'id_admin_channel': '3741', 'id_admin_last_session_table': '164397', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164397
+TITLE: [Level Design] TPS/FPS Military-Styled Action Shooter Game Various Levels Required
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3741
+Temporary data: {'id_admin_channel': '3741', 'id_admin_last_session_table': '164397', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164397
+TITLE: [Level Design] TPS/FPS Military-Styled Action Shooter Game Various Levels Required
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3741
+Temporary data: {'id_admin_channel': '3741', 'id_admin_last_session_table': '164397', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164397
+TITLE: [Level Design] TPS/FPS Military-Styled Action Shooter Game Various Levels Required
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3741
+Temporary data: {'id_admin_channel': '3741', 'id_admin_last_session_table': '164397', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164397
+TITLE: [Level Design] TPS/FPS Military-Styled Action Shooter Game Various Levels Required
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3741
+Temporary data: {'id_admin_channel': '3741', 'id_admin_last_session_table': '164397', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164397
+TITLE: [Level Design] TPS/FPS Military-Styled Action Shooter Game Various Levels Required
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3741
+Temporary data: {'id_admin_channel': '3741', 'id_admin_last_session_table': '164397', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164397
+TITLE: [Level Design] TPS/FPS Military-Styled Action Shooter Game Various Levels Required
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3741
+Temporary data: {'id_admin_channel': '3741', 'id_admin_last_session_table': '164397', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164397
+TITLE: [Level Design] TPS/FPS Military-Styled Action Shooter Game Various Levels Required
+SUB: game: 
+Message_ID: 3740
+Temporary data: {'id_admin_channel': '3740', 'id_admin_last_session_table': '164313', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164313
+TITLE: Middle Game Designer (Casual, удаленно)
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3740
+Temporary data: {'id_admin_channel': '3740', 'id_admin_last_session_table': '164313', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164313
+TITLE: Middle Game Designer (Casual, удаленно)
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3740
+Temporary data: {'id_admin_channel': '3740', 'id_admin_last_session_table': '164313', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164313
+TITLE: Middle Game Designer (Casual, удаленно)
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3740
+Temporary data: {'id_admin_channel': '3740', 'id_admin_last_session_table': '164313', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164313
+TITLE: Middle Game Designer (Casual, удаленно)
+SUB: game: 
+Message_ID: 3739
+Temporary data: {'id_admin_channel': '3739', 'id_admin_last_session_table': '164175', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164175
+TITLE: Middle Unreal Engine UI Developer
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3739
+Temporary data: {'id_admin_channel': '3739', 'id_admin_last_session_table': '164175', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164175
+TITLE: Middle Unreal Engine UI Developer
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3739
+Temporary data: {'id_admin_channel': '3739', 'id_admin_last_session_table': '164175', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164175
+TITLE: Middle Unreal Engine UI Developer
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3739
+Temporary data: {'id_admin_channel': '3739', 'id_admin_last_session_table': '164175', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164175
+TITLE: Middle Unreal Engine UI Developer
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3739
+Temporary data: {'id_admin_channel': '3739', 'id_admin_last_session_table': '164175', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164175
+TITLE: Middle Unreal Engine UI Developer
+SUB: game: 
+[BUTTON] shorts callback.data: PUSH shorts to game
+callback_data.split()[-1]: game
+Message_ID: 3739
+Temporary data: {'id_admin_channel': '3739', 'id_admin_last_session_table': '164175', 'sended_to_agregator': 'None'}
+DB ID vacancy: 164175
+TITLE: Middle Unreal Engine UI Developer
+SUB: game: 
+callback_data.split()[-1]: marketing
+Message_ID: 163099
+DB ID vacancy: 163099
+TITLE: Insurance Broker
+SUB: marketing: 
+Message_ID: 163177
+DB ID vacancy: 163177
+TITLE: SMM-менеджер
+SUB: marketing: smm
+Message_ID: 163095
+DB ID vacancy: 163095
+TITLE: Tele Marketing Executive
+SUB: marketing: 
+callback_data.split()[-1]: marketing
+Message_ID: 163095
+DB ID vacancy: 163095
+TITLE: Tele Marketing Executive
+SUB: marketing: 
+Message_ID: 163151
+DB ID vacancy: 163151
+TITLE: Директор по маркетингу
+SUB: marketing: smm
+callback_data.split()[-1]: marketing
+Message_ID: 166632
+callback_data.split()[-1]: marketing
+Message_ID: 166632
+callback_data.split()[-1]: marketing
+Message_ID: 166632
+callback_data.split()[-1]: marketing
+Message_ID: 166632
+callback_data.split()[-1]: marketing
+Message_ID: 166632
+callback_data.split()[-1]: marketing
+Message_ID: 166632
+callback_data.split()[-1]: marketing
+Message_ID: 166632
+callback_data.split()[-1]: marketing
+Message_ID: 166632

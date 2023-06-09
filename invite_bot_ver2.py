@@ -292,7 +292,7 @@ class InviteBot():
 
             # -------- make a parse keyboard for admin ---------------
 
-            keyboard_list = ['Subscr.statistics', 'Digest', 'Search by link']
+            keyboard_list = ['Digest', 'Subscr.statistics', '🦖 Search by link']
             parsing_kb = await self.compose_keyboard_in_bar(buttons=keyboard_list)
             # parsing_kb = ReplyKeyboardMarkup(resize_keyboard=True)
             # # parsing_button1 = KeyboardButton('Get news from channels')
@@ -1796,6 +1796,9 @@ class InviteBot():
                     await self.unlock_message.delete()
                 self.manual_admin_shorts = None
 
+            if callback.data == 'get_news':
+                self.parser_task = asyncio.create_task(get_news(callback.message))
+
             if callback.data == 'all':
                 profession_list = variable.profession_list_for_pushing_by_schedule
                 await self.bot_aiogram.send_message(callback.message.chat.id, f"professions in the list: {profession_list}")
@@ -2005,7 +2008,7 @@ class InviteBot():
                     logs.write_log(f"invite_bot_2: content_types: Digest")
 
                     self.markup = InlineKeyboardMarkup(row_width=1)
-                    but_show = InlineKeyboardButton('Unsorted vacancies (new vacancies)',
+                    but_show = InlineKeyboardButton('UNSORTED VACANCIES (new vacancies)',
                                                     callback_data='show_info_last_records')
                     # but_send_digest_full = InlineKeyboardButton('Разлить fulls посл сессию',
                     #                                             callback_data='send_digest_full')
@@ -2013,21 +2016,19 @@ class InviteBot():
                     #                                                 callback_data='send_digest_full_all')
                     # but_separate_channel = InlineKeyboardButton('Залить в 1 канал',
                     #                                             callback_data='choose_one_channel')
-                    but_do_by_admin = InlineKeyboardButton('ADMIN AREA👀✈️',
+                    but_do_by_admin = InlineKeyboardButton('👀 ADMIN AREA',
                                                                 callback_data='go_by_admin')
-                    but_stat_today = InlineKeyboardButton('One day statistics', callback_data='one_day_statistics')
-                    but_excel_all_statistics = InlineKeyboardButton('Whole posted vacancies (EXCEL)', callback_data='consolidated_table')
-                    but_excel_one_day_vacancies = InlineKeyboardButton('ONE DAY (EXCEL)', callback_data='one_day')
-                    but_hard_push = InlineKeyboardButton('HARD PUSHING 🧨🧨🧨', callback_data='hard_push')
+                    # but_stat_today = InlineKeyboardButton('One day statistics', callback_data='one_day_statistics')
+                    but_excel_all_statistics = InlineKeyboardButton('POSTED VACANCIES (EXCEL)', callback_data='consolidated_table')
+                    but_excel_one_day_vacancies = InlineKeyboardButton('🦤 REPORT: ONE DAY (EXCEL)', callback_data='one_day')
+                    but_get_news = InlineKeyboardButton('🔋 PARSER: GET NEWS', callback_data='get_news')
+                    but_hard_push = InlineKeyboardButton('🧨 HARD PUSHING', callback_data='hard_push')
 
                     # self.markup.row(but_show, but_send_digest_full)
                     # self.markup.row(but_send_digest_full_all, but_separate_channel)
-                    self.markup.add(but_show)
-                    self.markup.add(but_stat_today)
-                    self.markup.add(but_excel_all_statistics)
-                    self.markup.add(but_excel_one_day_vacancies)
-                    self.markup.add(but_hard_push)
-                    self.markup.add(but_do_by_admin)
+                    self.markup.add(but_show, but_excel_all_statistics)
+                    # self.markup.add(but_stat_today)
+                    self.markup.add(but_get_news, but_excel_one_day_vacancies, but_hard_push, but_do_by_admin)
 
                     time_start = await get_time_start()
                     await self.bot_aiogram.send_message(
@@ -2723,7 +2724,7 @@ class InviteBot():
             responses = []
             date_now = datetime.now() - timedelta(hours=21)
             date_now = date_now.strftime('%Y-%m-%d')
-            for table in [variable.admin_database, variable.archive_database]:
+            for table in [variable.admin_database, variable.archive_database, variable.reject_table]:
                 response = self.db.get_all_from_db(
                     table_name=table,
                     param=f"where DATE(created_at)>='{date_now}'",
@@ -2966,6 +2967,10 @@ class InviteBot():
             return matches_list
 
         async def get_news(message, silent=False):
+            self.db.check_or_create_table(
+                table_name=variable.reject_table,
+                fields=variable.vacancy_table
+            )
             unlock_kb = ReplyKeyboardMarkup(resize_keyboard=True)
             button_unlock = KeyboardButton('Stop parsers')
             unlock_kb.add(button_unlock)
@@ -4493,9 +4498,13 @@ class InviteBot():
                 # delete all spaces
                 for i in pro:
                     profession_list['profession'].append(i.strip())
+            try:
+                if vacancy_from_admin_dict['job_type']:
+                    vacancy_from_admin_dict['job_type'] = re.sub(r'\<[a-zA-Z\s\.\-\'"=!\<_\/]+\>', " ",
+                                                             vacancy_from_admin_dict['job_type'])
+            except Exception:
+                pass
 
-            vacancy_from_admin_dict['job_type'] = re.sub(r'\<[a-zA-Z\s\.\-\'"=!\<_\/]+\>', " ",
-                                                         vacancy_from_admin_dict['job_type'])
             params = VacancyFilter().sort_profession(
                 title=vacancy_from_admin_dict['title'],
                 body=vacancy_from_admin_dict['body'],
