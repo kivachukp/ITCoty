@@ -1,6 +1,6 @@
 import asyncio
 import configparser
-import datetime
+from datetime import date, timedelta
 import json
 import os
 from multiprocessing import Process
@@ -157,6 +157,7 @@ async def main_endpoints():
     async def get_all_vacancies_for_web():
         limit = request.args.get('limit')
         start_id = request.args.get('id')
+        print(limit, start_id)
         return await get_all_vacancies_for_web(start_id=start_id, limit=limit)
 
     @app.route("/get-all-vacancies-admin")
@@ -329,21 +330,14 @@ async def main_endpoints():
     async def get_all_vacancies_for_web(start_id, limit):
         all_vacancies = {}
         all_vacancies['vacancies'] = {}
-        # all_vacancies['amount'] = ''
+        date_start = date.today() - timedelta(days=10)
 
-        # amount_response = db.get_all_from_db(
-        #     table_name=variable.table_for_web,
-        #     field='count(*)',
-        #     without_sort=True
-        # )
-        # if amount_response:
-        #     all_vacancies['amount'] = amount_response
-
+        param = f"WHERE admin_id > {start_id} AND DATE (created_at) BETWEEN '{date_start}' AND '{date.today()}'"
         response = db.get_all_from_db(
             table_name='all_vacancies_sorted',
-            order=f'ORDER BY admin_id DESC LIMIT {limit}',
-            param = f'WHERE admin_id < {start_id}',
-            field=preview_fields_for_web
+            order=f'ORDER BY admin_id LIMIT {limit}',
+            param=param,
+            field=f'DISTINCT ON (admin_id, body) {preview_fields_for_web}'
         )
         if type(response) is list:
             number = 0
@@ -352,8 +346,7 @@ async def main_endpoints():
                     response=vacancy,
                     fields=preview_fields_for_web
                 )
-                if number < 100:
-                    all_vacancies['vacancies'][str(number)] = vacancy_dict
+                all_vacancies['vacancies'][str(number)] = vacancy_dict
                 print(all_vacancies['vacancies'][str(number)]['id'])
                 number += 1
         elif type(response) is str:
