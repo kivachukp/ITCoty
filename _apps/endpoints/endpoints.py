@@ -153,6 +153,11 @@ async def main_endpoints():
     async def get_all_vacancies():
         return await get_all_vacancies_from_db()
 
+    @app.route("/vacancy", methods = ['GET'])
+    async def get_single_vacancy_for_web():
+        vacancy_id = request.args.get('id')
+        return await get_single_vacancies_for_web(vacancy_id)
+
     @app.route("/vacancies", methods = ['GET'])
     async def get_all_vacancies_for_web():
         limit = request.args.get('limit')
@@ -192,6 +197,7 @@ async def main_endpoints():
             if vacancies_response:
                 responses_dict['vacancies'] = await package_list_to_dict(vacancies_response, preview_fields_for_web)
         return responses_dict
+
 
     @app.route("/get-all-vacancies-admin")
     async def get_all_vacancies_admin():
