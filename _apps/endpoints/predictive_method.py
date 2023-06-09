@@ -1,64 +1,61 @@
 from db_operations.scraping_db import DataBaseOperations
 from utils.additional_variables import additional_variables as variables
-
+from datetime import date, timedelta
 class Predictive():
     def __init__(self, request_from_frontend):
         self.query = ''
         self.db = DataBaseOperations()
         self.tables = variables.valid_professions
-        self.search_tables = []
+        self.search_table = variables.vacancies_database
         self.request_from_frontend = request_from_frontend
 
-    def get_search_tables(self):
-        if 'direction' in self.request_from_frontend:
-            profession = self.request_from_frontend['direction']
-            if profession == 'development':
-                self.search_tables.extend(['backend', 'frontend', 'mobile'])
-            elif profession in self.tables:
-                self.search_tables.append(profession)
-            else:
-                self.search_tables = self.tables
-        else:
-            self.search_tables = self.tables
-
-        return self.search_tables
+    # def get_search_tables(self):
+    #     if 'direction' in self.request_from_frontend:
+    #         profession = self.request_from_frontend['direction']
+    #         if profession == 'development':
+    #             self.search_tables.extend(['backend', 'frontend', 'mobile'])
+    #         elif profession in self.tables:
+    #             self.search_tables.append(profession)
+    #         else:
+    #             self.search_tables = self.tables
+    #     else:
+    #         self.search_tables = self.tables
+    #
+    #     return self.search_tables
 
     def get_full_query(self):
         print('get_full_query function is starting')
         query = ''
         for key in self.request_from_frontend:
             part_of_query = ''
-            if key in ['job_type', 'level', 'city']:
-                request = self.request_from_frontend[key]
-                if request:
+            request = self.request_from_frontend[key]
+            if request:
+                if key in ['job_type', 'level', 'city']:
                     part_of_query = self.get_part_of_query(field=key, request=request)
-            elif key == 'country':
-                request = self.request_from_frontend[key]
-                if request:
+                elif key == 'direction':
+                    if request == 'development':
+                        request = ['backend', 'frontend', 'mobile']
+                    part_of_query = self.get_part_of_query(field='profession', request=request)
+                elif key == 'country':
                     part_of_query = self.get_part_of_query(field='city', request=request)
-            elif key == 'specialization':
-                subs_list = [x for y in variables.valid_subs.values() for x in y]
-                request = self.request_from_frontend[key]
-                if request:
+                elif key == 'specialization':
+                    subs_list = [x for y in variables.valid_subs.values() for x in y]
                     for sub in request:
                         if sub not in subs_list:
                             part_of_query = ''
                         else:
-                            if sub == 'unity':
-                                self.search_tables.append('backend')
                             part_of_query = self.get_part_of_query(field='sub', request=request)
-
-            elif key == 'salary':
-                part_of_query = self.get_query_salary()
+                elif key == 'salary':
+                    part_of_query = self.get_query_salary()
 
             if part_of_query:
                 print('2')
                 query += f"{part_of_query} AND "
 
         if query:
-            print('3')
-            full_query = f"WHERE {query[:-5]}"
-            print(f'full_query: {len(full_query)}')
+            date_start = date.today() - timedelta(days=10)
+            full_query = f"WHERE {query} DATE (created_at) BETWEEN '{date_start}' AND '{date.today()}'"
+
             return full_query
 
     def get_part_of_query (self, field, request):

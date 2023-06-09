@@ -1,21 +1,22 @@
 import asyncio
 import configparser
-import datetime
+from datetime import date, timedelta
 import json
 import os
 import time
 from multiprocessing import Process
-
+import time
 import psycopg2
 from aiogram.types import Message, Chat
 from flask import Flask
 import random
 from db_operations.scraping_db import DataBaseOperations
-from utils.additional_variables.additional_variables import admin_database, admin_table_fields
+from utils.additional_variables.additional_variables import admin_database, admin_table_fields, preview_fields_for_web
 from helper_functions.helper_functions import to_dict_from_admin_response
 from flask_cors import CORS
 from flask import request
-from utils.additional_variables.additional_variables import path_post_request_file, post_request_for_example, valid_professions
+from utils.additional_variables.additional_variables import path_post_request_file, post_request_for_example, \
+    valid_professions, preview_fields_for_web, vacancies_database
 from patterns._export_pattern import export_pattern
 from patterns.data_pattern._data_pattern import pattern
 from filters.filter_jan_2023.filter_jan_2023 import VacancyFilter
@@ -152,6 +153,46 @@ async def main_endpoints():
     @app.route("/get-all-vacancies")
     async def get_all_vacancies():
         return await get_all_vacancies_from_db()
+
+    @app.route("/vacancies", methods = ['GET'])
+    async def get_all_vacancies_for_web():
+        limit = request.args.get('limit')
+        start_id = request.args.get('id')
+        return await get_all_vacancies_for_web(start_id=start_id, limit=limit)
+
+    @app.route("/vacancies", methods=['POST'])
+    async def vacancies_with_filters():
+        data = request.json
+        print(data)
+        if data['limit']:
+            limit = data['limit']
+        else:
+            limit = 100
+        if data['id']:
+            id_query = f" AND id < {data['id']}"
+        else:
+            id_query = ''
+        query = Predictive(data).get_full_query()
+        responses_dict = {}
+        amount_response = db.get_all_from_db(
+            table_name=vacancies_database,
+            param=query,
+            without_sort=True,
+            field='COUNT(*)'
+        )
+        if amount_response:
+            responses_dict['amount'] = amount_response[0][0]
+            param = f'{query}{id_query}'
+            vacancies_response = db.get_all_from_db(
+                table_name=vacancies_database,
+                param=param,
+                order=f'ORDER BY id DESC LIMIT {limit}',
+                field=preview_fields_for_web
+            )
+
+            if vacancies_response:
+                responses_dict['vacancies'] = await package_list_to_dict(vacancies_response, preview_fields_for_web)
+        return responses_dict
 
     @app.route("/get-all-vacancies-admin")
     async def get_all_vacancies_admin():
@@ -295,6 +336,49 @@ async def main_endpoints():
         result_dict = await three_last_vacancies()
         return result_dict
 
+    @app.route("/search-by-text", methods = ['POST'])
+    async def search_by_text():
+        print(request.json)
+        time.sleep(9)
+        query_search = Predictive(request_from_frontend=request.json)
+        query = query_search.get_full_query()
+        search_tables = query_search.get_search_tables()
+        responses_from_db = []
+        for table in search_tables:
+            response = db.get_all_from_db(
+                table_name=table,
+                param=query,
+                order = "ORDER BY time_of_public DESC LIMIT 20",
+                field=admin_table_fields
+            )
+            if response:
+                if type(response) is not str:
+                    responses_from_db.extend(response)
+                else:
+                    print('BAD response: ', response)
+                    print(f'QUERY is:\n{query}')
+        responses_dict = await package_list_to_dict(responses_from_db)
+        responses_dict = {'numbers': len(responses_dict), 'vacancies': responses_dict}
+        return responses_dict
+
+    async def get_single_vacancies_for_web(vacancy_id):
+        response = db.get_all_from_db(
+                    table_name=vacancies_database,
+                    param=f"WHERE id={vacancy_id}",
+                    field=variable.admin_table_fields
+                )
+        if response:
+            vacancy_dict = await to_dict_from_admin_response(
+                response=response[0],
+                fields=variable.admin_table_fields
+            )
+            if vacancy_dict:
+                return vacancy_dict
+        else:
+            return {'error': 'wrong key. please use key id'}
+
+
+
     async def get_from_db():
         cur = con.cursor()
         query = "SELECT * FROM admin_last_session WHERE profession <> 'no_sort'"
@@ -325,6 +409,39 @@ async def main_endpoints():
         elif type(response) is str:
             return {'error': response}
         return all_vacancies
+
+    async def get_all_vacancies_for_web(limit=None, start_id=None):
+        all_vacancies = {}
+        all_vacancies['vacancies'] = {}
+        date_start = date.today() - timedelta(days=10)
+        if start_id:
+            id_query = f"id < {start_id} AND "
+        else:
+            id_query = ''
+        if not limit:
+            limit = 200
+        param = f"WHERE {id_query}DATE (created_at) BETWEEN '{date_start}' AND '{date.today()}'"
+        response = db.get_all_from_db(
+            table_name='vacancies',
+            order=f'ORDER BY id DESC LIMIT {limit}',
+            param=param,
+            field=f'DISTINCT ON (id, body) {preview_fields_for_web}'
+        )
+        if type(response) is list:
+            number = 0
+            for vacancy in response:
+                vacancy_dict = await to_dict_from_admin_response(
+                    response=vacancy,
+                    fields=preview_fields_for_web
+                )
+                all_vacancies['vacancies'][str(number)] = vacancy_dict
+                print(all_vacancies['vacancies'][str(number)]['id'])
+                number += 1
+        elif type(response) is str:
+            return {'error': response}
+
+        return all_vacancies
+
 
     async def write_to_file(text):
         with open(path_post_request_file, 'a', encoding='utf-8') as file:
@@ -430,37 +547,34 @@ async def main_endpoints():
 
         # get 3 trainee vacancies
         responses = db.get_all_from_db(
-            table_name=variable.admin_database,
+            table_name=variable.vacancies_database,
             param="WHERE level LIKE '%trainee%' ORDER BY id DESC LIMIT 4",
-            field=variable.admin_table_fields,
+            field=variable.preview_fields_for_web,
             without_sort=True
         )
-        result_dict[trainee] = await package_list_to_dict(responses_list=responses)
+        result_dict[trainee] = await package_list_to_dict(responses_list=responses, fields_list=preview_fields_for_web)
 
         # get 3 common vacancies
         responses = db.get_all_from_db(
-            table_name=variable.admin_database,
+            table_name=variable.vacancies_database,
             param="WHERE level NOT LIKE '%trainee%' ORDER BY id DESC LIMIT 4",
-            field=variable.admin_table_fields,
+            field=variable.preview_fields_for_web,
             without_sort=True
         )
-        result_dict[common_vacancies] = await package_list_to_dict(responses_list=responses)
+        result_dict[common_vacancies] = await package_list_to_dict(responses_list=responses, fields_list=preview_fields_for_web)
 
         return result_dict
 
-    async def package_list_to_dict(responses_list):
+    async def package_list_to_dict(responses_list, fields_list=variable.admin_table_fields):
         result_dict = {}
         if responses_list and type(responses_list) is not str:
             count = 0
             for response in responses_list:
-                result = helper.to_dict_from_admin_response_sync(response, variable.admin_table_fields)
-                if result:
-                    result_dict[str(count)] = result
+                result_dict[str(count)] = helper.to_dict_from_admin_response_sync(response, fields_list)
                 count += 1
         return result_dict
 
     app.run(host=localhost, port=int(os.environ.get('PORT', 5000)))
-
 
 
 def run_endpoints():
