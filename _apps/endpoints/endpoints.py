@@ -523,21 +523,21 @@ async def main_endpoints():
 
         # get 3 trainee vacancies
         responses = db.get_all_from_db(
-            table_name=variable.admin_database,
+            table_name=variable.vacancies_database,
             param="WHERE level LIKE '%trainee%' ORDER BY id DESC LIMIT 4",
-            field=variable.admin_table_fields,
+            field=variable.preview_fields_for_web,
             without_sort=True
         )
-        result_dict[trainee] = await package_list_to_dict(responses_list=responses)
+        result_dict[trainee] = await package_list_to_dict(responses_list=responses, fields_list=preview_fields_for_web)
 
         # get 3 common vacancies
         responses = db.get_all_from_db(
-            table_name=variable.admin_database,
+            table_name=variable.vacancies_database,
             param="WHERE level NOT LIKE '%trainee%' ORDER BY id DESC LIMIT 4",
-            field=variable.admin_table_fields,
+            field=variable.preview_fields_for_web,
             without_sort=True
         )
-        result_dict[common_vacancies] = await package_list_to_dict(responses_list=responses)
+        result_dict[common_vacancies] = await package_list_to_dict(responses_list=responses, fields_list=preview_fields_for_web)
 
         return result_dict
 
