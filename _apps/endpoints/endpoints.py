@@ -4,7 +4,7 @@ from datetime import date, timedelta
 import json
 import os
 from multiprocessing import Process
-
+import time
 import psycopg2
 from aiogram.types import Message, Chat
 from flask import Flask
@@ -312,22 +312,27 @@ async def main_endpoints():
         result_dict = await three_last_vacancies()
         return result_dict
 
-    @app.route("/vacancy", methods=['GET'])
-    async def get_single_vacancies_for_web():
-        vacancy_id = request.args.get('id')
-        return await get_single_vacancies_for_web(vacancy_id)
-
     @app.route("/search-by-text", methods = ['POST'])
     async def search_by_text():
-        # responses_dict = await search_by_text_func(
-        #     request=request
-        # )
-        query = Predictive().get_full_query(request_from_frontend=request.json)
-        responses_from_db = await db.get_all_from_db_async(
-            table_name=admin_database,
-            param=query,
-            field=admin_table_fields
-        )
+        print(request.json)
+        time.sleep(9)
+        query_search = Predictive(request_from_frontend=request.json)
+        query = query_search.get_full_query()
+        search_tables = query_search.get_search_tables()
+        responses_from_db = []
+        for table in search_tables:
+            response = db.get_all_from_db(
+                table_name=table,
+                param=query,
+                order = "ORDER BY time_of_public DESC LIMIT 20",
+                field=admin_table_fields
+            )
+            if response:
+                if type(response) is not str:
+                    responses_from_db.extend(response)
+                else:
+                    print('BAD response: ', response)
+                    print(f'QUERY is:\n{query}')
         responses_dict = await package_list_to_dict(responses_from_db)
         responses_dict = {'numbers': len(responses_dict), 'vacancies': responses_dict}
         return responses_dict
