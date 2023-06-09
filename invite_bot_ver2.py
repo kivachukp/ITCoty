@@ -910,8 +910,7 @@ class InviteBot():
             updater = DatabaseUpdateData()
             await updater.create_table('vacancies')
             await updater.update_id('vacancies')
-            
-            
+
         @self.dp.message_handler(commands=['emergency_push'])
         async def emergency_push(message: types.Message):
             await Form_emergency_push.profession.set()

@@ -319,7 +319,6 @@ help_text = '/log or /logs - get custom logs (useful for developer\n' \
 #             '---------------------------------------------------\n\n' \
 #             '❗️- it is admin options'
 
-preview_fields_for_web = "admin_id, id, profession, vacancy, company, " \
-                     "job_type, city, salary, time_of_public, created_at, level"
-
-table_for_web = 'all_vacancies'
+preview_fields_for_web = "id, profession, vacancy, company, " \
+                     "job_type, city, salary, created_at, level, salary_from_usd_month, salary_to_usd_month"
+vacancies_database = 'vacancies'

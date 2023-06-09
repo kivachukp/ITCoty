@@ -98,6 +98,7 @@ class DatabaseUpdateData:
         full_query = f'CREATE TABLE {table_name} AS {query[:-7]} ORDER BY created_at, id;'
 
         try:
+            self.db.run_free_request('DROP TABLE IF EXISTS vacancies;')
             self.db.run_free_request(full_query)
             print (f'TABLE {table_name} READY')
         except Exception as e:
@@ -105,6 +106,7 @@ class DatabaseUpdateData:
 
     def update_id(self, table_name):
         try:
+            self.db.run_free_request('DROP SEQUENCE IF EXISTS new_id;')
             self.db.run_free_request('CREATE SEQUENCE new_id START 50000;')
             self.db.run_free_request(f"UPDATE {table_name} SET id = nextval('new_id');")
         except Exception as e:

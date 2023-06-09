@@ -10,12 +10,12 @@ from aiogram.types import Message, Chat
 from flask import Flask
 import random
 from db_operations.scraping_db import DataBaseOperations
-from utils.additional_variables.additional_variables import admin_database, admin_table_fields
+from utils.additional_variables.additional_variables import admin_database, admin_table_fields, preview_fields_for_web
 from helper_functions.helper_functions import to_dict_from_admin_response
 from flask_cors import CORS
 from flask import request
 from utils.additional_variables.additional_variables import path_post_request_file, post_request_for_example, \
-    valid_professions, table_for_web, preview_fields_for_web
+    valid_professions, preview_fields_for_web, vacancies_database
 from patterns._export_pattern import export_pattern
 from patterns.data_pattern._data_pattern import pattern
 from filters.filter_jan_2023.filter_jan_2023 import VacancyFilter
@@ -157,8 +157,42 @@ async def main_endpoints():
     async def get_all_vacancies_for_web():
         limit = request.args.get('limit')
         start_id = request.args.get('id')
-        print(limit, start_id)
         return await get_all_vacancies_for_web(start_id=start_id, limit=limit)
+
+    @app.route("/vacancies", methods=['POST'])
+    async def vacancies_with_filters():
+        data = request.json
+        print(data)
+        if data['limit']:
+            limit = data['limit']
+        else:
+            limit = 100
+        if data['id']:
+            id_query = f" AND id < {data['id']}"
+        else:
+            id_query = ''
+        query = Predictive(data).get_full_query()
+        responses_dict = {}
+        amount_response = db.get_all_from_db(
+            table_name=vacancies_database,
+            param=query,
+            without_sort=True,
+            field='COUNT(*)'
+        )
+        if amount_response:
+            responses_dict['amount'] = amount_response
+            param = f'{query}{id_query}'
+            print(param)
+            vacancies_response = db.get_all_from_db(
+                table_name=vacancies_database,
+                param=param,
+                order=f'ORDER BY id DESC LIMIT {limit}',
+                field=preview_fields_for_web
+            )
+
+            if vacancies_response:
+                responses_dict['vacancies'] = await package_list_to_dict(vacancies_response, preview_fields_for_web)
+        return responses_dict
 
     @app.route("/get-all-vacancies-admin")
     async def get_all_vacancies_admin():
@@ -188,24 +222,6 @@ async def main_endpoints():
         all_vacancies = await compose_request_to_db(request_data)
         return all_vacancies
 
-    @app.route("/search-by-text", methods = ['POST'])
-    async def search_by_text():
-        query_search = Predictive(request_from_frontend=request.json)
-        query = query_search.get_full_query()
-        search_tables = query_search.get_search_tables()
-        responses_from_db = []
-        for table in search_tables:
-            response = db.get_all_from_db(
-                table_name=table,
-                param=query,
-                order = 'ORDER BY id DESC LIMIT 20',
-                field=admin_table_fields
-            )
-            if response:
-                responses_from_db.extend(response)
-        responses_dict = await package_list_to_dict(responses_from_db)
-        responses_dict = {'numbers': len(responses_dict), 'vacancies': responses_dict}
-        return responses_dict
 
     @app.route("/get-vacancy-offset", methods = ['POST'])
     async def get_vacancy_offset():
@@ -296,6 +312,44 @@ async def main_endpoints():
         result_dict = await three_last_vacancies()
         return result_dict
 
+    @app.route("/vacancy", methods=['GET'])
+    async def get_single_vacancies_for_web():
+        vacancy_id = request.args.get('id')
+        return await get_single_vacancies_for_web(vacancy_id)
+
+    @app.route("/search-by-text", methods = ['POST'])
+    async def search_by_text():
+        # responses_dict = await search_by_text_func(
+        #     request=request
+        # )
+        query = Predictive().get_full_query(request_from_frontend=request.json)
+        responses_from_db = await db.get_all_from_db_async(
+            table_name=admin_database,
+            param=query,
+            field=admin_table_fields
+        )
+        responses_dict = await package_list_to_dict(responses_from_db)
+        responses_dict = {'numbers': len(responses_dict), 'vacancies': responses_dict}
+        return responses_dict
+
+    async def get_single_vacancies_for_web(vacancy_id):
+        response = db.get_all_from_db(
+                    table_name=vacancies_database,
+                    param=f"WHERE id={vacancy_id}",
+                    field=variable.admin_table_fields
+                )
+        if response:
+            vacancy_dict = await to_dict_from_admin_response(
+                response=response[0],
+                fields=variable.admin_table_fields
+            )
+            if vacancy_dict:
+                return vacancy_dict
+        else:
+            return {'error': 'wrong key. please use key id'}
+
+
+
     async def get_from_db():
         cur = con.cursor()
         query = "SELECT * FROM admin_last_session WHERE profession <> 'no_sort'"
@@ -327,17 +381,22 @@ async def main_endpoints():
             return {'error': response}
         return all_vacancies
 
-    async def get_all_vacancies_for_web(start_id, limit):
+    async def get_all_vacancies_for_web(limit=None, start_id=None):
         all_vacancies = {}
         all_vacancies['vacancies'] = {}
         date_start = date.today() - timedelta(days=10)
-
-        param = f"WHERE admin_id > {start_id} AND DATE (created_at) BETWEEN '{date_start}' AND '{date.today()}'"
+        if start_id:
+            id_query = f"id < {start_id} AND "
+        else:
+            id_query = ''
+        if not limit:
+            limit = 200
+        param = f"WHERE {id_query}DATE (created_at) BETWEEN '{date_start}' AND '{date.today()}'"
         response = db.get_all_from_db(
-            table_name='all_vacancies_sorted',
-            order=f'ORDER BY admin_id LIMIT {limit}',
+            table_name='vacancies',
+            order=f'ORDER BY id DESC LIMIT {limit}',
             param=param,
-            field=f'DISTINCT ON (admin_id, body) {preview_fields_for_web}'
+            field=f'DISTINCT ON (id, body) {preview_fields_for_web}'
         )
         if type(response) is list:
             number = 0
@@ -477,13 +536,12 @@ async def main_endpoints():
 
         return result_dict
 
-    async def package_list_to_dict(responses_list):
+    async def package_list_to_dict(responses_list, fields_list=variable.admin_table_fields):
         result_dict = {}
         if responses_list:
             count = 0
             for response in responses_list:
-                result_dict[str(count)] = helper.to_dict_from_admin_response_sync(response,
-                                                                                               variable.admin_table_fields)
+                result_dict[str(count)] = helper.to_dict_from_admin_response_sync(response, fields_list)
                 count += 1
         return result_dict
 
