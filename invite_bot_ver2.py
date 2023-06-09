@@ -142,6 +142,7 @@ class InviteBot():
         self.manual_admin_shorts = None
         self.autopushing_task = None
         self.wait_until_manual_will_stop = None
+        self.buttons_bar_keyboard = []
         logging.basicConfig(level=logging.DEBUG, filename="py_log.log",filemode="w")
 
         if token_in:
@@ -288,15 +289,19 @@ class InviteBot():
             self.user_id = message.from_user.id
 
             logs.write_log(f'\n------------------ start --------------------')
-            # -------- make a parse keyboard for admin ---------------
-            parsing_kb = ReplyKeyboardMarkup(resize_keyboard=True)
-            # parsing_button1 = KeyboardButton('Get news from channels')
-            parsing_button2 = KeyboardButton('Subscr.statistics')
-            parsing_button3 = KeyboardButton('Digest')
-            # parsing_button4 = KeyboardButton('Invite people')
-            # parsing_button5 = KeyboardButton('Get participants')
 
-            parsing_kb.row(parsing_button3, parsing_button2)
+            # -------- make a parse keyboard for admin ---------------
+
+            keyboard_list = ['Subscr.statistics', 'Digest', 'Search by link']
+            parsing_kb = await self.compose_keyboard_in_bar(buttons=keyboard_list)
+            # parsing_kb = ReplyKeyboardMarkup(resize_keyboard=True)
+            # # parsing_button1 = KeyboardButton('Get news from channels')
+            # parsing_button2 = KeyboardButton('Subscr.statistics')
+            # parsing_button3 = KeyboardButton('Digest')
+            # # parsing_button4 = KeyboardButton('Invite people')
+            # # parsing_button5 = KeyboardButton('Get participants')
+            #
+            # parsing_kb.row(parsing_button3, parsing_button2)
 
             await self.bot_aiogram.send_message(message.chat.id, f'Привет, {message.from_user.first_name}!', reply_markup=parsing_kb)
             # await self.bot_aiogram.send_message(variable.id_owner, f'User {message.from_user.id} has started')
@@ -1792,13 +1797,33 @@ class InviteBot():
                 self.manual_admin_shorts = None
 
             if callback.data == 'all':
-                await self.push_shorts_attempt_to_make_multi_function(
-                    message=callback.message,
-                    callback_data=callback.data,
-                    hard_pushing=True,
-                    hard_push_profession='*'
+                profession_list = variable.profession_list_for_pushing_by_schedule
+                await self.bot_aiogram.send_message(callback.message.chat.id, f"professions in the list: {profession_list}")
+
+                unlock_kb = await self.compose_keyboard_in_bar(buttons=['Unlock admin and stop autopushing'])
+                self.unlock_message_autopushing = await self.bot_aiogram.send_message(callback.message.chat.id,
+                                                                                      'the admin panel will be locked until the end of the operation. '
+                                                                                      'Or press the unlock button (only available to you)',
+                                                                                      reply_markup=unlock_kb)
+
+                self.autopushing_task = asyncio.create_task(
+                    self.hard_pushing_by_schedule(
+                        message=callback.message,
+                        profession_list=profession_list
+                    )
                 )
-                # await hard_post(callback.message)
+                await self.autopushing_task
+                if self.unlock_message_autopushing:
+                    await self.unlock_message_autopushing.delete()
+                self.autopushing_task = None
+
+                # await self.push_shorts_attempt_to_make_multi_function(
+                #     message=callback.message,
+                #     callback_data=callback.data,
+                #     hard_pushing=True,
+                #     hard_push_profession='*'
+                # )
+                # # await hard_post(callback.message)
 
             if callback.data == 'each_profession':
                 markup = await compose_inline_keyboard(prefix='each')
@@ -1850,6 +1875,7 @@ class InviteBot():
             channel_to_send = None
             user_to_send = []
             msg = None
+
             if self.peerchannel:
                 data = await self.client.get_entity(message.text)
                 await self.bot_aiogram.send_message(message.chat.id, str(data))
@@ -1896,6 +1922,9 @@ class InviteBot():
                 self.marker = False
 
             else:
+                if message.text == 'Search by link':
+                    await Form_check_url_to_add.url.set()
+                    await self.bot_aiogram.send_message(message.chat.id, 'Type the vacancy_url to check in db and add')
 
                 if message.text in ['Unlock admin', 'Unlock admin and stop autopushing']:
                     self.db.push_to_db_common(
@@ -5874,12 +5903,30 @@ class InviteBot():
                                                 f'Please choose others', reply_markup=self.markup)
             await asyncio.sleep(random.randrange(2, 3))
 
-    async def compose_keyboard_in_bar(self, buttons:list):
-        unlock_kb = ReplyKeyboardMarkup(resize_keyboard=True)
+    async def compose_keyboard_in_bar(self, buttons:list, row=2):
+        if self.buttons_bar_keyboard:
+            buttons.extend(self.buttons_bar_keyboard)
+        kb = ReplyKeyboardMarkup(resize_keyboard=True)
+
+        # butt_index = 0
+        # for i in range(0, len(buttons), row):
+        #     buttons_row = []
+        #     for button in range(butt_index, row+butt_index):
+        #         buttons_row.append(button)
+        #     if buttons_row:
+        #         kb.row(
+        #             KeyboardButton(buttons_row[0]) if len(buttons_row) >= 1 else None,
+        #             KeyboardButton(buttons_row[1]) if len(buttons_row) >= 2 else None,
+        #             KeyboardButton(buttons_row[2]) if len(buttons_row) >= 3 else None,
+        #             KeyboardButton(buttons_row[3]) if len(buttons_row) >= 4 else None,
+        #             KeyboardButton(buttons_row[4]) if len(buttons_row) >= 5 else None
+        #         )
+        #     butt_index = i+row
+
         for button in buttons:
             button_unlock = KeyboardButton(button)
-            unlock_kb.add(button_unlock)
-        return unlock_kb
+            kb.add(button_unlock)
+        return kb
 
     async def wait_until(self, argument):
         while argument:
