@@ -167,7 +167,6 @@ async def main_endpoints():
     @app.route("/vacancies", methods=['POST'])
     async def vacancies_with_filters():
         data = request.json
-        print(data)
         if 'limit' in data and data['limit']:
             limit = data['limit']
         else:
