@@ -168,11 +168,11 @@ async def main_endpoints():
     async def vacancies_with_filters():
         data = request.json
         print(data)
-        if data['limit']:
+        if 'limit' in data and data['limit']:
             limit = data['limit']
         else:
             limit = 100
-        if data['id']:
+        if 'id' in data and data['id']:
             id_query = f" AND id < {data['id']}"
         else:
             id_query = ''
