@@ -222,31 +222,6 @@ async def main_endpoints():
         all_vacancies = await compose_request_to_db(request_data)
         return all_vacancies
 
-    @app.route("/search-by-text", methods = ['POST'])
-    async def search_by_text():
-        print(request.json)
-        time.sleep(9)
-        query_search = Predictive(request_from_frontend=request.json)
-        query = query_search.get_full_query()
-        search_tables = query_search.get_search_tables()
-        responses_from_db = []
-        for table in search_tables:
-            response = db.get_all_from_db(
-                table_name=table,
-                param=query,
-                order = "ORDER BY time_of_public DESC LIMIT 20",
-                field=admin_table_fields
-            )
-            if response:
-                if type(response) is not str:
-                    responses_from_db.extend(response)
-                else:
-                    print('BAD response: ', response)
-                    print(f'QUERY is:\n{query}')
-        responses_dict = await package_list_to_dict(responses_from_db)
-        responses_dict = {'numbers': len(responses_dict), 'vacancies': responses_dict}
-        return responses_dict
-
     @app.route("/get-vacancy-offset", methods = ['POST'])
     async def get_vacancy_offset():
         response_dict = {}
@@ -265,7 +240,6 @@ async def main_endpoints():
             response_dict = await helper.to_dict_from_admin_response(responses[0], admin_table_fields)
             print(f"get each vacancy len={len(responses)} id={response_dict['id']} offset={request_data['offset']}")
         return response_dict
-
 
 # ---------------- endpoints by trainee database (Sasha frontend) ------------------
     @app.route("/delete_vacancy_trainee/<int:id>", methods=['DELETE'])
@@ -339,7 +313,6 @@ async def main_endpoints():
     @app.route("/search-by-text", methods = ['POST'])
     async def search_by_text():
         print(request.json)
-        time.sleep(9)
         query_search = Predictive(request_from_frontend=request.json)
         query = query_search.get_full_query()
         search_tables = query_search.get_search_tables()
@@ -576,6 +549,10 @@ async def main_endpoints():
 
     app.run(host=localhost, port=int(os.environ.get('PORT', 5000)))
 
+    @app.route("/vacancy", methods=['GET'])
+    async def get_single_vacancy_for_web():
+        vacancy_id = request.args.get('id')
+        return await get_single_vacancies_for_web(vacancy_id)
 
 def run_endpoints():
     asyncio.run(main_endpoints())

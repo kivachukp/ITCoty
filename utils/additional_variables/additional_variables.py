@@ -10,7 +10,11 @@ countries_cities_table = 'countries_cities'
 last_autopushing_time_database = 'last_autopushing_time'
 short_session_database = 'shorts_session_name'
 reject_table = 'reject'
-
+admin_temporary = 'admin_temporary'
+admin_temporary_fields = 'id, id_admin_channel, id_admin_last_session_table, sended_to_agregator'
+shorts_database = 'shorts_table'
+shorts_database_fields = 'id, id_vacancy_from_admin_table'
+shorts_database_fields_type = 'id SERIAL PRIMARY KEY, id_vacancy_from_admin_table INT'
 
 profession_table_fields = "id, chat_name, title, body, profession, vacancy, vacancy_url, company, english, relocation, " \
                              "job_type, city, salary, experience, contacts, time_of_public, created_at, agregator_link, " \

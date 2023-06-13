@@ -4499,13 +4499,13 @@ class InviteBot():
             if one_profession:
                 profession_list['profession'] = [one_profession, ]  # rewrite list if one_profession
             else:
-                if ',' in vacancy_from_admin_dict['profession']:
+                if ', ' in vacancy_from_admin_dict['profession']:
                     pro = vacancy_from_admin_dict['profession'].split(',')
                 else:
                     pro = [vacancy_from_admin_dict['profession']]
-                # delete all spaces
-                for i in pro:
-                    profession_list['profession'].append(i.strip())
+                # # delete all spaces
+                # for i in pro:
+                #     profession_list['profession'].append(i.strip())
             try:
                 if vacancy_from_admin_dict['job_type']:
                     vacancy_from_admin_dict['job_type'] = re.sub(r'\<[a-zA-Z\s\.\-\'"=!\<_\/]+\>', " ",
@@ -4626,8 +4626,9 @@ class InviteBot():
                     print("vacancy_from_admin_dict['vacancy_url']:", vacancy_from_admin_dict['vacancy_url'])
                     message_for_send += f"Vacancy url: {vacancy_from_admin_dict['vacancy_url']}\n"
 
-                if vacancy_from_admin_dict['vacancy'].strip() != vacancy_from_admin_dict['title'].strip() or (
-                        vacancy_from_admin_dict['vacancy'] and vacancy_from_admin_dict['title']):
+                if not vacancy_from_admin_dict['vacancy'] or \
+                        (vacancy_from_admin_dict['vacancy'].strip() != vacancy_from_admin_dict['title'].strip() or (
+                        vacancy_from_admin_dict['vacancy'] and vacancy_from_admin_dict['title'])):
                     message_for_send += f"\n<b>{vacancy_from_admin_dict['title']}</b>\n"
 
                 if type(message_for_send) is not str or type(vacancy_from_admin_dict['body']) is not str:
@@ -4918,10 +4919,14 @@ class InviteBot():
             #                 '{response_dict['agregator_link']}', '{response_dict['session']}', '{response_dict['sended_to_agregator']}',
             #                 '{response_dict['sub']}', '{response_dict['tags']}', '{response_dict['full_tags']}',
             #                 '{response_dict['full_anti_tags']}', '{response_dict['short_session_numbers']}');"""
-            self.db.run_free_request(
-                request=query,
-                output_text="\nThe vacancy has removed from admin to archive\n"
-            )
+            try:
+                self.db.run_free_request(
+                    request=query,
+                    output_text="\nThe vacancy has removed from admin to archive\n"
+                )
+            except Exception as ex:
+                print(f"error 4927: {ex}")
+                pass
 
     async def update_vacancy_admin_last_session(
             self,
@@ -4935,25 +4940,36 @@ class InviteBot():
     ):
 
         if shorts_session_name:
-            self.db.update_table(
-                table_name=variable.admin_database,
-                param=f"WHERE id={id_admin_last_session_table}",
-                field="short_session_numbers",
-                value=shorts_session_name
-            )
+            try:
+                self.db.update_table(
+                    table_name=variable.admin_database,
+                    param=f"WHERE id={id_admin_last_session_table}",
+                    field="short_session_numbers",
+                    value=shorts_session_name
+                )
+            except Exception as ex:
+                print(f"error 4946: {ex}")
 
         if update_profession:
             len_prof_list = len(prof_list)
             if len_prof_list < 2:
 
-                await self.transfer_vacancy_from_to_table(
-                    id_admin_last_session_table=id_admin_last_session_table,
-                    change_parameters_dict={'approved': 'rejects by admin'}
-                )
-                self.db.delete_data(
-                    table_name='admin_last_session',
-                    param=f"WHERE id={id_admin_last_session_table}"
-                )
+                try:
+                    await self.transfer_vacancy_from_to_table(
+                        id_admin_last_session_table=id_admin_last_session_table,
+                        change_parameters_dict={'approved': 'rejects by admin'}
+                    )
+                except Exception as ex:
+                    print(f"error 4958: {ex}")
+
+                try:
+                    self.db.delete_data(
+                        table_name='admin_last_session',
+                        param=f"WHERE id={id_admin_last_session_table}"
+                    )
+                except Exception as ex:
+                    print(f"error 4966: {ex}")
+
             # 5. if more that delete current profession from column profession
             else:
                 new_profession = ''
@@ -4962,36 +4978,47 @@ class InviteBot():
                     if i != profession:
                         new_profession += f'{i}, '
                 new_profession = new_profession[:-2].strip()
-                self.db.run_free_request(
-                    request=f"UPDATE {variable.admin_database} SET profession='{new_profession}' WHERE id={id_admin_last_session_table}",
-                    output_text='profession has updated'
-                )
+                try:
+                    self.db.run_free_request(
+                        request=f"UPDATE {variable.admin_database} SET profession='{new_profession}' WHERE id={id_admin_last_session_table}",
+                        output_text='profession has updated'
+                    )
+                except Exception as ex:
+                    print(f"error 4982: {ex}")
 
             # write mark as shorts_session_name
-            if shorts_session_name:
-                self.db.run_free_request(
-                    request=f"UPDATE {variable.admin_database} SET short_session_numbers='{shorts_session_name}' WHERE id={id_admin_last_session_table}",
-                    output_text='shorts session name has updated'
-                )
+            # if shorts_session_name:
+            #     self.db.run_free_request(
+            #         request=f"UPDATE {variable.admin_database} SET short_session_numbers='{shorts_session_name}' WHERE id={id_admin_last_session_table}",
+            #         output_text='shorts session name has updated'
+            #     )
 
         if update_id_agregator:
             # 6 Mark vacancy like sended to agregator (write to column sended_to_agregator id_agregator)
-            self.db.run_free_request(
-                request=f"UPDATE admin_last_session SET sended_to_agregator='{self.last_id_message_agregator}' WHERE id={id_admin_last_session_table}",
-                output_text='sended_to_agregator has updated'
-            )
+            try:
+                self.db.run_free_request(
+                    request=f"UPDATE admin_last_session SET sended_to_agregator='{self.last_id_message_agregator}' WHERE id={id_admin_last_session_table}",
+                    output_text='sended_to_agregator has updated'
+                )
+            except Exception as ex:
+                print(f"error 4999: {ex}")
+
 
             # check the changes
-            response_check = self.db.get_all_from_db(
-                table_name='admin_last_session',
-                param=f"WHERE id={id_admin_last_session_table}",
-                without_sort=True,
-                field='sended_to_agregator'
-            )
+            try:
+                response_check = self.db.get_all_from_db(
+                    table_name='admin_last_session',
+                    param=f"WHERE id={id_admin_last_session_table}",
+                    without_sort=True,
+                    field='sended_to_agregator'
+                )
+            except Exception as ex:
+                print(f"error 5008: {ex}")
+
             try:
                 print('changed id agreg = ', response_check[0][0])
             except Exception as e:
-                print('hey, dude, WTF in 2832?\n', e)
+                print('hey, dude, WTF in 5013?\n', e)
                 # self.bot_aiogram.send_message(message.chat.id, f"'hey, dude, WTF in 2832?\n{e}")
 
         # await asyncio.sleep(1)
@@ -5169,6 +5196,76 @@ class InviteBot():
 
         return all_messages
 
+# #__________________________ NEW CODE ____________________________
+#
+#     async def shorts(self, message, hardpushing=False, profession=None):
+#         if hardpushing:
+#             profession_list = variable.profession_list_for_pushing_by_schedule
+#             for one_profession in profession_list:
+#                 vacancies_list = await self.get_from_db_the_vacancies_by_professions(profession_list=one_profession)
+#                 await self.start_shorts_pushing()
+#
+#         else:
+#             await self.get_from_db_the_vacancies_by_professions(profession)
+#             await self.public_preview_in_admin_channel
+#
+#
+#     # Достать из базы данных все вакансии по профессиям
+#     async def get_from_db_the_vacancies_by_professions(self, profession_list):
+#         if type(profession_list) is str:
+#             if ", " in profession_list:
+#                 profession_list = profession_list.split(", ")
+#             else:
+#                 profession_list = [profession_list,]
+#
+#         vacancies_list = []
+#         for profession in profession_list:
+#             vacancies = self.db.get_all_from_db(
+#                 table_name=variable.admin_database,
+#                 param=f"WHERE profession LIKE '%{profession}%'"
+#             )
+#             vacancies_list.extend(vacancies)
+#         return vacancies_list
+#
+#     # Опубликовать превью в админ канале для отбора вручную
+#     async def public_preview_in_admin_channel(self, message, vacancies_list, profession):
+#
+#         # превентивно удалить таблицу admin_temporary
+#         self.db.delete_table(variable.admin_temporary)
+#
+#         admin_channel = config['My_channels']['admin_channel']
+#
+#         # получить последний id сообщения в админ канале тг
+#         current_admin_channel_id = int(await self.get_last_admin_channel_id(message)) + 1
+#
+#         for vacancy in vacancies_list:
+#             vacancy_dict = await helper.to_dict_from_admin_response(response=vacancy, fields=variable.admin_table_fields)
+#
+#             # сформировать вакансию для публикации
+#             composed_vacancy = await self.compose_message(
+#                 one_profession=profession,
+#                 vacancy_from_admin_dict=vacancy_dict,
+#                 full=True
+#             )
+#
+#             # отправлять по одному сообщению в админ канал и фиксировать связь id с id админ базы
+#             await self.bot_aiogram.send_message(admin_channel, composed_vacancy)
+#             self.db.push_to_db_common(
+#                 table_name=variable.admin_temporary,
+#                 fields_values_dict={'id_admin_channel': current_admin_channel_id+1, 'id_admin_last_session_table': vacancy_dict['id']},
+#                 notification=True
+#             )
+#
+#             print('Preview in admin channel has finished successfully')
+#
+#
+#     async def start_shorts_pushing(self):
+#         pass
+#
+#
+#
+# # ________________________ END NEW CODE __________________________
+
     async def push_shorts_attempt_to_make_multi_function(
             self,
             message,
@@ -5186,6 +5283,8 @@ class InviteBot():
             3. compose shorts
         """
         # chat_id = variable.id_owner if not message else message.chat.id
+        self.db.delete_table(table_name=variable.shorts_database)
+
         print(1)
         composed_message_dict = {}
         if not message:
@@ -5235,6 +5334,8 @@ class InviteBot():
             if not hard_pushing:
                 # get messages from TG admin
                 history_messages = await self.get_tg_history_messages(message)
+                await self.push_in_shorts_database(history_messages=history_messages, vacancies_from_telegram=True)
+
                 print(4.5)
                 self.out_from_admin_channel = len(history_messages)
                 # message_for_send = f'<b>Дайджест вакансий для {profession} за {datetime.now().strftime("%d.%m.%Y")}:</b>\n\n'
@@ -5246,6 +5347,8 @@ class InviteBot():
                     param=query,
                     field=variable.admin_table_fields
                 )
+                await self.push_in_shorts_database(history_messages=history_messages)
+
             if history_messages:
                 print(6)
                 self.quantity_in_statistics = len(history_messages)
@@ -5289,11 +5392,11 @@ class InviteBot():
                 for vacancy in history_messages:
                     if hard_pushing:
                         vacancy = await helper.to_dict_from_admin_response(vacancy, variable.admin_table_fields)
-                    helper.add_to_report_file(
-                        path=variable.path_push_shorts_report_file,
-                        write_mode='a',
-                        text=f"Message_ID: {vacancy['id']}\n"
-                    )
+                    # helper.add_to_report_file(
+                    #     path=variable.path_push_shorts_report_file,
+                    #     write_mode='a',
+                    #     text=f"Message_ID: {vacancy['id']}\n"
+                    # )
 
                     if not hard_pushing:
                         response = self.db.get_all_from_db(table_name='admin_temporary', without_sort=True)
@@ -5339,6 +5442,7 @@ class InviteBot():
                             full=True,
                             message=vacancy,
                         )
+                        print(200)
                         vacancy_from_admin_dict = vacancy
                     # shorts_report
                     if 'out' not in self.temporary_data:
@@ -5451,16 +5555,21 @@ class InviteBot():
 
                         print(27)
                         # update vacancy by profession field
-                        await self.update_vacancy_admin_last_session(
-                            results_dict=None,
-                            profession=profession,
-                            prof_list=prof_list,
-                            # id_admin_last_session_table=response_temp_dict['id_admin_last_session_table'],
-                            id_admin_last_session_table=vacancy_from_admin_dict['id'],
-                            update_profession=True,
-                            update_id_agregator=False,
-                            shorts_session_name=short_session_name,
-                        )
+                        try:
+                            await self.update_vacancy_admin_last_session(
+                                results_dict=None,
+                                profession=profession,
+                                prof_list=prof_list,
+                                # id_admin_last_session_table=response_temp_dict['id_admin_last_session_table'],
+                                id_admin_last_session_table=vacancy_from_admin_dict['id'],
+                                update_profession=True,
+                                update_id_agregator=False,
+                                shorts_session_name=short_session_name,
+                            )
+                        except Exception as ex:
+                            print(f'error: {ex}')
+                            pass
+                        print(28)
                     if not hard_pushing:
                         await self.delete_used_vacancy_from_admin_temporary(vacancy,
                                                                     vacancy_from_admin_dict['id'])
@@ -5484,9 +5593,9 @@ class InviteBot():
                                                           last_id_message_agregator=self.last_id_message_agregator,
                                                           profession=profession)
 
-                    self.db.delete_table(
-                        table_name='admin_temporary'
-                    )
+                    self.db.delete_table(table_name=variable.admin_temporary)
+                    self.db.delete_table(table_name=variable.shorts_database)
+
 
                 #shorts_report
                 try:
@@ -5948,6 +6057,49 @@ class InviteBot():
     async def wait_until(self, argument):
         while argument:
             await asyncio.sleep(10)
+
+    async def push_in_shorts_database(self, history_messages, vacancies_from_telegram=False):
+        # to write in shorts_database name shorts_table
+        self.db.check_or_create_table(
+            table_name=variable.shorts_database,
+            fields=variable.shorts_database_fields_type
+        )
+        if vacancies_from_telegram:
+            for message_vacancy in history_messages:
+                print(message_vacancy['id'])
+                admin_vacancy_id = self.db.get_all_from_db(
+                    table_name=variable.admin_temporary,
+                    field=variable.admin_temporary_fields,
+                    param=f"WHERE id_admin_channel = '{str(message_vacancy['id'])}'",
+                    without_sort=True
+                )
+                if admin_vacancy_id and type(admin_vacancy_id) is not str:
+                    admin_vacancy_id_dict = await helper.to_dict_from_admin_response(
+                        response=admin_vacancy_id[0],
+                        fields=variable.admin_temporary_fields
+                    )
+                    if admin_vacancy_id_dict:
+                        self.db.push_to_db_common(
+                            table_name=variable.shorts_database,
+                            fields_values_dict={'id_vacancy_from_admin_table': int(admin_vacancy_id_dict['id_admin_channel'])},
+                            notification=True
+                        )
+                    else:
+                        print('False is make to dict func answer')
+                else:
+                    print('admin_vacancy_id is str or EMPTY')
+        else:
+            for message_vacancy in history_messages:
+                message_vacancy_dict = await helper.to_dict_from_admin_response(message_vacancy, variable.admin_table_fields)
+                if message_vacancy_dict:
+                    self.db.push_to_db_common(
+                        table_name=variable.shorts_database,
+                        fields_values_dict={'id_vacancy_from_admin_table': int(message_vacancy_dict['id'])},
+                        notification=True
+                    )
+                else:
+                    print('False is make to dict func answer')
+
 
 def run(double=False, token_in=None):
     InviteBot(
