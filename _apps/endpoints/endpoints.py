@@ -95,10 +95,6 @@ async def main_endpoints():
             profession_list=variable.profession_list_for_pushing_by_schedule
         )
 
-        # p1 = Process(target=start_hardpushing, args=())
-        # p1.start()
-        # p1.join()
-
     @app.route("/post-everything")
     async def post_everything():
         await InviteBot().push_shorts_attempt_to_make_multi_function(
