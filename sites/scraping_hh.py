@@ -187,12 +187,6 @@ class HHGetInformation:
                             english = 'English'
 
                         try:
-                            city = soup.find('a', class_='bloko-link bloko-link_kind-tertiary bloko-link_disable-visited').get_text()
-                        except Exception as e:
-                            print(f"error city: {e}")
-                            city = ''
-
-                        try:
                             company = soup.find('span', class_='vacancy-company-name').get_text()
                             company = company.replace('\xa0', ' ')
                         except Exception as e:
@@ -200,7 +194,7 @@ class HHGetInformation:
                             company = ''
 
                         try:
-                            salary = soup.find('span', class_='bloko-header-section-2 bloko-header-section-2_lite').get_text()
+                            salary = soup.find('div', attrs={'data-qa': 'vacancy-salary'}).get_text()
                         except Exception as e:
                             print(f"error salary: {e}")
                             salary = ''
