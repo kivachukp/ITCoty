@@ -1931,7 +1931,7 @@ class InviteBot():
                 self.marker = False
 
             else:
-                if message.text == 'Search by link':
+                if message.text == '🦖 Search by link' or 'Search by link' in message.text:
                     await Form_check_url_to_add.url.set()
                     await self.bot_aiogram.send_message(message.chat.id, 'Type the vacancy_url to check in db and add')
 
@@ -2728,7 +2728,7 @@ class InviteBot():
 
         async def output_one_day(message):
             responses = []
-            date_now = datetime.now() - timedelta(hours=21)
+            date_now = datetime.now() - timedelta(hours=24*7)
             date_now = date_now.strftime('%Y-%m-%d')
             for table in [variable.admin_database, variable.archive_database, variable.reject_table]:
                 response = self.db.get_all_from_db(
