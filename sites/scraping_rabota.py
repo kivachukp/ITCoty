@@ -203,7 +203,7 @@ class RabotaGetInformation:
                             company = ''
 
                         try:
-                            salary = soup.find('span', class_='bloko-header-section-2 bloko-header-section-2_lite').get_text()
+                            salary = soup.find('div', attrs={'data-qa': 'vacancy-salary'}).get_text()
                         except:
                             salary = ''
 
