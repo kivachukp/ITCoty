@@ -1,12 +1,7 @@
-import asyncio
 import os
 import re
 import time
 from datetime import datetime
-
-import requests
-from asgiref.sync import async_to_sync
-
 from filters.filter_jan_2023.filter_jan_2023 import VacancyFilter
 from patterns._export_pattern import export_pattern
 from patterns.pseudo_pattern.pseudo_export_pattern import export_pattern as pseudo_export_pattern
@@ -718,3 +713,5 @@ async def replace_NoneType(results_dict):
         if results_dict[key] == None:
             results_dict[key] = ''
     return results_dict
+
+

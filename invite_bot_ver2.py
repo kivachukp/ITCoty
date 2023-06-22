@@ -325,6 +325,11 @@ class InviteBot():
         async def silent_get_news(message: types.Message):
             await get_news(silent=True)
 
+        @self.dp.message_handler(commands=['refactoring_vacancy_salary'])
+        async def silent_get_news(message: types.Message):
+            # await self.refactoring_vacancy_salary(message)
+            asyncio.create_task(self.refactoring_vacancy_salary(message))
+
         @self.dp.message_handler(commands=['silent_get_news'])
         async def silent_get_news(message: types.Message):
             await get_news(silent=True)
@@ -925,7 +930,7 @@ class InviteBot():
                 data['url'] = message.text
                 url = message.text
             await state.finish()
-            vacancy_text = await db_check_add_single_vacancy(message, url=url)
+            vacancy_text = await self.db_check_add_single_vacancy(message, url=url)
             # if vacancy_text:
             #     await self.bot_aiogram.send_message(message.chat.id, vacancy_text)
 
@@ -2727,6 +2732,38 @@ class InviteBot():
                         print(f'Was deleted id={id} from {i}')
 
         async def output_one_day(message):
+            await self.bot_aiogram.send_message(message.chat.id,
+                                                'Please wait for all vacancies from vacancies table...')
+            print('Please wait for all vacancies from vacancies table...')
+            responses = self.db.get_all_from_db(
+                table_name=variable.vacancies_database,
+                field=variable.admin_table_fields,
+                param="ORDER BY id DESC LIMIT 10000",
+                without_sort=True
+            )
+            excel_dict = {}
+            if responses:
+                print(len(responses))
+
+                for vacancy in responses:
+                    vacancy_dict = await helper.to_dict_from_admin_response(vacancy, variable.admin_table_fields)
+                    for key in vacancy_dict:
+                        if key not in excel_dict:
+                            excel_dict[key] = []
+                        excel_dict[key].append(vacancy_dict[key])
+
+                df = pd.DataFrame(excel_dict)
+
+                df.to_excel(f'./excel/excel/vacancies_table.xlsx', sheet_name='Sheet1')
+                print('File has been written')
+                await self.send_file_to_user(message, f'excel/excel/vacancies_table.xlsx')
+            else:
+                print('Not responses from vacancies table')
+            print('got it')
+
+            await self.bot_aiogram.send_message(message.chat.id, 'Please wait for not sorted vacancies from admin and reject tables...')
+            print('Please wait for not sorted vacancies from admin and reject tables...')
+
             responses = []
             date_now = datetime.now() - timedelta(hours=24*7)
             date_now = date_now.strftime('%Y-%m-%d')
@@ -2740,6 +2777,7 @@ class InviteBot():
                     responses.extend(response)
 
             excel_dict = {}
+            print(len(responses))
             for vacancy in responses:
                 vacancy_dict = await helper.to_dict_from_admin_response(vacancy, variable.admin_table_fields)
                 for key in vacancy_dict:
@@ -2752,6 +2790,7 @@ class InviteBot():
             df.to_excel(f'./excel/excel/one_day_vacancies.xlsx', sheet_name='Sheet1')
             print('File has been written')
             await self.send_file_to_user(message, f'excel/excel/one_day_vacancies.xlsx')
+            print('got it')
 
 
 
@@ -3383,68 +3422,6 @@ class InviteBot():
             await self.bot_aiogram.send_message(message.chat.id, f"😱 (-)Vacancy NOT FOUND")
             return ''
 
-        async def db_check_add_single_vacancy(message, url):
-            table_list = variable.all_tables_for_vacancy_search
-            url = url.strip()
-            urls = [url]
-            site_url = re.split(r'\/', url, maxsplit=3)
-            domain = site_url[2]
-            if domain == 'hh.ru':
-                site_url[2] = 'spb.hh.ru'
-                url_new = '/'.join(site_url)
-                urls.append(url_new)
-            for url in urls:
-                for pro in table_list:
-                    response = self.db.get_all_from_db(
-                        table_name=pro,
-                        field=variable.admin_table_fields,
-                        param=f"WHERE vacancy_url='{url}'"
-                    )
-                    if response:
-                        response_dict = await helper.to_dict_from_admin_response(
-                            response[0],
-                            variable.admin_table_fields
-                        )
-                        text = f"😎 (+)Vacancy FOUND in {pro} table\n{response_dict['title'][:40]}\n\n" \
-                               f"id: {response_dict['id']}\n" \
-                               f"profession: {response_dict['profession']}\n" \
-                               f"tags: {response_dict['full_tags'] if response_dict['full_tags'] else '-'}\n" \
-                               f"anti_tags: {response_dict['full_anti_tags'] if response_dict['full_anti_tags'] else '-'}"
-                        await self.bot_aiogram.send_message(message.chat.id, text)
-
-                        text = f"{response[0][0]}\n{response[0][1]}"
-                        return text
-
-            await self.bot_aiogram.send_message(message.chat.id, f"😱 (-)URL NOT FOUND, PLEASE WAIT..")
-            try:
-                parser = parser_sites.get(domain)
-                if parser:
-                    parser = parser(bot_dict={'bot': self.bot_aiogram, 'chat_id': message.chat.id})
-                    parser_response = await parser.get_content_from_one_link(url)
-
-                    text = ''
-                    if parser_response['response_dict']:
-                        if parser_response['response']['vacancy']:
-                            text += f"Status: {parser_response['response']['vacancy'].capitalize()}\n"
-                        text += f"url: {parser_response['response_dict']['response_dict']['vacancy_url'] if 'vacancy_url' in parser_response['response_dict']['response_dict'] else '-'}\n"
-                        text += f"title: {parser_response['response_dict']['response_dict']['title'][:40]}\n"
-                        text += f"profession: {parser_response['response_dict']['response_dict']['profession']}\n"
-                        text += f"tags: {parser_response['response_dict']['response_dict']['full_tags'] if parser_response['response_dict']['response_dict']['full_tags'] else '-'}\n"
-                        text += f"anti_tags: {parser_response['response_dict']['response_dict']['full_anti_tags'] if parser_response['response_dict']['response_dict']['full_anti_tags'] else '-'}\n"
-                    else:
-                        text = f"{parser_response['response']['vacancy']}\n" \
-                               f"profession: {parser_response['profession']['profession'] if parser_response['profession']['profession'] else '-'}\n" \
-                               f"tags: {parser_response['profession']['tag'] if parser_response['profession']['tag'] else '-'}\n" \
-                               f"anti_tags: {parser_response['profession']['anti_tag'] if parser_response['profession']['anti_tag'] else '-'}"
-                    # if not parser_response:
-                    #     text = 'Vacancy found in db by title-body with another url'
-                    # else:
-                    #     text = parser_response['response']['vacancy']
-                    await self.bot_aiogram.send_message(message.chat.id, text, disable_web_page_preview=True)
-                else:
-                    await self.bot_aiogram.send_message(message.chat.id, f"NO PARSER for {domain}")
-            except Exception as e:
-                await self.bot_aiogram.send_message(message.chat.id, f'Error in single url: {str(e)}')
 
 
         async def add_subs():
@@ -4186,12 +4163,12 @@ class InviteBot():
                 n += 1
                 if sub not in self.message_for_send_dict.keys():
                     self.message_for_send_dict[
-                        sub] = f"Дайджест вакансий для {sub.capitalize()} за {datetime.now().strftime('%d.%m.%Y')}\n\n"
+                        sub] = f"Дайджест вакансий для #{sub.capitalize()} за {datetime.now().strftime('%d.%m.%Y')}\n\n"
                 self.message_for_send_dict[sub] += f"{composed_message_dict['composed_message']}\n"
         else:
             if profession not in self.message_for_send_dict.keys():
                 self.message_for_send_dict[
-                    profession] = f"Дайджест вакансий для {profession.capitalize()} за {datetime.now().strftime('%d.%m.%Y')}\n\n"
+                    profession] = f"Дайджест вакансий для #{profession.capitalize()} за {datetime.now().strftime('%d.%m.%Y')}\n\n"
             self.message_for_send_dict[profession] += f"{composed_message_dict['composed_message']}\n"
         self.quantity_entered_to_shorts += 1
 
@@ -4367,6 +4344,7 @@ class InviteBot():
         pre_message = variable.pre_message_for_shorts
         add_pre_message = True
         count = 1
+        print(f'self.message_for_send_dict: {self.message_for_send_dict}')
         for key in self.message_for_send_dict:
             message_for_send = self.message_for_send_dict[key]
             if add_pre_message:
@@ -4412,6 +4390,7 @@ class InviteBot():
                         await helper.send_message(self.bot_aiogram, message.chat.id, f"ONE SHORTS HAS BEEN LOOSED{str(e)}")
             count += 1
 
+            print(f'vacancies_list: {vacancies_list}')
             for short in vacancies_list:
                 try:
                     await helper.send_message(
@@ -5684,8 +5663,38 @@ class InviteBot():
             params="WHERE id=1"
         )
 
+    async def check_all_vacancies_are_closed(self):
+        tables = variable.valid_professions.copy
+        tables.extend([variable.admin_database, variable.archive_database, variable.vacancies_database])
+
+        fields = 'id, closed, vacancy_url'
+
+        for table in tables:
+            responses = self.db.get_all_from_db(
+                table_name=table,
+                param="WHERE closed = FALSE",
+                field=fields
+            )
+            if responses:
+                for vacancy in responses:
+                    vacancy_dict = await helper.to_dict_from_admin_response(vacancy, fields)
+                    if vacancy_dict:
+                        if not await self.check_vacancy_by_closed(vacancy_dict['vacancy_url']):
+                            query = f"UPDATE {table} SET closed=TRUE"
+                            self.db.run_free_request(query, output_text="CLOSED HAS BEEN UPDATED")
+                            pass
+                        else:
+                            print("This vacancy is active")
+                            pass
+                    else:
+                        print("vacancy_dict is empty or is FALSE")
+            else:
+                print(f"table {table} is EMPTY, NEXT table")
+
 
     async def hard_pushing_by_schedule(self, message, profession_list):
+
+        # await self.check_all_vacancies_are_closed()
 
         # if self.manual_admin_shorts:
         #     self.wait_until_manual_will_stop = asyncio.create_task(self.wait_until(argument=self.manual_admin_shorts))
@@ -6054,6 +6063,70 @@ class InviteBot():
             kb.add(button_unlock)
         return kb
 
+
+    async def db_check_add_single_vacancy(self, message, url):
+        table_list = variable.all_tables_for_vacancy_search
+        url = url.strip()
+        urls = [url]
+        site_url = re.split(r'\/', url, maxsplit=3)
+        domain = site_url[2]
+        if domain == 'hh.ru':
+            site_url[2] = 'spb.hh.ru'
+            url_new = '/'.join(site_url)
+            urls.append(url_new)
+        for url in urls:
+            for pro in table_list:
+                response = self.db.get_all_from_db(
+                    table_name=pro,
+                    field=variable.admin_table_fields,
+                    param=f"WHERE vacancy_url='{url}'"
+                )
+                if response:
+                    response_dict = await helper.to_dict_from_admin_response(
+                        response[0],
+                        variable.admin_table_fields
+                    )
+                    text = f"😎 (+)Vacancy FOUND in {pro} table\n{response_dict['title'][:40]}\n\n" \
+                           f"id: {response_dict['id']}\n" \
+                           f"profession: {response_dict['profession']}\n" \
+                           f"tags: {response_dict['full_tags'] if response_dict['full_tags'] else '-'}\n" \
+                           f"anti_tags: {response_dict['full_anti_tags'] if response_dict['full_anti_tags'] else '-'}"
+                    await self.bot_aiogram.send_message(message.chat.id, text)
+
+                    text = f"{response[0][0]}\n{response[0][1]}"
+                    return text
+
+        await self.bot_aiogram.send_message(message.chat.id, f"😱 (-)URL NOT FOUND, PLEASE WAIT..")
+        try:
+            parser = parser_sites.get(domain)
+            if parser:
+                parser = parser(bot_dict={'bot': self.bot_aiogram, 'chat_id': message.chat.id})
+                parser_response = await parser.get_content_from_one_link(url)
+
+                text = ''
+                if parser_response['response_dict']:
+                    if parser_response['response']['vacancy']:
+                        text += f"Status: {parser_response['response']['vacancy'].capitalize()}\n"
+                    text += f"url: {parser_response['response_dict']['response_dict']['vacancy_url'] if 'vacancy_url' in parser_response['response_dict']['response_dict'] else '-'}\n"
+                    text += f"title: {parser_response['response_dict']['response_dict']['title'][:40]}\n"
+                    text += f"profession: {parser_response['response_dict']['response_dict']['profession']}\n"
+                    text += f"tags: {parser_response['response_dict']['response_dict']['full_tags'] if parser_response['response_dict']['response_dict']['full_tags'] else '-'}\n"
+                    text += f"anti_tags: {parser_response['response_dict']['response_dict']['full_anti_tags'] if parser_response['response_dict']['response_dict']['full_anti_tags'] else '-'}\n"
+                else:
+                    text = f"{parser_response['response']['vacancy']}\n" \
+                           f"profession: {parser_response['profession']['profession'] if parser_response['profession']['profession'] else '-'}\n" \
+                           f"tags: {parser_response['profession']['tag'] if parser_response['profession']['tag'] else '-'}\n" \
+                           f"anti_tags: {parser_response['profession']['anti_tag'] if parser_response['profession']['anti_tag'] else '-'}"
+                # if not parser_response:
+                #     text = 'Vacancy found in db by title-body with another url'
+                # else:
+                #     text = parser_response['response']['vacancy']
+                await self.bot_aiogram.send_message(message.chat.id, text, disable_web_page_preview=True)
+            else:
+                await self.bot_aiogram.send_message(message.chat.id, f"NO PARSER for {domain}")
+        except Exception as e:
+            await self.bot_aiogram.send_message(message.chat.id, f'Error in single url: {str(e)}')
+
     async def wait_until(self, argument):
         while argument:
             await asyncio.sleep(10)
@@ -6099,6 +6172,215 @@ class InviteBot():
                     )
                 else:
                     print('False is make to dict func answer')
+
+    async def refactoring_vacancy_salary(self, message, **kwargs):
+        print('refactoring_vacancy_salary has started')
+        from helper_functions.parser_find_add_parameters.parser_find_add_parameters import FinderAddParameters
+        find_parameters = FinderAddParameters()
+
+        check_salary = True if 'check_salary' in kwargs and kwargs['check_salary'] else False
+
+        salary_fields = ['salary', 'salary_from', 'salary_to', 'salary_currency', 'salary_period',
+                         'rate', 'salary_from_usd_month', 'salary_to_usd_month']
+
+        tables = [variable.vacancies_database, variable.admin_database, variable.archive_database, variable.reject_table]
+        tables.extend(variable.valid_professions)
+
+        companies_list = self.db.get_all_from_db(
+            table_name='companies',
+           field='company',
+            without_sort=True
+        )
+        companies_list2 = []
+        for i in companies_list:
+            companies_list2.append(i[0])
+        companies_list2 = tuple(companies_list2)
+        black_words = ['з/п не указана', 'з.п. не указана', ]
+
+        out_of_range_list = []
+        for table in tables:
+            table_message = await self.bot_aiogram.send_message(message.chat.id, f'Table is {table}')
+
+            responses = self.db.get_all_from_db(
+                table_name=table,
+                param=f"WHERE salary IS NOT NULL AND salary <> '' "
+                      f"AND salary <> 'None' AND salary <> 'NONE' "
+                      f"AND salary NOT LIKE '%не указана%' "
+                      f"AND salary NOT LIKE '%договор%' "
+                      f"AND salary NOT IN {companies_list2}"
+                      f"AND salary_from IS NULL",
+                field=variable.admin_table_fields
+            )
+            if responses and type(responses) is list:
+
+                await table_message.edit_text(table_message.text + f'\n{len(responses)} responses for autochange salary')
+
+                counter = 0
+                for vacancy in responses:
+                    print(counter)
+                    counter += 1
+                    updated_vacancy_dict = {}
+                    vacancy_dict = await helper.to_dict_from_admin_response(vacancy, variable.admin_table_fields)
+                    if vacancy_dict:
+                        if vacancy_dict['id'] in [129696, 128938, 126723]:
+                            pass
+                        result = False
+                        for i in vacancy_dict['salary']:
+                            if i.isdigit():
+                                result = True
+                                break
+                        if result:
+                            try:
+                                vacancy_dict = await find_parameters.get_salary_all_fields(vacancy_dict)
+                            except Exception as exception:
+                                if 'out of range' in str(exception) or 'целое вне диапазона' in str(exception):
+                                    print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+                                    out_of_range_list.append(vacancy)
+
+                            for key in salary_fields:
+                                if vacancy_dict[key]:
+                                    updated_vacancy_dict[key] = vacancy_dict[key]
+                            updated_vacancy_dict['id'] = vacancy_dict['id']
+
+                            query = self.db.compose_query(
+                                vacancy_dict=updated_vacancy_dict,
+                                table_name=table,
+                                update=True,
+                                define_id=True
+                            )
+                            if query:
+                                try:
+                                    self.db.run_free_request(query, output_text=f"vacancy {vacancy_dict['id']} in {table} has been changed")
+                                except Exception as ex:
+                                    if 'целое вне диапазона' in str(ex):
+                                        out_of_range_list.append(vacancy)
+                        else:
+                            print("Not Numbers in salary")
+                    else:
+                        print("Not vacancy_dict")
+
+
+
+            query = f"WHERE (vacancy_url LIKE '%hh.ru/%' OR vacancy_url LIKE '%/hh.kz/%' OR " \
+                    f"vacancy_url LIKE '%/rabota.by/%' OR vacancy_url LIKE '%/rabota.by/%') AND (salary IN {companies_list2} OR LENGTH(salary) > 50) OR " \
+                    f"(salary IS NOT NULL AND salary NOT LIKE '%не указана%' AND salary <> 'None' " \
+                    f"and salary <> 'NONE' AND salary <> '' AND salary NOT LIKE '%$%' AND salary NOT LIKE '%0%' " \
+                    f"AND salary NOT LIKE '%руб%' AND salary NOT LIKE '%договорен%' AND salary NOT LIKE '%не указана%'" \
+                    f"AND salary_from IS NULL AND (vacancy_url LIKE '%/hh.ru/%' OR vacancy_url LIKE '%/hh.kz/%' OR " \
+                    f"vacancy_url LIKE '%/rabota.ru/%'))"
+            # print(query)
+
+            responses = self.db.get_all_from_db(
+                table_name=table,
+                param=query,
+                without_sort=True,
+                field=variable.admin_table_fields
+            )
+            if responses and type(responses) is list:
+                print(f'len: {len(responses)}')
+
+                responses.extend(out_of_range_list)
+                n = 0
+                await table_message.edit_text(f"{table}\n{len(responses)} responses for parser change\nworked out: {n}")
+                for vacancy in responses:
+                    dict_from_parser = None
+                    n += 1
+                    print('-'*10, 'NEXT VACANCY: ', n,  '-'*10)
+                    print(n)
+                    await table_message.edit_text(
+                        f"{table}\n{len(responses)} responses for parser change\nworked out: {n}")
+
+                    if n == 1379:
+                        pass
+                    parser_response = {}
+                    vacancy_dict_for_update = {}
+
+                    vacancy_dict = await helper.to_dict_from_admin_response(
+                        response=vacancy, fields=variable.admin_table_fields
+                    )
+                    print(vacancy_dict['vacancy_url'])
+
+                    # status_code = await self.check_vacancy_by_closed(vacancy_url=vacancy_dict['vacancy_url'])
+                    parser_response['closed'] = await self.check_vacancy_by_closed(vacancy_url=vacancy_dict['vacancy_url'])
+
+                    # check salary is equal company
+                    # if vacancy_dict['salary'] in companies_list:
+                    #     salary_is_equal_company= True
+                    # else:
+                    #     salary_is_equal_company = False
+
+                    # salary_is_equal_company = self.db.get_all_from_db(
+                    #     table_name='companies',
+                    #     param=f"WHERE company='{vacancy_dict['salary']}'",
+                    #     without_sort=True
+                    # )
+                    salary_is_equal_company = True
+                    if salary_is_equal_company or len(vacancy_dict['salary'])>50:
+                        print(f"salary_is_equal_company = {salary_is_equal_company}, NEXT\nsalary = {vacancy_dict['salary']}\n")
+
+                        vacancy_url = vacancy_dict['vacancy_url'].split("://")[1].split("/", 1)[0]
+                        parser = parser_sites.get(vacancy_url)
+                        print(f'vacancy_url: {vacancy_url}')
+                        if parser:
+                            print(f'parser: {parser}')
+                            print('*'*10, 'PARSER HAS BEEN STARTED', '*'*10)
+                            parser = parser(bot_dict={'bot': self.bot_aiogram, 'chat_id': message.chat.id})
+                            try:
+                                dict_from_parser = await parser.get_content_from_one_link(vacancy_dict['vacancy_url'], return_raw_dictionary=True)
+                            except Exception as e:
+                                print(f'!!!!!!!!!!!!!!!!!!!!!!!!!!!!{e}')
+                            if dict_from_parser:
+                                parser_response.update(dict_from_parser)
+
+                            if 'salary' in parser_response:
+                                if not parser_response['salary']:
+                                    for field in salary_fields:
+                                        parser_response[field] = 'Null'
+                                elif vacancy_dict['salary'] != parser_response['salary']:
+                                    parser_response = await find_parameters.get_salary_all_fields(parser_response)
+                            else:
+                                for field in salary_fields:
+                                    parser_response[field] = 'Null'
+
+
+                        for key in ['closed', 'salary', 'salary_from', 'salary_to', 'salary_currency', 'salary_period',
+                                    'rate', 'salary_from_usd_month', 'salary_to_usd_month']:
+                            if key in parser_response and parser_response[key] and parser_response[key] != 'None':
+                                vacancy_dict_for_update[key] = parser_response[key]
+
+                        vacancy_dict_for_update['id'] = vacancy_dict['id']
+                        print(f"id = {vacancy_dict_for_update['id']}\ntable = {table}")
+
+                        query = self.db.compose_query(
+                            vacancy_dict=vacancy_dict_for_update,
+                            table_name=table,
+                            update=True,
+                            define_id=True
+                        )
+                        self.db.run_free_request(query, output_text=f"Id Vacancy: {vacancy_dict_for_update['id']} has been updated")
+                        # if 'salary' in vacancy_dict and 'salary' in vacancy_dict_for_update:
+                        #     print(f"---------\nREPLACING: {vacancy_dict['salary']} --> {vacancy_dict_for_update['salary']}\n---------")
+                        # else:
+                        #     pass
+                        control_response = self.db.get_all_from_db(
+                            table_name=table,
+                            param=f"WHERE id={vacancy_dict_for_update['id']}",
+                            field=variable.admin_table_fields
+                        )
+                        control_response_dict = await helper.to_dict_from_admin_response(control_response[0], variable.admin_table_fields)
+                        print(f">>>>>>>>>> control salary: {vacancy_dict['salary'][:10] if vacancy_dict['salary'] else None} -->> {control_response_dict['salary']}")
+                        print(f">>>>>>>>>> control closed: {control_response_dict['closed']}")
+                    else:
+                        print(f"NEXT\nsalary = {vacancy_dict['salary']}\n")
+            else:
+                await self.bot_aiogram.send_message(message.chat.id, f'{table} is EMPTY')
+        print('The end')
+
+    async def check_vacancy_by_closed(self, vacancy_url):
+        response = requests.get(vacancy_url)
+        if response.status_code == 200:
+            return False
+        return True
 
 
 def run(double=False, token_in=None):

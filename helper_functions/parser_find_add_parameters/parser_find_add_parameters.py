@@ -1,5 +1,6 @@
 import re
 from helper_functions.parser_find_add_parameters import parser_find_data
+from helper_functions.helper_functions import get_salary_usd_month
 from db_operations.scraping_db import DataBaseOperations
 from utils.additional_variables.additional_variables import countries_cities_table, valid_job_types
 from helper_functions.cities_and_countries.cities_parser import CitiesAndCountries
@@ -40,8 +41,8 @@ class FinderAddParameters:
         print('-'*10)
         print('add_parameters: self.text: ', self.text)
         self.clean_text_special_symbols()
-        match = re.findall(r"[0-9,]+[\s]?[0-9]+[\s]?[0-9]{0,4}", self.text)
-        self.salary_list = [number.replace(' ', '').replace(',', '') for number in match]
+        match = re.findall(r"[0-9,.]+[\s]?[0-9]+[\s]?[0-9]{0,4}", self.text)
+        self.salary_list = [number.replace(' ', '').replace(',', '').replace('.', '') for number in match]
         if 'тыс' in self.text:
             salary_list = []
             for number in self.salary_list:
@@ -279,6 +280,7 @@ class FinderAddParameters:
                 match = re.findall(rf"{pattern_item}", element)
                 if match:
                     return return_value
+
     async def get_job_types(self, return_dict):
         job_types_var = valid_job_types
         self.job_types = ''
@@ -298,6 +300,20 @@ class FinderAddParameters:
             if not self.job_types:
                 self.job_types += 'office'
         return self.job_types
+
+    async def get_salary_all_fields(self, vacancy_dict):
+        region = 'BY' if 'praca.by' in vacancy_dict['vacancy_url'] else None
+        if 'salary' in vacancy_dict and vacancy_dict['salary']:
+            salary = self.salary_to_set_form(text=vacancy_dict['salary'], region=region)
+            if len(salary)>4:
+                raise TypeError('out of range')
+            salary = await self.compose_salary_dict_from_salary_list(salary)
+            for key in salary:
+                vacancy_dict[key] = salary[key]
+            vacancy_dict = await get_salary_usd_month(
+                vacancy_dict=vacancy_dict
+            )
+        return vacancy_dict
 
 # f= FinderAddParameters()
 # f.salary_to_set_form(text='$15,000 - $30,000 ')

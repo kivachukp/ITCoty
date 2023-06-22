@@ -16,7 +16,7 @@ from utils.additional_variables.additional_variables import sites_search_words, 
     admin_database, archive_database
 from helper_functions.helper_functions import edit_message, send_message, send_file_to_user
 from report.report_variables import report_file_path
-
+from helper_functions import helper_functions as helper
 
 junior_link = 'https://jobs.devby.io/?filter[levels][]=intern&filter[levels][]=junior'
 link_search = 'https://jobs.devby.io/?&filter[search]=project%20manager'
@@ -46,17 +46,29 @@ class DevGetInformation:
         self.main_url = 'https://jobs.devby.io'
         self.count_message_in_one_channel = 1
         self.found_by_link = 0
+        self.helper = helper
 
     async def get_content(self, db_tables=None):
         self.db_tables = db_tables
-        await self.get_info()
-        if self.report:
-            await self.report.add_to_excel()
-            await send_file_to_user(
-                bot=self.bot,
-                chat_id=self.chat_id,
-                path=report_file_path['parsing'],
-            )
+        try:
+            await self.get_info()
+        except Exception as ex:
+            print(f"Error: {ex}")
+            if self.bot:
+                await self.bot.send_message(self.chat_id, f"Error: {ex}")
+
+        if self.report and self.helper:
+            try:
+                await self.report.add_to_excel()
+                await self.helper.send_file_to_user(
+                    bot=self.bot,
+                    chat_id=self.chat_id,
+                    path=self.report.keys.report_file_path['parsing'],
+                )
+            except Exception as ex:
+                print(f"Error: {ex}")
+                if self.bot:
+                    await self.bot.send_message(self.chat_id, f"Error: {ex}")
         self.browser.quit()
 
     async def get_info(self):

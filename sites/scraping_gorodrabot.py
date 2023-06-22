@@ -11,6 +11,7 @@ from settings.browser_settings import options
 from utils.additional_variables.additional_variables import sites_search_words, how_much_pages
 from helper_functions.helper_functions import edit_message, send_message
 from sites.send_log_txt import send_log_txt
+from helper_functions import helper_functions as helper
 
 class GorodRabotGetInformation:
 
@@ -50,6 +51,7 @@ class GorodRabotGetInformation:
             self.chat_id = bot_dict['chat_id']
         self.browser = None
         self.count_message_in_one_channel = 1
+        self.helper = helper
 
 
     async def get_content(self, db_tables=None):
@@ -57,7 +59,25 @@ class GorodRabotGetInformation:
 
         self.count_message_in_one_channel = 1
 
-        await self.get_info()
+        try:
+            await self.get_info()
+        except Exception as ex:
+            print(f"Error: {ex}")
+            if self.bot:
+                await self.bot.send_message(self.chat_id, f"Error: {ex}")
+
+        if self.report and self.helper:
+            try:
+                await self.report.add_to_excel()
+                await self.helper.send_file_to_user(
+                    bot=self.bot,
+                    chat_id=self.chat_id,
+                    path=self.report.keys.report_file_path['parsing'],
+                )
+            except Exception as ex:
+                print(f"Error: {ex}")
+                if self.bot:
+                    await self.bot.send_message(self.chat_id, f"Error: {ex}")
         self.browser.quit()
 
     async def get_info(self):

@@ -3,6 +3,7 @@ from db_operations.scraping_db import DataBaseOperations
 from report import report_variables
 
 class Reports:
+    report_file_path = report_variables.report_file_path
 
     def __init__(self, **kwargs):
         self.show_in_console = kwargs['show_in_console'] if 'show_in_console' in kwargs else None

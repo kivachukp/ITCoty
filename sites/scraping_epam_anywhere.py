@@ -40,14 +40,25 @@ class EpamGetInformation:
 
     async def get_content(self, db_tables=None):
         self.db_tables = db_tables
-        await self.get_info()
+        try:
+            await self.get_info()
+        except Exception as ex:
+            print(f"Error: {ex}")
+            if self.bot:
+                await self.bot.send_message(self.chat_id, f"Error: {ex}")
+
         if self.report and self.helper:
-            await self.report.add_to_excel()
-            await self.helper.send_file_to_user(
-                bot=self.bot,
-                chat_id=self.chat_id,
-                path=self.report.report_file_path['parsing'],
-            )
+            try:
+                await self.report.add_to_excel()
+                await self.helper.send_file_to_user(
+                    bot=self.bot,
+                    chat_id=self.chat_id,
+                    path=self.report.keys.report_file_path['parsing'],
+                )
+            except Exception as ex:
+                print(f"Error: {ex}")
+                if self.bot:
+                    await self.bot.send_message(self.chat_id, f"Error: {ex}")
         self.browser.quit()
 
     async def get_info(self):
@@ -119,7 +130,7 @@ class EpamGetInformation:
                     soup = BeautifulSoup(self.browser.page_source, 'lxml')
                 except Exception as ex:
                     found_vacancy = False
-                    print(f"error in browser.get {ex}")
+                    print(f"error in browser.get {ex}\nvacancy_url: {vacancy_url}")
                 if found_vacancy:
                     try:
                         vacancy = soup.find("h1", class_='JobDetailsBanner_title__WI4Kk').text.strip()
@@ -187,12 +198,27 @@ class EpamGetInformation:
                             'contacts': '',
                             'session': self.current_session
                     }
-                    response = await self.helper_parser_site.write_each_vacancy(results_dict)
+                    return_raw_dictionary = False
+                    if not return_raw_dictionary:
+                        response = await self.helper_parser_site.write_each_vacancy(results_dict)
 
-                    self.response = response
+                        print('sort profession (33)')
+                        await self.output_logs(
+                            about_vacancy=response,
+                            vacancy=vacancy,
+                            vacancy_url=vacancy_url
+                        )
+                        # return response
+                        self.response = response
+                    else:
+                        self.response = results_dict
+                else:
+                    print(f"vacancy_url is wrong: {vacancy_url}")
             else:
                 self.found_by_link += 1
                 print("vacancy link exists")
+
+        # loop for vacancy_url ends
 
         if self.found_by_link > 0:
             self.count_message_in_one_channel += self.found_by_link
@@ -244,39 +270,6 @@ class EpamGetInformation:
         text = text.replace(f'\n', '')
         return text
 
-    def normalize_vacancy(self, raw_vacancy):
-        vacancy = re.sub(r'креативного', 'креативный', raw_vacancy)
-        vacancy = re.sub(r'графического', 'графический', vacancy)
-        vacancy = re.sub(r'коммуникационного', 'коммуникационный', vacancy)
-        vacancy = re.sub(r'продуктового', 'продуктовый', vacancy)
-        vacancy = re.sub(r'старшего', 'старший', vacancy)
-        vacancy = re.sub(r'технического', 'технический', vacancy)
-        vacancy = re.sub(r'главного', 'главный', vacancy)
-        vacancy = re.sub(r'ведущего', 'ведущий', vacancy)
-
-        vacancy = re.sub(r'дизайнера', 'дизайнер', vacancy)
-        vacancy = re.sub(r'дира', 'дир', vacancy)
-        vacancy = re.sub(r'архитектора', 'архитектор', vacancy)
-        vacancy = re.sub(r'директора', 'директор', vacancy)
-        vacancy = re.sub(r'аэрографиста', 'аэрографист', vacancy)
-        vacancy = re.sub(r'супервайзера', 'супервайзер', vacancy)
-        vacancy = re.sub(r'графика', 'график', vacancy)
-        vacancy = re.sub(r'лида', 'лид', vacancy)
-        vacancy = re.sub(r'фоторедактора', 'фоторедактор', vacancy)
-        vacancy = re.sub(r'координатора', 'координатор', vacancy)
-        vacancy = re.sub(r'иллюстратора', 'иллюстратор', vacancy)
-        vacancy = re.sub(r'руководителя', 'руководитель', vacancy)
-        vacancy = re.sub(r'конструктора', 'конструктор', vacancy)
-        vacancy = re.sub(r'верстальщика', 'верстальщик', vacancy)
-        vacancy = re.sub(r'художника', 'художник', vacancy)
-        vacancy = re.sub(r'лого-мейкера', 'лого-мейкер', vacancy)
-
-        vacancy = re.sub(r'ого\b', '', vacancy)
-        vacancy = re.sub(r'eго\b', '', vacancy)
-
-        if vacancy == raw_vacancy:
-            vacancy = 'дизайнер'
-        return vacancy
 
     async def write_to_db_table_companies(self):
         excel_data_df = pd.read_excel('all_geek.xlsx', sheet_name='Sheet1')
