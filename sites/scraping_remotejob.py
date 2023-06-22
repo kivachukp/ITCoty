@@ -13,7 +13,7 @@ from utils.additional_variables.additional_variables import sites_search_words, 
 from helper_functions.helper_functions import edit_message, send_message, send_file_to_user
 from helper_functions.parser_find_add_parameters.parser_find_add_parameters import FinderAddParameters
 from report.report_variables import report_file_path
-
+from helper_functions import helper_functions as helper
 
 class RemoteJobGetInformation:
 
@@ -41,18 +41,30 @@ class RemoteJobGetInformation:
         self.count_message_in_one_channel = 1
         self.found_by_link = 0
         self.response = None
+        self.helper = helper
 
     async def get_content(self, db_tables=None):
         print('control: 1')
         self.db_tables = db_tables
-        await self.get_info()
-        if self.report:
-            await self.report.add_to_excel()
-            await send_file_to_user(
-                bot=self.bot,
-                chat_id=self.chat_id,
-                path=report_file_path['parsing'],
-            )
+        try:
+            await self.get_info()
+        except Exception as ex:
+            print(f"Error: {ex}")
+            if self.bot:
+                await self.bot.send_message(self.chat_id, f"Error: {ex}")
+
+        if self.report and self.helper:
+            try:
+                await self.report.add_to_excel()
+                await self.helper.send_file_to_user(
+                    bot=self.bot,
+                    chat_id=self.chat_id,
+                    path=self.report.keys.report_file_path['parsing'],
+                )
+            except Exception as ex:
+                print(f"Error: {ex}")
+                if self.bot:
+                    await self.bot.send_message(self.chat_id, f"Error: {ex}")
         self.browser.quit()
 
     async def get_info(self):

@@ -32,17 +32,30 @@ class СareerjetGetInformation:
         self.found_by_link = 0
         self.response = None
         self.current_session = None
+        self.word = None
 
     async def get_content(self, db_tables=None):
         self.db_tables = db_tables
-        await self.get_info()
+        try:
+            await self.get_info()
+        except Exception as ex:
+            print(f"Error: {ex}")
+            if self.bot:
+                await self.bot.send_message(self.chat_id, f"Error: {ex}")
+
         if self.report and self.helper:
-            await self.report.add_to_excel()
-            await self.helper.send_file_to_user(
-                bot=self.bot,
-                chat_id=self.chat_id,
-                path=self.report.report_file_path['parsing'],
-            )
+            try:
+                await self.report.add_to_excel()
+                await self.helper.send_file_to_user(
+                    bot=self.bot,
+                    chat_id=self.chat_id,
+                    path=self.report.keys.report_file_path['parsing'],
+                )
+            except Exception as ex:
+                print(f"Error: {ex}")
+                if self.bot:
+                    await self.bot.send_message(self.chat_id, f"Error: {ex}")
+
         self.browser.quit()
 
     async def get_info(self):
@@ -59,7 +72,8 @@ class СareerjetGetInformation:
         if self.bot_dict:
             await self.bot.send_message(self.chat_id, 'https://www.careerjet.by/', disable_web_page_preview=True)
         for word in sites_search_words:
-            self.browser.get(f'https://www.careerjet.by/search/jobs?s={word}&l=&radius=25&sort=relevance')
+            self.word = word
+            self.browser.get(f'https://www.careerjet.by/search/jobs?s={self.word}&l=&radius=25&sort=relevance')
 
             self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             vacancy_exists_on_page = await self.get_link_message(self.browser.page_source)
@@ -70,14 +84,12 @@ class СareerjetGetInformation:
         soup = BeautifulSoup(raw_content, 'lxml')
         open_links = soup.find_all('article', class_='job')
 
-
-
         self.list_links = list(set(open_links))
 
         if self.list_links:
             if self.bot_dict:
                 self.current_message = await self.bot.send_message(self.chat_id,
-                                                               f'Сareerjet:\nНайдено {len(self.list_links)} вакансий',
+                                                               f'Сareerjet:\nПо слову {self.word} найдено {len(self.list_links)} вакансий',
                                                                disable_web_page_preview=True)
             # --------------------- LOOP -------------------------
             self.written_vacancies = 0
@@ -223,9 +235,20 @@ class СareerjetGetInformation:
                         'session': self.current_session
                     }
                     #print(results_dict)
-                    response = await self.helper_parser_site.write_each_vacancy(results_dict)
+                    return_raw_dictionary = False
+                    if not return_raw_dictionary:
+                        response = await self.helper_parser_site.write_each_vacancy(results_dict)
 
-                    self.response = response
+                        print('sort profession (33)')
+                        await self.output_logs(
+                            about_vacancy=response,
+                            vacancy=vacancy,
+                            vacancy_url=vacancy_url
+                        )
+                        # return response
+                        self.response = response
+                    else:
+                        self.response = results_dict
             else:
                 self.found_by_link += 1
                 print("vacancy link exists")
@@ -240,7 +263,13 @@ class СareerjetGetInformation:
                 )
 
     async def get_content_from_one_link(self, vacancy_url):
-        self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=None)
+        try:
+            self.browser = webdriver.Chrome(
+                executable_path=chrome_driver_path,
+                options=options
+            )
+        except:
+            self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         # -------------------- check what is current session --------------
         self.current_session = await self.helper_parser_site.get_name_session()
         self.list_links= [vacancy_url]
