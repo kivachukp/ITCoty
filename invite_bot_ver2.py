@@ -4147,7 +4147,7 @@ class InviteBot():
             self.digest_parser = DigestParser(client=self.client,
                                               bot_dict={'bot': self.bot_aiogram, 'chat_id': message.chat.id},
                                               report=self.report)
-            await self.digest_parser.get_all_messages()
+            await self.digest_parser.main_start()
 
         # start_polling(self.dp)
         executor.start_polling(self.dp, skip_updates=True)
