@@ -10,7 +10,7 @@ import time
 from sites.parsing_sites_runner import parser_sites
 from utils.additional_variables.additional_variables import table_list_for_checking_message_in_db as tables
 from db_operations.scraping_db import DataBaseOperations
-from utils.tg_channels.links import digest_links
+from utils.tg_channels.links import digest_links, digest_links_test
 from helper_functions import helper_functions as helper
 
 config = configparser.ConfigParser()
@@ -93,7 +93,9 @@ class DigestParser():
         urls = [url]
         site_url = re.split(r'\/', url, maxsplit=3)
         domain = site_url[2]
-        if domain == 'hh.ru' or domain == 'nn.hh.ru':
+        if domain in ['t.me', 'youtu.be', 'forms.gle', 'docviewer.yandex.by', 'drive.google.com', 'docs.google.com', 'www.youtube.com']:
+            return None
+        elif domain == 'hh.ru' or domain == 'nn.hh.ru':
             site_url[2] = 'spb.hh.ru'
             url_new = '/'.join(site_url)
             urls.append(url_new)
@@ -114,7 +116,7 @@ class DigestParser():
                         self.report.parsing_report(
                             report_type = 'digest',
                             link_current_vacancy=url,
-                            status=status, channel=channel, message_id=message_id, site=domain
+                            status=status, channel=channel, message_id=message_id, site=domain,
                         )
                         self.report.parsing_switch_next(report_type='digest', switch=True)
                         return text
@@ -139,7 +141,7 @@ class DigestParser():
                            f"tags: {parser_response['profession']['tag'] if parser_response['profession']['tag'] else '-'}\n" \
                            f"anti_tags: {parser_response['profession']['anti_tag'] if parser_response['profession']['anti_tag'] else '-'}"
                 status = f"{parser_response['response']['vacancy']}"
-                print(text)
+                # print(text)
                 if self.report:
                     self.report.parsing_report(
                         report_type='digest',
@@ -149,7 +151,7 @@ class DigestParser():
             else:
                 text = f"NO PARSER for {domain}"
                 status = "no parser"
-            print(text)
+            # print(text)
             if self.report:
                 self.report.parsing_report(
                     report_type='digest',
@@ -165,7 +167,7 @@ class DigestParser():
 
     async def parse_message(self, message, channel):
         print('START parsing message')
-        print (message.message)
+        # print (message.message)
         message_idi = str(message.id)
         message_id = channel + '/' + message_idi
 
@@ -173,17 +175,18 @@ class DigestParser():
         for url_entity, inner_text in message.get_entities_text(MessageEntityTextUrl):
             url = url_entity.url
             print(url)
-            if '/t.me/' in url or 'youtube' in url or 'forms.gle' in url:
-                pass
-            else:
-                res = re.findall(r'http[\:\/a-zA-Z0-9\.\=&-]*', url)
-                if res:
-                    urls += res
-        print(urls)
-        if not urls:
-            print('NO URL ENTITIES')
-            urls = re.findall(r'http[\:\/a-zA-Z0-9\.\=&-]*', message.message)
-            print(urls)
+            # if '/t.me/' in url or 'youtube' in url or 'forms.gle' in url:
+            #     pass
+            # else:
+            res = re.findall(r'http[\:\/a-zA-Z0-9\.\=&-]*', url)
+            if res:
+                urls += res
+        print('URL ENTITIES', urls)
+        # if not urls:
+        #     print('NO URL ENTITIES')
+        urls_2 = re.findall(r'http[\:\/a-zA-Z0-9\.\=&-]*', message.message)
+        urls+=urls_2
+        print('URLS MORE', urls)
         for i in urls:
             print(i)
             result = await self.db_check_add_single_vacancy(i, channel, message_id)
@@ -196,7 +199,7 @@ class DigestParser():
         for url in self.links:
             print(url)
             messages = await self.get_all_messages(url, limit_msg)
-            print(messages)
+            # print(messages)
 
         print('READY TO PRINT REPORT')
         if self.report and self.helper:
@@ -214,4 +217,4 @@ class DigestParser():
 async def main(report, client, bot_dict, action='get_message'):
     get_messages = DigestParser(client=client, bot_dict=bot_dict, report=report)
     print('START')
-    await get_messages.main_start(digest_links, limit_msg=20, action=action)  # get_participants get_message
+    await get_messages.main_start(digest_links_test, limit_msg=20, action=action)  # get_participants get_message
