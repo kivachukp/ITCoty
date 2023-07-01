@@ -148,8 +148,3 @@ digest_links = [
     'https://t.me/aplaywork',
     'https://t.me/outjob',
 ]
-
-digest_links_test = [
-    'https://t.me/young_june',
-    'https://t.me/myresume_ru',
-]

@@ -3073,6 +3073,10 @@ class InviteBot():
                     sites_parser = SitesParser(client=self.client, bot_dict=bot_dict, report=self.report)
 
                 await sites_parser.call_sites()
+
+                digest_parser = DigestParser(client=self.client, bot_dict=bot_dict, report=self.report)
+                await digest_parser.main_start()
+
                 self.db.push_to_db_common(
                     table_name='parser_at_work',
                     fields_values_dict={"parser_at_work": False},
@@ -4143,7 +4147,6 @@ class InviteBot():
             pass
 
         async def parse_digest(message):
-            print('START1')
             self.digest_parser = DigestParser(client=self.client,
                                               bot_dict={'bot': self.bot_aiogram, 'chat_id': message.chat.id},
                                               report=self.report)
