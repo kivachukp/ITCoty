@@ -49,22 +49,23 @@ class Predictive():
                     part_of_query = self.get_query_salary()
 
             if part_of_query:
-                print('2')
                 query += f"{part_of_query} AND "
 
-        if query:
-            date_start = date.today() - timedelta(days=10)
-            full_query = f"WHERE {query} DATE (created_at) BETWEEN '{date_start}' AND '{date.today()}'"
-
-            return full_query
+        date_start = date.today() - timedelta(days=10)
+        full_query = f"WHERE {query} DATE (created_at) BETWEEN '{date_start}' AND '{date.today()}'"
+        print(full_query)
+        return full_query
 
     def get_part_of_query (self, field, request):
         if type(request) is str:
             request = [request, ]
         query_part = "("
         for word in request:
-            query_part += f"{field} LIKE '%{word}%' OR "
-        return query_part[:-4] + ')'
+            query_part += f"{field} LIKE '%{word}%' OR " if word else ''
+        if query_part == "(":
+            return ''
+        else:
+            return query_part[:-4] + ')'
 
     def get_query_salary(self):
         salary = self.request_from_frontend["salary"]
