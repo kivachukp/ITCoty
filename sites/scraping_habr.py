@@ -14,7 +14,7 @@ from utils.additional_variables.additional_variables import sites_search_words, 
 from helper_functions.helper_functions import edit_message, send_message, send_file_to_user
 from patterns.data_pattern._data_pattern import cities_pattern, params
 from report.report_variables import report_file_path
-
+from helper_functions import helper_functions as helper
 
 class HabrGetInformation:
 
@@ -41,17 +41,29 @@ class HabrGetInformation:
         self.url_main = 'https://career.habr.com'
         self.count_message_in_one_channel = 1
         self.found_by_link = 0
+        self.helper = helper
 
     async def get_content(self, db_tables=None):
         self.db_tables = db_tables
-        await self.get_info()
-        if self.report:
-            await self.report.add_to_excel()
-            await send_file_to_user(
-                bot=self.bot,
-                chat_id=self.chat_id,
-                path=report_file_path['parsing'],
-            )
+        try:
+            await self.get_info()
+        except Exception as ex:
+            print(f"Error: {ex}")
+            if self.bot:
+                await self.bot.send_message(self.chat_id, f"Error: {ex}")
+
+        if self.report and self.helper:
+            try:
+                await self.report.add_to_excel()
+                await self.helper.send_file_to_user(
+                    bot=self.bot,
+                    chat_id=self.chat_id,
+                    path=self.report.keys.report_file_path['parsing'],
+                )
+            except Exception as ex:
+                print(f"Error: {ex}")
+                if self.bot:
+                    await self.bot.send_message(self.chat_id, f"Error: {ex}")
         self.browser.quit()
 
     async def get_info(self):
@@ -99,7 +111,7 @@ class HabrGetInformation:
         else:
             return False
 
-    async def get_content_from_link(self):
+    async def get_content_from_link(self, return_raw_dictionary=False):
         links = []
         soup = None
         self.found_by_link = 0
@@ -117,7 +129,7 @@ class HabrGetInformation:
                 vacancy_url=vacancy_url,
                 table_list=[admin_database, archive_database]
             )
-            if check_vacancy_not_exists:
+            if check_vacancy_not_exists or not check_vacancy_not_exists and return_raw_dictionary:
                 links.append(vacancy_url)
 
                 try:
@@ -267,14 +279,17 @@ class HabrGetInformation:
                         'session': self.current_session
                     }
 
-                    response = await self.helper_parser_site.write_each_vacancy(results_dict)
+                    if not return_raw_dictionary:
+                        response = await self.helper_parser_site.write_each_vacancy(results_dict)
 
-                    await self.output_logs(
-                        about_vacancy=response,
-                        vacancy=vacancy,
-                        vacancy_url=vacancy_url
-                    )
-                    self.response = response
+                        await self.output_logs(
+                            about_vacancy=response,
+                            vacancy=vacancy,
+                            vacancy_url=vacancy_url
+                        )
+                        self.response = response
+                    else:
+                        self.response = results_dict
             else:
                 self.found_by_link += 1
                 print("vacancy link exists")
@@ -288,12 +303,18 @@ class HabrGetInformation:
                     msg=self.current_message
                 )
 
-    async def get_content_from_one_link(self, vacancy_url):
-        self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=None)
+    async def get_content_from_one_link(self, vacancy_url, return_raw_dictionary=False):
+        try:
+            self.browser = webdriver.Chrome(
+                executable_path=chrome_driver_path,
+                options=options
+            )
+        except:
+            self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         # -------------------- check what is current session --------------
         self.current_session = await self.helper_parser_site.get_name_session()
         self.list_links= [vacancy_url]
-        await self.get_content_from_link()
+        await self.get_content_from_link(return_raw_dictionary)
         self.browser.quit()
         return self.response
 

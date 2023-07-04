@@ -29,6 +29,7 @@ from helper_functions.cities_and_countries.cities_parser import CitiesAndCountri
 from sites.scraping_hhkz import HHKzGetInformation
 from sites.scraping_praca import PracaGetInformation
 from telegram_chats.scraping_telegramchats2 import WriteToDbMessages, main
+from telegram_chats.scraping_telegram_digest import DigestParser
 from sites.parsing_sites_runner import SitesParser, parser_sites
 from logs.logs import Logs
 from sites.scraping_dev import DevGetInformation
@@ -51,6 +52,7 @@ from sites.send_log_txt import send_log_txt
 from report.reports import Reports
 from report.report_variables import report_file_path
 from helper_functions.database_update_data.database_update_data import DatabaseUpdateData
+from _apps.telegraph_post.telegraph_post import TelegraphPoster
 
 logs = Logs()
 import settings.os_getenv as settings
@@ -143,6 +145,11 @@ class InviteBot():
         self.autopushing_task = None
         self.wait_until_manual_will_stop = None
         self.buttons_bar_keyboard = []
+        self.shorts_dict_for_teleraph_posting = {}
+        self.shorts_for_telegraph_dictionary_collection_mode = False
+        self.profession = None
+        self.sub = None
+        self.new_start = True
         logging.basicConfig(level=logging.DEBUG, filename="py_log.log",filemode="w")
 
         if token_in:
@@ -325,6 +332,19 @@ class InviteBot():
         async def silent_get_news(message: types.Message):
             await get_news(silent=True)
 
+        @self.dp.message_handler(commands=['post_to_telegraph'])
+        async def post_to_teleraph_func(message: types.Message):
+            self.profession = 'junior'
+            keyboard = await self.compose_keyboard_in_bar(['POST'])
+            await self.bot_aiogram.send_message(message.chat.id, 'Paste shorts (copy/paste) one by one and press POST',
+                                                reply_markup=keyboard)
+            self.shorts_for_telegraph_dictionary_collection_mode = True
+
+        @self.dp.message_handler(commands=['refactoring_vacancy_salary'])
+        async def silent_get_news(message: types.Message):
+            # await self.refactoring_vacancy_salary(message)
+            asyncio.create_task(self.refactoring_vacancy_salary(message))
+
         @self.dp.message_handler(commands=['silent_get_news'])
         async def silent_get_news(message: types.Message):
             await get_news(silent=True)
@@ -502,6 +522,7 @@ class InviteBot():
                     )
                 )
                 await self.autopushing_task
+
                 if self.unlock_message_autopushing:
                     await self.unlock_message_autopushing.delete()
                 self.autopushing_task = None
@@ -925,7 +946,7 @@ class InviteBot():
                 data['url'] = message.text
                 url = message.text
             await state.finish()
-            vacancy_text = await db_check_add_single_vacancy(message, url=url)
+            vacancy_text = await self.db_check_add_single_vacancy(message, url=url)
             # if vacancy_text:
             #     await self.bot_aiogram.send_message(message.chat.id, vacancy_text)
 
@@ -1470,6 +1491,11 @@ class InviteBot():
         async def update_job_types(message: types.Message):
             await update_job_types(message)
 
+        @self.dp.message_handler(commands=['digest'])
+        async def parse_digest(message: types.Message):
+            print("START0")
+            await parse_digest(message)
+
         @self.dp.message_handler(commands=['id'])
         async def get_logs(message: types.Message):
             # 311614392
@@ -1815,6 +1841,7 @@ class InviteBot():
                                                                                       'Or press the unlock button (only available to you)',
                                                                                       reply_markup=unlock_kb)
 
+
                 self.autopushing_task = asyncio.create_task(
                     self.hard_pushing_by_schedule(
                         message=callback.message,
@@ -1936,6 +1963,7 @@ class InviteBot():
                     await self.bot_aiogram.send_message(message.chat.id, 'Type the vacancy_url to check in db and add')
 
                 if message.text in ['Unlock admin', 'Unlock admin and stop autopushing']:
+
                     self.db.push_to_db_common(
                         table_name="shorts_at_work",
                         fields_values_dict={"shorts_at_work": False},
@@ -2056,6 +2084,26 @@ class InviteBot():
                     pass
                     # await bot.send_message(message.chat.id, 'Отправьте файл')
 
+                if message.text == 'Post to Telegraph':
+                    keyboard = await self.compose_keyboard_in_bar(['POST'])
+                    self.message = await self.bot_aiogram.send_message(message.chat.id, 'Paste shorts (copy/paste) one by one and press POST', reply_markup=keyboard)
+                    self.shorts_for_telegraph_dictionary_collection_mode = True
+
+                if 'a href' in message.html_text and self.shorts_for_telegraph_dictionary_collection_mode:
+                    await self.collect_shorts_dict_for_telegraph_posting(message)
+
+                if message.text == 'POST':
+                    await self.bot_aiogram.send_message(message.chat.id, "Please wait...")
+                    await self.post_collected_shorts_dict_to_teleraph(message)
+                    if self.message:
+                        await self.message.delete()
+                        self.message = None
+                    keyboard_list = ['Digest', 'Subscr.statistics', '🦖 Search by link']
+                    parsing_kb = await self.compose_keyboard_in_bar(buttons=keyboard_list)
+                    self.message = await self.bot_aiogram.send_message(message.chat.id, 'Done!', reply_markup=parsing_kb)
+                    self.shorts_dict_for_teleraph_posting = {}
+                    self.shorts_for_telegraph_dictionary_collection_mode = False
+
         async def get_separate_time(time_in):
 
             logs.write_log(f"invite_bot_2: function: get_separate_time")
@@ -2125,7 +2173,6 @@ class InviteBot():
 
             else:
                 await self.bot_aiogram.send_message(message.chat.id, 'Для авторизации нажмите /start')
-
         async def invite_users(message, channel):
             logs.write_log(f"invite_bot_2: invite_users: if marker")
             msg = None
@@ -2727,6 +2774,38 @@ class InviteBot():
                         print(f'Was deleted id={id} from {i}')
 
         async def output_one_day(message):
+            await self.bot_aiogram.send_message(message.chat.id,
+                                                'Please wait for all vacancies from vacancies table...')
+            print('Please wait for all vacancies from vacancies table...')
+            responses = self.db.get_all_from_db(
+                table_name=variable.vacancies_database,
+                field=variable.admin_table_fields,
+                param="ORDER BY id DESC LIMIT 10000",
+                without_sort=True
+            )
+            excel_dict = {}
+            if responses:
+                print(len(responses))
+
+                for vacancy in responses:
+                    vacancy_dict = await helper.to_dict_from_admin_response(vacancy, variable.admin_table_fields)
+                    for key in vacancy_dict:
+                        if key not in excel_dict:
+                            excel_dict[key] = []
+                        excel_dict[key].append(vacancy_dict[key])
+
+                df = pd.DataFrame(excel_dict)
+
+                df.to_excel(f'./excel/excel/vacancies_table.xlsx', sheet_name='Sheet1')
+                print('File has been written')
+                await self.send_file_to_user(message, f'excel/excel/vacancies_table.xlsx')
+            else:
+                print('Not responses from vacancies table')
+            print('got it')
+
+            await self.bot_aiogram.send_message(message.chat.id, 'Please wait for not sorted vacancies from admin and reject tables...')
+            print('Please wait for not sorted vacancies from admin and reject tables...')
+
             responses = []
             date_now = datetime.now() - timedelta(hours=24*7)
             date_now = date_now.strftime('%Y-%m-%d')
@@ -2740,6 +2819,7 @@ class InviteBot():
                     responses.extend(response)
 
             excel_dict = {}
+            print(len(responses))
             for vacancy in responses:
                 vacancy_dict = await helper.to_dict_from_admin_response(vacancy, variable.admin_table_fields)
                 for key in vacancy_dict:
@@ -2752,6 +2832,7 @@ class InviteBot():
             df.to_excel(f'./excel/excel/one_day_vacancies.xlsx', sheet_name='Sheet1')
             print('File has been written')
             await self.send_file_to_user(message, f'excel/excel/one_day_vacancies.xlsx')
+            print('got it')
 
 
 
@@ -3020,8 +3101,8 @@ class InviteBot():
                 # # -----------------------parsing telegram channels -------------------------------------
                 bot_dict = {'bot': self.bot_aiogram, 'chat_id': message.chat.id}
 
-                # await main(report=self.report, client=self.client, bot_dict=bot_dict)
-                # await self.report.add_to_excel(report_type='parsing')
+                await main(report=self.report, client=self.client, bot_dict=bot_dict)
+                await self.report.add_to_excel(report_type='parsing')
 
                 if silent:
                     sites_parser = SitesParser(client=self.client, bot_dict=bot_dict, report=self.report)
@@ -3029,6 +3110,10 @@ class InviteBot():
                     sites_parser = SitesParser(client=self.client, bot_dict=bot_dict, report=self.report)
 
                 await sites_parser.call_sites()
+
+                digest_parser = DigestParser(client=self.client, bot_dict=bot_dict, report=self.report)
+                await digest_parser.main_start()
+
                 self.db.push_to_db_common(
                     table_name='parser_at_work',
                     fields_values_dict={"parser_at_work": False},
@@ -3383,68 +3468,6 @@ class InviteBot():
             await self.bot_aiogram.send_message(message.chat.id, f"😱 (-)Vacancy NOT FOUND")
             return ''
 
-        async def db_check_add_single_vacancy(message, url):
-            table_list = variable.all_tables_for_vacancy_search
-            url = url.strip()
-            urls = [url]
-            site_url = re.split(r'\/', url, maxsplit=3)
-            domain = site_url[2]
-            if domain == 'hh.ru':
-                site_url[2] = 'spb.hh.ru'
-                url_new = '/'.join(site_url)
-                urls.append(url_new)
-            for url in urls:
-                for pro in table_list:
-                    response = self.db.get_all_from_db(
-                        table_name=pro,
-                        field=variable.admin_table_fields,
-                        param=f"WHERE vacancy_url='{url}'"
-                    )
-                    if response:
-                        response_dict = await helper.to_dict_from_admin_response(
-                            response[0],
-                            variable.admin_table_fields
-                        )
-                        text = f"😎 (+)Vacancy FOUND in {pro} table\n{response_dict['title'][:40]}\n\n" \
-                               f"id: {response_dict['id']}\n" \
-                               f"profession: {response_dict['profession']}\n" \
-                               f"tags: {response_dict['full_tags'] if response_dict['full_tags'] else '-'}\n" \
-                               f"anti_tags: {response_dict['full_anti_tags'] if response_dict['full_anti_tags'] else '-'}"
-                        await self.bot_aiogram.send_message(message.chat.id, text)
-
-                        text = f"{response[0][0]}\n{response[0][1]}"
-                        return text
-
-            await self.bot_aiogram.send_message(message.chat.id, f"😱 (-)URL NOT FOUND, PLEASE WAIT..")
-            try:
-                parser = parser_sites.get(domain)
-                if parser:
-                    parser = parser(bot_dict={'bot': self.bot_aiogram, 'chat_id': message.chat.id})
-                    parser_response = await parser.get_content_from_one_link(url)
-
-                    text = ''
-                    if parser_response['response_dict']:
-                        if parser_response['response']['vacancy']:
-                            text += f"Status: {parser_response['response']['vacancy'].capitalize()}\n"
-                        text += f"url: {parser_response['response_dict']['response_dict']['vacancy_url'] if 'vacancy_url' in parser_response['response_dict']['response_dict'] else '-'}\n"
-                        text += f"title: {parser_response['response_dict']['response_dict']['title'][:40]}\n"
-                        text += f"profession: {parser_response['response_dict']['response_dict']['profession']}\n"
-                        text += f"tags: {parser_response['response_dict']['response_dict']['full_tags'] if parser_response['response_dict']['response_dict']['full_tags'] else '-'}\n"
-                        text += f"anti_tags: {parser_response['response_dict']['response_dict']['full_anti_tags'] if parser_response['response_dict']['response_dict']['full_anti_tags'] else '-'}\n"
-                    else:
-                        text = f"{parser_response['response']['vacancy']}\n" \
-                               f"profession: {parser_response['profession']['profession'] if parser_response['profession']['profession'] else '-'}\n" \
-                               f"tags: {parser_response['profession']['tag'] if parser_response['profession']['tag'] else '-'}\n" \
-                               f"anti_tags: {parser_response['profession']['anti_tag'] if parser_response['profession']['anti_tag'] else '-'}"
-                    # if not parser_response:
-                    #     text = 'Vacancy found in db by title-body with another url'
-                    # else:
-                    #     text = parser_response['response']['vacancy']
-                    await self.bot_aiogram.send_message(message.chat.id, text, disable_web_page_preview=True)
-                else:
-                    await self.bot_aiogram.send_message(message.chat.id, f"NO PARSER for {domain}")
-            except Exception as e:
-                await self.bot_aiogram.send_message(message.chat.id, f'Error in single url: {str(e)}')
 
 
         async def add_subs():
@@ -4160,7 +4183,11 @@ class InviteBot():
         async def copy_prof_tables_to_archive_prof_tables():
             pass
 
-
+        async def parse_digest(message):
+            self.digest_parser = DigestParser(client=self.client,
+                                              bot_dict={'bot': self.bot_aiogram, 'chat_id': message.chat.id},
+                                              report=self.report)
+            await self.digest_parser.main_start()
 
         # start_polling(self.dp)
         executor.start_polling(self.dp, skip_updates=True)
@@ -4186,12 +4213,12 @@ class InviteBot():
                 n += 1
                 if sub not in self.message_for_send_dict.keys():
                     self.message_for_send_dict[
-                        sub] = f"Дайджест вакансий для {sub.capitalize()} за {datetime.now().strftime('%d.%m.%Y')}\n\n"
+                        sub] = f"Дайджест вакансий для #{sub.capitalize()} за {datetime.now().strftime('%d.%m.%Y')}\n\n"
                 self.message_for_send_dict[sub] += f"{composed_message_dict['composed_message']}\n"
         else:
             if profession not in self.message_for_send_dict.keys():
                 self.message_for_send_dict[
-                    profession] = f"Дайджест вакансий для {profession.capitalize()} за {datetime.now().strftime('%d.%m.%Y')}\n\n"
+                    profession] = f"Дайджест вакансий для #{profession.capitalize()} за {datetime.now().strftime('%d.%m.%Y')}\n\n"
             self.message_for_send_dict[profession] += f"{composed_message_dict['composed_message']}\n"
         self.quantity_entered_to_shorts += 1
 
@@ -4360,13 +4387,68 @@ class InviteBot():
 
     async def shorts_public(self, message, profession, channel_for_pushing=False, profession_channel=None):
 
+
         with open(variable.shorts_copy_path, mode='w', encoding='utf-8') as shorts_file:
             shorts_file.write('')
 
         chat_id = config['My_channels'][f'{profession_channel}_channel'] if profession_channel else None
         pre_message = variable.pre_message_for_shorts
-        add_pre_message = True
+        add_pre_message = False
         count = 1
+        self.profession = profession
+
+# --------------------------------------------------------------------
+        if self.profession not in variable.manual_posting_shorts:
+            telegraph = TelegraphPoster()
+            telegraph_links_dict = telegraph.telegraph_post_digests(self.message_for_send_dict, self.profession)
+
+            await self.send_pivot_shorts(telegraph_links_dict, message)
+
+            # numbers_vacancies_dict = telegraph_links_dict['numbers_vacancies_dict']
+            # telegraph_links_dict = telegraph_links_dict['telegraph_links_dict']
+            #
+            # group_shorts = f"Дайджест для <b>{self.profession.title().replace('_', ' ')}</b> за {datetime.now().strftime('%d.%m.%Y')}\n\n"
+            # for key in telegraph_links_dict:
+            #     group_shorts += f"Вакансии для <a href='{telegraph_links_dict[key]}'><b>#{key.capitalize()}</b></a> ({numbers_vacancies_dict[key]} предложений)\n\n"
+            #
+            # photo_path = await helper.get_picture_path('junior', self.profession)
+            #
+            # if profession_channel:
+            #     chat_id = config['My_channels'][f'{profession_channel}_channel']
+            #     try:
+            #         with open(photo_path, 'rb') as file:
+            #             try:
+            #                 await self.bot_aiogram.send_photo(chat_id=chat_id, photo=file, caption=group_shorts, parse_mode='html')
+            #             except Exception as ex:
+            #                 print(f'Key {count}: picture error: {ex}. Chat_id: profession channel')
+            #                 profession_channel = False
+            #     except Exception as e:
+            #         print(f"Key {count}: Can not open the pictures: {e}. Path: {photo_path}")
+            #
+            # if not profession_channel:
+            #     chat_id = variable.channel_id_for_shorts
+            #     try:
+            #         with open(photo_path, 'rb') as file:
+            #             try:
+            #                 await self.bot_aiogram.send_photo(chat_id=chat_id, photo=file, caption=group_shorts, parse_mode='html')
+            #             except Exception as ex:
+            #                 print(f'Key {count}: picture error: {ex}. Chat_id: channel for shorts')
+            #                 chat_id = message.chat.id
+            #                 try:
+            #                     with open(photo_path, 'rb') as file:
+            #                         try:
+            #                             await self.bot_aiogram.send_photo(chat_id=chat_id, photo=file, caption=group_shorts,
+            #                                                               parse_mode='html')
+            #                         except Exception as ex:
+            #                             print(f'Key {count}: picture error: {ex}. Chat_id: message chat id')
+            #                             print(f'Key {count}: ONE SHORTS HAS BEEN LOOSED')
+            #                 except Exception as e:
+            #                     print(e)
+            #     except Exception as e:
+            #         print(e)
+            #         await helper.send_message(self.bot_aiogram, message.chat.id, f"ONE SHORTS HAS BEEN LOOSED{str(e)}")
+            return True
+# # ------------------------------------------------------------------------
         for key in self.message_for_send_dict:
             message_for_send = self.message_for_send_dict[key]
             if add_pre_message:
@@ -4374,7 +4456,7 @@ class InviteBot():
                 add_pre_message = False
             vacancies_list = await self.cut_message_for_send(message_for_send)
 
-            photo_path = await helper.get_picture_path(key, profession)
+            photo_path = await helper.get_picture_path(key, self.profession)
 
             if profession_channel:
                 chat_id = config['My_channels'][f'{profession_channel}_channel']
@@ -4412,6 +4494,7 @@ class InviteBot():
                         await helper.send_message(self.bot_aiogram, message.chat.id, f"ONE SHORTS HAS BEEN LOOSED{str(e)}")
             count += 1
 
+            print(f'vacancies_list: {vacancies_list}')
             for short in vacancies_list:
                 try:
                     await helper.send_message(
@@ -4432,7 +4515,7 @@ class InviteBot():
                     channel = config['My_channels'][f'{profession_channel}_channel']
                     shorts_id = await self.get_shorts_id(channel, message)
 
-                linkedin_message = await self.compose_message_for_linkedin(key, message_for_send, profession,
+                linkedin_message = await self.compose_message_for_linkedin(key, message_for_send, self.profession,
                                                                       shorts_id)
                 # await self.bot_aiogram.send_message(
                 #     variable.channel_id_for_shorts,
@@ -4483,6 +4566,14 @@ class InviteBot():
         if self.unlock_message:
             await self.unlock_message.delete()
             self.unlock_message = None
+        keyboard = await self.compose_keyboard_in_bar(buttons=['Post to Telegraph'])
+        await self.bot_aiogram.send_message(message.chat.id, "When you will be ready to public shorts in Telegra.ph, use the option by button below ⬇️", reply_markup=keyboard, parse_mode='html', disable_web_page_preview=True)
+
+    # async def telegraph_public_shorts(self):
+    #     telegraph = TelegraphPoster()
+    #     telegraph_links_dict = telegraph.telegraph_post_digests(self.message_for_send_dict, self.profession)
+    #
+    #     return telegraph_links_dict
 
     async def write_to_logs_error(self, text):
         with open("./logs/logs_errors.txt", "a", encoding='utf-8') as file:
@@ -5677,6 +5768,7 @@ class InviteBot():
             else:
                 print(f'{profession}: no vacancies')
                 await self.bot_aiogram.send_message(message.chat.id, f'{profession}: No vacancies')
+                await asyncio.sleep(1)
 
         self.db.push_to_db_common(
             table_name="shorts_at_work",
@@ -5684,15 +5776,36 @@ class InviteBot():
             params="WHERE id=1"
         )
 
+    async def check_all_vacancies_are_closed(self):
+        tables = variable.valid_professions.copy
+        tables.extend([variable.admin_database, variable.archive_database, variable.vacancies_database])
+
+        fields = 'id, closed, vacancy_url'
+
+        for table in tables:
+            responses = self.db.get_all_from_db(
+                table_name=table,
+                param="WHERE closed = FALSE",
+                field=fields
+            )
+            if responses:
+                for vacancy in responses:
+                    vacancy_dict = await helper.to_dict_from_admin_response(vacancy, fields)
+                    if vacancy_dict:
+                        if not await self.check_vacancy_by_closed(vacancy_dict['vacancy_url']):
+                            query = f"UPDATE {table} SET closed=TRUE"
+                            self.db.run_free_request(query, output_text="CLOSED HAS BEEN UPDATED")
+                            pass
+                        else:
+                            print("This vacancy is active")
+                            pass
+                    else:
+                        print("vacancy_dict is empty or is FALSE")
+            else:
+                print(f"table {table} is EMPTY, NEXT table")
+
 
     async def hard_pushing_by_schedule(self, message, profession_list):
-
-        # if self.manual_admin_shorts:
-        #     self.wait_until_manual_will_stop = asyncio.create_task(self.wait_until(argument=self.manual_admin_shorts))
-        # await self.wait_until_manual_will_stop
-
-        table_set = set()
-        time_marker = ''
 
         if not message:
             message = Message()
@@ -5701,52 +5814,68 @@ class InviteBot():
 
         await self.bot_aiogram.send_message(message.chat.id, 'schedule shorts posting has started')
         print('schedule shorts posting has started')
-
-        tables_list = self.db.get_information_about_tables_and_fields()
-        for i in tables_list:
-            table_set.add(i[0])
-
-        if variable.last_autopushing_time_database not in table_set:
-            # get the last pushing time from db
-            self.db.create_table_common(
-                field_list=["time VARCHAR (10)", ],
-                table_name=variable.last_autopushing_time_database
-            )
-            self.db.push_to_db_common(
-                table_name=variable.last_autopushing_time_database,
-                fields_values_dict={'time': '0'}
-            )
-
-        last_autopushing_time = self.db.get_all_from_db(
-            table_name=variable.last_autopushing_time_database,
-            field='time',
-            param="WHERE id=1",
-            without_sort=True
-        )
-
-        print('last_autopushing_time', last_autopushing_time)
-
-        time_dict = {
-            '09': False,
-            '12': False,
-            '17': False,
-        }
-        if last_autopushing_time:
-            last_autopushing_time = last_autopushing_time[0][0]
-            time_dict[last_autopushing_time] = True
-
+    #     create table if it doesn't exist --------------
+    #     table_set = set()
+    #     time_marker = ''
+    #     tables_list = self.db.get_information_about_tables_and_fields()
+    #     for i in tables_list:
+    #         table_set.add(i[0])
+    #     if variable.last_autopushing_time_database not in table_set:
+    #         # get the last pushing time from db
+    #         self.db.create_table_common(
+    #             field_list=["time VARCHAR (10)", ],
+    #             table_name=variable.last_autopushing_time_database
+    #         )
+    #         self.db.push_to_db_common(
+    #             table_name=variable.last_autopushing_time_database,
+    #             fields_values_dict={'time': '0'}
+    #         )
+    # # -------------------------------------------------
+    #
+    #
+    #
+    #
+    # # --------------------------------------------------
+    #     last_autopushing_time = self.db.get_all_from_db(
+    #         table_name=variable.last_autopushing_time_database,
+    #         field='time',
+    #         param="WHERE id=1",
+    #         without_sort=True
+    #     )
+    #
+    #     print('last_autopushing_time', last_autopushing_time)
+    #
+    #     time_dict = {
+    #         '09': False,
+    #         '12': False,
+    #         '17': False,
+    #     }
+    #     if last_autopushing_time:
+    #         last_autopushing_time = last_autopushing_time[0][0]
+    #         time_dict[last_autopushing_time] = True
+    #
+    # # ------------------------------------------------------
+    #
         while True:
+            self.schedule_pushing_shorts = True
             if not self.schedule_pushing_shorts:
                 break
-
             print('the checking pushing schedule time')
-            current_time = int(datetime.now().time().strftime("%H"))
+            await asyncio.sleep(10)
+            current_time_hour = int(datetime.now().time().strftime("%H"))
+            current_time_minutes = int(datetime.now().time().strftime("%M"))
 
-            if current_time >= 9 and current_time < 12 and not time_dict['09'] and not time_dict['09']:
-                print('hard pushing 09 is starting')
+            if (current_time_hour > variable.hard_pushing_time_hour[0] and current_time_minutes > variable.hard_pushing_time_hour[0]) or self.new_start:
+                self.new_start = False
+
+                if self.manual_admin_shorts:
+                    await self.bot_aiogram.send_message(message.chat.id, "Please wait until manual posting will finish")
+
                 while self.manual_admin_shorts:
+                    print('Manual shorts_post is running [pause 10 sec]')
                     await asyncio.sleep(10)
                 else:
+                    await self.bot_aiogram.send_message(message.chat.id, "Autopushing is starting")
                     await self.push_shorts_attempt_to_make_multi_function(
                         message=message,
                         callback_data="each",
@@ -5754,63 +5883,97 @@ class InviteBot():
                         hard_push_profession=profession_list,
                         channel_for_pushing=True
                     )
-                    time_dict['09'] = True
-                    time_dict['17'] = False
-                    time_dict['12'] = False
-                    time_marker = '9'
+                today = datetime.now()
+                tomorrow = today + timedelta(days=1)
+                year = int(tomorrow.strftime('%Y'))
+                month = int(tomorrow.strftime('%m'))
+                day = int(tomorrow.strftime('%d'))
 
-            elif current_time >= 12 and current_time < 20 and not time_dict['12']:
-                print('hard pushing 12 is starting')
-                while self.manual_admin_shorts:
-                    await asyncio.sleep(10)
-                else:
-                    await self.push_shorts_attempt_to_make_multi_function(
-                        message=message,
-                        callback_data="each",
-                        hard_pushing=True,
-                        hard_push_profession=profession_list,
-                        channel_for_pushing=True
-                    )
-                    time_dict['12'] = True
-                    time_dict['09'] = False
-                    time_dict['17'] = False
-                    time_marker = '12'
+                tomorrow = datetime(year, month, day, 10, 30, 0, 0)
+                delta = tomorrow - today
+                seconds = delta.seconds
+                await asyncio.sleep(seconds)
+                self.schedule_pushing_shorts = False
 
-            elif current_time >= 17 and current_time < 24 and not time_dict['17']:
-                print('hard pushing 17 is starting')
-                while self.manual_admin_shorts:
-                    await asyncio.sleep(10)
-                else:
-                    await self.push_shorts_attempt_to_make_multi_function(
-                        message=message,
-                        callback_data="each",
-                        hard_pushing=True,
-                        hard_push_profession=profession_list,
-                        channel_for_pushing=True
-                    )
-                    time_dict['17'] = True
-                    time_dict['12'] = False
-                    time_dict['09'] = False
-                    time_marker = '17'
 
-            if time_marker:
-                self.db.update_table(
-                    table_name=variable.last_autopushing_time_database,
-                    param="WHERE id=1",
-                    field='time',
-                    value=time_marker,
-                    output_text='time has been updated'
-                )
-            time_marker = ''
 
-            if (current_time >= 0 and current_time < 7) or (current_time >= 20 and current_time < 24):
-                print('the long pause')
-                await self.bot_aiogram.send_message(message.chat.id, 'the long pause 30 minutes')
-                await asyncio.sleep(1 * 60 * 30)
-            else:
-                print('the short pause')
-                await self.bot_aiogram.send_message(message.chat.id, 'the short pause 10 minutes')
-                await asyncio.sleep(1 * 60 * 10)
+
+        # while True:
+        #     if not self.schedule_pushing_shorts:
+        #         break
+        #
+        #     print('the checking pushing schedule time')
+        #     current_time = int(datetime.now().time().strftime("%H"))
+        #
+        #     if current_time >= 9 and current_time < 11 and not time_dict['09'] and not time_dict['09']:
+        #         print('hard pushing 09 is starting')
+        #         while self.manual_admin_shorts:
+        #             await asyncio.sleep(10)
+        #         else:
+        #             await self.push_shorts_attempt_to_make_multi_function(
+        #                 message=message,
+        #                 callback_data="each",
+        #                 hard_pushing=True,
+        #                 hard_push_profession=profession_list,
+        #                 channel_for_pushing=True
+        #             )
+        #             time_dict['09'] = True
+        #             time_dict['17'] = False
+        #             time_dict['12'] = False
+        #             time_marker = '9'
+        #
+            # elif current_time >= 12 and current_time < 20 and not time_dict['12']:
+            #     print('hard pushing 12 is starting')
+            #     while self.manual_admin_shorts:
+            #         await asyncio.sleep(10)
+            #     else:
+            #         await self.push_shorts_attempt_to_make_multi_function(
+            #             message=message,
+            #             callback_data="each",
+            #             hard_pushing=True,
+            #             hard_push_profession=profession_list,
+            #             channel_for_pushing=True
+            #         )
+            #         time_dict['12'] = True
+            #         time_dict['09'] = False
+            #         time_dict['17'] = False
+            #         time_marker = '12'
+            #
+            # elif current_time >= 17 and current_time < 24 and not time_dict['17']:
+            #     print('hard pushing 17 is starting')
+            #     while self.manual_admin_shorts:
+            #         await asyncio.sleep(10)
+            #     else:
+            #         await self.push_shorts_attempt_to_make_multi_function(
+            #             message=message,
+            #             callback_data="each",
+            #             hard_pushing=True,
+            #             hard_push_profession=profession_list,
+            #             channel_for_pushing=True
+            #         )
+            #         time_dict['17'] = True
+            #         time_dict['12'] = False
+            #         time_dict['09'] = False
+            #         time_marker = '17'
+
+            # if time_marker:
+            #     self.db.update_table(
+            #         table_name=variable.last_autopushing_time_database,
+            #         param="WHERE id=1",
+            #         field='time',
+            #         value=time_marker,
+            #         output_text='time has been updated'
+            #     )
+            # time_marker = ''
+            #
+            # if (current_time >= 0 and current_time < 7) or (current_time >= 20 and current_time < 24):
+            #     print('the long pause')
+            #     await self.bot_aiogram.send_message(message.chat.id, 'the long pause 30 minutes')
+            #     await asyncio.sleep(1 * 60 * 30)
+            # else:
+            #     print('the short pause')
+            #     await self.bot_aiogram.send_message(message.chat.id, 'the short pause 10 minutes')
+            #     await asyncio.sleep(1 * 60 * 10)
 
         return print('Schedule pushing has been stopped')
 
@@ -6054,6 +6217,70 @@ class InviteBot():
             kb.add(button_unlock)
         return kb
 
+
+    async def db_check_add_single_vacancy(self, message, url):
+        table_list = variable.all_tables_for_vacancy_search
+        url = url.strip()
+        urls = [url]
+        site_url = re.split(r'\/', url, maxsplit=3)
+        domain = site_url[2]
+        if domain == 'hh.ru':
+            site_url[2] = 'spb.hh.ru'
+            url_new = '/'.join(site_url)
+            urls.append(url_new)
+        for url in urls:
+            for pro in table_list:
+                response = self.db.get_all_from_db(
+                    table_name=pro,
+                    field=variable.admin_table_fields,
+                    param=f"WHERE vacancy_url='{url}'"
+                )
+                if response:
+                    response_dict = await helper.to_dict_from_admin_response(
+                        response[0],
+                        variable.admin_table_fields
+                    )
+                    text = f"😎 (+)Vacancy FOUND in {pro} table\n{response_dict['title'][:40]}\n\n" \
+                           f"id: {response_dict['id']}\n" \
+                           f"profession: {response_dict['profession']}\n" \
+                           f"tags: {response_dict['full_tags'] if response_dict['full_tags'] else '-'}\n" \
+                           f"anti_tags: {response_dict['full_anti_tags'] if response_dict['full_anti_tags'] else '-'}"
+                    await self.bot_aiogram.send_message(message.chat.id, text)
+
+                    text = f"{response[0][0]}\n{response[0][1]}"
+                    return text
+
+        await self.bot_aiogram.send_message(message.chat.id, f"😱 (-)URL NOT FOUND, PLEASE WAIT..")
+        try:
+            parser = parser_sites.get(domain)
+            if parser:
+                parser = parser(bot_dict={'bot': self.bot_aiogram, 'chat_id': message.chat.id})
+                parser_response = await parser.get_content_from_one_link(url)
+
+                text = ''
+                if parser_response['response_dict']:
+                    if parser_response['response']['vacancy']:
+                        text += f"Status: {parser_response['response']['vacancy'].capitalize()}\n"
+                    text += f"url: {parser_response['response_dict']['response_dict']['vacancy_url'] if 'vacancy_url' in parser_response['response_dict']['response_dict'] else '-'}\n"
+                    text += f"title: {parser_response['response_dict']['response_dict']['title'][:40]}\n"
+                    text += f"profession: {parser_response['response_dict']['response_dict']['profession']}\n"
+                    text += f"tags: {parser_response['response_dict']['response_dict']['full_tags'] if parser_response['response_dict']['response_dict']['full_tags'] else '-'}\n"
+                    text += f"anti_tags: {parser_response['response_dict']['response_dict']['full_anti_tags'] if parser_response['response_dict']['response_dict']['full_anti_tags'] else '-'}\n"
+                else:
+                    text = f"{parser_response['response']['vacancy']}\n" \
+                           f"profession: {parser_response['profession']['profession'] if parser_response['profession']['profession'] else '-'}\n" \
+                           f"tags: {parser_response['profession']['tag'] if parser_response['profession']['tag'] else '-'}\n" \
+                           f"anti_tags: {parser_response['profession']['anti_tag'] if parser_response['profession']['anti_tag'] else '-'}"
+                # if not parser_response:
+                #     text = 'Vacancy found in db by title-body with another url'
+                # else:
+                #     text = parser_response['response']['vacancy']
+                await self.bot_aiogram.send_message(message.chat.id, text, disable_web_page_preview=True)
+            else:
+                await self.bot_aiogram.send_message(message.chat.id, f"NO PARSER for {domain}")
+        except Exception as e:
+            await self.bot_aiogram.send_message(message.chat.id, f'Error in single url: {str(e)}')
+
     async def wait_until(self, argument):
         while argument:
             await asyncio.sleep(10)
@@ -6099,6 +6326,332 @@ class InviteBot():
                     )
                 else:
                     print('False is make to dict func answer')
+
+    async def refactoring_vacancy_salary(self, message, **kwargs):
+        print('refactoring_vacancy_salary has started')
+        from helper_functions.parser_find_add_parameters.parser_find_add_parameters import FinderAddParameters
+        find_parameters = FinderAddParameters()
+
+        check_salary = True if 'check_salary' in kwargs and kwargs['check_salary'] else False
+
+        salary_fields = ['salary', 'salary_from', 'salary_to', 'salary_currency', 'salary_period',
+                         'rate', 'salary_from_usd_month', 'salary_to_usd_month']
+
+        tables = [variable.vacancies_database, variable.admin_database, variable.archive_database, variable.reject_table]
+        tables.extend(variable.valid_professions)
+
+        companies_list = self.db.get_all_from_db(
+            table_name='companies',
+           field='company',
+            without_sort=True
+        )
+        companies_list2 = []
+        for i in companies_list:
+            companies_list2.append(i[0])
+        companies_list2 = tuple(companies_list2)
+        black_words = ['з/п не указана', 'з.п. не указана', ]
+
+        out_of_range_list = []
+        for table in tables:
+            table_message = await self.bot_aiogram.send_message(message.chat.id, f'Table is {table}')
+
+            responses = self.db.get_all_from_db(
+                table_name=table,
+                param=f"WHERE salary IS NOT NULL AND salary <> '' "
+                      f"AND salary <> 'None' AND salary <> 'NONE' "
+                      f"AND salary NOT LIKE '%не указана%' "
+                      f"AND salary NOT LIKE '%договор%' "
+                      f"AND salary NOT IN {companies_list2}"
+                      f"AND salary_from IS NULL",
+                field=variable.admin_table_fields
+            )
+            if responses and type(responses) is list:
+
+                await table_message.edit_text(table_message.text + f'\n{len(responses)} responses for autochange salary')
+
+                counter = 0
+                for vacancy in responses:
+                    print(counter)
+                    counter += 1
+                    updated_vacancy_dict = {}
+                    vacancy_dict = await helper.to_dict_from_admin_response(vacancy, variable.admin_table_fields)
+                    if vacancy_dict:
+                        if vacancy_dict['id'] in [129696, 128938, 126723]:
+                            pass
+                        result = False
+                        for i in vacancy_dict['salary']:
+                            if i.isdigit():
+                                result = True
+                                break
+                        if result:
+                            try:
+                                vacancy_dict = await find_parameters.get_salary_all_fields(vacancy_dict)
+                            except Exception as exception:
+                                if 'out of range' in str(exception) or 'целое вне диапазона' in str(exception):
+                                    print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+                                    out_of_range_list.append(vacancy)
+
+                            for key in salary_fields:
+                                if vacancy_dict[key]:
+                                    updated_vacancy_dict[key] = vacancy_dict[key]
+                            updated_vacancy_dict['id'] = vacancy_dict['id']
+
+                            query = self.db.compose_query(
+                                vacancy_dict=updated_vacancy_dict,
+                                table_name=table,
+                                update=True,
+                                define_id=True
+                            )
+                            if query:
+                                try:
+                                    self.db.run_free_request(query, output_text=f"vacancy {vacancy_dict['id']} in {table} has been changed")
+                                except Exception as ex:
+                                    if 'целое вне диапазона' in str(ex):
+                                        out_of_range_list.append(vacancy)
+                        else:
+                            print("Not Numbers in salary")
+                    else:
+                        print("Not vacancy_dict")
+
+
+
+            query = f"WHERE (vacancy_url LIKE '%hh.ru/%' OR vacancy_url LIKE '%/hh.kz/%' OR " \
+                    f"vacancy_url LIKE '%/rabota.by/%' OR vacancy_url LIKE '%/rabota.by/%') AND (salary IN {companies_list2} OR LENGTH(salary) > 50) OR " \
+                    f"(salary IS NOT NULL AND salary NOT LIKE '%не указана%' AND salary <> 'None' " \
+                    f"and salary <> 'NONE' AND salary <> '' AND salary NOT LIKE '%$%' AND salary NOT LIKE '%0%' " \
+                    f"AND salary NOT LIKE '%руб%' AND salary NOT LIKE '%договорен%' AND salary NOT LIKE '%не указана%'" \
+                    f"AND salary_from IS NULL AND (vacancy_url LIKE '%/hh.ru/%' OR vacancy_url LIKE '%/hh.kz/%' OR " \
+                    f"vacancy_url LIKE '%/rabota.ru/%'))"
+            # print(query)
+
+            responses = self.db.get_all_from_db(
+                table_name=table,
+                param=query,
+                without_sort=True,
+                field=variable.admin_table_fields
+            )
+            if responses and type(responses) is list:
+                print(f'len: {len(responses)}')
+
+                responses.extend(out_of_range_list)
+                n = 0
+                await table_message.edit_text(f"{table}\n{len(responses)} responses for parser change\nworked out: {n}")
+                for vacancy in responses:
+                    dict_from_parser = None
+                    n += 1
+                    print('-'*10, 'NEXT VACANCY: ', n,  '-'*10)
+                    print(n)
+                    await table_message.edit_text(
+                        f"{table}\n{len(responses)} responses for parser change\nworked out: {n}")
+
+                    if n == 1379:
+                        pass
+                    parser_response = {}
+                    vacancy_dict_for_update = {}
+
+                    vacancy_dict = await helper.to_dict_from_admin_response(
+                        response=vacancy, fields=variable.admin_table_fields
+                    )
+                    print(vacancy_dict['vacancy_url'])
+
+                    # status_code = await self.check_vacancy_by_closed(vacancy_url=vacancy_dict['vacancy_url'])
+                    parser_response['closed'] = await self.check_vacancy_by_closed(vacancy_url=vacancy_dict['vacancy_url'])
+
+                    # check salary is equal company
+                    # if vacancy_dict['salary'] in companies_list:
+                    #     salary_is_equal_company= True
+                    # else:
+                    #     salary_is_equal_company = False
+
+                    # salary_is_equal_company = self.db.get_all_from_db(
+                    #     table_name='companies',
+                    #     param=f"WHERE company='{vacancy_dict['salary']}'",
+                    #     without_sort=True
+                    # )
+                    salary_is_equal_company = True
+                    if salary_is_equal_company or len(vacancy_dict['salary'])>50:
+                        print(f"salary_is_equal_company = {salary_is_equal_company}, NEXT\nsalary = {vacancy_dict['salary']}\n")
+
+                        vacancy_url = vacancy_dict['vacancy_url'].split("://")[1].split("/", 1)[0]
+                        parser = parser_sites.get(vacancy_url)
+                        print(f'vacancy_url: {vacancy_url}')
+                        if parser:
+                            print(f'parser: {parser}')
+                            print('*'*10, 'PARSER HAS BEEN STARTED', '*'*10)
+                            parser = parser(bot_dict={'bot': self.bot_aiogram, 'chat_id': message.chat.id})
+                            try:
+                                dict_from_parser = await parser.get_content_from_one_link(vacancy_dict['vacancy_url'], return_raw_dictionary=True)
+                            except Exception as e:
+                                print(f'!!!!!!!!!!!!!!!!!!!!!!!!!!!!{e}')
+                            if dict_from_parser:
+                                parser_response.update(dict_from_parser)
+
+                            if 'salary' in parser_response:
+                                if not parser_response['salary']:
+                                    for field in salary_fields:
+                                        parser_response[field] = 'Null'
+                                elif vacancy_dict['salary'] != parser_response['salary']:
+                                    parser_response = await find_parameters.get_salary_all_fields(parser_response)
+                            else:
+                                for field in salary_fields:
+                                    parser_response[field] = 'Null'
+
+
+                        for key in ['closed', 'salary', 'salary_from', 'salary_to', 'salary_currency', 'salary_period',
+                                    'rate', 'salary_from_usd_month', 'salary_to_usd_month']:
+                            if key in parser_response and parser_response[key] and parser_response[key] != 'None':
+                                vacancy_dict_for_update[key] = parser_response[key]
+
+                        vacancy_dict_for_update['id'] = vacancy_dict['id']
+                        print(f"id = {vacancy_dict_for_update['id']}\ntable = {table}")
+
+                        query = self.db.compose_query(
+                            vacancy_dict=vacancy_dict_for_update,
+                            table_name=table,
+                            update=True,
+                            define_id=True
+                        )
+                        self.db.run_free_request(query, output_text=f"Id Vacancy: {vacancy_dict_for_update['id']} has been updated")
+                        # if 'salary' in vacancy_dict and 'salary' in vacancy_dict_for_update:
+                        #     print(f"---------\nREPLACING: {vacancy_dict['salary']} --> {vacancy_dict_for_update['salary']}\n---------")
+                        # else:
+                        #     pass
+                        control_response = self.db.get_all_from_db(
+                            table_name=table,
+                            param=f"WHERE id={vacancy_dict_for_update['id']}",
+                            field=variable.admin_table_fields
+                        )
+                        control_response_dict = await helper.to_dict_from_admin_response(control_response[0], variable.admin_table_fields)
+                        print(f">>>>>>>>>> control salary: {vacancy_dict['salary'][:10] if vacancy_dict['salary'] else None} -->> {control_response_dict['salary']}")
+                        print(f">>>>>>>>>> control closed: {control_response_dict['closed']}")
+                    else:
+                        print(f"NEXT\nsalary = {vacancy_dict['salary']}\n")
+            else:
+                await self.bot_aiogram.send_message(message.chat.id, f'{table} is EMPTY')
+        print('The end')
+
+    async def check_vacancy_by_closed(self, vacancy_url):
+        response = requests.get(vacancy_url)
+        if response.status_code == 200:
+            return False
+        return True
+
+    async def collect_shorts_dict_for_telegraph_posting(self, message):
+        try:
+            sub = message.html_text.split('#', 1)[1].split(' ', 1)[0].lower()
+        except:
+            try:
+                sub = message.html_text('Дайджест вакансий для', 1)[1].split(' ', 1)[0].replace('#', '').lower()
+            except:
+                sub = ''
+
+        if not sub:
+            sub = self.sub
+        self.sub = sub
+
+        # body = message.html_text.split('\n\n', 1)[1]
+        if sub in self.shorts_dict_for_teleraph_posting and self.shorts_dict_for_teleraph_posting[sub]:
+            self.shorts_dict_for_teleraph_posting[sub] += f"\n\n{message.html_text}"
+        else:
+            self.shorts_dict_for_teleraph_posting[sub] = message.html_text
+
+    async def post_collected_shorts_dict_to_teleraph(self, message):
+        from _apps.telegraph_post.telegraph_post import TelegraphPoster
+
+        if not self.profession:
+            self.profession = 'junior'
+        t = TelegraphPoster()
+        telegraph_links_dict = t.telegraph_post_digests(shorts_dict=self.shorts_dict_for_teleraph_posting, profession=self.profession)
+        await self.send_pivot_shorts(telegraph_links_dict, message)
+
+    async def send_pivot_shorts(self, telegraph_links_dict, message):
+
+        numbers_vacancies_dict = telegraph_links_dict['numbers_vacancies_dict']
+        telegraph_links_dict = telegraph_links_dict['telegraph_links_dict']
+
+        digest_dict = {}
+        from utils.custom_subs.custom_subs import custom_subs, name_professions
+
+        for key in telegraph_links_dict:
+            has_been_written = False
+            for profession in custom_subs:
+                if key in custom_subs[profession]:
+                    if profession not in digest_dict:
+                        digest_dict[profession] = {}
+                    digest_dict[profession][key] = telegraph_links_dict[key]
+                    has_been_written = True
+                    break
+
+                elif key == profession:
+                    if profession not in digest_dict:
+                        digest_dict[profession] = {}
+                    digest_dict[profession][profession] = telegraph_links_dict[key]
+                    has_been_written = True
+                    break
+
+            if not has_been_written:
+                if key not in digest_dict:
+                    digest_dict[key] = {}
+                digest_dict[key][key] = telegraph_links_dict[key]
+
+        for key in digest_dict:
+            # print('key: ', key)
+            # print('len: ', len(digest_dict[key]))
+            # print('digest[key]: ', digest_dict[key])
+            if len(digest_dict[key]) == 1 and key in digest_dict[key]:
+                digest_dict[key] = digest_dict[key][key]
+
+        config = configparser.ConfigParser()
+        config.read("./settings/config.ini")
+        telegram_digest = f"{sum(numbers_vacancies_dict.values())} вакансий и стажировок на канале для <a href='{config['Channel_links'][f'{self.profession}_channel']}'><b>{self.profession} специалистов</b></a> за {datetime.now().strftime('%d.%m.%Y')}:\n\n"
+
+        for prof in digest_dict:
+
+            if type(digest_dict[prof]) is str:
+                """
+                if it's the profession without subs
+                """
+                profession_name = name_professions[prof] if prof in name_professions else prof.title()
+                telegram_digest += f"<a href='{telegraph_links_dict[prof]}'><b>{profession_name}:</b> {numbers_vacancies_dict[prof]} предложений</a>\n\n"
+
+            elif type(digest_dict[prof]) is dict:
+                """
+                If it's profession with subs
+                """
+                amount = 0
+                for key in digest_dict[prof].keys():
+                    amount += numbers_vacancies_dict[key]
+                profession_name = name_professions[prof] if prof in name_professions else prof.title()
+                telegram_digest += f"{profession_name} ({amount} предложений):\n\n"
+
+                for sub in digest_dict[prof]:
+                    profession_name = name_professions[sub] if sub in name_professions else sub.title()
+                    telegram_digest += f"    - <a href='{telegraph_links_dict[sub]}'><b>{profession_name.capitalize()}:</b> {numbers_vacancies_dict[sub]} предложений</a>\n\n"
+                telegram_digest += "\n"
+
+        # for profession in digest_dict:
+        #     profession_name = name_professions[profession] if profession in name_professions else profession.title()
+        #     telegram_digest += f"{profession_name}:\n"
+        #     for sub in digest_dict[profession]:
+        #         telegram_digest += f"    <a href='{telegraph_links_dict[sub]}'><b>{sub.capitalize()}:</b> {numbers_vacancies_dict[sub]} предложений</a>\n"
+        #     telegram_digest += "\n"
+
+        if self.profession in variable.manual_posting_shorts:
+            await self.bot_aiogram.send_message(message.chat.id, telegram_digest, disable_web_page_preview=True, parse_mode='html')
+        else:
+            from utils.pictures.pictures_urls.pictures_urls import pictures_urls
+            picture = pictures_urls[self.profession] if self.profession in pictures_urls else pictures_urls['common']
+
+            for id_channel in [int(config['My_channels'][f"{self.profession}_channel"]), variable.channel_id_for_shorts, message.chat.id]:
+                try:
+                    await self.bot_aiogram.send_photo(id_channel, picture, caption=telegram_digest, parse_mode='html')
+                    break
+                except Exception as ex:
+                    print(f'bot can\'t send shorts to channel {id_channel}: {str(ex)}')
+
+        self.sub = None
+        self.profession = None
+        pass
 
 
 def run(double=False, token_in=None):

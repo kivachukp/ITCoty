@@ -34,8 +34,8 @@ tables_for_search_vacancy_existing = [admin_database, 'archive']
 # all_tables_for_vacancy_search = ['designer', 'game', 'product', 'mobile', 'pm', 'sales_manager', 'analyst', 'frontend',
 #                      'marketing', 'devops', 'hr', 'backend', 'qa', 'junior', admin_database, archive_database]
 
-profession_list_for_pushing_by_schedule = ['marketing', 'sales_manager', 'analyst', 'designer', 'pm', 'qa', 'devops',
-                                           'mobile', 'game', 'frontend', 'backend']
+profession_list_for_pushing_by_schedule = ['hr', 'game', 'marketing', 'sales_manager', 'analyst', 'designer', 'pm', 'qa', 'devops',
+                                           'mobile', 'frontend', 'backend']
 all_tables_for_vacancy_search = []
 all_tables_for_vacancy_search.extend([admin_database, archive_database])
 all_tables_for_vacancy_search.extend(valid_professions)
@@ -65,7 +65,7 @@ path_log_check_profession = "./excel/send_log_txt.txt"
 report_file_not_actual_vacancy = "./excel/not_actual_vacancies.txt"
 shorts_copy_path = "./excel/copy_shorts.txt"
 
-sites_search_words = ['designer', 'ui', 'junior', 'стажер', 'стажировка', 'product manager', 'project manager', 'python', 'php']
+sites_search_words = ['junior', 'стажер', 'designer', 'ui', 'стажировка', 'product manager', 'project manager', 'python', 'php']
 
 table_list_for_checking_message_in_db = ['admin_last_session', 'archive', 'reject']
 
@@ -241,6 +241,7 @@ help_text = '/log or /logs - get custom logs (useful for developer\n' \
             '⛔️/transpose_no_sort_to_archive - all no_sort to archive\n' \
             '/update_salary_field_usd - add usd fields' \
             '/add_vacancies_table' \
+            '/refactoring_vacancy_salary - it has been made for replace not valid values in salary fields' \
             '----------------------------------------------------\n\n' \
             '---------------- FILES: ----------------\n' \
             '/report_push_shorts - shorts report \n' \
@@ -277,6 +278,7 @@ help_text = '/log or /logs - get custom logs (useful for developer\n' \
             '✅/refresh - to get the professions in excel format in all vacancies throgh the new filters logic (without rewriting)\n' \
             '✅/check_doubles - remove the vacancy"s doubles\n' \
             '✅/remove_completed_professions - remove complete professions\n' \
+            '/post_to_telegraph' \
             '---------------------------------------------------\n\n' \
             '---------------- STATISTICS: ----------------\n' \
             '/how_many_vacancies_published - get the statistic file (created by Anna)\n' \
@@ -334,3 +336,5 @@ help_text = '/log or /logs - get custom logs (useful for developer\n' \
 preview_fields_for_web = "id, profession, vacancy, company, " \
                      "job_type, city, salary, created_at, level, salary_from_usd_month, salary_to_usd_month"
 vacancies_database = 'vacancies'
+manual_posting_shorts = ['junior']
+hard_pushing_time_hour = [10, 30]

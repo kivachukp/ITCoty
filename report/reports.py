@@ -3,6 +3,7 @@ from db_operations.scraping_db import DataBaseOperations
 from report import report_variables
 
 class Reports:
+    report_file_path = report_variables.report_file_path
 
     def __init__(self, **kwargs):
         self.show_in_console = kwargs['show_in_console'] if 'show_in_console' in kwargs else None
@@ -47,7 +48,6 @@ class Reports:
                 self.excel_sheet[report_type][key].append(self.excel_row[report_type][key])
             if self.show_in_console:
                 self.print_data(report_type)
-
             self.excel_row = {}
 
     def print_data(self, report_type):

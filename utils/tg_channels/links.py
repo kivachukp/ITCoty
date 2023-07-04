@@ -126,3 +126,25 @@ list_links = [
     'https://t.me/jobzilla_ua',
     'https://t.me/workforukrainianas',
 ]
+
+digest_links = [
+    'https://t.me/young_june',
+    'https://t.me/helpukrainiansjooble',
+    'https://t.me/juno_jobs',
+    'https://t.me/remotejun',
+    'https://t.me/jobforjunior',
+    'https://t.me/myresume_ru',
+    'https://t.me/relocaty_jobs',
+    'https://t.me/remoters',
+    'https://t.me/young_relocate',
+    'https://t.me/joinchat/AAAAAE41V66UBtfXtuSrpg',
+    'https://t.me/relocateme',
+    'https://t.me/it_vakansii_jobs',
+    'https://t.me/belarusitwant',
+    'https://t.me/kpi_work',
+    'https://t.me/outstaff_it',
+    'https://t.me/itoutstaff',
+    'https://t.me/digital_partners_chat',
+    'https://t.me/aplaywork',
+    'https://t.me/outjob',
+]
