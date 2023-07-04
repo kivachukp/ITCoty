@@ -29,6 +29,7 @@ from helper_functions.cities_and_countries.cities_parser import CitiesAndCountri
 from sites.scraping_hhkz import HHKzGetInformation
 from sites.scraping_praca import PracaGetInformation
 from telegram_chats.scraping_telegramchats2 import WriteToDbMessages, main
+from telegram_chats.scraping_telegram_digest import DigestParser
 from sites.parsing_sites_runner import SitesParser, parser_sites
 from logs.logs import Logs
 from sites.scraping_dev import DevGetInformation
@@ -1490,6 +1491,11 @@ class InviteBot():
         async def update_job_types(message: types.Message):
             await update_job_types(message)
 
+        @self.dp.message_handler(commands=['digest'])
+        async def parse_digest(message: types.Message):
+            print("START0")
+            await parse_digest(message)
+
         @self.dp.message_handler(commands=['id'])
         async def get_logs(message: types.Message):
             # 311614392
@@ -2167,7 +2173,6 @@ class InviteBot():
 
             else:
                 await self.bot_aiogram.send_message(message.chat.id, 'Для авторизации нажмите /start')
-
         async def invite_users(message, channel):
             logs.write_log(f"invite_bot_2: invite_users: if marker")
             msg = None
@@ -3105,6 +3110,9 @@ class InviteBot():
                     sites_parser = SitesParser(client=self.client, bot_dict=bot_dict, report=self.report)
 
                 await sites_parser.call_sites()
+
+                digest_parser = DigestParser(client=self.client, bot_dict=bot_dict, report=self.report)
+                await digest_parser.main_start()
 
                 self.db.push_to_db_common(
                     table_name='parser_at_work',
@@ -4175,7 +4183,11 @@ class InviteBot():
         async def copy_prof_tables_to_archive_prof_tables():
             pass
 
-
+        async def parse_digest(message):
+            self.digest_parser = DigestParser(client=self.client,
+                                              bot_dict={'bot': self.bot_aiogram, 'chat_id': message.chat.id},
+                                              report=self.report)
+            await self.digest_parser.main_start()
 
         # start_polling(self.dp)
         executor.start_polling(self.dp, skip_updates=True)
