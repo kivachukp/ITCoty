@@ -48,7 +48,6 @@ class Reports:
                 self.excel_sheet[report_type][key].append(self.excel_row[report_type][key])
             if self.show_in_console:
                 self.print_data(report_type)
-
             self.excel_row = {}
 
     def print_data(self, report_type):

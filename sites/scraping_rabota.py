@@ -350,9 +350,9 @@ class RabotaGetInformation:
         # -------------------- check what is current session --------------
         self.current_session = await self.helper_parser_site.get_name_session()
         self.list_links= [vacancy_url]
-        response = await self.get_content_from_link(return_raw_dictionary)
+        await self.get_content_from_link(return_raw_dictionary)
         self.browser.quit()
-        return response
+        return self.response
 
     def normalize_date(self, date):
         convert = {
