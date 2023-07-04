@@ -20,16 +20,16 @@ smm = {
 # marketing1
 smm['mex'] = set(smm['mex']).union(set(marketing['mex'])).union(set(smm['mex2']))
 
-copyrighter = {
-    'ma': pattern['marketing']['sub']['copyrighter']['ma'],
-    'ma2': pattern['marketing']['sub']['copyrighter']['ma2'],
-    'mdef': pattern['marketing']['sub']['copyrighter']['mdef'],
-    'mex': pattern['marketing']['sub']['copyrighter']['mex'],
-    'mex2': pattern['marketing']['sub']['copyrighter']['mex2'],
-    'mincl': pattern['marketing']['sub']['copyrighter']['mincl'],
+copywriter = {
+    'ma': pattern['marketing']['sub']['copywriter']['ma'],
+    'ma2': pattern['marketing']['sub']['copywriter']['ma2'],
+    'mdef': pattern['marketing']['sub']['copywriter']['mdef'],
+    'mex': pattern['marketing']['sub']['copywriter']['mex'],
+    'mex2': pattern['marketing']['sub']['copywriter']['mex2'],
+    'mincl': pattern['marketing']['sub']['copywriter']['mincl'],
 }
 # marketing2
-copyrighter['mex'] = set(copyrighter['mex']).union(set(marketing['mex'])).union(set(copyrighter['mex2']))
+copywriter['mex'] = set(copywriter['mex']).union(set(marketing['mex'])).union(set(copywriter['mex2']))
 
 seo = {
     'ma': pattern['marketing']['sub']['seo']['ma'],
@@ -121,7 +121,7 @@ tech_writer['mex'] = set(tech_writer['mex']).union(set(marketing['mex'])).union(
 
 marketing['sub'] = {
     'smm': smm,
-    'copyrighter': copyrighter,
+    'copywriter': copywriter,
     'seo': seo,
     'link_builder': link_builder,
     'media_buyer': media_buyer,
