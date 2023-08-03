@@ -1,8 +1,9 @@
+import asyncio
 import configparser
 import random
 import re
 import time
-
+from helper_functions.helper_functions import split_text_limit
 from telegraph import Telegraph
 from utils.pictures.pictures_urls.pictures_urls import pictures_urls
 
@@ -29,7 +30,8 @@ class TelegraphPoster:
                     else:
                         time_sleep = 15
                     time.sleep(time_sleep+2)
-            break
+                elif "CONTENT_TOO_BIG" in ex.args[0]:
+                    print(ex)
 
 
     def telegraph_post_digests(self, shorts_dict, profession):
@@ -44,14 +46,24 @@ class TelegraphPoster:
         telegraph_links_dict = {}
         numbers_vacancies_dict = {}
         for sub in shorts_dict:
-            body = f"<img src={pictures_urls[sub.lower()]}>" if sub.lower() in pictures_urls else f"<img src={pictures_urls['common']}><br>"
-            body += f"Ещё больше вакансий и стажировок в <a href='{profession_channel_link}'><b>телеграм канале {profession.title()}</b></a><br><br>"
+            picture_title = f"<img src={pictures_urls[sub.lower()]}>" if sub.lower() in pictures_urls else f"<img src={pictures_urls['common']}><br>"
+            additional_title = f"Ещё больше вакансий и стажировок в <a href='{profession_channel_link}'><b>телеграм канале {profession.title()}</b></a><br><br>"
+            body = picture_title
+            body += additional_title
             body += shorts_dict[sub].split('\n\n', 1)[1].replace('\n\n', '<br><br>')
-
-            numbers_vacancies_dict[sub] = len(re.findall(r"a href", body)) - 1
             title = shorts_dict[sub].split('\n\n', 1)[0].replace("#", '')
-            telegraph_links_dict[sub] = self.telegraph_post(title, body)
-            print(telegraph_links_dict[sub])
+
+            if len(body) > 32798:
+                body_list = split_text_limit(body, 32798-len(picture_title)-len(additional_title), "<br><br>")
+                for counter in range(0, len(body_list)):
+                    sub_multi = f"{sub} (part {counter+1})" if counter > 0 else sub
+                    numbers_vacancies_dict[sub_multi] = len(re.findall(r"a href", body_list[counter])) - 1
+                    telegraph_links_dict[sub_multi] = self.telegraph_post(f"{title} (part {counter+1})", f"{picture_title+additional_title+body_list[counter] if counter > 0 else body_list[counter]}")
+                    print(telegraph_links_dict[sub_multi])
+            else:
+                numbers_vacancies_dict[sub] = len(re.findall(r"a href", body)) - 1
+                telegraph_links_dict[sub] = self.telegraph_post(title, body)
+                print(telegraph_links_dict[sub])
         return {'telegraph_links_dict': telegraph_links_dict, 'numbers_vacancies_dict': numbers_vacancies_dict}
 
 

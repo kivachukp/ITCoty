@@ -25,6 +25,7 @@ from utils.additional_variables import additional_variables as variable
 import requests
 from invite_bot_ver2 import InviteBot, start_hardpushing
 from _apps.endpoints.predictive_method import Predictive
+from _apps.endpoints.client_init import ClientTelethon
 
 db=DataBaseOperations()
 vacancy_search = VacancyFilter()
@@ -47,6 +48,7 @@ con = psycopg2.connect(
 )
 
 admin_table = variable.admin_copy
+
 
 async def main_endpoints():
     app = Flask(__name__)
@@ -80,41 +82,41 @@ async def main_endpoints():
     async def hello_world():
         return "It's the empty page"
 
-    @app.route("/hard-push")
-    async def hard_push():
-        message = None
-        bot = InviteBot(telethon_username='second_username')
+    # @app.route("/hard-push")
+    # async def hard_push():
+    #     message = None
+    #     bot = InviteBot(telethon_username='second_username')
+    #
+    #     if not message:
+    #         message = Message()
+    #         message.chat = Chat()
+    #         message.chat.id = variable.id_developer
+    #
+    #     await bot.hard_pushing_by_schedule(
+    #         message=message,
+    #         profession_list=variable.profession_list_for_pushing_by_schedule
+    #     )
 
-        if not message:
-            message = Message()
-            message.chat = Chat()
-            message.chat.id = variable.id_developer
+    # @app.route("/post-everything")
+    # async def post_everything():
+    #     await InviteBot().push_shorts_attempt_to_make_multi_function(
+    #         message=None,
+    #         callback_data='each',
+    #         hard_pushing=True,
+    #         hard_push_profession='*'
+    #     )
+    #     return {'response': 'Your request has been approved'}
 
-        await bot.hard_pushing_by_schedule(
-            message=message,
-            profession_list=variable.profession_list_for_pushing_by_schedule
-        )
-
-    @app.route("/post-everything")
-    async def post_everything():
-        await InviteBot().push_shorts_attempt_to_make_multi_function(
-            message=None,
-            callback_data='each',
-            hard_pushing=True,
-            hard_push_profession='*'
-        )
-        return {'response': 'Your request has been approved'}
-
-    @app.route("/post-approved")
-    async def post_approved():
-        await InviteBot().push_shorts_attempt_to_make_multi_function(
-            message=None,
-            callback_data='each',
-            hard_pushing=True,
-            hard_push_profession='*',
-            only_approved_vacancies=True
-        )
-        return {'response': 'Your request has been approved'}
+    # @app.route("/post-approved")
+    # async def post_approved():
+    #     await InviteBot().push_shorts_attempt_to_make_multi_function(
+    #         message=None,
+    #         callback_data='each',
+    #         hard_pushing=True,
+    #         hard_push_profession='*',
+    #         only_approved_vacancies=True
+    #     )
+    #     return {'response': 'Your request has been approved'}
 
     # the endpoint for get vacancies by SQL request
     @app.route("/get-vacancies-by-query", methods = ['POST'])
@@ -335,6 +337,98 @@ async def main_endpoints():
         responses_dict = {'numbers': len(responses_dict), 'vacancies': responses_dict}
         return responses_dict
 
+# --------------------- admin panel --------------------------
+    @app.route("/admin", methods=['GET'])
+    async def admin():
+        profession = request.args.get('prof')
+        approve = request.args.get('approve')
+        table = request.args.get('table')
+        limit = request.args.get('limit')
+        return await get_admin_vacancies(profession, approve, table, limit)
+
+    async def get_admin_vacancies(profession, approve, table, limit):
+        if profession == 'junior':
+            pass
+        error = False
+        ex = ''
+        if not table:
+            table = variable.admin_database
+        approve = True if approve and approve.lower() == 'true' else False
+        approve = "approved <> 'approves by admin'" if not approve else ''
+
+        profession = f"profession LIKE '%{profession}%'" if profession else ''
+
+        query = "WHERE " if profession or approve else ""
+        if query:
+            for item in [profession, approve]:
+                if item:
+                    query += f"{item} AND "
+        try:
+            responses = db.get_all_from_db(
+                table_name=table,
+                param=query[:-4] if query else '',
+                field=variable.admin_table_fields
+            )
+        except Exception as ex:
+            responses = []
+            error = True
+
+        if error or type(responses) is str or not responses:
+            print(ex)
+            return {"error": responses if responses else str(ex)}
+
+        responses_list = []
+        for response in responses:
+            responses_list.append(await helper.to_dict_from_admin_response(response, variable.admin_table_fields))
+
+        limit = int(limit) if limit and limit.isdigit() and int(limit) < len(responses_list) else len(responses_list)
+        return {'amount': len(responses_list[:limit]), 'vacancies': responses_list[:limit]}
+
+    @app.route("/admin-approve", methods=['POST'])
+    async def admin_approve():
+        card = request.json
+        response = db.update_table_multi(
+            table_name=variable.admin_database,
+            param=f"WHERE id={card['id']}",
+            values_dict=card
+        )
+        return {'response': True if response else False}
+
+    @app.route("/admin-delete/<int:id>", methods=['DELETE'])
+    async def admin_delete(id):
+        transfer_response = db.transfer_vacancy(
+            table_from=variable.admin_database,
+            table_to=variable.archive_database,
+            id=int(id)
+        )
+        delete_response = db.delete_data(
+            table_name=variable.admin_database,
+            param=f"WHERE id={int(id)}"
+        )
+        return {'transfer_response': True if transfer_response else False, 'delete_response': True if delete_response else False}
+
+    @app.route("/admin-push", methods=['GET'])
+    async def admin_push():
+        token = request.args.get('token')
+        prof = request.args.get('prof')
+        prof = 'junior' if not prof else prof
+        chat_id = request.args.get('chat_id')
+
+        ct = ClientTelethon()
+        client = ct.init()
+
+        # loop = asyncio.get_event_loop()
+        # loop.create_task(client.start())
+        # loop.create_task(client.start())
+
+        bot = InviteBot(token_in=token, telethon_client=client)
+        await bot.run_pushing_from_admin_throw_admin_panel(chat_id=chat_id, profession=prof)
+
+        # loop.stop()
+        return {}
+
+# --------------------- admin panel END --------------------------
+
     async def get_single_vacancies_for_web(vacancy_id):
         response = db.get_all_from_db(
                     table_name=vacancies_database,
@@ -554,6 +648,7 @@ async def main_endpoints():
     async def get_single_vacancy_for_web():
         vacancy_id = request.args.get('id')
         return await get_single_vacancies_for_web(vacancy_id)
+
 
 def run_endpoints():
     asyncio.run(main_endpoints())

@@ -17,8 +17,6 @@ from aiogram.dispatcher.filters import Text
 from aiogram.dispatcher.filters.state import StatesGroup, State
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup, InlineKeyboardMarkup, InlineKeyboardButton, Message, Chat
 from aiogram.utils import executor
-from aiogram.utils.executor import start_polling
-from asgiref.sync import sync_to_async, async_to_sync
 from telethon.sync import TelegramClient
 from telethon.tl import functions
 from telethon.tl.functions.channels import GetParticipantsRequest
@@ -47,7 +45,6 @@ from helper_functions import helper_functions as helper
 from utils.additional_variables import additional_variables as variable
 from patterns._export_pattern import export_pattern
 from patterns.data_pattern._data_pattern import pattern as data_pattern
-from multiprocessing import Process
 from sites.send_log_txt import send_log_txt
 from report.reports import Reports
 from report.report_variables import report_file_path
@@ -76,13 +73,29 @@ con = None
 print(f'Bot started at {datetime.now()}')
 logs.write_log(f'\n------------------ restart --------------------')
 
-
-
-
 class InviteBot():
 
-    def __init__(self, token_in=None, double=False, telethon_username=None):
-        username = telethon_username if telethon_username else settings.username
+    def __init__(self, token_in=None, double=False, telethon_username=None, telethon_client=None):
+        if not telethon_client:
+            username = telethon_username if telethon_username else settings.username
+            if double:
+                self.client = TelegramClient(username_double, int(api_id_double), api_hash_double)
+            else:
+                self.client = TelegramClient(username, int(api_id), api_hash)
+            try:
+                if not self.client.is_connected():
+                    # c = asyncio.get_event_loop()
+                    # c.run_until_complete(self.client.start())
+                    self.client.start()
+            except Exception as e:
+                print(e)
+                self.client.connect()
+        else:
+            self.client = telethon_client
+            if not self.client.is_connected():
+                loop = asyncio.get_event_loop()
+                loop.create_task(self.client.connect())
+            pass
         self.chat_id = None
         self.start_time_listen_channels = datetime.now()
         self.start_time_scraping_channels = None
@@ -128,15 +141,7 @@ class InviteBot():
             'message': '',
             'profession': ''
         }
-        if double:
-            self.client = TelegramClient(username_double, int(api_id_double), api_hash_double)
-        else:
-            self.client = TelegramClient(username, int(api_id), api_hash)
-        try:
-            self.client.start()
-        except Exception as e:
-            print(e)
-            self.client.connect()
+        # self.start_client()
         self.report = Reports(show_in_console=False)
         self.db = DataBaseOperations(report=self.report)
         self.tg_parser = WriteToDbMessages(report=self.report)
@@ -287,6 +292,9 @@ class InviteBot():
         class Form_pick_up_forcibly_from_admin(StatesGroup):
             profession = State()
 
+        class Form_reduce(StatesGroup):
+            date = State()
+
         @self.dp.message_handler(commands=['start'])
         async def send_welcome(message: types.Message):
 
@@ -327,6 +335,19 @@ class InviteBot():
                 text_list = [variable.help_text]
             for text in text_list:
                 await self.bot_aiogram.send_message(message.chat.id, text)
+
+        @self.dp.message_handler(commands=['developer_help'])
+        async def get_courses_data(message: types.Message):
+            await helper.clean_argerator_id(db_class=self.db)
+
+        @self.dp.message_handler(commands=['get_courses_data'])
+        async def get_courses_data(message: types.Message):
+            await self.bot_aiogram.send_message(message.chat.id, 'Please wait few minutes')
+            from sites.scraping_geek_courses import Courses
+            courses = Courses()
+            common_dict = await courses.get_content()
+            if common_dict:
+                await self.send_file_to_user(message=message, path=variable.excel_name_courses)
 
         @self.dp.message_handler(commands=['get'])
         async def silent_get_news(message: types.Message):
@@ -641,7 +662,7 @@ class InviteBot():
 
         @self.dp.message_handler(commands=['rollback_last_short_session'])
         async def rollback_by_number_short_session_command(message: types.Message):
-            await rollback_by_number_short_session(
+            await self.rollback_by_number_short_session(
                 message=message
             )
 
@@ -656,7 +677,7 @@ class InviteBot():
                 data['short_session_name'] = message.text
                 short_session_name = message.text
             await state.finish()
-            await rollback_by_number_short_session(
+            await self.rollback_by_number_short_session(
                 message=message,
                 short_session_number=short_session_name
             )
@@ -1696,6 +1717,48 @@ class InviteBot():
             # await Form.next()
             # await bot_aiogram.send_message(message.chat.id, "Введите номер телефона (отменить /cancel)")
 
+        @self.dp.message_handler(state=Form_reduce.date)
+        async def show_db_records_form(message: types.Message, state: FSMContext):
+            async with state.proxy() as data:
+                data['date'] = message.text
+                date = message.text
+            await state.finish()
+            show = ShowProgress({'bot': self.bot_aiogram, 'chat_id': message.chat.id})
+            professions = set(variable.valid_professions).difference(set(variable.manual_posting_shorts))
+            for profession in professions:
+
+                await self.bot_aiogram.send_message(message.chat.id, f'profession: {profession}')
+                irrelevant_vacancies = self.db.get_all_from_db(
+                    table_name=variable.admin_database,
+                    param=f"WHERE profession='{profession}' AND DATE(created_at) < '{date}'",
+                    field=variable.admin_table_fields
+                )
+
+                if irrelevant_vacancies and type(irrelevant_vacancies) in [tuple, list, set]:
+                    n = 0
+                    length = len(irrelevant_vacancies)
+                    await show.reset_percent()
+                    await show.start()
+
+                    for vacancy in irrelevant_vacancies:
+                        vacancy_dict = await helper.to_dict_from_admin_response(vacancy, variable.admin_table_fields)
+                        profession_list = vacancy_dict['profession'].split(', ')
+                        if len(profession_list) > 1:
+                            profession_list.remove(profession)
+                            self.db.update_table(table_name=variable.admin_database, field='profession', value=", ".join(profession_list))
+                        else:
+                            transfer = self.db.transfer_vacancy(table_from=variable.admin_database, table_to=variable.archive_database, id=vacancy_dict['id'], output_text=f"{irrelevant_vacancies.index(vacancy)} vacancy has been transferred")
+                            if transfer:
+                                self.db.delete_data(table_name=variable.admin_database, param=f"WHERE id={vacancy_dict['id']}", output_text=f"{irrelevant_vacancies.index(vacancy)} delete")
+                            else:
+                                print('!!!!Vacancy has been not transferred!!!!!!')
+                        n += 1
+                        await show.show_the_progress(message=None, current_number=n, end_number=length)
+                else:
+                    await self.bot_aiogram.send_message(message.chat.id, "Not vacancies for transfer")
+            await self.bot_aiogram.send_message(message.chat.id, "Done")
+
+
         async def client_sign_in(message):
             try:
 
@@ -1742,14 +1805,10 @@ class InviteBot():
             if callback.data == 'one_day':
                 await output_one_day(callback.message)
 
-            if callback.data == 'go_by_admin':  # next step if callback.data[2:] in self.valid_profession_list:
-                # make the keyboard with all professions
-                # if int(callback.message.from_user.id) in variable.white_admin_list:
+            if callback.data == 'go_by_admin':
                 self.markup = await compose_inline_keyboard(prefix='admin')
                 await self.bot_aiogram.send_message(callback.message.chat.id, 'choose the channel for vacancy checking',
                                                     reply_markup=self.markup)
-                # else:
-                #     await self.bot_aiogram.send_message(callback.message.chat.id, "Sorry, You have not the permissions")
 
             if callback.data[0:5] == 'admin':
                 tables = self.db.get_information_about_tables_and_fields(only_tables=True)
@@ -1795,10 +1854,11 @@ class InviteBot():
                 # print(datetime.now().strftime('%Y-%m-%d'))
 
             if callback.data == 'hard_push':
-                button_all_vacancies = InlineKeyboardButton('all', callback_data='all')
-                button_each_vacancy = InlineKeyboardButton('choose profession', callback_data='each_profession')
+                button_all_vacancies = InlineKeyboardButton('ALL PROFESSION', callback_data='all')
+                button_each_vacancy = InlineKeyboardButton('CHOOSE THE PROFESSION', callback_data='each_profession')
                 markup = InlineKeyboardMarkup()
-                markup.row(button_all_vacancies, button_each_vacancy)
+                markup.add(button_all_vacancies)
+                markup.add(button_each_vacancy)
                 await self.bot_aiogram.send_message(callback.message.chat.id, "It's the pushing without admin",
                                                     reply_markup=markup)
 
@@ -1810,23 +1870,48 @@ class InviteBot():
                                                                               'the admin panel will be locked until the end of the operation. '
                                                                               'Or press the unlock button (only available to you)',
                                                                               reply_markup=unlock_kb)
-                helper.add_to_report_file(
-                    path=variable.path_push_shorts_report_file,
-                    write_mode='a',
-                    text=f"[BUTTON] shorts callback.data: {callback.data}\n"
-                )
+                # helper.add_to_report_file(
+                #     path=variable.path_push_shorts_report_file,
+                #     write_mode='a',
+                #     text=f"[BUTTON] shorts callback.data: {callback.data}\n"
+                # )
 
-                self.manual_admin_shorts = asyncio.create_task(self.push_shorts_attempt_to_make_multi_function(
-                    message=callback.message,
-                    callback_data=callback.data
+                # self.manual_admin_shorts = asyncio.create_task(self.push_shorts_attempt_to_make_multi_function(
+                #     message=callback.message,
+                #     callback_data=callback.data
+                # )
+                # )
+                profession = callback.data.split(' ')[-1]
+                from _apps.shorts_poster.shorts_poster import ShortsPoster
+                short_poster = ShortsPoster(
+                    bot=self.bot_aiogram,
+                    report=self.report,
+                    db=self.db,
+                    variable=variable,
+                    helper=helper,
+                    bot_class=self,
+                    telegraph_poster=TelegraphPoster(),
+                    client=self.client,
+                    config=config
                 )
-                )
-
-                await self.manual_admin_shorts
+                try:
+                    await short_poster.compose_and_send_short(
+                        message=callback.message,
+                        hard_push_profession=[profession],
+                        get_vacancies_from_tg_admin=True
+                    )
+                    pass
+                except Exception as e:
+                    print('error:', e)
+                    pass
+                #
+                # await self.manual_admin_shorts
                 self.manual_admin_shorts = None
                 if self.unlock_message:
                     await self.unlock_message.delete()
                 self.manual_admin_shorts = None
+                keyboard = await self.compose_keyboard_in_bar(buttons=['Post to Telegraph'])
+                await self.bot_aiogram.send_message(callback.message.chat.id, 'You can change the previous shorts and press the button for public and get telegraph final shorts', reply_markup=keyboard)
 
             if callback.data == 'get_news':
                 self.parser_task = asyncio.create_task(get_news(callback.message))
@@ -1853,28 +1938,59 @@ class InviteBot():
                     await self.unlock_message_autopushing.delete()
                 self.autopushing_task = None
 
-                # await self.push_shorts_attempt_to_make_multi_function(
-                #     message=callback.message,
-                #     callback_data=callback.data,
-                #     hard_pushing=True,
-                #     hard_push_profession='*'
-                # )
-                # # await hard_post(callback.message)
-
             if callback.data == 'each_profession':
                 markup = await compose_inline_keyboard(prefix='each')
                 await self.bot_aiogram.send_message(callback.message.chat.id, "Choose profession", reply_markup=markup,
                                                     parse_mode='html')
 
+            # if callback.data == 'each_profession_only_approved_by_admin':
+            #     markup = await compose_inline_keyboard(prefix='approved_by_admin')
+            #     await self.bot_aiogram.send_message(callback.message.chat.id, "Choose profession", reply_markup=markup,
+            #                                         parse_mode='html')
+            #
+
+
             elif 'each' in callback.data:
                 channel = callback.data.split('/')[1]
-                # await hard_post(callback.message, channels=channel)
-                await self.push_shorts_attempt_to_make_multi_function(
-                    message=callback.message,
-                    callback_data=callback.data,
-                    hard_pushing=True,
-                    hard_push_profession=channel
+                all_button = InlineKeyboardButton('ALL', callback_data=f'without_approved/{channel}')
+                approved_button = InlineKeyboardButton('APPROVED BU ADMIN ONLY', callback_data=f'approved_by_admin/{channel}')
+                markup = InlineKeyboardMarkup()
+                markup.add(all_button, approved_button)
+                await self.bot_aiogram.send_message(callback.message.chat.id, 'CHOOSE', reply_markup=markup)
+
+            elif 'without_approved' in callback.data or 'approved_by_admin' in callback.data:
+                profession = callback.data.split('/')[1]
+                only_approved_by_admin = True if 'approved_by_admin' in callback.data else False
+
+                from _apps.shorts_poster.shorts_poster import ShortsPoster
+                short_poster = ShortsPoster(
+                    bot=self.bot_aiogram,
+                    report=self.report,
+                    db=self.db,
+                    variable=variable,
+                    helper=helper,
+                    bot_class=self,
+                    telegraph_poster=TelegraphPoster(),
+                    client=self.client,
+                    config=config
                 )
+                try:
+                    await short_poster.compose_and_send_short(
+                        message=callback.message,
+                        hard_push_profession=[profession],
+                        get_vacancies_from_tg_admin=False,
+                        only_approved_by_admin=only_approved_by_admin
+                    )
+                    pass
+                except Exception as e:
+                    print('error:', e)
+                    pass
+                # await self.push_shorts_attempt_to_make_multi_function(
+                #     message=callback.message,
+                #     callback_data=callback.data,
+                #     hard_pushing=True,
+                #     hard_push_profession=channel
+                # )
 
             if callback.data == 'choose_one_channel':  # compose keyboard for each profession
 
@@ -1903,6 +2019,45 @@ class InviteBot():
                 message_for_send = await self.show_statistics()
                 await self.bot_aiogram.send_message(callback.message.chat.id, message_for_send, parse_mode='html',
                                                     reply_markup=self.markup)
+
+            if "rollback_short_session" in callback.data:
+                short_session = callback.data.split("|")[1]
+                await self.rollback_by_number_short_session(message=callback.message,
+                                                            short_session_number=short_session)
+
+            if callback.data == 'restore':
+                but_reduce_database = InlineKeyboardButton('🔑 REDUCE VACANCIES AMOUNT BY DATE', callback_data='reduce_database')
+                reset_field_sent_to = InlineKeyboardButton('🗝 RESET AGGREGATOR SENDING NUMBERS ', callback_data='reset_aggregator_sending_numbers')
+                keyboard = InlineKeyboardMarkup()
+                keyboard.add(but_reduce_database)
+                keyboard.add(reset_field_sent_to)
+                await self.bot_aiogram.send_message(callback.message.chat.id, 'CHOOSE', reply_markup=keyboard)
+
+            if callback.data == "reduce_database":
+                await Form_reduce.date.set()
+                await self.bot_aiogram.send_message(callback.message.chat.id, "Type the date from which to leave the vacancies (FORMAT: YYYY-MM-DD)")
+
+            if callback.data == "reset_aggregator_sending_numbers":
+                with_manual_button = InlineKeyboardButton('RESET ALL PROFESSIONS', callback_data='reset_aggregator_sending_numbers_with_manual')
+                except_manual_button = InlineKeyboardButton('RESET EXCEPT MANUAL', callback_data='reset_aggregator_sending_numbers_except_manual')
+                keyboard = InlineKeyboardMarkup()
+                keyboard.row(except_manual_button, with_manual_button)
+                await self.bot_aiogram.send_message(callback.message.chat.id, "CHOOSE", reply_markup=keyboard)
+
+            if callback.data == "reset_aggregator_sending_numbers_except_manual":
+                completed_successfully = await helper.reset_aggregator_sending_numbers(db_class=self.db)
+                text = "Done" if completed_successfully else "Something wrong"
+                await self.bot_aiogram.send_message(callback.message.chat.id, text)
+
+            if callback.data == "reset_aggregator_sending_numbers_with_manual":
+                completed_successfully = await helper.reset_aggregator_sending_numbers(db_class=self.db, reset_all_profession=True)
+                text = "Done" if completed_successfully else "Something wrong"
+                await self.bot_aiogram.send_message(callback.message.chat.id, text)
+
+            if callback.data == 'how_many_vacancies_total':
+                await Form_report_total.date_in.set()
+                await self.bot_aiogram.send_message(callback.message.chat.id,
+                                                    'Type the starting date in format: YYYY-MM-DD not earlier than 2023-01-01')
 
         @self.dp.message_handler(content_types=['text'])
         async def messages(message):
@@ -1958,6 +2113,33 @@ class InviteBot():
                 self.marker = False
 
             else:
+                if message.text == 'ggggg':
+                    config = configparser.ConfigParser()
+                    config.read("./settings/config.ini")
+
+                    from _apps.shorts_poster.shorts_poster import ShortsPoster
+                    short_poster = ShortsPoster(
+                        bot=self.bot_aiogram,
+                        report=self.report,
+                        db=self.db,
+                        variable=variable,
+                        helper=helper,
+                        bot_class=self,
+                        telegraph_poster=TelegraphPoster(),
+                        client=self.client,
+                        config=config
+                    )
+                    try:
+                        await short_poster.compose_and_send_short(
+                            message=message,
+                            hard_push_profession='junior',
+
+                        )
+                        pass
+                    except Exception as e:
+                        print('error:', e)
+                        pass
+
                 if message.text == '🦖 Search by link' or 'Search by link' in message.text:
                     await Form_check_url_to_add.url.set()
                     await self.bot_aiogram.send_message(message.chat.id, 'Type the vacancy_url to check in db and add')
@@ -2057,12 +2239,12 @@ class InviteBot():
                     but_excel_one_day_vacancies = InlineKeyboardButton('🦤 REPORT: ONE DAY (EXCEL)', callback_data='one_day')
                     but_get_news = InlineKeyboardButton('🔋 PARSER: GET NEWS', callback_data='get_news')
                     but_hard_push = InlineKeyboardButton('🧨 HARD PUSHING', callback_data='hard_push')
-
+                    but_reduce_database = InlineKeyboardButton('🙅🏻‍♂️ RESTORE', callback_data='restore')
+                    but_how_many_vacancies_total = InlineKeyboardButton('REPORT: VACANCIES SOURCE', callback_data='how_many_vacancies_total')
                     # self.markup.row(but_show, but_send_digest_full)
                     # self.markup.row(but_send_digest_full_all, but_separate_channel)
-                    self.markup.add(but_show, but_excel_all_statistics)
+                    self.markup.add(but_show, but_excel_all_statistics, but_get_news, but_how_many_vacancies_total, but_excel_one_day_vacancies, but_reduce_database, but_hard_push, but_do_by_admin)
                     # self.markup.add(but_stat_today)
-                    self.markup.add(but_get_news, but_excel_one_day_vacancies, but_hard_push, but_do_by_admin)
 
                     time_start = await get_time_start()
                     await self.bot_aiogram.send_message(
@@ -3101,8 +3283,8 @@ class InviteBot():
                 # # -----------------------parsing telegram channels -------------------------------------
                 bot_dict = {'bot': self.bot_aiogram, 'chat_id': message.chat.id}
 
-                await main(report=self.report, client=self.client, bot_dict=bot_dict)
-                await self.report.add_to_excel(report_type='parsing')
+                # await main(report=self.report, client=self.client, bot_dict=bot_dict)
+                # await self.report.add_to_excel(report_type='parsing')
 
                 if silent:
                     sites_parser = SitesParser(client=self.client, bot_dict=bot_dict, report=self.report)
@@ -3731,99 +3913,6 @@ class InviteBot():
                     end_number=length
                 )
 
-        async def rollback_by_number_short_session(message, short_session_number=None):
-            msg = await self.bot_aiogram.send_message(message.chat.id, "Please wait a few seconds")
-
-            # responses1 = self.db.get_all_from_db(
-            #     table_name='devops',
-            #     param="WHERE short_session_numbers LIKE '%20230207231816%'"
-            #     # field='short_session_numbers'
-            # )
-            # responses_admin = self.db.get_all_from_db(
-            #     table_name=variable.admin_database,
-            #     param="WHERE short_session_numbers LIKE '%20230207231816%'"
-            #     # field='short_session_numbers'
-            # )
-            # responses_archive = self.db.get_all_from_db(
-            #     table_name=variable.archive_database,
-            #     param="WHERE short_session_numbers LIKE '%20230207231816%'"
-            #     # field='short_session_numbers'
-            # )
-            pass
-            # layout: backend: 070220230134
-            bot_dict = {'bot': self.bot_aiogram, 'chat_id': message.chat.id}
-            progress = ShowProgress(bot_dict)
-
-            if not short_session_number:
-                short_session_number = self.db.get_all_from_db(
-                    table_name=variable.short_session_database,
-                    param=f"WHERE id=(SELECT MAX(id) FROM {variable.short_session_database})",
-                    field='session_name',
-                    without_sort=True
-                )[0][0]
-
-            # add tags
-            table_list = []
-            table_list.extend(variable.valid_professions)
-            table_list.append(variable.admin_database)
-            table_list.append(variable.archive_database)
-
-            fields = 'id, profession, short_session_numbers'
-
-            for table_name in table_list:
-                responses = self.db.get_all_from_db(
-                    table_name=table_name,
-                    param=f"WHERE short_session_numbers='{short_session_number}'",
-                    field=variable.admin_table_fields
-                )
-                if responses:
-                    for response in responses:
-                        response_dict = await helper.to_dict_from_admin_response(
-                            response=response,
-                            fields=variable.admin_table_fields
-                        )
-                        if table_name == variable.admin_database:
-                            new_profession = response_dict['short_session_numbers'].split(":")[0].strip()
-                            professions = response_dict['profession']
-                            new_profession = f'{professions}, {new_profession}'
-                            self.db.update_table(
-                                table_name=variable.admin_database,
-                                param=f"WHERE id={response_dict['id']}",
-                                field='profession',
-                                value=new_profession,
-                                output_text="profession was updated"
-                            )
-                            self.db.update_table(
-                                table_name=variable.admin_database,
-                                param=f"WHERE id={response_dict['id']}",
-                                field='short_session_numbers',
-                                value='clear',
-                                output_text="shorts_session was updated"
-                            )
-
-                        elif table_name == variable.archive_database:
-                            new_profession = response_dict['short_session_numbers'].split(":")[0].strip()
-                            professions = response_dict['profession']
-                            new_profession = f'{professions}, {new_profession}'
-                            self.db.update_table(
-                                table_name=variable.admin_database,
-                                param=f"WHERE id={response_dict['id']}",
-                                field='profession',
-                                value=new_profession,
-                                output_text="profession was updated"
-                            )
-                            await self.transfer_vacancy_from_to_table(
-                                id_admin_last_session_table=response_dict['id'],
-                                table_from=variable.archive_database,
-                                table_to=variable.admin_database,
-
-                            )
-                        else:
-                            self.db.delete_data(
-                                table_name=table_name,
-                                param=f"WHERE id={response_dict['id']}"
-                            )
-            await msg.edit_text(f"{msg.text}\nDone! Data has restored")
 
         async def get_vacancies_name_by_profession(message, profession):
             vacancy_name_str = ''
@@ -5139,6 +5228,7 @@ class InviteBot():
         :return:
         """
         # if not self.
+        error = False
         if not prof_stack and vacancy_from_admin_dict:
             prof_stack = vacancy_from_admin_dict['profession']
 
@@ -5149,14 +5239,14 @@ class InviteBot():
 
                 if links_on_prof_channels:
                     links_message = '\n----\nВ этом канале выводятся все собранные вакансии (агрегатор), для вашего удобства мы рекомендуем подписаться на наиболее подходящие для вас каналы (ссылки подобраны в каждом из сообщений):\n'
-                    links_message += f"<a href=\"{config['Links']['junior']}\">Канал с вакансиями для Junior IT специалистов\n</a>"
+                    links_message += f"<a href=\"{config['Links']['junior']}\">Канал с вакансиями для Junior IT специалистов</a>\n"
                     prof_stack = prof_stack.split(', ')
                     if 'junior' in prof_stack:
                         prof_stack.remove('junior')
                     for i_prof in prof_stack:
                         i_prof = i_prof.strip()
                         if i_prof in self.valid_profession_list:
-                            link = f"<a href=\"{config['Links'][i_prof]}\">Канал с вакансиями для {i_prof.title()} IT специалистов\n</a>"
+                            link = f"<a href=\"{config['Links'][i_prof]}\">Канал с вакансиями для {i_prof.title()} IT специалистов</a>\n"
                             links_message += link
                     if (len(links_message) + len(str(vacancy_message['message']))) <= 4096:
                         send_message = vacancy_message['message'] + links_message
@@ -5170,9 +5260,26 @@ class InviteBot():
                     self.last_id_message_agregator += 1
                     await asyncio.sleep(random.randrange(3, 4))
                 except Exception as e:
-                    print('the problem in func push_vacancies_to_agregator_from_admin', e)
+                    if 'tag' in e.args[0]:
+                        print('!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1')
+                        supported_message = re.sub(r"[^bap\"](>)", ' больше ', send_message)
+                        supported_message = re.sub(r"(<)[^bap\/]", " меньше ", supported_message)
+                        # supported_message = re.sub(r"%", " процентов ", supported_message)
+                        try:
+                            await self.bot_aiogram.send_message(int(config['My_channels']['agregator_channel']), supported_message,
+                                                            parse_mode='html', disable_notification=True, disable_web_page_preview=True)
+                            print('step 4')
+                            self.last_id_message_agregator += 1
+                            await asyncio.sleep(random.randrange(3, 4))
+                        except Exception as error_2:
+                            print("error_2: ", error_2)
+                    else:
+                        await self.bot_aiogram.send_message(message.chat.id, f"It has a problem to send to aregator (5202):\n{str(e)}")
+                        print(f'send_message:\n{send_message}')
+                        time.sleep(30)
+                        error = True
 
-                if vacancy_from_admin_dict:
+                if vacancy_from_admin_dict and not error:
                     # prof_list = vacancy_from_admin[0][4].split(', ')
                     # 4. if one that delete vacancy from admin_last_session
                     await self.update_vacancy_admin_last_session(
@@ -5186,6 +5293,7 @@ class InviteBot():
             else:
                 # await bot_aiogram.send_message(message.chat.id, 'It has sent in agregator some time ago')
                 print('It has sent in agregator some time ago')
+        return error
 
     async def get_last_admin_channel_id(self, message, channel=config['My_channels']['admin_channel']):
         chat_id = variable.id_owner if not message else message.chat.id
@@ -5208,7 +5316,7 @@ class InviteBot():
             for i in all_messages:
                 await self.client.delete_messages(peer_channel, i['id'])
         except Exception as e:
-            await self.bot_aiogram.send_message(message.chat.id, f'for admin channel: {e}')
+            await self.bot_aiogram.send_message(message.chat.id, f'get_last_admin_channel_id: {e}')
 
         return last_admin_channel_id
 
@@ -5359,13 +5467,14 @@ class InviteBot():
 
     async def push_shorts_attempt_to_make_multi_function(
             self,
-            message,
-            callback_data,
+            message=None,
+            callback_data=None,
             hard_pushing=False,
             hard_push_profession=None,
             channel_for_pushing=False,
             only_approved_vacancies=False,
-            only_pick_up_from_admin=False
+            only_pick_up_from_admin=False,
+            close_telethon_client=False
     ):
         """
         function push shorts in 3 cases:
@@ -5375,7 +5484,8 @@ class InviteBot():
         """
         # chat_id = variable.id_owner if not message else message.chat.id
         self.db.delete_table(table_name=variable.shorts_database)
-
+        if not callback_data:
+            callback_data = 'each'
         print(1)
         composed_message_dict = {}
         if not message:
@@ -5415,11 +5525,11 @@ class InviteBot():
             self.message_for_send_dict = {}
 
             await sp.reset_percent()
-            helper.add_to_report_file(
-                path=variable.path_push_shorts_report_file,
-                write_mode='a',
-                text=f"callback_data.split()[-1]: {profession}\n"
-            )
+            # helper.add_to_report_file(
+            #     path=variable.path_push_shorts_report_file,
+            #     write_mode='a',
+            #     text=f"callback_data.split()[-1]: {profession}\n"
+            # )
 
             print(4)
             if not hard_pushing:
@@ -5432,7 +5542,7 @@ class InviteBot():
                 # message_for_send = f'<b>Дайджест вакансий для {profession} за {datetime.now().strftime("%d.%m.%Y")}:</b>\n\n'
             else:
                 print(5)
-                query = f"WHERE profession LIKE '%{profession}%' AND approved = 'TRUE'" if only_approved_vacancies else f"WHERE profession LIKE '%{profession}%'"
+                query = f"WHERE profession LIKE '%{profession}%' AND approved='approves by admin'" if only_approved_vacancies else f"WHERE profession LIKE '%{profession}%'"
                 history_messages = self.db.get_all_from_db(
                     table_name=variable.admin_database,
                     param=query,
@@ -5449,7 +5559,7 @@ class InviteBot():
                     message=message,
                     channel=config['My_channels']['agregator_channel']
                 )
-
+                print('self.last_id_message_agregator', self.last_id_message_agregator)
                 print(7)
                 short_session_name = await helper.get_short_session_name(prefix=profession)
                 self.db.write_short_session(short_session_name)
@@ -5590,7 +5700,7 @@ class InviteBot():
                         vacancy_message['message'] = composed_message_dict['composed_message']
                     pass
 
-                    await self.push_vacancies_to_agregator_from_admin(
+                    error = await self.push_vacancies_to_agregator_from_admin(
                         message=message,
                         vacancy_message=vacancy_message,
                         # prof_stack=vacancy_from_admin_dict['profession'],
@@ -5599,78 +5709,78 @@ class InviteBot():
                         links_on_prof_channels=True,
                         # id_admin_last_session_table=response_temp_dict['id_admin_last_session_table']
                     )
+                    if not error:
+                        if "full" in callback_data:
+                            # ---------- the unique operation block for fulls = pushing to prof channel full message ----------
+                            print('push vacancy in channel\n')
+                            print(f"\n{vacancy['message'][0:40]}")
+                            await self.bot_aiogram.send_message(int(config['My_channels'][f'{profession}_channel']),
+                                                                vacancy['message'])
+                            await asyncio.sleep(random.randrange(3, 4))
+                        # ------------------- end of  pushing to prof channel full message -----------------
 
-                    if "full" in callback_data:
-                        # ---------- the unique operation block for fulls = pushing to prof channel full message ----------
-                        print('push vacancy in channel\n')
-                        print(f"\n{vacancy['message'][0:40]}")
-                        await self.bot_aiogram.send_message(int(config['My_channels'][f'{profession}_channel']),
-                                                            vacancy['message'])
-                        await asyncio.sleep(random.randrange(3, 4))
-                    # ------------------- end of  pushing to prof channel full message -----------------
-
-                    elif "shorts" in callback_data:
-                        # I need to get the newest vacancy
-                        vacancy_from_admin = self.db.get_all_from_db(
-                            table_name=variable.admin_database,
-                            # param=f"WHERE id={response_temp_dict['id_admin_last_session_table']}",
-                            param=f"WHERE id={vacancy_from_admin_dict['id']}",
-                            without_sort=True,
-                            field=variable.admin_table_fields
-                        )
-                        # transfer response to dict
-                        vacancy_from_admin_dict = await helper.to_dict_from_admin_response(
-                            response=vacancy_from_admin[0],
-                            fields=variable.admin_table_fields
-                        )
-                        # collect to self.message_for_send_dict by subs
-                        composed_message_dict = await self.compose_message(
-                            one_profession=profession,
-                            vacancy_from_admin_dict=vacancy_from_admin_dict,
-                            full=False
-                        )
-                        print(25)
-                        await self.compose_message_for_send_dict(
-                            composed_message_dict,
-                            profession
-                        )
-                        print(26)
-                        # push to profession tables
-                        await self.compose_data_and_push_to_db(
-                            vacancy_from_admin_dict=vacancy_from_admin_dict,
-                            profession=profession,
-                            shorts_session_name=short_session_name
-                        )
-                        prof_list = vacancy_from_admin_dict['profession'].split(', ')
-                        profession_list['profession'] = [profession, ]
-
-                        print(27)
-                        # update vacancy by profession field
-                        try:
-                            await self.update_vacancy_admin_last_session(
-                                results_dict=None,
-                                profession=profession,
-                                prof_list=prof_list,
-                                # id_admin_last_session_table=response_temp_dict['id_admin_last_session_table'],
-                                id_admin_last_session_table=vacancy_from_admin_dict['id'],
-                                update_profession=True,
-                                update_id_agregator=False,
-                                shorts_session_name=short_session_name,
+                        elif "shorts" in callback_data:
+                            # I need to get the newest vacancy
+                            vacancy_from_admin = self.db.get_all_from_db(
+                                table_name=variable.admin_database,
+                                # param=f"WHERE id={response_temp_dict['id_admin_last_session_table']}",
+                                param=f"WHERE id={vacancy_from_admin_dict['id']}",
+                                without_sort=True,
+                                field=variable.admin_table_fields
                             )
-                        except Exception as ex:
-                            print(f'error: {ex}')
-                            pass
-                        print(28)
-                    if not hard_pushing:
-                        await self.delete_used_vacancy_from_admin_temporary(vacancy,
-                                                                    vacancy_from_admin_dict['id'])
-                    n += 1
-                    await sp.show_the_progress(
-                        message=self.message,
-                        current_number=n,
-                        end_number=length
-                    )
-                    # await show_progress(message, n, length)
+                            # transfer response to dict
+                            vacancy_from_admin_dict = await helper.to_dict_from_admin_response(
+                                response=vacancy_from_admin[0],
+                                fields=variable.admin_table_fields
+                            )
+                            # collect to self.message_for_send_dict by subs
+                            composed_message_dict = await self.compose_message(
+                                one_profession=profession,
+                                vacancy_from_admin_dict=vacancy_from_admin_dict,
+                                full=False
+                            )
+                            print(25)
+                            await self.compose_message_for_send_dict(
+                                composed_message_dict,
+                                profession
+                            )
+                            print(26)
+                            # push to profession tables
+                            await self.compose_data_and_push_to_db(
+                                vacancy_from_admin_dict=vacancy_from_admin_dict,
+                                profession=profession,
+                                shorts_session_name=short_session_name
+                            )
+                            prof_list = vacancy_from_admin_dict['profession'].split(', ')
+                            profession_list['profession'] = [profession, ]
+
+                            print(27)
+                            # update vacancy by profession field
+                            try:
+                                await self.update_vacancy_admin_last_session(
+                                    results_dict=None,
+                                    profession=profession,
+                                    prof_list=prof_list,
+                                    # id_admin_last_session_table=response_temp_dict['id_admin_last_session_table'],
+                                    id_admin_last_session_table=vacancy_from_admin_dict['id'],
+                                    update_profession=True,
+                                    update_id_agregator=False,
+                                    shorts_session_name=short_session_name,
+                                )
+                            except Exception as ex:
+                                print(f'error: {ex}')
+                                pass
+                            print(28)
+                        if not hard_pushing:
+                            await self.delete_used_vacancy_from_admin_temporary(vacancy,
+                                                                        vacancy_from_admin_dict['id'])
+                        n += 1
+                        await sp.show_the_progress(
+                            message=self.message,
+                            current_number=n,
+                            end_number=length
+                        )
+                        # await show_progress(message, n, length)
 
                 if "shorts" in callback_data:
                     if channel_for_pushing:
@@ -5759,11 +5869,11 @@ class InviteBot():
                     write_mode='a',
                     text=f"------------------------\n"
                 )
-                await self.send_file_to_user(
-                    message=message,
-                    path=variable.path_push_shorts_report_file,
-                    send_to_developer=True
-                )
+                # await self.send_file_to_user(
+                #     message=message,
+                #     path=variable.path_push_shorts_report_file,
+                #     send_to_developer=True
+                # )
 
             else:
                 print(f'{profession}: no vacancies')
@@ -5775,6 +5885,8 @@ class InviteBot():
             fields_values_dict={"shorts_at_work": False},
             params="WHERE id=1"
         )
+        if close_telethon_client:
+            await self.client.disconnect()
 
     async def check_all_vacancies_are_closed(self):
         tables = variable.valid_professions.copy
@@ -5876,13 +5988,35 @@ class InviteBot():
                     await asyncio.sleep(10)
                 else:
                     await self.bot_aiogram.send_message(message.chat.id, "Autopushing is starting")
-                    await self.push_shorts_attempt_to_make_multi_function(
-                        message=message,
-                        callback_data="each",
-                        hard_pushing=True,
-                        hard_push_profession=profession_list,
-                        channel_for_pushing=True
+                    # await self.push_shorts_attempt_to_make_multi_function(
+                    #     message=message,
+                    #     callback_data="each",
+                    #     hard_pushing=True,
+                    #     hard_push_profession=profession_list,
+                    #     channel_for_pushing=True
+                    # )
+                    from _apps.shorts_poster.shorts_poster import ShortsPoster
+                    short_poster = ShortsPoster(
+                        bot=self.bot_aiogram,
+                        report=self.report,
+                        db=self.db,
+                        variable=variable,
+                        helper=helper,
+                        bot_class=self,
+                        telegraph_poster=TelegraphPoster(),
+                        client=self.client,
+                        config=config
                     )
+                    try:
+                        await short_poster.compose_and_send_short(
+                            message=message,
+                            hard_push_profession=profession_list,
+                            get_vacancies_from_tg_admin=False
+                        )
+                        pass
+                    except Exception as e:
+                        print('error:', e)
+                        pass
                 today = datetime.now()
                 tomorrow = today + timedelta(days=1)
                 year = int(tomorrow.strftime('%Y'))
@@ -6642,6 +6776,8 @@ class InviteBot():
             from utils.pictures.pictures_urls.pictures_urls import pictures_urls
             picture = pictures_urls[self.profession] if self.profession in pictures_urls else pictures_urls['common']
 
+            # for id_channel in [int(config['My_channels'][f"{self.profession}_channel"]), variable.channel_id_for_shorts, message.chat.id]:
+
             for id_channel in [int(config['My_channels'][f"{self.profession}_channel"]), variable.channel_id_for_shorts, message.chat.id]:
                 try:
                     await self.bot_aiogram.send_photo(id_channel, picture, caption=telegram_digest, parse_mode='html')
@@ -6652,7 +6788,134 @@ class InviteBot():
         self.sub = None
         self.profession = None
         pass
+        return True
 
+    async def rollback_by_number_short_session(self, message, short_session_number=None):
+        msg = await self.bot_aiogram.send_message(message.chat.id, "Please wait a few seconds")
+        if not short_session_number:
+            short_session_number = self.db.get_all_from_db(
+                table_name=variable.short_session_database,
+                param=f"WHERE id=(SELECT MAX(id) FROM {variable.short_session_database})",
+                field='session_name',
+                without_sort=True
+            )[0][0]
+
+        # add tags
+        table_list = []
+        table_list.extend(variable.valid_professions)
+        table_list.append(variable.admin_database)
+        table_list.append(variable.archive_database)
+
+        fields = 'id, profession, short_session_numbers'
+
+        for table_name in table_list:
+            responses = self.db.get_all_from_db(
+                table_name=table_name,
+                param=f"WHERE short_session_numbers='{short_session_number}'",
+                field=variable.admin_table_fields
+            )
+            if responses:
+
+                progress = ShowProgress({'bot': self.bot_aiogram, 'chat_id': message.chat.id})
+                length = len(responses)
+                n = 0
+                await progress.reset_percent()
+                await progress.start()
+
+                for response in responses:
+                    response_dict = await helper.to_dict_from_admin_response(
+                        response=response,
+                        fields=variable.admin_table_fields
+                    )
+                    if table_name == variable.admin_database:
+                        new_profession = response_dict['short_session_numbers'].split(":")[0].strip()
+                        professions = response_dict['profession']
+                        new_profession = f'{professions}, {new_profession}'
+                        self.db.update_table(
+                            table_name=variable.admin_database,
+                            param=f"WHERE id={response_dict['id']}",
+                            field='profession',
+                            value=new_profession,
+                            output_text="profession was updated"
+                        )
+                        self.db.update_table(
+                            table_name=variable.admin_database,
+                            param=f"WHERE id={response_dict['id']}",
+                            field='short_session_numbers',
+                            value='clear',
+                            output_text="shorts_session was updated"
+                        )
+
+                    elif table_name == variable.archive_database:
+                        new_profession = response_dict['short_session_numbers'].split(":")[0].strip()
+                        professions = response_dict['profession']
+                        new_profession = f'{professions}, {new_profession}'
+                        self.db.update_table(
+                            table_name=variable.admin_database,
+                            param=f"WHERE id={response_dict['id']}",
+                            field='profession',
+                            value=new_profession,
+                            output_text="profession was updated"
+                        )
+                        transfer = self.db.transfer_vacancy(
+                            table_from=variable.archive_database,
+                            table_to=variable.admin_database,
+                            id=response_dict['id']
+                        )
+                        # await self.transfer_vacancy_from_to_table(
+                        #     id_admin_last_session_table=response_dict['id'],
+                        #     table_from=variable.archive_database,
+                        #     table_to=variable.admin_database,
+                        if transfer:
+                            self.db.delete_data(
+                                table_name=variable.archive_database,
+                                param=f"WHERE id={response_dict['id']}"
+                        )
+                    else:
+                        self.db.delete_data(
+                            table_name=table_name,
+                            param=f"WHERE id={response_dict['id']}"
+                        )
+                    n += 1
+                    await progress.show_the_progress(message=None, current_number=n, end_number=length)
+
+        await msg.edit_text(f"{msg.text}\nDone! Data has restored")
+
+    async def run_pushing_from_admin_throw_admin_panel(self, chat_id, profession):
+        from _apps.shorts_poster.shorts_poster import ShortsPoster
+        short_poster = ShortsPoster(
+            bot=self.bot_aiogram,
+            report=self.report,
+            db=self.db,
+            variable=variable,
+            helper=helper,
+            bot_class=self,
+            telegraph_poster=TelegraphPoster(),
+            client=self.client,
+            config=config
+        )
+
+        message = Message()
+        message.chat = Chat()
+        message.chat.id = int(chat_id)
+
+        profession_list = profession if type(profession) in [list, tuple, set] else [profession]
+        try:
+            await short_poster.compose_and_send_short(
+                message=message,
+                hard_push_profession=profession_list,
+                get_vacancies_from_tg_admin=False,
+                only_approved_by_admin=True
+            )
+            pass
+        except Exception as e:
+            print('error:', e)
+            pass
+        if self.client.is_connected:
+            self.client.disconnect()
+            print('client has been disconnected')
+        else:
+            print('client not is connection!')
 
 def run(double=False, token_in=None):
     InviteBot(

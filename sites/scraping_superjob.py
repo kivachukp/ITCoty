@@ -353,7 +353,13 @@ class SuperJobGetInformation:
 
 
     async def get_content_from_one_link(self, vacancy_url):
-        self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=None)
+        try:
+            self.browser = webdriver.Chrome(
+                executable_path=chrome_driver_path,
+                options=options
+            )
+        except:
+            self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         # -------------------- check what is current session --------------
         self.current_session = await self.helper_parser_site.get_name_session()
         self.list_links= [vacancy_url]

@@ -7,7 +7,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 from db_operations.scraping_db import DataBaseOperations
 from sites.write_each_vacancy_to_db import write_each_vacancy
-from settings.browser_settings import options
+from settings.browser_settings import options, chrome_driver_path
 from utils.additional_variables.additional_variables import sites_search_words, how_much_pages
 from helper_functions.helper_functions import edit_message, send_message
 from sites.send_log_txt import send_log_txt
@@ -188,7 +188,7 @@ class GorodRabotGetInformation:
             # vacancy_url = re.findall(r'https:\/\/hh.ru\/vacancy\/[0-9]{6,12}', vacancy_url)[0]
             # print('vacancy_url = ', vacancy_url)
         except:
-            vacancy_url = link
+            vacancy_url = i
         links.append(vacancy_url)
 
         print('self.broswer.get(vacancy_url)')
@@ -311,7 +311,7 @@ class GorodRabotGetInformation:
         # elif not english and english_additional:
         #     english = english_additional
 
-        DataBaseOperations(None).write_to_db_companies([company])
+        DataBaseOperations().write_to_db_companies([company])
 
         #-------------------- compose one writting for ione vacancy ----------------
 
@@ -346,7 +346,13 @@ class GorodRabotGetInformation:
 
     async def get_content_from_one_link(self, vacancy_url):
 
-        self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=None)
+        try:
+            self.browser = webdriver.Chrome(
+                executable_path=chrome_driver_path,
+                options=options
+            )
+        except:
+            self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         # -------------------- check what is current session --------------
         self.current_session = await self.helper_parser_site.get_name_session()
         self.list_links= [vacancy_url]

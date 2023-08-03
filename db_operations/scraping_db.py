@@ -300,7 +300,10 @@ class DataBaseOperations:
                 print(e)
             pass
 
-    def delete_data(self, table_name, param):
+    def     delete_data(self, table_name, param, output_text=None):
+        pass
+
+        output_text = f'delete from {table_name}' if not output_text else output_text
 
         if not self.con:
             self.connect_db()
@@ -310,7 +313,7 @@ class DataBaseOperations:
         with self.con:
             try:
                 cur.execute(query)
-                print(f'got it, delete data from {table_name}')
+                print(output_text)
             except Exception as e:
                 print(f'did not delete the data from {table_name}: {e}')
                 return False
@@ -808,48 +811,55 @@ class DataBaseOperations:
         response_check = []
         response_check2 = []
         response_check3 = []
-        # if results_dict['title']:
-        #     results_dict['title'] = self.clear_title_or_body(results_dict['title'])
-        # if results_dict['body']:
-        #     results_dict['body'] = self.clear_title_or_body(results_dict['body'])
-        # if results_dict['company']:
-        #     results_dict['company'] = self.clear_title_or_body(results_dict['company'])
-        
+
         for table in tables_list:
             """
             query1 - full text
             query2 - like text
             query3 - text without "'"
             """
-            query1 = f"""SELECT * FROM {table} WHERE title='{title}'""" if "'" not in title \
-                else f"""SELECT * FROM {table} WHERE title=$${title}$$"""
-            query2 = f"""SELECT * FROM {table} WHERE title LIKE '%{title.strip()}%'""" if "'" not in title \
-                else f"""SELECT * FROM {table} WHERE title LIKE $$%{title.strip()}%$$"""
-            query3 = f"""SELECT * FROM {table} WHERE title='{self.clear_title_or_body(title)}'"""
+            query1 = ''
+            query2 = ''
+            query3 = ''
+            common = f"""SELECT * FROM {table} WHERE """
+            if title:
+                query1 = common + f"""title='{title}'""" if "'" not in title \
+                    else common + f"""title=$${title}$$"""
+                query2 = common + f"""title LIKE '%{title.strip()}%'""" if "'" not in title \
+                    else common + f"""title LIKE $$%{title.strip()}%$$"""
+                query3 = common + f"""title='{self.clear_title_or_body(title)}'"""
             
-            if body:
+            if body and title:
                 query1 += f" AND body='{body}'" if "'" not in body else f" AND body=$${body}$$"
                 query2 += f" AND body LIKE '%{body.strip()}%'" if "'" not in body else f" AND body LIKE $$%{body.strip()}%$$"
                 query3 += f" AND body='{self.clear_title_or_body(body)}'"
 
-            try:
-                response_check = self.run_free_request(request=query1, notification=False)
-                response_check2 = self.run_free_request(request=query2, notification=False)
-                response_check3 = self.run_free_request(request=query3, notification=False)
-            except Exception as ex:
-                print(f'error in push_to_db_write_message: {ex}')
+            if body and not title:
+                query1 = common + f"""body='{body}'""" if "'" not in body \
+                    else common + f"""body=$${body}$$"""
+                query2 = common + f"""body LIKE '%{body.strip()}%'""" if "'" not in body \
+                    else common + f"""body LIKE $$%{body.strip()}%$$"""
+                query3 = common + f"""body='{self.clear_title_or_body(body)}'"""
 
-            if response_check or response_check2 or response_check3:
-                for response in [response_check, response_check2, response_check3]:
-                    if response:
-                        response_dict = helper.to_dict_from_admin_response_sync(
-                            response=response[0], fields=admin_table_fields
-                        )
-                        if response_dict:
-                            if self.report:
-                                self.report.parsing_report(found_body=body)
-                                self.report.parsing_report(found_title=title)
-                            return {"has_been_found": True, "response_dict": response_dict}
+            if query1:
+                try:
+                    response_check = self.run_free_request(request=query1, notification=False)
+                    response_check2 = self.run_free_request(request=query2, notification=False)
+                    response_check3 = self.run_free_request(request=query3, notification=False)
+                except Exception as ex:
+                    print(f'error in push_to_db_write_message: {ex}')
+
+                if response_check or response_check2 or response_check3:
+                    for response in [response_check, response_check2, response_check3]:
+                        if response:
+                            response_dict = helper.to_dict_from_admin_response_sync(
+                                response=response[0], fields=admin_table_fields
+                            )
+                            if response_dict:
+                                if self.report:
+                                    self.report.parsing_report(found_body=body)
+                                    self.report.parsing_report(found_title=title)
+                                return {"has_been_found": True, "response_dict": response_dict}
         return {"has_been_found": False, "response_dict": {}}
 
         #
@@ -1305,11 +1315,14 @@ class DataBaseOperations:
 
         return answer_dict
 
-    def update_table(self, table_name, field, value, output_text='vacancy has updated', param=""):
-        query = f"""UPDATE {table_name} SET {field}='{value}' {param}"""
-        self.run_free_request(request=query, output_text=output_text)
+    def update_table(self, table_name, field, value, output_text='vacancy has updated', param="", notification=True):
+        if value == 'NULL':
+            query = f"""UPDATE {table_name} SET {field}=NULL {param}"""
+        else:
+            query = f"""UPDATE {table_name} SET {field}='{value}' {param}"""
+        self.run_free_request(request=query, output_text=output_text, notification=notification)
 
-    def update_table_multi(self, table_name: str, param: str, values_dict: dict, output_text='vacancy has updated'):
+    def update_table_multi(self, table_name: str, param: str, values_dict: dict, output_text='vacancy has updated', notification=True):
         query = f"""UPDATE {table_name} SET"""
         for key in values_dict:
             if key != 'id':
@@ -1318,7 +1331,7 @@ class DataBaseOperations:
         if query.split(' ')[-1] != "SET":
             query = f"{query[:-2]} {param}"
             try:
-                self.run_free_request(request=query, output_text=output_text)
+                self.run_free_request(request=query, output_text=output_text, notification=notification)
                 return True
             except Exception as e:
                 print(e)
@@ -1405,9 +1418,10 @@ class DataBaseOperations:
 
 
 
-    def transfer_vacancy(self, table_from, table_to, id=None, response_from_db=None):
+    def transfer_vacancy(self, table_from, table_to, id=None, response_from_db=None, output_text="comlpete"):
         keys_str = ''
         values_str = ''
+        response_dict = {}
 
         if not response_from_db:
             response = self.get_all_from_db(
@@ -1423,23 +1437,27 @@ class DataBaseOperations:
         if response:
             if type(response) is dict:
                 response_dict = response
-            elif type(response) is list:
+            elif type(response) in [list, tuple]:
                 response_dict = helper.to_dict_from_admin_response_sync(response, admin_table_fields)
             else:
                 return TypeError
 
-            for keys in response_dict:
-                if keys != 'id':
-                    keys_str += f"{keys}, "
-                    values_str += f"'{response_dict[keys]}', "
-            query = f"INSERT INTO {table_to} ({keys_str[:-2]}) VALUES ({values_str[:-2]})"
-            try:
-                self.run_free_request(query)
-                return True
-            except Exception:
-                return False
-        else:
-            return  False
+            if response_dict:
+                try:
+                    exists = self.check_vacancy_exists_in_db(tables_list=[table_to,], title=response_dict['title'], body=response_dict['body'])
+                except Exception as ex:
+                    print(ex)
+                if not exists['has_been_found']:
+                    vacancy_has_been_sent = self.push_to_db_common(
+                        table_name=table_to,
+                        fields_values_dict=response_dict,
+                    )
+                    print(output_text) if vacancy_has_been_sent else 'wrong'
+                    return True if vacancy_has_been_sent else False
+
+                else:
+                    return True
+        return False
 
     def check_or_create_stats_table(self, table_name=None, profession_list=[]):
         if not self.con:
@@ -1679,11 +1697,13 @@ class DataBaseOperations:
                 if notification:
                     # print('Done')
                     print(f'+++++++++++++ It has been added to DB {table_name}\n')
+                return True
             except Exception as ex:
                 print(f"error in push_to_db_common function: {ex}")
                 if report and self.report:
                     self.report.parsing_report(has_been_added_to_db=False)
                     self.report.parsing_report(error=str(ex))
+                return False
 
 
     def update_job_types(self, table_list):
