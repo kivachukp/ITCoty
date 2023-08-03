@@ -24,15 +24,23 @@ def decompose_from_str_to_list(data_str):
     if data_str:
         data_dict = {}
         data_list = data_str.split('; ')
-        for i in data_list:
-            i = i.split(': ')
-            key = i[0]
-            sub_items = i[1]
-            if sub_items:
-                data_dict[key] = sub_items.split(', ')
-            else:
-                data_dict[key] = []
-        return data_dict
+        try:
+            for i in data_list:
+                if i and i[0]:
+                    i = i.split(': ')
+                    key = i[0]
+                    sub_items = i[1]
+                    if sub_items:
+                        data_dict[key] = sub_items.split(', ')
+                    else:
+                        data_dict[key] = []
+                else:
+                    pass
+            return data_dict
+        except Exception as e:
+            print(f"error in helper.decompose_from_str_to_list:\n{e}")
+            print(data_str)
+            pass
     else:
         return {}
 
@@ -714,4 +722,71 @@ async def replace_NoneType(results_dict):
             results_dict[key] = ''
     return results_dict
 
+async def clean_argerator_id(db_class):
+    """
+    shorts_session: number short session
+    function clears field sended_agregator
+    """
+    table = admin_database
+    # tables = [admin_database]
+    responses = db_class.get_all_from_db(
+        table_name=table,
+        param="WHERE profession LIKE '%junior%'",
+        field=admin_table_fields
+    )
+    if responses and type(responses) in [tuple, list]:
+        for vacancy in responses:
+            vacancy_dict = await to_dict_from_admin_response(
+                response=vacancy,
+                fields=admin_table_fields
+            )
+            if vacancy_dict and type(vacancy_dict) is dict:
+                db_class.update_table(
+                    table_name=table,
+                    field='sended_to_agregator',
+                    value='NULL',
+                    param=f"WHERE id={vacancy_dict['id']}"
+                )
+            else:
+                print('vacancy_dict error')
 
+def split_text_limit(message_for_send, limit=4096, separator="\n\n"):
+    vacancies_list = []
+    if len(message_for_send) > limit:
+        message_limit = ''
+        messages = message_for_send.split(separator)
+        for i in messages:
+            if len(message_limit + f"{i}{separator}") < limit:
+                message_limit += f"{i}{separator}"
+            else:
+                vacancies_list.append(message_limit)
+                message_limit = f"{i}{separator}"
+        vacancies_list.append(message_limit)
+    else:
+        vacancies_list = [message_for_send]
+    return vacancies_list
+
+async def reset_aggregator_sending_numbers(**kwargs):
+    from utils.additional_variables.additional_variables import manual_posting_shorts
+    db_class = kwargs['db_class'] if 'db_class' in kwargs else None
+    reset_all_profession = True if 'reset_all_profession' in kwargs and kwargs['reset_all_profession'] else False
+    param = '' if reset_all_profession else f"WHERE profession NOT IN {tuple(manual_posting_shorts)}" if len(manual_posting_shorts) > 1 else f"WHERE profession NOT LIKE '%{manual_posting_shorts[0]}%'"
+    # param = f"WHERE profession NOT IN {tuple(manual_posting_shorts)}" if len(manual_posting_shorts) > 1 else f"WHERE profession NOT LIKE '%{manual_posting_shorts[0]}%'"
+
+    if db_class:
+        try:
+            db_class.update_table(table_name=admin_database, field='sended_to_agregator', value="NULL", param=param)
+        except Exception as ex:
+            print("error 5", ex)
+
+        responses = db_class.get_all_from_db(
+            table_name=admin_database,
+            field=admin_table_fields,
+            param="WHERE sended_to_agregator IS NOT NULL"
+        )
+        if responses and type(responses) in [tuple, list, set]:
+            pass
+        else:
+            pass
+        return True
+    return False

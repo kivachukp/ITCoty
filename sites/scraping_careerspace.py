@@ -34,6 +34,7 @@ class CareerSpaceGetInformation:
         self.found_by_link = 0
         self.response = None
         self.current_session = None
+        self.url='https://careerspace.app'
 
     async def get_content(self, db_tables=None):
         self.db_tables = db_tables
@@ -76,8 +77,8 @@ class CareerSpaceGetInformation:
         self.current_session = await self.helper_parser_site.get_name_session() if self.db else None
 
         if self.bot_dict:
-            await self.bot.send_message(self.chat_id, 'https://careerspace.app', disable_web_page_preview=True)
-        self.browser.get('https://careerspace.app')
+            await self.bot.send_message(self.chat_id, self.url, disable_web_page_preview=True)
+        self.browser.get(self.url)
         self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         try:
             vacancy_exists_on_page = await self.get_link_message(self.browser.page_source)

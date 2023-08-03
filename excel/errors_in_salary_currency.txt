@@ -196,3 +196,2991 @@ table: admin_last_session
 id: 53396
 -------
 
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 2971
+-------
+
+vacancy_dict['salary_currency']: 400
+link: https://geekjob.ru/vacancy/63ef841584205148e2066de3
+table: None
+id: 2938
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/72345439
+table: None
+id: 3028
+-------
+
+vacancy_dict['salary_currency']: 300
+link: https://t.me/python_jobs/192324
+table: None
+id: 3009
+-------
+
+vacancy_dict['salary_currency']: 10
+link: https://spb.hh.ru/vacancy/77263187
+table: None
+id: 3355
+-------
+
+vacancy_dict['salary_currency']: 28
+link: https://spb.hh.ru/vacancy/77060981
+table: None
+id: 3532
+-------
+
+vacancy_dict['salary_currency']: 18000
+link: https://spb.hh.ru/vacancy/77325098
+table: None
+id: 3427
+-------
+
+vacancy_dict['salary_currency']: 10
+link: https://spb.hh.ru/vacancy/77357255
+table: None
+id: 3504
+-------
+
+vacancy_dict['salary_currency']: 2021
+link: https://spb.hh.ru/vacancy/76602155
+table: None
+id: 3605
+-------
+
+vacancy_dict['salary_currency']: 2500
+link: https://t.me/itrecruit_ua/127729
+table: None
+id: 3551
+-------
+
+vacancy_dict['salary_currency']: 01
+link: https://spb.hh.ru/vacancy/77060980
+table: None
+id: 3813
+-------
+
+vacancy_dict['salary_currency']: 55000
+link: https://spb.hh.ru/vacancy/77599832
+table: None
+id: 3994
+-------
+
+vacancy_dict['salary_currency']: 800
+link: https://spb.hh.ru/vacancy/77622236
+table: None
+id: 3952
+-------
+
+vacancy_dict['salary_currency']: 2500
+link: https://t.me/itrecruit_ua/128031
+table: None
+id: 3867
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://spb.hh.ru/vacancy/77536865
+table: None
+id: 4091
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://spb.hh.ru/vacancy/78187715
+table: None
+id: 5039
+-------
+
+vacancy_dict['salary_currency']: 70000
+link: https://spb.hh.ru/vacancy/78507566
+table: None
+id: 5403
+-------
+
+vacancy_dict['salary_currency']: 60000
+link: https://spb.hh.ru/vacancy/78584908
+table: None
+id: 5504
+-------
+
+vacancy_dict['salary_currency']: 100000
+link: https://spb.hh.ru/vacancy/77759546
+table: None
+id: 5762
+-------
+
+vacancy_dict['salary_currency']: 700
+link: https://spb.hh.ru/vacancy/78992638
+table: None
+id: 6047
+-------
+
+vacancy_dict['salary_currency']: 350000
+link: https://spb.hh.ru/vacancy/78982839
+table: None
+id: 6016
+-------
+
+vacancy_dict['salary_currency']: 40000
+link: https://spb.hh.ru/vacancy/79010761
+table: None
+id: 5961
+-------
+
+vacancy_dict['salary_currency']: 100
+link: https://finder.vc/vacancies/20760
+table: None
+id: 6073
+-------
+
+vacancy_dict['salary_currency']: 300
+link: https://spb.hh.ru/vacancy/79047105
+table: None
+id: 6050
+-------
+
+vacancy_dict['salary_currency']: 000
+link: https://spb.hh.ru/vacancy/79052329
+table: None
+id: 5964
+-------
+
+vacancy_dict['salary_currency']: 70
+link: https://remote-job.ru/vacancy/show/611423/menedzher-po-rabote-s-blogerami
+table: None
+id: 5972
+-------
+
+vacancy_dict['salary_currency']: 90000
+link: https://spb.hh.ru/vacancy/79103474
+table: None
+id: 6142
+-------
+
+vacancy_dict['salary_currency']: 50000
+link: https://spb.hh.ru/vacancy/79204223
+table: None
+id: 6260
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://spb.hh.ru/vacancy/79261149
+table: None
+id: 6228
+-------
+
+vacancy_dict['salary_currency']: 19
+link: https://spb.hh.ru/vacancy/79230219
+table: None
+id: 6271
+-------
+
+vacancy_dict['salary_currency']: 000
+link: https://spb.hh.ru/vacancy/79487471
+table: None
+id: 6318
+-------
+
+vacancy_dict['salary_currency']: 30000
+link: https://spb.hh.ru/vacancy/79531060
+table: None
+id: 6436
+-------
+
+vacancy_dict['salary_currency']: 30000
+link: https://spb.hh.ru/vacancy/78501728
+table: None
+id: 6569
+-------
+
+vacancy_dict['salary_currency']: 000
+link: https://spb.hh.ru/vacancy/79777269
+table: None
+id: 6692
+-------
+
+vacancy_dict['salary_currency']: 200
+link: https://spb.hh.ru/vacancy/79909453
+table: None
+id: 6776
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 2971
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/72345439
+table: None
+id: 3028
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 400
+link: https://geekjob.ru/vacancy/63ef841584205148e2066de3
+table: None
+id: 73092
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/72345439
+table: None
+id: 73182
+-------
+
+vacancy_dict['salary_currency']: 300
+link: https://t.me/python_jobs/192324
+table: None
+id: 73163
+-------
+
+vacancy_dict['salary_currency']: 2021
+link: https://career.habr.com/vacancies/1000104666
+table: None
+id: 73372
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://spb.hh.ru/vacancy/77201235
+table: None
+id: 74192
+-------
+
+vacancy_dict['salary_currency']: 45
+link: https://spb.hh.ru/vacancy/76545243
+table: None
+id: 74061
+-------
+
+vacancy_dict['salary_currency']: 19
+link: https://spb.hh.ru/vacancy/76104799
+table: None
+id: 73789
+-------
+
+vacancy_dict['salary_currency']: 10
+link: https://spb.hh.ru/vacancy/77263187
+table: None
+id: 73591
+-------
+
+vacancy_dict['salary_currency']: 250
+link: https://t.me/job_n_job/33646
+table: None
+id: 82975
+-------
+
+vacancy_dict['salary_currency']: 350
+link: https://t.me/devops_jobs_feed/13786
+table: None
+id: 77891
+-------
+
+vacancy_dict['salary_currency']: 15
+link: https://rabota.by/vacancy/77334518
+table: None
+id: 74033
+-------
+
+vacancy_dict['salary_currency']: 190000
+link: https://spb.hh.ru/vacancy/76905903
+table: None
+id: 75666
+-------
+
+vacancy_dict['salary_currency']: 18000
+link: https://spb.hh.ru/vacancy/77325098
+table: None
+id: 73663
+-------
+
+vacancy_dict['salary_currency']: 28
+link: https://spb.hh.ru/vacancy/77060981
+table: None
+id: 74932
+-------
+
+vacancy_dict['salary_currency']: 28
+link: https://spb.hh.ru/vacancy/77060981
+table: None
+id: 75386
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/72345439
+table: None
+id: 73182
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/72345439
+table: None
+id: 73182
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 15
+link: https://t.me/fordev/36217
+table: None
+id: 76352
+-------
+
+vacancy_dict['salary_currency']: 10
+link: https://spb.hh.ru/vacancy/77357255
+table: None
+id: 75358
+-------
+
+vacancy_dict['salary_currency']: 5000
+link: https://t.me/myjobit/92601
+table: None
+id: 77048
+-------
+
+vacancy_dict['salary_currency']: 800
+link: https://praca.by/vacancy/513805/
+table: None
+id: 74884
+-------
+
+vacancy_dict['salary_currency']: 3500
+link: https://t.me/Vacanciesit/54400
+table: None
+id: 78003
+-------
+
+vacancy_dict['salary_currency']: 2021
+link: https://career.habr.com/vacancies/1000104686
+table: None
+id: 80573
+-------
+
+vacancy_dict['salary_currency']: 2021
+link: https://career.habr.com/vacancies/1000104628
+table: None
+id: 80595
+-------
+
+vacancy_dict['salary_currency']: 2021
+link: https://spb.hh.ru/vacancy/76602155
+table: None
+id: 77698
+-------
+
+vacancy_dict['salary_currency']: 115000
+link: https://spb.hh.ru/vacancy/53286310
+table: None
+id: 78054
+-------
+
+vacancy_dict['salary_currency']: 2021
+link: https://career.habr.com/vacancies/1000104651
+table: None
+id: 78403
+-------
+
+vacancy_dict['salary_currency']: 115000
+link: https://hh.kz/vacancy/47300910
+table: None
+id: 80456
+-------
+
+vacancy_dict['salary_currency']: 30
+link: https://spb.hh.ru/vacancy/77432045
+table: None
+id: 80773
+-------
+
+vacancy_dict['salary_currency']: 2500
+link: https://t.me/itrecruit_ua/127729
+table: None
+id: 77644
+-------
+
+vacancy_dict['salary_currency']: 190000
+link: https://spb.hh.ru/vacancy/76905903
+table: None
+id: 84453
+-------
+
+vacancy_dict['salary_currency']: 01032023
+link: https://spb.hh.ru/vacancy/77060980
+table: None
+id: 82228
+-------
+
+vacancy_dict['salary_currency']: 01032023
+link: https://spb.hh.ru/vacancy/77060980
+table: None
+id: 78743
+-------
+
+vacancy_dict['salary_currency']: 5000
+link: https://t.me/fordev/36437
+table: None
+id: 79381
+-------
+
+vacancy_dict['salary_currency']: 100
+link: https://spb.hh.ru/vacancy/77528947
+table: None
+id: 79094
+-------
+
+vacancy_dict['salary_currency']: 800
+link: https://spb.hh.ru/vacancy/77622236
+table: None
+id: 82855
+-------
+
+vacancy_dict['salary_currency']: 55000
+link: https://spb.hh.ru/vacancy/77599832
+table: None
+id: 82897
+-------
+
+vacancy_dict['salary_currency']: 121
+link: https://spb.hh.ru/vacancy/77572655
+table: None
+id: 84702
+-------
+
+vacancy_dict['salary_currency']: 2500
+link: https://t.me/itrecruit_ua/128031
+table: None
+id: 78844
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://spb.hh.ru/vacancy/76966960
+table: None
+id: 84790
+-------
+
+vacancy_dict['salary_currency']: 100
+link: https://spb.hh.ru/vacancy/76575805
+table: None
+id: 82706
+-------
+
+vacancy_dict['salary_currency']: 200
+link: https://rabota.by/vacancy/75696536
+table: None
+id: 83167
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77564899
+table: None
+id: 83276
+-------
+
+vacancy_dict['salary_currency']: 20
+link: https://spb.hh.ru/vacancy/77735038
+table: None
+id: 84571
+-------
+
+vacancy_dict['salary_currency']: 4000
+link: https://spb.hh.ru/vacancy/76142518
+table: None
+id: 84561
+-------
+
+vacancy_dict['salary_currency']: 45
+link: https://spb.hh.ru/vacancy/76545243
+table: None
+id: 85705
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://spb.hh.ru/vacancy/77536865
+table: None
+id: 83884
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://spb.hh.ru/vacancy/76942855
+table: None
+id: 84558
+-------
+
+vacancy_dict['salary_currency']: 1250
+link: https://t.me/javascript_jobs_feed/24988
+table: None
+id: 84395
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://spb.hh.ru/vacancy/77829865
+table: None
+id: 85905
+-------
+
+vacancy_dict['salary_currency']: 120000
+link: https://t.me/marketing_jobs/6968
+table: None
+id: 87143
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 4000
+link: https://spb.hh.ru/vacancy/75529661
+table: None
+id: 86219
+-------
+
+vacancy_dict['salary_currency']: 20
+link: https://spb.hh.ru/vacancy/76868742
+table: None
+id: 86233
+-------
+
+vacancy_dict['salary_currency']: 3500
+link: https://t.me/relocaty_jobs/19632
+table: None
+id: 86413
+-------
+
+vacancy_dict['salary_currency']: 30000
+link: https://spb.hh.ru/vacancy/77975304
+table: None
+id: 89116
+-------
+
+vacancy_dict['salary_currency']: 19
+link: https://spb.hh.ru/vacancy/78036580
+table: None
+id: 89179
+-------
+
+vacancy_dict['salary_currency']: 115000
+link: https://spb.hh.ru/vacancy/78029822
+table: None
+id: 87850
+-------
+
+vacancy_dict['salary_currency']: 180
+link: https://spb.hh.ru/vacancy/77473873
+table: None
+id: 88148
+-------
+
+vacancy_dict['salary_currency']: 23
+link: https://rabota.by/vacancy/78024349
+table: None
+id: 88381
+-------
+
+vacancy_dict['salary_currency']: 650
+link: https://praca.by/vacancy/516148/
+table: None
+id: 87533
+-------
+
+vacancy_dict['salary_currency']: 3500
+link: https://t.me/devops_jobs_feed/14005
+table: None
+id: 87999
+-------
+
+vacancy_dict['salary_currency']: 7000000
+link: https://hh.kz/vacancy/78104772
+table: None
+id: 88902
+-------
+
+vacancy_dict['salary_currency']: 2500
+link: https://praca.by/vacancy/509389/
+table: None
+id: 91254
+-------
+
+vacancy_dict['salary_currency']: 2022
+link: https://hh.kz/vacancy/78129796
+table: None
+id: 89347
+-------
+
+vacancy_dict['salary_currency']: 180
+link: https://hh.kz/vacancy/78143683
+table: None
+id: 88245
+-------
+
+vacancy_dict['salary_currency']: 180
+link: https://spb.hh.ru/vacancy/78150235
+table: None
+id: 89778
+-------
+
+vacancy_dict['salary_currency']: 950
+link: https://hh.kz/vacancy/78142179
+table: None
+id: 88753
+-------
+
+vacancy_dict['salary_currency']: 180
+link: https://spb.hh.ru/vacancy/78148286
+table: None
+id: 89529
+-------
+
+vacancy_dict['salary_currency']: 7000000
+link: https://remote-job.ru/vacancy/show/606823/marketolog
+table: None
+id: 89075
+-------
+
+vacancy_dict['salary_currency']: 3500
+link: https://t.me/relocaty_jobs/19762
+table: None
+id: 90012
+-------
+
+vacancy_dict['salary_currency']: 5000
+link: https://spb.hh.ru/vacancy/78166256
+table: None
+id: 90453
+-------
+
+vacancy_dict['salary_currency']: 19
+link: https://hh.kz/vacancy/78170498
+table: None
+id: 90197
+-------
+
+vacancy_dict['salary_currency']: 300
+link: https://rabota.by/vacancy/78186367
+table: None
+id: 90368
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://spb.hh.ru/vacancy/78187715
+table: None
+id: 91497
+-------
+
+vacancy_dict['salary_currency']: 19
+link: https://spb.hh.ru/vacancy/78223361
+table: None
+id: 91546
+-------
+
+vacancy_dict['salary_currency']: 19
+link: https://spb.hh.ru/vacancy/78223361
+table: None
+id: 90731
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://spb.hh.ru/vacancy/78277123
+table: None
+id: 91900
+-------
+
+vacancy_dict['salary_currency']: 10
+link: https://hh.kz/vacancy/78262868
+table: None
+id: 91841
+-------
+
+vacancy_dict['salary_currency']: 100
+link: https://spb.hh.ru/vacancy/78291555
+table: None
+id: 91575
+-------
+
+vacancy_dict['salary_currency']: 1000
+link: https://praca.by/vacancy/517800/
+table: None
+id: 104999
+-------
+
+vacancy_dict['salary_currency']: 19
+link: https://spb.hh.ru/vacancy/78170498
+table: None
+id: 92498
+-------
+
+vacancy_dict['salary_currency']: 1800
+link: https://geekjob.ru/vacancy/641981b13eeddf80b30285e3
+table: None
+id: 94885
+-------
+
+vacancy_dict['salary_currency']: 4200
+link: https://t.me/fordev/37176
+table: None
+id: 92981
+-------
+
+vacancy_dict['salary_currency']: 5000
+link: https://spb.hh.ru/vacancy/78425146
+table: None
+id: 94891
+-------
+
+vacancy_dict['salary_currency']: 1
+link: https://hh.kz/vacancy/78395546
+table: None
+id: 93723
+-------
+
+vacancy_dict['salary_currency']: 150000
+link: https://hh.kz/vacancy/78392481
+table: None
+id: 93566
+-------
+
+vacancy_dict['salary_currency']: 8000
+link: https://spb.hh.ru/vacancy/78440865
+table: None
+id: 94937
+-------
+
+vacancy_dict['salary_currency']: 1500
+link: https://t.me/relocaty_jobs/20581
+table: None
+id: 93994
+-------
+
+vacancy_dict['salary_currency']: 19
+link: https://spb.hh.ru/vacancy/78497130
+table: None
+id: 96338
+-------
+
+vacancy_dict['salary_currency']: 70000
+link: https://spb.hh.ru/vacancy/78507566
+table: None
+id: 95076
+-------
+
+vacancy_dict['salary_currency']: 70000
+link: https://spb.hh.ru/vacancy/78507566
+table: None
+id: 94380
+-------
+
+vacancy_dict['salary_currency']: 30
+link: https://hh.kz/vacancy/78527730
+table: None
+id: 95065
+-------
+
+vacancy_dict['salary_currency']: 30
+link: https://rabota.by/vacancy/78527731
+table: None
+id: 95106
+-------
+
+vacancy_dict['salary_currency']: 40000
+link: https://remote-job.ru/vacancy/show/612638/menedzher-po-prodazham-zemli-selxoznaznacheniya
+table: None
+id: 105361
+-------
+
+vacancy_dict['salary_currency']: 2500
+link: https://praca.by/vacancy/509389/
+table: None
+id: 105374
+-------
+
+vacancy_dict['salary_currency']: 1000
+link: https://praca.by/vacancy/517800/
+table: None
+id: 105378
+-------
+
+vacancy_dict['salary_currency']: 85000
+link: https://spb.hh.ru/vacancy/78519288
+table: None
+id: 94292
+-------
+
+vacancy_dict['salary_currency']: 85000
+link: https://spb.hh.ru/vacancy/78519955
+table: None
+id: 95972
+-------
+
+vacancy_dict['salary_currency']: 150000
+link: https://hh.kz/vacancy/78532550
+table: None
+id: 95156
+-------
+
+vacancy_dict['salary_currency']: 150000
+link: https://hh.kz/vacancy/78532550
+table: None
+id: 95176
+-------
+
+vacancy_dict['salary_currency']: 85000
+link: https://hh.kz/vacancy/78520480
+table: None
+id: 96007
+-------
+
+vacancy_dict['salary_currency']: 2000
+link: https://t.me/Vacanciesit/56793
+table: None
+id: 95291
+-------
+
+vacancy_dict['salary_currency']: 2000
+link: https://t.me/it_vac/2797
+table: None
+id: 95292
+-------
+
+vacancy_dict['salary_currency']: 60000
+link: https://spb.hh.ru/vacancy/78584908
+table: None
+id: 95576
+-------
+
+vacancy_dict['salary_currency']: 12
+link: https://hh.kz/vacancy/77502302
+table: None
+id: 94657
+-------
+
+vacancy_dict['salary_currency']: 60000
+link: https://spb.hh.ru/vacancy/78572887
+table: None
+id: 96103
+-------
+
+vacancy_dict['salary_currency']: 1000
+link: https://hh.kz/vacancy/78585139
+table: None
+id: 96111
+-------
+
+vacancy_dict['salary_currency']: 1000
+link: https://hh.kz/vacancy/78585172
+table: None
+id: 96176
+-------
+
+vacancy_dict['salary_currency']: 30
+link: https://hh.kz/vacancy/78527731
+table: None
+id: 96178
+-------
+
+vacancy_dict['salary_currency']: 30
+link: https://hh.kz/vacancy/78527730
+table: None
+id: 96113
+-------
+
+vacancy_dict['salary_currency']: 150000
+link: https://hh.kz/vacancy/77594243
+table: None
+id: 95535
+-------
+
+vacancy_dict['salary_currency']: 150000
+link: https://hh.kz/vacancy/77594194
+table: None
+id: 95531
+-------
+
+vacancy_dict['salary_currency']: 800
+link: https://praca.by/vacancy/434708/
+table: None
+id: 94689
+-------
+
+vacancy_dict['salary_currency']: 20
+link: https://spb.hh.ru/vacancy/78686304
+table: None
+id: 97375
+-------
+
+vacancy_dict['salary_currency']: 130000
+link: https://t.me/Pol_relocation/27179
+table: None
+id: 98007
+-------
+
+vacancy_dict['salary_currency']: 130000
+link: https://t.me/hr_breakfast_emergency/59198
+table: None
+id: 98008
+-------
+
+vacancy_dict['salary_currency']: 350000
+link: https://t.me/prog_itjobs/13384
+table: None
+id: 98061
+-------
+
+vacancy_dict['salary_currency']: 15
+link: https://t.me/prog_itjobs/13388
+table: None
+id: 98043
+-------
+
+vacancy_dict['salary_currency']: 130000
+link: https://t.me/hr_breakfast_emergency/59272
+table: None
+id: 98814
+-------
+
+vacancy_dict['salary_currency']: 300
+link: https://hh.kz/vacancy/77726662
+table: None
+id: 98603
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/616804/biznes-analitik-upravlenie-assortimentom
+table: None
+id: 99948
+-------
+
+vacancy_dict['salary_currency']: 350000
+link: https://t.me/hiddengurus/1570
+table: None
+id: 100019
+-------
+
+vacancy_dict['salary_currency']: 1000
+link: https://spb.hh.ru/vacancy/78811360
+table: None
+id: 99257
+-------
+
+vacancy_dict['salary_currency']: 19
+link: https://spb.hh.ru/vacancy/78845875
+table: None
+id: 99629
+-------
+
+vacancy_dict['salary_currency']: 19
+link: https://spb.hh.ru/vacancy/78839357
+table: None
+id: 99856
+-------
+
+vacancy_dict['salary_currency']: 100000
+link: https://spb.hh.ru/vacancy/77759546
+table: None
+id: 104984
+-------
+
+vacancy_dict['salary_currency']: 100000
+link: https://spb.hh.ru/vacancy/77759546
+table: None
+id: 100216
+-------
+
+vacancy_dict['salary_currency']: 12
+link: https://t.me/Pol_relocation/27687
+table: None
+id: 101958
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78949682
+table: None
+id: 106300
+-------
+
+vacancy_dict['salary_currency']: 80000
+link: https://finder.vc/vacancies/20660
+table: None
+id: 106318
+-------
+
+vacancy_dict['salary_currency']: 12
+link: https://t.me/Pol_relocation/27877
+table: None
+id: 102143
+-------
+
+vacancy_dict['salary_currency']: 40000
+link: https://spb.hh.ru/vacancy/79010761
+table: None
+id: 102190
+-------
+
+vacancy_dict['salary_currency']: 1
+link: https://spb.hh.ru/vacancy/78992638
+table: None
+id: 100501
+-------
+
+vacancy_dict['salary_currency']: 170000
+link: https://spb.hh.ru/vacancy/79011617
+table: None
+id: 100695
+-------
+
+vacancy_dict['salary_currency']: 40000
+link: https://spb.hh.ru/vacancy/79010761
+table: None
+id: 100415
+-------
+
+vacancy_dict['salary_currency']: 350000
+link: https://spb.hh.ru/vacancy/78982839
+table: None
+id: 100470
+-------
+
+vacancy_dict['salary_currency']: 130000
+link: https://t.me/Pol_relocation/27891
+table: None
+id: 106352
+-------
+
+vacancy_dict['salary_currency']: 250000
+link: https://finder.vc/vacancies/17244
+table: None
+id: 106354
+-------
+
+vacancy_dict['salary_currency']: 100
+link: https://finder.vc/vacancies/20760
+table: None
+id: 100527
+-------
+
+vacancy_dict['salary_currency']: 60
+link: https://finder.vc/vacancies/20712
+table: None
+id: 106369
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/616804/biznes-analitik-upravlenie-assortimentom
+table: None
+id: 99948
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78949682
+table: None
+id: 106300
+-------
+
+vacancy_dict['salary_currency']: 22
+link: https://remote-job.ru/vacancy/show/620947/menedzher-po-prodazham
+table: None
+id: 106613
+-------
+
+vacancy_dict['salary_currency']: 20000
+link: https://spb.hh.ru/vacancy/79052329
+table: None
+id: 100418
+-------
+
+vacancy_dict['salary_currency']: 300
+link: https://spb.hh.ru/vacancy/79047105
+table: None
+id: 100504
+-------
+
+vacancy_dict['salary_currency']: 120
+link: https://spb.hh.ru/vacancy/79051679
+table: None
+id: 100723
+-------
+
+vacancy_dict['salary_currency']: 2022
+link: http://www.vseti.app/vakansii/project-manager-mld3
+table: None
+id: 100726
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://hh.kz/vacancy/77475090
+table: None
+id: 101718
+-------
+
+vacancy_dict['salary_currency']: 2022
+link: https://spb.hh.ru/vacancy/79023328
+table: None
+id: 105446
+-------
+
+vacancy_dict['salary_currency']: 1700
+link: https://spb.hh.ru/vacancy/78912133
+table: None
+id: 106640
+-------
+
+vacancy_dict['salary_currency']: 1700
+link: https://spb.hh.ru/vacancy/78912131
+table: None
+id: 106641
+-------
+
+vacancy_dict['salary_currency']: 60000
+link: https://finder.vc/vacancies/20851
+table: None
+id: 106747
+-------
+
+vacancy_dict['salary_currency']: 19000
+link: https://hh.kz/vacancy/79062357
+table: None
+id: 106771
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622645/menedzher-po-prodazham-na-anglijskom-franczuzskom-yazyke-udalenno
+table: None
+id: 106802
+-------
+
+vacancy_dict['salary_currency']: 35000
+link: https://remote-job.ru/vacancy/show/622664/udalennyj-menedzher-po-prodazham-servis-yandeks-arenda
+table: None
+id: 106805
+-------
+
+vacancy_dict['salary_currency']: 175000
+link: https://remote-job.ru/vacancy/show/622777/starshij-menedzher-po-investicziyam
+table: None
+id: 105679
+-------
+
+vacancy_dict['salary_currency']: 80000
+link: https://remote-job.ru/vacancy/show/622266/menedzher-po-prodazham-udalyonno
+table: None
+id: 106846
+-------
+
+vacancy_dict['salary_currency']: 7000
+link: https://remote-job.ru/vacancy/show/622251/menedzher-po-prodazham-udalenno
+table: None
+id: 106847
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622977/razrabotchik-go
+table: None
+id: 102670
+-------
+
+vacancy_dict['salary_currency']: 800000
+link: https://remote-job.ru/vacancy/show/622194/menedzher-po-prodazham-rabote-s-klientami-rukovoditel-proektov
+table: None
+id: 106867
+-------
+
+vacancy_dict['salary_currency']: 30000
+link: https://t.me/myjobit/93859
+table: None
+id: 101012
+-------
+
+vacancy_dict['salary_currency']: 35000
+link: https://geekjob.ru/vacancy/643421e6459803e5c20ae395
+table: None
+id: 105744
+-------
+
+vacancy_dict['salary_currency']: 90000
+link: https://spb.hh.ru/vacancy/79103474
+table: None
+id: 102995
+-------
+
+vacancy_dict['salary_currency']: 300000
+link: https://spb.hh.ru/vacancy/79100036
+table: None
+id: 103528
+-------
+
+vacancy_dict['salary_currency']: 90000
+link: https://spb.hh.ru/vacancy/79103474
+table: None
+id: 103557
+-------
+
+vacancy_dict['salary_currency']: 1800
+link: https://t.me/jobGeeks/81928
+table: None
+id: 103388
+-------
+
+vacancy_dict['salary_currency']: 40000
+link: https://finder.vc/vacancies/20950
+table: None
+id: 106919
+-------
+
+vacancy_dict['salary_currency']: 80000
+link: https://finder.vc/vacancies/17920
+table: None
+id: 106926
+-------
+
+vacancy_dict['salary_currency']: 125000
+link: https://spb.hh.ru/vacancy/79170615
+table: None
+id: 106978
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/78457124
+table: None
+id: 103682
+-------
+
+vacancy_dict['salary_currency']: 125000
+link: https://hh.kz/vacancy/79170615
+table: None
+id: 106964
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78418269
+table: None
+id: 106983
+-------
+
+vacancy_dict['salary_currency']: 50000
+link: https://spb.hh.ru/vacancy/79204223
+table: None
+id: 104615
+-------
+
+vacancy_dict['salary_currency']: 2021
+link: https://spb.hh.ru/vacancy/79188637
+table: None
+id: 107239
+-------
+
+vacancy_dict['salary_currency']: 60000
+link: https://finder.vc/vacancies/21161
+table: None
+id: 107005
+-------
+
+vacancy_dict['salary_currency']: 10
+link: https://t.me/marketing_jobs/7118
+table: None
+id: 107597
+-------
+
+vacancy_dict['salary_currency']: 19
+link: https://spb.hh.ru/vacancy/79230219
+table: None
+id: 103961
+-------
+
+vacancy_dict['salary_currency']: 30000
+link: https://hh.kz/vacancy/79232103
+table: None
+id: 104288
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/78864637
+table: None
+id: 104339
+-------
+
+vacancy_dict['salary_currency']: 19
+link: https://spb.hh.ru/vacancy/79230219
+table: None
+id: 104626
+-------
+
+vacancy_dict['salary_currency']: 600
+link: https://geekjob.ru/vacancy/6437ae808f781ec768044134
+table: None
+id: 104803
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://spb.hh.ru/vacancy/79261149
+table: None
+id: 104583
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79266529
+table: None
+id: 107436
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://hh.kz/vacancy/79269337
+table: None
+id: 107276
+-------
+
+vacancy_dict['salary_currency']: 00000
+link: https://spb.hh.ru/vacancy/79238797
+table: None
+id: 107450
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://spb.hh.ru/vacancy/79261149
+table: None
+id: 107282
+-------
+
+vacancy_dict['salary_currency']: 100
+link: https://hh.kz/vacancy/78708897
+table: None
+id: 107073
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://hh.kz/vacancy/79312234
+table: None
+id: 104807
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/79325801
+table: None
+id: 107327
+-------
+
+vacancy_dict['salary_currency']: 1
+link: https://hh.kz/vacancy/79309707
+table: None
+id: 104755
+-------
+
+vacancy_dict['salary_currency']: 130000
+link: https://t.me/hr_breakfast_emergency/59654
+table: None
+id: 108012
+-------
+
+vacancy_dict['salary_currency']: 250000
+link: https://finder.vc/vacancies/21380
+table: None
+id: 107356
+-------
+
+vacancy_dict['salary_currency']: 60000
+link: https://hh.kz/vacancy/79085189
+table: None
+id: 107377
+-------
+
+vacancy_dict['salary_currency']: 900
+link: https://rabota.by/vacancy/79260173
+table: None
+id: 107381
+-------
+
+vacancy_dict['salary_currency']: 250
+link: https://hh.kz/vacancy/79026841
+table: None
+id: 107509
+-------
+
+vacancy_dict['salary_currency']: 200000
+link: https://t.me/marketing_jobs/7134
+table: None
+id: 107385
+-------
+
+vacancy_dict['salary_currency']: 600
+link: https://spb.hh.ru/vacancy/79358848
+table: None
+id: 108332
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79381864
+table: None
+id: 108801
+-------
+
+vacancy_dict['salary_currency']: 35000
+link: https://spb.hh.ru/vacancy/79062300
+table: None
+id: 107616
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/78633566
+table: None
+id: 107763
+-------
+
+vacancy_dict['salary_currency']: 45000
+link: https://career.habr.com/vacancies/1000123235
+table: None
+id: 107939
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/78633566
+table: None
+id: 108211
+-------
+
+vacancy_dict['salary_currency']: 200
+link: https://spb.hh.ru/vacancy/79480762
+table: None
+id: 108367
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://spb.hh.ru/vacancy/79435702
+table: None
+id: 108374
+-------
+
+vacancy_dict['salary_currency']: 46
+link: https://geekjob.ru/vacancy/643ebcfe34d0fc484e06dc85
+table: None
+id: 108460
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/79480566
+table: None
+id: 108687
+-------
+
+vacancy_dict['salary_currency']: 70000
+link: https://hh.kz/vacancy/79475153
+table: None
+id: 108693
+-------
+
+vacancy_dict['salary_currency']: 400
+link: https://career.habr.com/vacancies/1000121429
+table: None
+id: 109040
+-------
+
+vacancy_dict['salary_currency']: 36000
+link: https://career.habr.com/vacancies/1000123229
+table: None
+id: 108058
+-------
+
+vacancy_dict['salary_currency']: 100000
+link: https://finder.vc/vacancies/20130
+table: None
+id: 108721
+-------
+
+vacancy_dict['salary_currency']: 30000
+link: https://spb.hh.ru/vacancy/79531060
+table: None
+id: 108749
+-------
+
+vacancy_dict['salary_currency']: 30000
+link: https://spb.hh.ru/vacancy/79531060
+table: None
+id: 109152
+-------
+
+vacancy_dict['salary_currency']: 40000
+link: https://spb.hh.ru/vacancy/79498721
+table: None
+id: 108948
+-------
+
+vacancy_dict['salary_currency']: 30000
+link: https://spb.hh.ru/vacancy/79487471
+table: None
+id: 108533
+-------
+
+vacancy_dict['salary_currency']: 30000
+link: https://spb.hh.ru/vacancy/79487471
+table: None
+id: 107764
+-------
+
+vacancy_dict['salary_currency']: 30000
+link: https://hh.kz/vacancy/79487470
+table: None
+id: 107757
+-------
+
+vacancy_dict['salary_currency']: 20
+link: https://geekjob.ru/vacancy/6440068dc116ef700c08c316
+table: None
+id: 109314
+-------
+
+vacancy_dict['salary_currency']: 45
+link: https://geekjob.ru/vacancy/643fae8017a0aee2cf06b012
+table: None
+id: 108090
+-------
+
+vacancy_dict['salary_currency']: 65000
+link: https://finder.vc/vacancies/18099
+table: None
+id: 108770
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79172311
+table: None
+id: 109508
+-------
+
+vacancy_dict['salary_currency']: 25000
+link: https://hh.kz/vacancy/79620941
+table: None
+id: 109510
+-------
+
+vacancy_dict['salary_currency']: 300
+link: https://hh.kz/vacancy/79612963
+table: None
+id: 109560
+-------
+
+vacancy_dict['salary_currency']: 4
+link: https://spb.hh.ru/vacancy/79596413
+table: None
+id: 109666
+-------
+
+vacancy_dict['salary_currency']: 60000
+link: https://spb.hh.ru/vacancy/79617697
+table: None
+id: 109888
+-------
+
+vacancy_dict['salary_currency']: 25000
+link: https://spb.hh.ru/vacancy/79620941
+table: None
+id: 109642
+-------
+
+vacancy_dict['salary_currency']: 60000
+link: https://hh.kz/vacancy/78572887
+table: None
+id: 109519
+-------
+
+vacancy_dict['salary_currency']: 22
+link: https://spb.hh.ru/vacancy/79615982
+table: None
+id: 109848
+-------
+
+vacancy_dict['salary_currency']: 50000
+link: https://spb.hh.ru/vacancy/79643821
+table: None
+id: 109783
+-------
+
+vacancy_dict['salary_currency']: 70000
+link: https://spb.hh.ru/vacancy/79663193
+table: None
+id: 109797
+-------
+
+vacancy_dict['salary_currency']: 17
+link: https://spb.hh.ru/vacancy/79662981
+table: None
+id: 110315
+-------
+
+vacancy_dict['salary_currency']: 65000
+link: https://geekjob.ru/vacancy/64426a09d3c54755820df602
+table: None
+id: 110052
+-------
+
+vacancy_dict['salary_currency']: 120000
+link: https://finder.vc/vacancies/21878
+table: None
+id: 110139
+-------
+
+vacancy_dict['salary_currency']: 3000
+link: https://hh.kz/vacancy/79530593
+table: None
+id: 109988
+-------
+
+vacancy_dict['salary_currency']: 5000
+link: https://geekjob.ru/vacancy/644449da059f96479100c9a3
+table: None
+id: 110111
+-------
+
+vacancy_dict['salary_currency']: 250
+link: https://hh.kz/vacancy/79542640
+table: None
+id: 110010
+-------
+
+vacancy_dict['salary_currency']: 30000
+link: https://spb.hh.ru/vacancy/78501728
+table: None
+id: 110959
+-------
+
+vacancy_dict['salary_currency']: 19
+link: https://rabota.by/vacancy/79410531
+table: None
+id: 110302
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79733180
+table: None
+id: 110392
+-------
+
+vacancy_dict['salary_currency']: 45
+link: https://hh.kz/vacancy/79729700
+table: None
+id: 110370
+-------
+
+vacancy_dict['salary_currency']: 18
+link: https://spb.hh.ru/vacancy/79312234
+table: None
+id: 111022
+-------
+
+vacancy_dict['salary_currency']: 30
+link: https://hh.kz/vacancy/79707801
+table: None
+id: 110404
+-------
+
+vacancy_dict['salary_currency']: 600
+link: https://geekjob.ru/vacancy/6446365bf9f85b1f4c0da3b5
+table: None
+id: 110587
+-------
+
+vacancy_dict['salary_currency']: 600
+link: https://geekjob.ru/vacancy/644635f5ccf11c97a80f5f93
+table: None
+id: 110678
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://geekjob.ru/vacancy/644632ea64140d2580067c45
+table: None
+id: 110829
+-------
+
+vacancy_dict['salary_currency']: 80
+link: https://spb.hh.ru/vacancy/79796908
+table: None
+id: 111161
+-------
+
+vacancy_dict['salary_currency']: 800
+link: https://spb.hh.ru/vacancy/79784676
+table: None
+id: 111667
+-------
+
+vacancy_dict['salary_currency']: 1100
+link: https://hh.kz/vacancy/79538270
+table: None
+id: 111069
+-------
+
+vacancy_dict['salary_currency']: 4000
+link: https://hh.kz/vacancy/79800395
+table: None
+id: 111589
+-------
+
+vacancy_dict['salary_currency']: 80
+link: https://hh.kz/vacancy/79796908
+table: None
+id: 111550
+-------
+
+vacancy_dict['salary_currency']: 175
+link: https://hh.kz/vacancy/79784878
+table: None
+id: 111077
+-------
+
+vacancy_dict['salary_currency']: 30000
+link: https://spb.hh.ru/vacancy/79767090
+table: None
+id: 111409
+-------
+
+vacancy_dict['salary_currency']: 85000
+link: https://spb.hh.ru/vacancy/79830668
+table: None
+id: 111909
+-------
+
+vacancy_dict['salary_currency']: 19
+link: https://spb.hh.ru/vacancy/79822352
+table: None
+id: 111975
+-------
+
+vacancy_dict['salary_currency']: 46000
+link: https://spb.hh.ru/vacancy/79848002
+table: None
+id: 112487
+-------
+
+vacancy_dict['salary_currency']: 30000
+link: https://spb.hh.ru/vacancy/79823421
+table: None
+id: 111570
+-------
+
+vacancy_dict['salary_currency']: 50000
+link: https://spb.hh.ru/vacancy/79846134
+table: None
+id: 111962
+-------
+
+vacancy_dict['salary_currency']: 150
+link: https://finder.vc/vacancies/22240
+table: None
+id: 112314
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/79413809
+table: None
+id: 111723
+-------
+
+vacancy_dict['salary_currency']: 10
+link: https://hh.kz/vacancy/79873722
+table: None
+id: 112333
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79865423
+table: None
+id: 112060
+-------
+
+vacancy_dict['salary_currency']: 200
+link: https://spb.hh.ru/vacancy/79909453
+table: None
+id: 112553
+-------
+
+vacancy_dict['salary_currency']: 43150
+link: https://spb.hh.ru/vacancy/79897036
+table: None
+id: 112570
+-------
+
+vacancy_dict['salary_currency']: 10000
+link: https://spb.hh.ru/vacancy/79909535
+table: None
+id: 112860
+-------
+
+vacancy_dict['salary_currency']: 543
+link: https://career.habr.com/vacancies/1000123476
+table: None
+id: 113045
+-------
+
+vacancy_dict['salary_currency']: 200
+link: https://spb.hh.ru/vacancy/79909453
+table: None
+id: 113099
+-------
+
+vacancy_dict['salary_currency']: 19
+link: https://spb.hh.ru/vacancy/79940075
+table: None
+id: 113801
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/616804/biznes-analitik-upravlenie-assortimentom
+table: None
+id: 99948
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78949682
+table: None
+id: 106300
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622645/menedzher-po-prodazham-na-anglijskom-franczuzskom-yazyke-udalenno
+table: None
+id: 106802
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622977/razrabotchik-go
+table: None
+id: 102670
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/78457124
+table: None
+id: 103682
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78418269
+table: None
+id: 106983
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/78864637
+table: None
+id: 104339
+-------
+
+vacancy_dict['salary_currency']: 00000
+link: https://spb.hh.ru/vacancy/79238797
+table: None
+id: 107450
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79172311
+table: None
+id: 109508
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79733180
+table: None
+id: 110392
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://geekjob.ru/vacancy/644632ea64140d2580067c45
+table: None
+id: 110829
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79865423
+table: None
+id: 112060
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/79413809
+table: None
+id: 111723
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/616804/biznes-analitik-upravlenie-assortimentom
+table: None
+id: 99948
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78949682
+table: None
+id: 106300
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622645/menedzher-po-prodazham-na-anglijskom-franczuzskom-yazyke-udalenno
+table: None
+id: 106802
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622977/razrabotchik-go
+table: None
+id: 102670
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/78457124
+table: None
+id: 103682
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78418269
+table: None
+id: 106983
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/78864637
+table: None
+id: 104339
+-------
+
+vacancy_dict['salary_currency']: 00000
+link: https://spb.hh.ru/vacancy/79238797
+table: None
+id: 107450
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79172311
+table: None
+id: 109508
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://geekjob.ru/vacancy/644632ea64140d2580067c45
+table: None
+id: 110829
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79733180
+table: None
+id: 110392
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79865423
+table: None
+id: 112060
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/79413809
+table: None
+id: 111723
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/616804/biznes-analitik-upravlenie-assortimentom
+table: None
+id: 99948
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78949682
+table: None
+id: 106300
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622645/menedzher-po-prodazham-na-anglijskom-franczuzskom-yazyke-udalenno
+table: None
+id: 106802
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622977/razrabotchik-go
+table: None
+id: 102670
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/78457124
+table: None
+id: 103682
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78418269
+table: None
+id: 106983
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/78864637
+table: None
+id: 104339
+-------
+
+vacancy_dict['salary_currency']: 00000
+link: https://spb.hh.ru/vacancy/79238797
+table: None
+id: 107450
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79172311
+table: None
+id: 109508
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79733180
+table: None
+id: 110392
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://geekjob.ru/vacancy/644632ea64140d2580067c45
+table: None
+id: 110829
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79865423
+table: None
+id: 112060
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/79413809
+table: None
+id: 111723
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/616804/biznes-analitik-upravlenie-assortimentom
+table: None
+id: 99948
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78949682
+table: None
+id: 106300
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622645/menedzher-po-prodazham-na-anglijskom-franczuzskom-yazyke-udalenno
+table: None
+id: 106802
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622977/razrabotchik-go
+table: None
+id: 102670
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/78457124
+table: None
+id: 103682
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78418269
+table: None
+id: 106983
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/78864637
+table: None
+id: 104339
+-------
+
+vacancy_dict['salary_currency']: 00000
+link: https://spb.hh.ru/vacancy/79238797
+table: None
+id: 107450
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79172311
+table: None
+id: 109508
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://geekjob.ru/vacancy/644632ea64140d2580067c45
+table: None
+id: 110829
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79733180
+table: None
+id: 110392
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79865423
+table: None
+id: 112060
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/79413809
+table: None
+id: 111723
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/616804/biznes-analitik-upravlenie-assortimentom
+table: None
+id: 99948
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78949682
+table: None
+id: 106300
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622645/menedzher-po-prodazham-na-anglijskom-franczuzskom-yazyke-udalenno
+table: None
+id: 106802
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622977/razrabotchik-go
+table: None
+id: 102670
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/78457124
+table: None
+id: 103682
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78418269
+table: None
+id: 106983
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/78864637
+table: None
+id: 104339
+-------
+
+vacancy_dict['salary_currency']: 00000
+link: https://spb.hh.ru/vacancy/79238797
+table: None
+id: 107450
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79172311
+table: None
+id: 109508
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79733180
+table: None
+id: 110392
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://geekjob.ru/vacancy/644632ea64140d2580067c45
+table: None
+id: 110829
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79865423
+table: None
+id: 112060
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://hh.kz/vacancy/79413809
+table: None
+id: 111723
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/616804/biznes-analitik-upravlenie-assortimentom
+table: None
+id: 99948
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78949682
+table: None
+id: 106300
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622645/menedzher-po-prodazham-na-anglijskom-franczuzskom-yazyke-udalenno
+table: None
+id: 106802
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622977/razrabotchik-go
+table: None
+id: 102670
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78418269
+table: None
+id: 106983
+-------
+
+vacancy_dict['salary_currency']: 00000
+link: https://spb.hh.ru/vacancy/79238797
+table: None
+id: 107450
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79172311
+table: None
+id: 109508
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://geekjob.ru/vacancy/644632ea64140d2580067c45
+table: None
+id: 110829
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79733180
+table: None
+id: 110392
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79865423
+table: None
+id: 112060
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/616804/biznes-analitik-upravlenie-assortimentom
+table: None
+id: 99948
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78949682
+table: None
+id: 106300
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622645/menedzher-po-prodazham-na-anglijskom-franczuzskom-yazyke-udalenno
+table: None
+id: 106802
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622977/razrabotchik-go
+table: None
+id: 102670
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78418269
+table: None
+id: 106983
+-------
+
+vacancy_dict['salary_currency']: 00000
+link: https://spb.hh.ru/vacancy/79238797
+table: None
+id: 107450
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79172311
+table: None
+id: 109508
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79733180
+table: None
+id: 110392
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://geekjob.ru/vacancy/644632ea64140d2580067c45
+table: None
+id: 110829
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79865423
+table: None
+id: 112060
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/616804/biznes-analitik-upravlenie-assortimentom
+table: None
+id: 99948
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78949682
+table: None
+id: 106300
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622645/menedzher-po-prodazham-na-anglijskom-franczuzskom-yazyke-udalenno
+table: None
+id: 106802
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622977/razrabotchik-go
+table: None
+id: 102670
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78418269
+table: None
+id: 106983
+-------
+
+vacancy_dict['salary_currency']: 00000
+link: https://spb.hh.ru/vacancy/79238797
+table: None
+id: 107450
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79172311
+table: None
+id: 109508
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://geekjob.ru/vacancy/644632ea64140d2580067c45
+table: None
+id: 110829
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79733180
+table: None
+id: 110392
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79865423
+table: None
+id: 112060
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/616804/biznes-analitik-upravlenie-assortimentom
+table: None
+id: 99948
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78949682
+table: None
+id: 106300
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622645/menedzher-po-prodazham-na-anglijskom-franczuzskom-yazyke-udalenno
+table: None
+id: 106802
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622977/razrabotchik-go
+table: None
+id: 102670
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78418269
+table: None
+id: 106983
+-------
+
+vacancy_dict['salary_currency']: 00000
+link: https://spb.hh.ru/vacancy/79238797
+table: None
+id: 107450
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79172311
+table: None
+id: 109508
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://geekjob.ru/vacancy/644632ea64140d2580067c45
+table: None
+id: 110829
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79733180
+table: None
+id: 110392
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79865423
+table: None
+id: 112060
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/616804/biznes-analitik-upravlenie-assortimentom
+table: None
+id: 99948
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78949682
+table: None
+id: 106300
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622645/menedzher-po-prodazham-na-anglijskom-franczuzskom-yazyke-udalenno
+table: None
+id: 106802
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622977/razrabotchik-go
+table: None
+id: 102670
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78418269
+table: None
+id: 106983
+-------
+
+vacancy_dict['salary_currency']: 00000
+link: https://spb.hh.ru/vacancy/79238797
+table: None
+id: 107450
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79172311
+table: None
+id: 109508
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79733180
+table: None
+id: 110392
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://geekjob.ru/vacancy/644632ea64140d2580067c45
+table: None
+id: 110829
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79865423
+table: None
+id: 112060
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/616804/biznes-analitik-upravlenie-assortimentom
+table: None
+id: 99948
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78949682
+table: None
+id: 106300
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622645/menedzher-po-prodazham-na-anglijskom-franczuzskom-yazyke-udalenno
+table: None
+id: 106802
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622977/razrabotchik-go
+table: None
+id: 102670
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78418269
+table: None
+id: 106983
+-------
+
+vacancy_dict['salary_currency']: 00000
+link: https://spb.hh.ru/vacancy/79238797
+table: None
+id: 107450
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79172311
+table: None
+id: 109508
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79733180
+table: None
+id: 110392
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://geekjob.ru/vacancy/644632ea64140d2580067c45
+table: None
+id: 110829
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79865423
+table: None
+id: 112060
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/616804/biznes-analitik-upravlenie-assortimentom
+table: None
+id: 99948
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78949682
+table: None
+id: 106300
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622645/menedzher-po-prodazham-na-anglijskom-franczuzskom-yazyke-udalenno
+table: None
+id: 106802
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622977/razrabotchik-go
+table: None
+id: 102670
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78418269
+table: None
+id: 106983
+-------
+
+vacancy_dict['salary_currency']: 00000
+link: https://spb.hh.ru/vacancy/79238797
+table: None
+id: 107450
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79172311
+table: None
+id: 109508
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79733180
+table: None
+id: 110392
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://geekjob.ru/vacancy/644632ea64140d2580067c45
+table: None
+id: 110829
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79865423
+table: None
+id: 112060
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/616804/biznes-analitik-upravlenie-assortimentom
+table: None
+id: 99948
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78949682
+table: None
+id: 106300
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622645/menedzher-po-prodazham-na-anglijskom-franczuzskom-yazyke-udalenno
+table: None
+id: 106802
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://remote-job.ru/vacancy/show/622977/razrabotchik-go
+table: None
+id: 102670
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/78418269
+table: None
+id: 106983
+-------
+
+vacancy_dict['salary_currency']: 00000
+link: https://spb.hh.ru/vacancy/79238797
+table: None
+id: 107450
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79172311
+table: None
+id: 109508
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79733180
+table: None
+id: 110392
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://geekjob.ru/vacancy/644632ea64140d2580067c45
+table: None
+id: 110829
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/79865423
+table: None
+id: 112060
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77091008
+table: None
+id: 73125
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+
+vacancy_dict['salary_currency']: 00
+link: https://spb.hh.ru/vacancy/77866748
+table: None
+id: 86039
+-------
+

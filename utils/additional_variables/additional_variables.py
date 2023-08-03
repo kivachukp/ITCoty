@@ -45,7 +45,7 @@ not_lower_professions = ['pm', 'game', 'designer', 'hr', 'analyst', 'qa', 'ba' '
 white_admin_list = [1763672666, 556128576, 758905227, 945718420, 5755261667, 5884559465, 5730794427, 758905227]
 
 id_owner = 1763672666
-id_developer = 758905227
+id_developer = 5884559465
 
 #admin database name
 channel_id_for_shorts = -1001671844820
@@ -285,13 +285,15 @@ help_text = '/log or /logs - get custom logs (useful for developer\n' \
             '/how_many_vacancies_total - new report (created by Anna)\n' \
             '/vacancies_from - how many juniors have been written today and tomorrow\n' \
             '/check_title_body\n' \
-            '/get_profession_parsing_tags_log - send the file with tags and antitags' \
+            '/get_profession_parsing_tags_log - send the file with tags and antitags\n' \
+            '/get_courses_data - get courses names and links from geek (excel)\n ' \
             '/add_statistics\n\n' \
             '---------------------------------------------------\n\n' \
             '---------------- PUSHING BY SCHEDULE: ----------------\n' \
             '/hard_pushing_by_schedule - run pushing by schedule\n' \
             '/hard_push_by_web - run pushing by schedule through web point\n' \
             '/pick_up_forcibly_from_admin - if vacancies has been sent to the admin channel already and code has stopped\n' \
+          '---------------------------------------------------\n\n' \
           '---------------------------------------------------\n\n' \
             '---------------- UPDATERS: ----------------\n' \
             '/update_city_field - update city field by new logic\n' \
@@ -338,3 +340,8 @@ preview_fields_for_web = "id, profession, vacancy, company, " \
 vacancies_database = 'vacancies'
 manual_posting_shorts = ['junior']
 hard_pushing_time_hour = [10, 30]
+excel_name_courses = './excel/courses.xlsx'
+fields_for_agregator_vacancy = ['vacancy', 'company', 'salary', 'job_type', 'city', 'english', 'experience', 'vacancy_url', 'title', 'body']
+sub_separator = "; "
+double_n_before_field = 'vacancy_url'
+
