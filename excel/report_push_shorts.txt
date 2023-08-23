@@ -40180,3 +40180,2535 @@ DB ID vacancy: 174683
 TITLE: lead c++ developer
 SUB: backend: python
 ------------------------
+callback_data.split()[-1]: shorts
+callback_data.split()[-1]: backend
+callback_data.split()[-1]: backend
+callback_data.split()[-1]: shorts
+callback_data.split()[-1]: shorts
+callback_data.split()[-1]: frontend
+DB ID vacancy: 189999
+TITLE: Senior frontend developer
+SUB: frontend: 
+callback_data.split()[-1]: frontend
+DB ID vacancy: 189999
+TITLE: Senior frontend developer
+SUB: frontend: 
+DB ID vacancy: 189959
+TITLE: Программист Битрикс
+SUB: frontend: bitrix
+DB ID vacancy: 189868
+TITLE: Разработчик ПО
+SUB: frontend: react
+DB ID vacancy: 189968
+TITLE: Senior frontend developer (Vue 3)
+SUB: frontend: vue
+DB ID vacancy: 189833
+TITLE: Frontend-разработчик
+SUB: frontend: react
+DB ID vacancy: 189856
+TITLE: Frontend developer (React)
+SUB: frontend: react
+DB ID vacancy: 190040
+TITLE: WordPress Designer Expert with HTML Coding Proficiency
+SUB: frontend: 
+DB ID vacancy: 190045
+TITLE: Программист на React Native
+SUB: frontend: react
+DB ID vacancy: 190025
+TITLE: Frontend Engineer (JS, Ember)
+SUB: frontend: vue
+------------------------
+callback_data.split()[-1]: backend
+DB ID vacancy: 190009
+TITLE: Backend Java Разработчик
+SUB: backend: java
+DB ID vacancy: 189940
+TITLE: Специалист по внедрению (Инженер по тестированию)
+SUB: backend: 
+DB ID vacancy: 189950
+TITLE: Менеджер по созданию новых продуктов
+SUB: backend: 
+DB ID vacancy: 190046
+TITLE: Менеджер по управлению диагностическими центрами
+SUB: backend: one_c
+DB ID vacancy: 190053
+TITLE: Специалист технической поддержки (ИТ-компания)
+SUB: backend: one_c
+DB ID vacancy: 190050
+TITLE: Senior developer
+SUB: backend: python
+------------------------
+callback_data.split()[-1]: backend
+callback_data.split()[-1]: mobile
+DB ID vacancy: 189855
+TITLE: Flutter/Dart разработчик с опытом
+SUB: mobile: android
+DB ID vacancy: 189876
+TITLE: Flutter-разработчик
+SUB: mobile: cross_mobile
+DB ID vacancy: 190032
+TITLE: iOS разработчик
+SUB: mobile: ios
+------------------------
+callback_data.split()[-1]: frontend
+callback_data.split()[-1]: mobile
+callback_data.split()[-1]: pm
+DB ID vacancy: 190051
+TITLE: Руководитель проекта (терминальные услуги)
+SUB: pm: project
+DB ID vacancy: 190055
+TITLE: Руководитель проектов / Project Manager
+SUB: pm: project
+------------------------
+callback_data.split()[-1]: game
+DB ID vacancy: 190019
+TITLE: Middle / Senior Software Development Engineer (Unity3D/C#)
+SUB: game: 
+------------------------
+callback_data.split()[-1]: game
+callback_data.split()[-1]: pm
+DB ID vacancy: 190120
+TITLE: Руководитель проекта (терминальные услуги)
+SUB: pm: project
+DB ID vacancy: 190121
+TITLE: Руководитель проектов / Project Manager
+SUB: pm: project
+DB ID vacancy: 190122
+TITLE: Руководитель проекта (терминальные услуги)
+SUB: pm: project
+DB ID vacancy: 190123
+TITLE: Руководитель проектов / Project Manager
+SUB: pm: project
+------------------------
+callback_data.split()[-1]: pm
+DB ID vacancy: 190124
+TITLE: Руководитель проекта (терминальные услуги)
+SUB: pm: project
+DB ID vacancy: 190121
+TITLE: Руководитель проектов / Project Manager
+SUB: pm: project
+DB ID vacancy: 190120
+TITLE: Руководитель проекта (терминальные услуги)
+SUB: pm: project
+DB ID vacancy: 190125
+TITLE: Руководитель проектов / Project Manager
+SUB: pm: project
+------------------------
+callback_data.split()[-1]: pm
+DB ID vacancy: 190121
+TITLE: Руководитель проектов / Project Manager
+SUB: pm: project
+callback_data.split()[-1]: pm
+DB ID vacancy: 190121
+TITLE: Руководитель проектов / Project Manager
+SUB: pm: project
+DB ID vacancy: 190120
+TITLE: Руководитель проекта (терминальные услуги)
+SUB: pm: project
+DB ID vacancy: 190126
+TITLE: Руководитель проекта (терминальные услуги)
+SUB: pm: project
+DB ID vacancy: 190127
+TITLE: Руководитель проектов / Project Manager
+SUB: pm: project
+------------------------
+callback_data.split()[-1]: designer
+callback_data.split()[-1]: designer
+DB ID vacancy: 189829
+TITLE: Motion Designer / Моушн дизайнер
+SUB: designer: motion
+callback_data.split()[-1]: designer
+DB ID vacancy: 189829
+TITLE: Motion Designer / Моушн дизайнер
+SUB: designer: motion
+DB ID vacancy: 189831
+TITLE: Дизайнер инфографики
+SUB: designer: graphic
+DB ID vacancy: 189994
+TITLE: Дизайнер
+SUB: designer: ddd
+DB ID vacancy: 189934
+TITLE: Дизайнер
+SUB: designer: 
+DB ID vacancy: 189946
+TITLE: UI Technical Art
+SUB: designer: ui_ux
+DB ID vacancy: 190029
+TITLE: UI/UX designer
+SUB: designer: ui_ux
+DB ID vacancy: 190030
+TITLE: Графический/Motion дизайнер
+SUB: designer: motion
+------------------------
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: hr
+DB ID vacancy: 189996
+TITLE: Фасовщик на косметическое производство
+SUB: hr: 
+DB ID vacancy: 189928
+TITLE: Finance Manager (logistic company)
+SUB: hr: 
+------------------------
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: analyst
+callback_data.split()[-1]: analyst
+DB ID vacancy: 189812
+TITLE: Digital Analyst (Junior)
+SUB: analyst: 
+DB ID vacancy: 189851
+TITLE: Data analyst
+SUB: analyst: data_analyst
+------------------------
+callback_data.split()[-1]: qa
+callback_data.split()[-1]: analyst
+DB ID vacancy: 189943
+TITLE: Бизнес-аналитик (К7М)
+SUB: analyst: ba
+DB ID vacancy: 189823
+TITLE: Стажёр по компенсациям и льготам, Направление мотивации и аналитики
+SUB: junior: analyst; analyst: 
+------------------------
+callback_data.split()[-1]: analyst
+callback_data.split()[-1]: analyst
+DB ID vacancy: 190013
+TITLE: Маркетинговый аналитик
+SUB: analyst: 
+DB ID vacancy: 189850
+TITLE: Бизнес-аналитик
+SUB: analyst: ba
+DB ID vacancy: 189815
+TITLE: Младший бизнес-аналитик
+SUB: analyst: ba
+DB ID vacancy: 190005
+TITLE: Менеджер по маркетплейсам / аккаунт менеджер (WB/OZON)
+SUB: analyst: 
+DB ID vacancy: 189834
+TITLE: Бизнес-аналитик
+SUB: analyst: ba
+DB ID vacancy: 189854
+TITLE: Технический писатель/аналитик
+SUB: analyst: 
+DB ID vacancy: 189859
+TITLE: Менеджер по работе с маркетплейсом Wildberries
+SUB: junior: analyst; analyst: 
+------------------------
+callback_data.split()[-1]: analyst
+callback_data.split()[-1]: analyst
+callback_data.split()[-1]: analyst
+callback_data.split()[-1]: analyst
+DB ID vacancy: 189842
+TITLE: Старший аналитик
+SUB: analyst: 
+DB ID vacancy: 189874
+TITLE: Эксперт технологических платформ [Governance]
+SUB: analyst: sys_analyst
+------------------------
+callback_data.split()[-1]: analyst
+DB ID vacancy: 190011
+TITLE: Бизнес/дата - аналитик
+SUB: analyst: data_analyst
+DB ID vacancy: 190020
+TITLE: Бизнес-аналитик 1С (middle)
+SUB: analyst: ba
+------------------------
+callback_data.split()[-1]: analyst
+DB ID vacancy: 189941
+TITLE: Системный аналитик
+SUB: analyst: sys_analyst
+DB ID vacancy: 189955
+TITLE: Аналитик
+SUB: analyst: 
+------------------------
+callback_data.split()[-1]: analyst
+DB ID vacancy: 190000
+TITLE: Системный аналитик (IBM Integration Bus)
+SUB: analyst: sys_analyst
+DB ID vacancy: 190003
+TITLE: System and Business Analyst
+SUB: analyst: ba
+DB ID vacancy: 190049
+TITLE: Аналитик продукта (Product Analyst)
+SUB: analyst: data_analyst
+------------------------
+callback_data.split()[-1]: analyst
+callback_data.split()[-1]: qa
+DB ID vacancy: 189945
+TITLE: Senior Manual QA Engineer (Telecom)
+SUB: qa: 
+DB ID vacancy: 189920
+TITLE: Младший специалист по тестированию (manual QA)
+SUB: qa: manual_qa
+DB ID vacancy: 190017
+TITLE: QA engineer (Лента онлайн)
+SUB: qa: 
+DB ID vacancy: 190043
+TITLE: Middle QA Engineer
+SUB: qa: 
+DB ID vacancy: 190010
+TITLE: Middle QA engineer (HUB)
+SUB: qa: 
+------------------------
+callback_data.split()[-1]: devops
+DB ID vacancy: 189845
+TITLE: Senior DevOps
+SUB: devops: 
+DB ID vacancy: 189848
+TITLE: Инженер отдела эксплуатации
+SUB: devops: 
+------------------------
+callback_data.split()[-1]: devops
+DB ID vacancy: 189820
+TITLE: Администратор
+SUB: devops: 
+DB ID vacancy: 189922
+TITLE: Младший системный администратор
+SUB: devops: 
+------------------------
+callback_data.split()[-1]: devops
+DB ID vacancy: 189849
+TITLE: Системный администратор Linux в СберТех
+SUB: devops: 
+DB ID vacancy: 189936
+TITLE: Контент-менеджер / копирайтер ( администратор оператор пк специалист дизайнер )
+SUB: devops: 
+------------------------
+callback_data.split()[-1]: devops
+DB ID vacancy: 189927
+TITLE: Администратор ресепшен со знанием английского языка
+SUB: devops: 
+DB ID vacancy: 189919
+TITLE: Младший администратор салона
+SUB: devops: 
+------------------------
+callback_data.split()[-1]: devops
+DB ID vacancy: 189918
+TITLE: Специалист технической поддержки (младший системный администратор)
+SUB: devops: 
+DB ID vacancy: 189865
+TITLE: Системный администратор (IP-телефония)
+SUB: devops: 
+------------------------
+callback_data.split()[-1]: devops
+DB ID vacancy: 189923
+TITLE: Администратор в клуб
+SUB: devops: 
+------------------------
+callback_data.split()[-1]: devops
+DB ID vacancy: 189963
+TITLE: SRE Engineer Senior
+SUB: devops: 
+DB ID vacancy: 189966
+TITLE: Разработчик Full Stack в Яндекс Вертикали
+SUB: devops: 
+DB ID vacancy: 190027
+TITLE: DevOps Engineer (KADS)
+SUB: devops: 
+DB ID vacancy: 190015
+TITLE: Системный администратор (Junior DevOps)
+SUB: devops: 
+DB ID vacancy: 190026
+TITLE: System Engineer
+SUB: devops: 
+------------------------
+callback_data.split()[-1]: devops
+callback_data.split()[-1]: marketing
+DB ID vacancy: 189838
+TITLE: Старший маркетолог / Старший специалист операционного маркетинга
+SUB: marketing: smm
+DB ID vacancy: 189949
+TITLE: Продакт менеджер / бренд менеджер / руководитель товарного направления
+SUB: marketing: 
+DB ID vacancy: 189828
+TITLE: SMM-менеджер
+SUB: marketing: smm
+------------------------
+callback_data.split()[-1]: marketing
+DB ID vacancy: 189818
+TITLE: Copywriter / Копирайтер со знанием английского языка
+SUB: marketing: copywriter
+DB ID vacancy: 189944
+TITLE: Технический писатель
+SUB: marketing: tech_writer
+------------------------
+callback_data.split()[-1]: pm
+DB ID vacancy: 191371
+TITLE: Product Manager
+SUB: pm: product
+DB ID vacancy: 191378
+TITLE: Product Manager (people-to-people relationship products)
+SUB: pm: product
+DB ID vacancy: 191102
+TITLE: Junior Project Manager (SaaS)
+SUB: pm: project; junior: pm
+------------------------
+callback_data.split()[-1]: junior
+DB ID vacancy: 194840
+TITLE: PHP-разработчик / Junior
+SUB: backend: php; junior: backend
+DB ID vacancy: 194697
+TITLE: IOS разработчик Junior
+SUB: junior: mobile; mobile: ios
+DB ID vacancy: 194695
+TITLE: Junior android - разработчик
+SUB: junior: mobile; mobile: android
+DB ID vacancy: 194838
+TITLE: Backend разработчик (Junior +)
+SUB: backend: php; junior: backend
+DB ID vacancy: 194006
+TITLE: Дизайнер-стажер
+SUB: junior: designer; designer: 
+DB ID vacancy: 193990
+TITLE: Стажер-специалист по тестированию
+SUB: junior: qa; qa: 
+DB ID vacancy: 193991
+TITLE: Младший графический дизайнер (Junior)
+SUB: junior: designer; designer: graphic
+DB ID vacancy: 193993
+TITLE: Стажер-тестировщик, Направление разработки WMS, Торговые операции
+SUB: junior: qa; qa: 
+DB ID vacancy: 193995
+TITLE: Технический писатель (Junior)
+SUB: junior: marketing; marketing: tech_writer
+DB ID vacancy: 193998
+TITLE: Embedded software developer (Junior)
+SUB: junior: ; backend: c
+DB ID vacancy: 194453
+TITLE: Стажер (технический специалист)
+SUB: junior: ; qa: support
+DB ID vacancy: 194486
+TITLE: Ресерчер
+SUB: junior: 
+DB ID vacancy: 194505
+TITLE: Специалист технической поддержки
+SUB: junior: ; qa: support
+DB ID vacancy: 194124
+TITLE: Junior project manager
+SUB: junior: pm; pm: project
+DB ID vacancy: 194152
+TITLE: Программист .Net Core (C#)
+SUB: junior: backend; backend: c
+DB ID vacancy: 194213
+TITLE: Web-разработчик (Junior)
+SUB: junior: ; backend: php
+DB ID vacancy: 194710
+TITLE: Стажер
+SUB: junior: 
+callback_data.split()[-1]: junior
+DB ID vacancy: 193980
+TITLE: Стажер-программист 1С
+SUB: junior: backend; backend: one_c
+DB ID vacancy: 194013
+TITLE: Координатор отдела персонала (стажер)
+SUB: junior: 
+DB ID vacancy: 193987
+TITLE: Junior Python Developer
+SUB: junior: backend; backend: python
+DB ID vacancy: 194758
+TITLE: Инженер по ручному тестированию (удаленный формат работы)
+SUB: qa: ; junior: qa
+DB ID vacancy: 194070
+TITLE: Программист разработчик \ Product developer
+SUB: junior: frontend; frontend: django; mobile: ios; mobile: android; backend: c; backend: java; backend: python; backend: nodejs
+DB ID vacancy: 193978
+TITLE: Web Designer / UX Designer (junior)
+SUB: junior: designer; designer: ui_ux
+callback_data.split()[-1]: junior
+DB ID vacancy: 193979
+TITLE: Веб-дизайнер/стажёр
+SUB: junior: designer; designer: ui_ux
+DB ID vacancy: 193980
+TITLE: Стажер-программист 1С
+SUB: junior: backend; backend: one_c
+DB ID vacancy: 194716
+TITLE: Стажер SOC аналитик
+SUB: junior: analyst; analyst: 
+DB ID vacancy: 194013
+TITLE: Координатор отдела персонала (стажер)
+SUB: junior: 
+callback_data.split()[-1]: junior
+DB ID vacancy: 193980
+TITLE: Стажер-программист 1С
+SUB: junior: backend; backend: one_c
+DB ID vacancy: 194013
+TITLE: Координатор отдела персонала (стажер)
+SUB: junior: 
+DB ID vacancy: 193987
+TITLE: Junior Python Developer
+SUB: junior: backend; backend: python
+DB ID vacancy: 194758
+TITLE: Инженер по ручному тестированию (удаленный формат работы)
+SUB: qa: ; junior: qa
+DB ID vacancy: 194070
+TITLE: Программист разработчик \ Product developer
+SUB: junior: frontend; frontend: django; mobile: ios; mobile: android; backend: c; backend: java; backend: python; backend: nodejs
+DB ID vacancy: 193978
+TITLE: Web Designer / UX Designer (junior)
+SUB: junior: designer; designer: ui_ux
+DB ID vacancy: 193979
+TITLE: Веб-дизайнер/стажёр
+SUB: junior: designer; designer: ui_ux
+DB ID vacancy: 194716
+TITLE: Стажер SOC аналитик
+SUB: junior: analyst; analyst: 
+DB ID vacancy: 194232
+TITLE: Системный аналитик (Junior)
+SUB: junior: analyst; analyst: sys_analyst
+DB ID vacancy: 194699
+TITLE: Разработчик C/С++ (junior)
+SUB: backend: c; junior: backend
+callback_data.split()[-1]: junior
+DB ID vacancy: 194700
+TITLE: Junior IT-рекрутер
+SUB: junior: 
+DB ID vacancy: 194011
+TITLE: Стажёр - Data scientist, Группа разработки Товарные рекомендации, Поиск, рекомендации, реклама
+SUB: junior: analyst; analyst: data_scientist
+DB ID vacancy: 194242
+TITLE: Intern IT Casewriter / Автор IT кейсов
+SUB: junior: ; marketing: tech_writer
+DB ID vacancy: 194005
+TITLE: Бизнес-аналитик (стажёр) в команду social e-com
+SUB: junior: analyst; analyst: ba
+DB ID vacancy: 193989
+TITLE: Junior Python ML инженер – разработчик
+SUB: junior: backend; backend: python
+callback_data.split()[-1]: junior
+DB ID vacancy: 194236
+TITLE: Маркетолог (junior) в IT-компанию
+SUB: junior: marketing; marketing: 
+callback_data.split()[-1]: junior
+DB ID vacancy: 194236
+TITLE: Маркетолог (junior) в IT-компанию
+SUB: junior: marketing; marketing: 
+DB ID vacancy: 194993
+TITLE: Системный аналитик (Intern/Junior)
+SUB: junior: analyst; analyst: sys_analyst
+callback_data.split()[-1]: junior
+DB ID vacancy: 194236
+TITLE: Маркетолог (junior) в IT-компанию
+SUB: junior: marketing; marketing: 
+callback_data.split()[-1]: junior
+DB ID vacancy: 194993
+TITLE: Системный аналитик (Intern/Junior)
+SUB: junior: analyst; analyst: sys_analyst
+callback_data.split()[-1]: junior
+callback_data.split()[-1]: junior
+callback_data.split()[-1]: junior
+DB ID vacancy: 194236
+TITLE: Маркетолог (junior) в IT-компанию
+SUB: junior: marketing; marketing: 
+DB ID vacancy: 194993
+TITLE: Системный аналитик (Intern/Junior)
+SUB: junior: analyst; analyst: sys_analyst
+DB ID vacancy: 194237
+TITLE: Junior SEO-специалист
+SUB: junior: marketing; marketing: seo
+callback_data.split()[-1]: junior
+DB ID vacancy: 194237
+TITLE: Junior SEO-специалист
+SUB: junior: marketing; marketing: seo
+DB ID vacancy: 194924
+TITLE: Автор статей (внештатно)
+SUB: marketing: tech_writer; junior: marketing
+DB ID vacancy: 194235
+TITLE: Junior-маркетолог/Ассистент директора по маркетингу (удаленно)
+SUB: junior: marketing; marketing: 
+DB ID vacancy: 194698
+TITLE: Аналитик (junior)
+SUB: junior: analyst; analyst: 
+DB ID vacancy: 194703
+TITLE: Junior Influence Manager
+SUB: junior: 
+callback_data.split()[-1]: junior
+DB ID vacancy: 194016
+TITLE: Customer Support Manager
+SUB: junior: qa; qa: support
+DB ID vacancy: 194707
+TITLE: Стажер Java в Блок Риски
+SUB: backend: java; junior: backend
+DB ID vacancy: 194701
+TITLE: Junior Media Buyer (помощник, FB)
+SUB: marketing: media_buyer; junior: marketing
+DB ID vacancy: 194732
+TITLE: Специалист (отдел социальных программ и корпоративной культуры)
+SUB: marketing: ; junior: marketing; marketing: smm
+DB ID vacancy: 194820
+TITLE: Аналитик Big Data (Junior)
+SUB: junior: analyst; analyst: data_analyst
+callback_data.split()[-1]: junior
+DB ID vacancy: 194761
+TITLE: Фронт-разработчик (Симплекс)
+SUB: ; frontend: react
+DB ID vacancy: 193951
+TITLE: Вакансия HR Process Support Manager (Fluent Russian, in Serbia) в Сербии, работа в компании Яндекс
+SUB: junior: 
+DB ID vacancy: 193974
+TITLE: Вакансия Content Moderator / Junior Data Reviewer (with English and Russian, in Poland) в Польше, работа в компании Accenture
+SUB: junior: ; marketing: copywriter
+DB ID vacancy: 194419
+TITLE: Менеджер социальных сетей
+SUB: ; marketing: smm
+DB ID vacancy: 194427
+TITLE: Partnership Manager
+SUB: junior: 
+DB ID vacancy: 194444
+TITLE: Разработчик / программист (сбор данных, парсинг)
+SUB: junior: frontend; frontend: vue
+DB ID vacancy: 194675
+TITLE: PHP Developer (Junior)
+SUB: backend: php; junior: backend
+DB ID vacancy: 194709
+TITLE: Начинающий дизайнер / стажер
+SUB: designer: ; junior: designer
+DB ID vacancy: 195046
+TITLE: Стажер project (Digital)
+SUB: junior: 
+DB ID vacancy: 194708
+TITLE: Начинающий дизайнер / Стажёр
+SUB: designer: ; junior: designer
+DB ID vacancy: 194718
+TITLE: Стажер SEO / Начинающий SEO-специалист
+SUB: marketing: seo; junior: marketing
+DB ID vacancy: 194992
+TITLE: Backend разработчик (Python, Junior), удаленно
+SUB: backend: python; junior: backend
+DB ID vacancy: 195106
+TITLE: Junior Researcher
+SUB: junior: 
+DB ID vacancy: 194874
+TITLE: PHP Developer (Junior)
+SUB: backend: php; junior: backend
+DB ID vacancy: 195020
+TITLE: Junior Системный Аналитик в продукт Smart Rollout (Big Data)
+SUB: junior: analyst; analyst: sys_analyst
+DB ID vacancy: 194913
+TITLE: Менеджер Wildberries
+SUB: junior: marketing
+DB ID vacancy: 195048
+TITLE: Junior Project Manager
+SUB: pm: project; junior: pm
+DB ID vacancy: 195080
+TITLE: Инженер по эксплуатации в "Цифровые технологии"
+SUB: backend: python; junior: backend
+DB ID vacancy: 195110
+TITLE: Битрикс-разработчик (junior)
+SUB: junior: frontend; frontend: bitrix
+DB ID vacancy: 195121
+TITLE: Дизайнер интерьеров
+SUB: junior: 
+DB ID vacancy: 195065
+TITLE: Event-менеджер
+SUB: junior: designer; designer: graphic
+DB ID vacancy: 194995
+TITLE: Стажер-тестировщик
+SUB: junior: qa; qa: 
+------------------------
+callback_data.split()[-1]: junior
+DB ID vacancy: 194011
+TITLE: Стажёр - Data scientist, Группа разработки Товарные рекомендации, Поиск, рекомендации, реклама
+SUB: junior: analyst; analyst: data_scientist
+DB ID vacancy: 194993
+TITLE: Системный аналитик (Intern/Junior)
+SUB: junior: analyst; analyst: sys_analyst
+DB ID vacancy: 194761
+TITLE: Фронт-разработчик (Симплекс)
+SUB: ; frontend: react
+DB ID vacancy: 194701
+TITLE: Junior Media Buyer (помощник, FB)
+SUB: marketing: media_buyer; junior: marketing
+DB ID vacancy: 194732
+TITLE: Специалист (отдел социальных программ и корпоративной культуры)
+SUB: marketing: ; junior: marketing; marketing: smm
+DB ID vacancy: 193989
+TITLE: Junior Python ML инженер – разработчик
+SUB: junior: backend; backend: python
+DB ID vacancy: 194924
+TITLE: Автор статей (внештатно)
+SUB: marketing: tech_writer; junior: marketing
+DB ID vacancy: 194820
+TITLE: Аналитик Big Data (Junior)
+SUB: junior: analyst; analyst: data_analyst
+DB ID vacancy: 194700
+TITLE: Junior IT-рекрутер
+SUB: junior: 
+DB ID vacancy: 194005
+TITLE: Бизнес-аналитик (стажёр) в команду social e-com
+SUB: junior: analyst; analyst: ba
+DB ID vacancy: 194237
+TITLE: Junior SEO-специалист
+SUB: junior: marketing; marketing: seo
+DB ID vacancy: 194235
+TITLE: Junior-маркетолог/Ассистент директора по маркетингу (удаленно)
+SUB: junior: marketing; marketing: 
+DB ID vacancy: 194236
+TITLE: Маркетолог (junior) в IT-компанию
+SUB: junior: marketing; marketing: 
+DB ID vacancy: 194707
+TITLE: Стажер Java в Блок Риски
+SUB: backend: java; junior: backend
+DB ID vacancy: 194703
+TITLE: Junior Influence Manager
+SUB: junior: 
+DB ID vacancy: 194016
+TITLE: Customer Support Manager
+SUB: junior: qa; qa: support
+DB ID vacancy: 194698
+TITLE: Аналитик (junior)
+SUB: junior: analyst; analyst: 
+DB ID vacancy: 194242
+TITLE: Intern IT Casewriter / Автор IT кейсов
+SUB: junior: ; marketing: tech_writer
+DB ID vacancy: 193951
+TITLE: Вакансия HR Process Support Manager (Fluent Russian, in Serbia) в Сербии, работа в компании Яндекс
+SUB: junior: 
+DB ID vacancy: 193974
+TITLE: Вакансия Content Moderator / Junior Data Reviewer (with English and Russian, in Poland) в Польше, работа в компании Accenture
+SUB: junior: ; marketing: copywriter
+DB ID vacancy: 194419
+TITLE: Менеджер социальных сетей
+SUB: ; marketing: smm
+DB ID vacancy: 194427
+TITLE: Partnership Manager
+SUB: junior: 
+DB ID vacancy: 194444
+TITLE: Разработчик / программист (сбор данных, парсинг)
+SUB: junior: frontend; frontend: vue
+DB ID vacancy: 194675
+TITLE: PHP Developer (Junior)
+SUB: backend: php; junior: backend
+DB ID vacancy: 194718
+TITLE: Стажер SEO / Начинающий SEO-специалист
+SUB: marketing: seo; junior: marketing
+DB ID vacancy: 195046
+TITLE: Стажер project (Digital)
+SUB: junior: 
+DB ID vacancy: 194709
+TITLE: Начинающий дизайнер / стажер
+SUB: designer: ; junior: designer
+DB ID vacancy: 194708
+TITLE: Начинающий дизайнер / Стажёр
+SUB: designer: ; junior: designer
+DB ID vacancy: 194874
+TITLE: PHP Developer (Junior)
+SUB: backend: php; junior: backend
+DB ID vacancy: 194992
+TITLE: Backend разработчик (Python, Junior), удаленно
+SUB: backend: python; junior: backend
+DB ID vacancy: 195020
+TITLE: Junior Системный Аналитик в продукт Smart Rollout (Big Data)
+SUB: junior: analyst; analyst: sys_analyst
+DB ID vacancy: 194913
+TITLE: Менеджер Wildberries
+SUB: junior: marketing
+DB ID vacancy: 195080
+TITLE: Инженер по эксплуатации в "Цифровые технологии"
+SUB: backend: python; junior: backend
+DB ID vacancy: 195048
+TITLE: Junior Project Manager
+SUB: pm: project; junior: pm
+DB ID vacancy: 195065
+TITLE: Event-менеджер
+SUB: junior: designer; designer: graphic
+DB ID vacancy: 195110
+TITLE: Битрикс-разработчик (junior)
+SUB: junior: frontend; frontend: bitrix
+DB ID vacancy: 194995
+TITLE: Стажер-тестировщик
+SUB: junior: qa; qa: 
+callback_data.split()[-1]: junior
+DB ID vacancy: 194005
+TITLE: Бизнес-аналитик (стажёр) в команду social e-com
+SUB: junior: analyst; analyst: ba
+DB ID vacancy: 193989
+TITLE: Junior Python ML инженер – разработчик
+SUB: junior: backend; backend: python
+DB ID vacancy: 194761
+TITLE: Фронт-разработчик (Симплекс)
+SUB: ; frontend: react
+DB ID vacancy: 194701
+TITLE: Junior Media Buyer (помощник, FB)
+SUB: marketing: media_buyer; junior: marketing
+DB ID vacancy: 194732
+TITLE: Специалист (отдел социальных программ и корпоративной культуры)
+SUB: marketing: ; junior: marketing; marketing: smm
+DB ID vacancy: 194993
+TITLE: Системный аналитик (Intern/Junior)
+SUB: junior: analyst; analyst: sys_analyst
+DB ID vacancy: 194820
+TITLE: Аналитик Big Data (Junior)
+SUB: junior: analyst; analyst: data_analyst
+DB ID vacancy: 194924
+TITLE: Автор статей (внештатно)
+SUB: marketing: tech_writer; junior: marketing
+DB ID vacancy: 194700
+TITLE: Junior IT-рекрутер
+SUB: junior: 
+DB ID vacancy: 194235
+TITLE: Junior-маркетолог/Ассистент директора по маркетингу (удаленно)
+SUB: junior: marketing; marketing: 
+DB ID vacancy: 194236
+TITLE: Маркетолог (junior) в IT-компанию
+SUB: junior: marketing; marketing: 
+DB ID vacancy: 194237
+TITLE: Junior SEO-специалист
+SUB: junior: marketing; marketing: seo
+DB ID vacancy: 194707
+TITLE: Стажер Java в Блок Риски
+SUB: backend: java; junior: backend
+DB ID vacancy: 194016
+TITLE: Customer Support Manager
+SUB: junior: qa; qa: support
+DB ID vacancy: 194703
+TITLE: Junior Influence Manager
+SUB: junior: 
+DB ID vacancy: 194242
+TITLE: Intern IT Casewriter / Автор IT кейсов
+SUB: junior: ; marketing: tech_writer
+DB ID vacancy: 194698
+TITLE: Аналитик (junior)
+SUB: junior: analyst; analyst: 
+DB ID vacancy: 194011
+TITLE: Стажёр - Data scientist, Группа разработки Товарные рекомендации, Поиск, рекомендации, реклама
+SUB: junior: analyst; analyst: data_scientist
+DB ID vacancy: 193951
+TITLE: Вакансия HR Process Support Manager (Fluent Russian, in Serbia) в Сербии, работа в компании Яндекс
+SUB: junior: 
+DB ID vacancy: 193974
+TITLE: Вакансия Content Moderator / Junior Data Reviewer (with English and Russian, in Poland) в Польше, работа в компании Accenture
+SUB: junior: ; marketing: copywriter
+DB ID vacancy: 194419
+TITLE: Менеджер социальных сетей
+SUB: ; marketing: smm
+DB ID vacancy: 194427
+TITLE: Partnership Manager
+SUB: junior: 
+DB ID vacancy: 194444
+TITLE: Разработчик / программист (сбор данных, парсинг)
+SUB: junior: frontend; frontend: vue
+DB ID vacancy: 194675
+TITLE: PHP Developer (Junior)
+SUB: backend: php; junior: backend
+DB ID vacancy: 194709
+TITLE: Начинающий дизайнер / стажер
+SUB: designer: ; junior: designer
+DB ID vacancy: 194718
+TITLE: Стажер SEO / Начинающий SEO-специалист
+SUB: marketing: seo; junior: marketing
+DB ID vacancy: 194708
+TITLE: Начинающий дизайнер / Стажёр
+SUB: designer: ; junior: designer
+DB ID vacancy: 195046
+TITLE: Стажер project (Digital)
+SUB: junior: 
+DB ID vacancy: 194992
+TITLE: Backend разработчик (Python, Junior), удаленно
+SUB: backend: python; junior: backend
+DB ID vacancy: 194874
+TITLE: PHP Developer (Junior)
+SUB: backend: php; junior: backend
+DB ID vacancy: 195020
+TITLE: Junior Системный Аналитик в продукт Smart Rollout (Big Data)
+SUB: junior: analyst; analyst: sys_analyst
+DB ID vacancy: 194913
+TITLE: Менеджер Wildberries
+SUB: junior: marketing
+DB ID vacancy: 194995
+TITLE: Стажер-тестировщик
+SUB: junior: qa; qa: 
+DB ID vacancy: 195080
+TITLE: Инженер по эксплуатации в "Цифровые технологии"
+SUB: backend: python; junior: backend
+DB ID vacancy: 195065
+TITLE: Event-менеджер
+SUB: junior: designer; designer: graphic
+DB ID vacancy: 195110
+TITLE: Битрикс-разработчик (junior)
+SUB: junior: frontend; frontend: bitrix
+DB ID vacancy: 195048
+TITLE: Junior Project Manager
+SUB: pm: project; junior: pm
+------------------------
+callback_data.split()[-1]: junior
+DB ID vacancy: 195149
+TITLE: Junior Researcher
+SUB: junior: ; mobile: cross_mobile; mobile: android; mobile: flutter
+DB ID vacancy: 195150
+TITLE: Дизайнер интерьеров
+SUB: junior: ; backend: delphi; backend: golang; backend: scala
+------------------------
+callback_data.split()[-1]: junior
+DB ID vacancy: 195149
+TITLE: Junior Researcher
+SUB: junior: ; mobile: cross_mobile; mobile: android; mobile: flutter
+DB ID vacancy: 195150
+TITLE: Дизайнер интерьеров
+SUB: junior: ; backend: delphi; backend: golang; backend: scala
+callback_data.split()[-1]: junior
+callback_data.split()[-1]: junior
+DB ID vacancy: 195149
+TITLE: Junior Researcher
+SUB: junior: ; mobile: cross_mobile; mobile: android; mobile: flutter
+DB ID vacancy: 195150
+TITLE: Дизайнер интерьеров
+SUB: junior: ; backend: delphi; backend: golang; backend: scala
+------------------------
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 190432
+TITLE: Суперменеджер по развитию бизнеса
+SUB: sales_manager: 
+DB ID vacancy: 190842
+TITLE: Менеджер по продажам в Бюро переводов
+SUB: sales_manager: 
+DB ID vacancy: 190021
+TITLE: Разработчик C# .NET проект Газпромнефть
+SUB: sales_manager: 
+DB ID vacancy: 190662
+TITLE: Менеджер по продажам SEO-услуг (удалённо)
+SUB: sales_manager: 
+DB ID vacancy: 190417
+TITLE: Head of Business Development
+SUB: sales_manager: 
+DB ID vacancy: 190419
+TITLE: Менеджер по продажам в online-школу программирования
+SUB: sales_manager: 
+DB ID vacancy: 190421
+TITLE: Менеджер по продажам в online-школу программирования
+SUB: sales_manager: 
+DB ID vacancy: 190808
+TITLE: Менеджер по продажам (удаленно, территория РФ)
+SUB: sales_manager: 
+DB ID vacancy: 190428
+TITLE: Менеджер по продажам
+SUB: sales_manager: 
+DB ID vacancy: 190429
+TITLE: Менеджер по продажам
+SUB: sales_manager: 
+DB ID vacancy: 190549
+TITLE: Менеджер по продажам онлайн образования в B2C - горячая воронка (удаленно)
+SUB: sales_manager: 
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 191061
+TITLE: Full Stack Developer 
+SUB: sales_manager: 
+DB ID vacancy: 191044
+TITLE: Product Designer
+SUB: junior: sales_manager; sales_manager: 
+DB ID vacancy: 190561
+TITLE: Менеджер по продажам (Маркетплейсы, WB/Ozon, Удаленка)
+SUB: sales_manager: 
+DB ID vacancy: 191030
+TITLE: Менеджер по продажам в MarTech ( IT, b2b, удалённо )
+SUB: sales_manager: 
+DB ID vacancy: 191024
+TITLE: Sales Lead manager / Head of Sales 
+SUB: sales_manager: 
+DB ID vacancy: 190564
+TITLE: Руководитель отдела продаж
+SUB: sales_manager: 
+DB ID vacancy: 191021
+TITLE: Senior Account Manager
+SUB: sales_manager: 
+DB ID vacancy: 190635
+TITLE: Руководитель отдела дизайна
+SUB: sales_manager: 
+DB ID vacancy: 190976
+TITLE: Менеджер по продажам
+SUB: sales_manager: 
+DB ID vacancy: 190484
+TITLE: Разработчик C# .NET (проект Газпромнефть)
+SUB: sales_manager: 
+DB ID vacancy: 190562
+TITLE: Удаленный РУКОВОДИТЕЛЬ ОТДЕЛА ПРОДАЖ
+SUB: sales_manager: 
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 191584
+TITLE: Менеджер по продажам рекламы на радио
+SUB: sales_manager: 
+DB ID vacancy: 190587
+TITLE: Professional Procurement and Purchasing
+SUB: sales_manager: 
+DB ID vacancy: 190601
+TITLE: Менеджер по продажам (активные продажи)
+SUB: sales_manager: 
+DB ID vacancy: 190644
+TITLE: Проект-менеджер
+SUB: sales_manager: 
+DB ID vacancy: 190648
+TITLE: Менеджер по работе с клиентами рекламных продуктов
+SUB: sales_manager: 
+DB ID vacancy: 190649
+TITLE: Sales Manager
+SUB: sales_manager: 
+DB ID vacancy: 190654
+TITLE: Руководитель отдела продаж
+SUB: sales_manager: 
+DB ID vacancy: 190048
+TITLE: Менеджер по продажам пищевых ингредиентов
+SUB: sales_manager: 
+DB ID vacancy: 190562
+TITLE: Удаленный РУКОВОДИТЕЛЬ ОТДЕЛА ПРОДАЖ
+SUB: sales_manager: 
+DB ID vacancy: 190566
+TITLE: Руководитель отдела продаж
+SUB: sales_manager: 
+DB ID vacancy: 190569
+TITLE: Ведущий менеджер по продажам (клоузер)
+SUB: sales_manager: 
+DB ID vacancy: 190588
+TITLE: Senior Category manager (Reebok Product)
+SUB: sales_manager: 
+DB ID vacancy: 190356
+TITLE: Младший менеджер по продаже зарплатных проектов
+SUB: sales_manager: 
+DB ID vacancy: 191623
+TITLE: Руководитель отдела продаж (IT) / Head of sales
+SUB: sales_manager: 
+DB ID vacancy: 190876
+TITLE: SAP EWM Consultant
+SUB: sales_manager: 
+DB ID vacancy: 190863
+TITLE: Менеджер по продажам по телефону
+SUB: sales_manager: 
+DB ID vacancy: 190849
+TITLE: Менеджер по продажам Битрикс24 / Bitrix24
+SUB: sales_manager: 
+DB ID vacancy: 190834
+TITLE: Менеджер по продажам (удаленно, на горячих заявках)
+SUB: sales_manager: 
+DB ID vacancy: 192633
+TITLE: Менеджер по продажам мебели
+SUB: sales_manager: 
+DB ID vacancy: 190833
+TITLE: Менеджер по продажам услуг (онлайн)
+SUB: sales_manager: 
+DB ID vacancy: 190826
+TITLE: Менеджер по продажам
+SUB: sales_manager: 
+DB ID vacancy: 192689
+TITLE: Менеджер по продажам (строительство, без холодных звонков)
+SUB: sales_manager: 
+DB ID vacancy: 190811
+TITLE: B2B Sales Manager
+SUB: sales_manager: 
+DB ID vacancy: 190851
+TITLE: Менеджер по продажам Битрикс24
+SUB: sales_manager: 
+DB ID vacancy: 190416
+TITLE: HR Lead (HRBP / People Partner)
+SUB: sales_manager: 
+DB ID vacancy: 190463
+TITLE: Оператор печати / допечатник
+SUB: sales_manager: 
+DB ID vacancy: 190567
+TITLE: Менеджер по работе с клиентами (удаленно)
+SUB: sales_manager: 
+DB ID vacancy: 190570
+TITLE: Менеджер по продажам услуг (удаленно)
+SUB: sales_manager: 
+DB ID vacancy: 190584
+TITLE: Менеджер по продажам
+SUB: sales_manager: 
+DB ID vacancy: 190320
+TITLE: Вакансия Music Label Scout, Sales in the Music Industry (Serbia) в Сербии, работа в компании RHYMES MUSIC
+SUB: sales_manager: 
+DB ID vacancy: 190322
+TITLE: Вакансия B2B Sales Manager  в Москве, работа в компании Imshop.io
+SUB: sales_manager: 
+DB ID vacancy: 190326
+TITLE: Вакансия Sales Specialist (South Africa) в ЮАРе, работа в компании Bolt
+SUB: sales_manager: 
+DB ID vacancy: 190329
+TITLE: Вакансия Руководитель отдела продаж  в Москве, работа в компании MEDOR
+SUB: sales_manager: 
+DB ID vacancy: 194310
+TITLE: SDR Sales Development Representative (Remote, English)
+SUB: junior: designer; designer: ui_ux
+DB ID vacancy: 194427
+TITLE: Partnership Manager
+SUB: junior: 
+DB ID vacancy: 195149
+TITLE: Junior Researcher
+SUB: junior: ; mobile: cross_mobile; mobile: android; mobile: flutter
+------------------------
+callback_data.split()[-1]: backend
+DB ID vacancy: 192027
+TITLE: Lead QAA/SDET (Python)
+SUB: backend: python; backend: c; backend: net
+DB ID vacancy: 193980
+TITLE: Стажер-программист 1С
+SUB: junior: backend; backend: one_c
+DB ID vacancy: 194070
+TITLE: Программист разработчик \ Product developer
+SUB: junior: frontend; frontend: django; mobile: ios; mobile: android; backend: c; backend: java; backend: python; backend: nodejs
+DB ID vacancy: 193987
+TITLE: Junior Python Developer
+SUB: junior: backend; backend: python
+DB ID vacancy: 194840
+TITLE: PHP-разработчик / Junior
+SUB: backend: php; junior: backend
+DB ID vacancy: 194699
+TITLE: Разработчик C/С++ (junior)
+SUB: backend: c; junior: backend
+DB ID vacancy: 194838
+TITLE: Backend разработчик (Junior +)
+SUB: backend: php; junior: backend
+DB ID vacancy: 194213
+TITLE: Web-разработчик (Junior)
+SUB: junior: ; backend: php
+DB ID vacancy: 193998
+TITLE: Embedded software developer (Junior)
+SUB: junior: ; backend: c
+DB ID vacancy: 194707
+TITLE: Стажер Java в Блок Риски
+SUB: backend: java; junior: backend
+DB ID vacancy: 194152
+TITLE: Программист .Net Core (C#)
+SUB: junior: backend; backend: c
+DB ID vacancy: 193989
+TITLE: Junior Python ML инженер – разработчик
+SUB: junior: backend; backend: python
+DB ID vacancy: 194675
+TITLE: PHP Developer (Junior)
+SUB: backend: php; junior: backend
+DB ID vacancy: 194874
+TITLE: PHP Developer (Junior)
+SUB: backend: php; junior: backend
+DB ID vacancy: 194992
+TITLE: Backend разработчик (Python, Junior), удаленно
+SUB: backend: python; junior: backend
+DB ID vacancy: 195080
+TITLE: Инженер по эксплуатации в "Цифровые технологии"
+SUB: backend: python; junior: backend
+DB ID vacancy: 195150
+TITLE: Дизайнер интерьеров
+SUB: junior: ; backend: delphi; backend: golang; backend: scala
+------------------------
+callback_data.split()[-1]: backend
+DB ID vacancy: 191084
+TITLE: Intern Backend Developer
+SUB: junior: backend; backend: python; backend: c; backend: php
+------------------------
+callback_data.split()[-1]: junior
+DB ID vacancy: 195185
+TITLE: Sales Process Associate
+SUB: marketing: ; junior: marketing
+DB ID vacancy: 195152
+TITLE: Вакансия Lawyer (Georgia, Remote), удаленная работа, работа в компании EPAM
+SUB: analyst: ba; junior: analyst
+DB ID vacancy: 195156
+TITLE: Вакансия Business Support Intern, Sales в Москве, работа в компании General Electric HealthCare
+SUB: junior: 
+DB ID vacancy: 195164
+TITLE: Вакансия Business Analytics Consultant (Kazakhstan, Armenia, Remote) в Казахстане, Армении, работа в компании EPAM
+SUB: analyst: data_analyst; junior: analyst
+DB ID vacancy: 195166
+TITLE: Вакансия Стажер в отдел кадров в Москве, работа в компании Л'Этуаль
+SUB: junior: hr; hr: 
+DB ID vacancy: 195174
+TITLE: Virtual Assistant
+SUB: junior: 
+DB ID vacancy: 195175
+TITLE: HR Assistant  
+SUB: junior: hr; hr: 
+DB ID vacancy: 195233
+TITLE: Рекрутер (удаленная работа)
+SUB: junior: hr; hr: 
+DB ID vacancy: 195254
+TITLE: Junior Sales specialist (IT-продукты/удаленно)
+SUB: junior: 
+DB ID vacancy: 195260
+TITLE: HR менеджер/Рекрутер (ИТ-компания) (удаленная работа)
+SUB: backend: one_c; junior: backend
+DB ID vacancy: 195265
+TITLE: Менеджер по подбору и адаптации (удаленная работа)
+SUB: junior: hr; hr: 
+DB ID vacancy: 195284
+TITLE: Менеджер отдела продаж по работе с ключевыми клиентами (удаленная работа)
+SUB: marketing: ; junior: marketing
+DB ID vacancy: 195311
+TITLE: Менеджер отдела продаж (удаленная работа)
+SUB: junior: 
+DB ID vacancy: 195316
+TITLE: Стажер в отдел продаж (удаленная работа)
+SUB: junior: 
+DB ID vacancy: 195374
+TITLE: Support Specialist (удаленная работа)
+SUB: junior: game; game: 
+DB ID vacancy: 195394
+TITLE: Менеджер отдела продаж (удаленная работа)
+SUB: junior: 
+------------------------
+callback_data.split()[-1]: qa
+DB ID vacancy: 189920
+TITLE: Младший специалист по тестированию (manual QA)
+SUB: qa: manual_qa
+DB ID vacancy: 189945
+TITLE: Senior Manual QA Engineer (Telecom)
+SUB: qa: ; qa: manual_qa
+DB ID vacancy: 190017
+TITLE: QA engineer (Лента онлайн)
+SUB: qa: ; qa: aqa
+DB ID vacancy: 190996
+TITLE: Тестировщик ПО
+SUB: qa: 
+DB ID vacancy: 190998
+TITLE: QA Engineer (Mobile app)
+SUB: qa: 
+DB ID vacancy: 190536
+TITLE: QA (mobile) / Инженер по тестированию в команду мобильной разработки
+SUB: qa: 
+DB ID vacancy: 190507
+TITLE: Middle Manual QA Engineer (Инженер по ручному тестированию)
+SUB: qa: ; qa: manual_qa
+DB ID vacancy: 190508
+TITLE: QA engineer/АБС ЦФТ-Банк, удаленно
+SUB: qa: ; qa: aqa
+DB ID vacancy: 190537
+TITLE: QA engineer (Middle)
+SUB: qa: 
+DB ID vacancy: 190527
+TITLE: QA Engineer
+SUB: qa: 
+DB ID vacancy: 190010
+TITLE: Middle QA engineer (HUB)
+SUB: qa: ; qa: aqa
+DB ID vacancy: 190014
+TITLE: QA Mobile Automation engineer / Тестировщик мобильных приложений (автотестирование)
+SUB: qa: ; qa: aqa
+DB ID vacancy: 190506
+TITLE: Тестировщик ПО (ручное тестирование)
+SUB: qa: ; qa: manual_qa
+DB ID vacancy: 190509
+TITLE: Тестировщик ПО
+SUB: qa: ; qa: manual_qa
+DB ID vacancy: 190513
+TITLE: QA Engineer (Middle Office)
+SUB: qa: ; qa: manual_qa
+DB ID vacancy: 190504
+TITLE: QA инженер
+SUB: qa: 
+DB ID vacancy: 194758
+TITLE: Инженер по ручному тестированию (удаленный формат работы)
+SUB: qa: ; junior: qa
+DB ID vacancy: 194016
+TITLE: Customer Support Manager
+SUB: junior: qa; qa: support
+DB ID vacancy: 194505
+TITLE: Специалист технической поддержки
+SUB: junior: ; qa: support
+DB ID vacancy: 194453
+TITLE: Стажер (технический специалист)
+SUB: junior: ; qa: support
+DB ID vacancy: 193990
+TITLE: Стажер-специалист по тестированию
+SUB: junior: qa; qa: 
+DB ID vacancy: 193993
+TITLE: Стажер-тестировщик, Направление разработки WMS, Торговые операции
+SUB: junior: qa; qa: 
+DB ID vacancy: 194995
+TITLE: Стажер-тестировщик
+SUB: junior: qa; qa: 
+------------------------
+callback_data.split()[-1]: hr
+DB ID vacancy: 192288
+TITLE: IT-рекрутер
+SUB: junior: frontend; frontend: 
+DB ID vacancy: 194796
+TITLE: Руководитель отдела кадрового администрирования
+SUB: hr: 
+DB ID vacancy: 194013
+TITLE: Координатор отдела персонала (стажер)
+SUB: junior: 
+DB ID vacancy: 194238
+TITLE: Младший специалист по подбору персонала Удаленно
+SUB: hr: 
+DB ID vacancy: 194486
+TITLE: Ресерчер
+SUB: junior: 
+DB ID vacancy: 194762
+TITLE: IT рекрутер
+SUB: hr: 
+DB ID vacancy: 194819
+TITLE: Младший HR-аналитик
+SUB: hr: 
+DB ID vacancy: 194700
+TITLE: Junior IT-рекрутер
+SUB: junior: 
+DB ID vacancy: 194409
+TITLE: IT-рекрутер
+SUB: hr: 
+DB ID vacancy: 193951
+TITLE: Вакансия HR Process Support Manager (Fluent Russian, in Serbia) в Сербии, работа в компании Яндекс
+SUB: junior: 
+DB ID vacancy: 193981
+TITLE: Technical Recruiter (Remote job in India)
+SUB: hr: 
+DB ID vacancy: 193982
+TITLE: Recruiter (remote)
+SUB: hr: 
+DB ID vacancy: 193983
+TITLE: Recruiter
+SUB: hr: 
+DB ID vacancy: 194442
+TITLE: Менеджер по персоналу
+SUB: hr: 
+DB ID vacancy: 194712
+TITLE: HR-менеджер
+SUB: hr: 
+DB ID vacancy: 195145
+TITLE: HR BP (удалённо)
+SUB: hr: 
+DB ID vacancy: 195108
+TITLE: Младший специалист по подбору персонала (удаленно)
+SUB: hr: 
+DB ID vacancy: 195103
+TITLE: Рекрутёр для IT проектов ( удалённо)
+SUB: hr: 
+DB ID vacancy: 195132
+TITLE: Рекрутер, удаленно
+SUB: hr: 
+DB ID vacancy: 195166
+TITLE: Вакансия Стажер в отдел кадров в Москве, работа в компании Л'Этуаль
+SUB: junior: hr; hr: 
+DB ID vacancy: 195175
+TITLE: HR Assistant  
+SUB: junior: hr; hr: 
+DB ID vacancy: 195197
+TITLE: Рекрутер/HR менеджер по подбору персонала (удаленная работа)
+SUB: hr: 
+DB ID vacancy: 195206
+TITLE: Специалист по подбору персонала, удаленно
+SUB: hr: 
+DB ID vacancy: 195214
+TITLE: Специалист по подбору персонала (удаленно)
+SUB: hr: 
+DB ID vacancy: 195229
+TITLE: HRBP (HR Business Partner) (удаленная работа)
+SUB: hr: 
+DB ID vacancy: 195231
+TITLE: Менеджер по подбору персонала (рекрутер) (удаленная работа)
+SUB: hr: 
+DB ID vacancy: 195233
+TITLE: Рекрутер (удаленная работа)
+SUB: junior: hr; hr: 
+DB ID vacancy: 195255
+TITLE: IT рекрутер (удаленная работа)
+SUB: hr: 
+DB ID vacancy: 195258
+TITLE: HR BP/HR Business Partner (удаленная работа)
+SUB: hr: 
+DB ID vacancy: 195260
+TITLE: HR менеджер/Рекрутер (ИТ-компания) (удаленная работа)
+SUB: backend: one_c; junior: backend
+DB ID vacancy: 195265
+TITLE: Менеджер по подбору и адаптации (удаленная работа)
+SUB: junior: hr; hr: 
+DB ID vacancy: 195319
+TITLE: HR-менеджер (удаленная работа)
+SUB: hr: 
+DB ID vacancy: 195330
+TITLE: Руководитель отдела найма и адаптации персонала (удаленная работа)
+SUB: hr: 
+------------------------
+callback_data.split()[-1]: marketing
+DB ID vacancy: 194135
+TITLE: SMM-менеджер
+SUB: marketing: smm
+DB ID vacancy: 194256
+TITLE: Маркетолог-аналитик / специалист по маркетплейсу Ozon/
+SUB: marketing: copywriter
+DB ID vacancy: 194754
+TITLE: Специалист по маркетплейсу Ozon/создание и сео карточек
+SUB: marketing: copywriter
+DB ID vacancy: 194129
+TITLE: SMM-менеджер (гибридный график)
+SUB: marketing: smm
+DB ID vacancy: 194037
+TITLE: Таргетолог
+SUB: marketing: ; marketing: smm
+DB ID vacancy: 194751
+TITLE: Контент-маркетолог /Project-менеджер
+SUB: marketing: copywriter; marketing: content_manager
+DB ID vacancy: 194508
+TITLE: Помощник маркетолога
+SUB: marketing: 
+DB ID vacancy: 194729
+TITLE: SMM-менеджер
+SUB: marketing: smm
+DB ID vacancy: 194742
+TITLE: Контент-менеджер
+SUB: marketing: content_manager
+DB ID vacancy: 194035
+TITLE: Помощник SMM-специалист
+SUB: marketing: smm
+DB ID vacancy: 194513
+TITLE: Контент-маркетолог
+SUB: marketing: ; marketing: content_manager
+DB ID vacancy: 194801
+TITLE: Marketing Event Manager
+SUB: marketing: 
+DB ID vacancy: 194692
+TITLE: Content Writer for Attorney and Law Firm Websites
+SUB: marketing: seo
+DB ID vacancy: 194242
+TITLE: Intern IT Casewriter / Автор IT кейсов
+SUB: junior: ; marketing: tech_writer
+DB ID vacancy: 194924
+TITLE: Автор статей (внештатно)
+SUB: marketing: tech_writer; junior: marketing
+DB ID vacancy: 194345
+TITLE: Специалист по контекстной рекламе / PPC Specialist
+SUB: marketing: smm; marketing: content_manager
+DB ID vacancy: 194117
+TITLE: PR-менеджер
+SUB: marketing: 
+DB ID vacancy: 194140
+TITLE: SMM-специалист
+SUB: marketing: smm
+DB ID vacancy: 194372
+TITLE: Influence marketing manager / Менеджер по работе с блогерами (лидерами мнений)
+SUB: marketing: ; marketing: smm; marketing: media_buyer
+DB ID vacancy: 194248
+TITLE: SMM-менеджер
+SUB: marketing: smm
+DB ID vacancy: 194292
+TITLE: Маркетолог-аналитик
+SUB: marketing: 
+DB ID vacancy: 194050
+TITLE: Контент-менеджер
+SUB: ; marketing: email_marketer; marketing: media_buyer; marketing: copywriter; marketing: seo; marketing: content_manager
+DB ID vacancy: 194255
+TITLE: Инфлюенс-маркетолог
+SUB: marketing: smm
+DB ID vacancy: 194272
+TITLE: Интернет-маркетолог (удаленно)
+SUB: marketing: copywriter
+DB ID vacancy: 194273
+TITLE: SMM - менеджер/SMM - директор
+SUB: marketing: smm
+DB ID vacancy: 194279
+TITLE: SMM-менеджер в бизнес-школу (удаленно)
+SUB: marketing: smm
+DB ID vacancy: 193995
+TITLE: Технический писатель (Junior)
+SUB: junior: marketing; marketing: tech_writer
+DB ID vacancy: 194701
+TITLE: Junior Media Buyer (помощник, FB)
+SUB: marketing: media_buyer; junior: marketing
+DB ID vacancy: 194732
+TITLE: Специалист (отдел социальных программ и корпоративной культуры)
+SUB: marketing: ; junior: marketing; marketing: smm
+DB ID vacancy: 194237
+TITLE: Junior SEO-специалист
+SUB: junior: marketing; marketing: seo
+DB ID vacancy: 194235
+TITLE: Junior-маркетолог/Ассистент директора по маркетингу (удаленно)
+SUB: junior: marketing; marketing: 
+DB ID vacancy: 194236
+TITLE: Маркетолог (junior) в IT-компанию
+SUB: junior: marketing; marketing: 
+DB ID vacancy: 194703
+TITLE: Junior Influence Manager
+SUB: junior: 
+DB ID vacancy: 194250
+TITLE: SMM-менеджер
+SUB: marketing: smm
+DB ID vacancy: 194263
+TITLE: Медиа Байер / Трафик менеджер / User acquisition manager (Удаленно)
+SUB: marketing: 
+DB ID vacancy: 194776
+TITLE: Ассистент маркетолога
+SUB: marketing: 
+DB ID vacancy: 194512
+TITLE: Помощник менеджера по рекламе (удаленно)
+SUB: marketing: context
+DB ID vacancy: 194271
+TITLE: Таргетолог ВК / Директолог Яндекс (Удалённо)
+SUB: marketing: context
+DB ID vacancy: 194278
+TITLE: Е-mail маркетолог
+SUB: marketing: 
+DB ID vacancy: 194023
+TITLE: Маркетолог-аналитик
+SUB: marketing: 
+DB ID vacancy: 194032
+TITLE: SMM-специалист
+SUB: marketing: smm
+DB ID vacancy: 193974
+TITLE: Вакансия Content Moderator / Junior Data Reviewer (with English and Russian, in Poland) в Польше, работа в компании Accenture
+SUB: junior: ; marketing: copywriter
+DB ID vacancy: 194419
+TITLE: Менеджер социальных сетей
+SUB: ; marketing: smm
+DB ID vacancy: 195185
+TITLE: Sales Process Associate
+SUB: marketing: ; junior: marketing
+DB ID vacancy: 194718
+TITLE: Стажер SEO / Начинающий SEO-специалист
+SUB: marketing: seo; junior: marketing
+DB ID vacancy: 194913
+TITLE: Менеджер Wildberries
+SUB: junior: marketing
+DB ID vacancy: 195065
+TITLE: Event-менеджер
+SUB: junior: designer; designer: graphic
+------------------------
+callback_data.split()[-1]: mobile
+DB ID vacancy: 192583
+TITLE: Junior Android Developer
+SUB: mobile: android
+DB ID vacancy: 190032
+TITLE: iOS разработчик
+SUB: mobile: ios
+DB ID vacancy: 190960
+TITLE: Developer iOS (Kaspersky Password Manager)
+SUB: mobile: ios
+DB ID vacancy: 190952
+TITLE: Ведущий iOS разработчик 
+SUB: mobile: ios
+DB ID vacancy: 190746
+TITLE: React Native / React.JS разработчик (удалённо)
+SUB: mobile: android; mobile: react_native
+DB ID vacancy: 191041
+TITLE: С++ Developer + iOS
+SUB: mobile: ios; backend: python; backend: c
+DB ID vacancy: 190532
+TITLE: React Native (удаленно)
+SUB: mobile: cross_mobile
+DB ID vacancy: 190525
+TITLE: React Native разработчик
+SUB: mobile: cross_mobile; frontend: react
+DB ID vacancy: 190520
+TITLE: IOS Developer
+SUB: mobile: ios
+DB ID vacancy: 190427
+TITLE: Middle Flutter Developer
+SUB: mobile: cross_mobile; mobile: flutter
+DB ID vacancy: 190910
+TITLE: Mobile (ReactNative) Developer
+SUB: mobile: android
+DB ID vacancy: 190524
+TITLE: IOS-разработчик
+SUB: mobile: ios
+DB ID vacancy: 190948
+TITLE: Ведущий iOS разработчик 
+SUB: mobile: ios
+DB ID vacancy: 190533
+TITLE: Flutter-developer
+SUB: mobile: cross_mobile
+DB ID vacancy: 190912
+TITLE: Разработчик iOS (проект "Мессенджинг") в Одноклассники
+SUB: mobile: ios
+DB ID vacancy: 191040
+TITLE: Android developer
+SUB: mobile: android
+DB ID vacancy: 190885
+TITLE: Senior Android Developer
+SUB: mobile: android
+DB ID vacancy: 190550
+TITLE: IOS разработчик
+SUB: mobile: ios
+DB ID vacancy: 190371
+TITLE: Junior IOS разработчик
+SUB: junior: mobile; mobile: ios
+DB ID vacancy: 190830
+TITLE: Middle/Senior Flutter developer
+SUB: mobile: cross_mobile; mobile: flutter
+DB ID vacancy: 190822
+TITLE: Middle+/Senior Android разработчик
+SUB: mobile: android
+DB ID vacancy: 190922
+TITLE: Тестировщик мобильных приложений ("Core Android") в OK.RU
+SUB: mobile: android
+DB ID vacancy: 190920
+TITLE: Senior Java/ Kotlin Developer (Служба управления конфигурациями)
+SUB: mobile: android; backend: java
+DB ID vacancy: 190815
+TITLE: Специалист по тестированию мобильных приложений на Android (Middle+)
+SUB: mobile: android
+DB ID vacancy: 190543
+TITLE: IOS-разработчик
+SUB: mobile: ios
+DB ID vacancy: 190530
+TITLE: Android Developer
+SUB: mobile: android
+DB ID vacancy: 191069
+TITLE: Flutter разработчик
+SUB: mobile: android; mobile: flutter
+DB ID vacancy: 190401
+TITLE: Junior программист (TypeScript/React/React Native)
+SUB: junior: mobile; mobile: android; mobile: react_native
+DB ID vacancy: 190328
+TITLE: Вакансия Junior IOS Developer, удаленная работа, работа в компании Aviasales
+SUB: junior: mobile; mobile: ios
+DB ID vacancy: 190892
+TITLE: React Native Developer/Программист																													
+SUB: mobile: android
+DB ID vacancy: 191532
+TITLE: Middle+/Senior iOS Разработчик (remote)
+SUB: mobile: ios
+DB ID vacancy: 191676
+TITLE: Flutter Developer (Junior +)
+SUB: junior: mobile; mobile: ios
+DB ID vacancy: 191878
+TITLE: Android разработчик: Kotlin/Java
+SUB: mobile: android
+DB ID vacancy: 191944
+TITLE: Fullstack developer (Kotlin +Js)
+SUB: mobile: android; backend: python
+DB ID vacancy: 191963
+TITLE: Flutter developer
+SUB: mobile: android
+DB ID vacancy: 191378
+TITLE: IOS Dev (AI/ML team)
+SUB: ; mobile: android
+DB ID vacancy: 191491
+TITLE: Разработчик мобильных приложений (Android)
+SUB: mobile: android
+DB ID vacancy: 191492
+TITLE: Android developer
+SUB: mobile: android
+DB ID vacancy: 191495
+TITLE: IOS Developer
+SUB: mobile: ios; mobile: android
+DB ID vacancy: 191516
+TITLE: Mobile Developer
+SUB: mobile: cross_mobile
+DB ID vacancy: 191531
+TITLE: Android Developer
+SUB: mobile: android
+DB ID vacancy: 192040
+TITLE: Младший программист
+SUB: mobile: android
+DB ID vacancy: 191527
+TITLE: Android-разработчик
+SUB: mobile: android
+DB ID vacancy: 191523
+TITLE: Middle iOS Разработчик (remote)
+SUB: mobile: ios
+DB ID vacancy: 191373
+TITLE: Android ( Андроид) разработчик ( программист ) Kotlin ( Котлин) - Middle / Junior +
+SUB: mobile: android
+DB ID vacancy: 191412
+TITLE: Android Developer
+SUB: mobile: android
+DB ID vacancy: 191471
+TITLE: IOS разработчик
+SUB: mobile: ios
+DB ID vacancy: 191488
+TITLE: Middle Flutter Developer
+SUB: mobile: android
+DB ID vacancy: 191508
+TITLE: Android developer (Middle/Middle+)
+SUB: mobile: android
+DB ID vacancy: 191507
+TITLE: Android-разработчик (Kotlin)
+SUB: mobile: android
+DB ID vacancy: 192082
+TITLE: IOS Developer (AI/ML team)
+SUB: mobile: ios
+DB ID vacancy: 192097
+TITLE: IOS Developer/intern (AI/ML team)
+SUB: junior: mobile; mobile: ios
+DB ID vacancy: 192742
+TITLE: Senior Android developer
+SUB: mobile: android
+DB ID vacancy: 192278
+TITLE: Android разработчик
+SUB: mobile: android
+DB ID vacancy: 192274
+TITLE: Android разработчик (Middle)
+SUB: mobile: android
+DB ID vacancy: 192226
+TITLE: Flutter-разработчик (middle+/senior)
+SUB: mobile: android; mobile: flutter
+DB ID vacancy: 192174
+TITLE: iOS разработчик
+SUB: mobile: ios
+DB ID vacancy: 192180
+TITLE: Android разработчик
+SUB: mobile: android; backend: java
+DB ID vacancy: 192735
+TITLE: Flutter-разработчик
+SUB: mobile: android; mobile: flutter
+DB ID vacancy: 192263
+TITLE: Android OSP Framework Developer / AOSP разработчик
+SUB: mobile: android
+DB ID vacancy: 192254
+TITLE: Инженер по автоматизации тестирования (Java mobile automation)
+SUB: mobile: android; backend: java
+DB ID vacancy: 192117
+TITLE: IOS middle
+SUB: mobile: ios
+DB ID vacancy: 192119
+TITLE: Flutter-разработчик
+SUB: mobile: android; mobile: flutter
+DB ID vacancy: 192622
+TITLE: Intern IOS developer
+SUB: mobile: ios; junior: mobile
+DB ID vacancy: 192625
+TITLE: Intern Android developer
+SUB: mobile: android
+DB ID vacancy: 192202
+TITLE: Senior React Developer 
+SUB: mobile: 
+DB ID vacancy: 192738
+TITLE: Android developer (Платформа Baas)
+SUB: mobile: android
+DB ID vacancy: 193265
+TITLE: iOS разработчик
+SUB: mobile: ios
+DB ID vacancy: 192693
+TITLE: IOS middle специалист
+SUB: mobile: ios
+DB ID vacancy: 192717
+TITLE: IOS разработчик
+SUB: mobile: ios
+DB ID vacancy: 192722
+TITLE: Программист-разработчик
+SUB: mobile: ios
+DB ID vacancy: 193205
+TITLE: Android разработчик
+SUB: mobile: android
+DB ID vacancy: 193796
+TITLE: Senior iOS developer
+SUB: mobile: ios
+DB ID vacancy: 193809
+TITLE: Android Developer
+SUB: mobile: android
+DB ID vacancy: 193810
+TITLE: Android developer
+SUB: mobile: android
+DB ID vacancy: 193811
+TITLE: Mobile Developer
+SUB: mobile: android; mobile: flutter
+DB ID vacancy: 193117
+TITLE: Senior Android Developer
+SUB: mobile: android; backend: java
+DB ID vacancy: 192991
+TITLE: Flutter разработчик
+SUB: mobile: cross_mobile; mobile: flutter
+DB ID vacancy: 193094
+TITLE: Android Developer
+SUB: mobile: android; backend: java
+DB ID vacancy: 193202
+TITLE: Разработчик iOS webview приложений
+SUB: mobile: ios
+DB ID vacancy: 193585
+TITLE: IOS Developer Middle
+SUB: mobile: ios
+DB ID vacancy: 192721
+TITLE: Mobile Developer (Разработчик Мобильных Приложений)
+SUB: mobile: android
+DB ID vacancy: 194070
+TITLE: Программист разработчик \ Product developer
+SUB: junior: frontend; frontend: django; mobile: ios; mobile: android; backend: c; backend: java; backend: python; backend: nodejs
+DB ID vacancy: 192716
+TITLE: Junior Android разработчик
+SUB: mobile: android; junior: mobile
+DB ID vacancy: 192675
+TITLE: IOS Developer (удалённо)
+SUB: mobile: ios
+DB ID vacancy: 193608
+TITLE: Senior Android разработчик
+SUB: mobile: android
+DB ID vacancy: 192974
+TITLE: Android разработчик (удаленно)
+SUB: mobile: android
+DB ID vacancy: 192688
+TITLE: Middle IOS-разработчик
+SUB: mobile: ios
+DB ID vacancy: 194389
+TITLE: IOS developer 
+SUB: mobile: ios
+DB ID vacancy: 194472
+TITLE: Android Developer
+SUB: mobile: android
+DB ID vacancy: 194697
+TITLE: IOS разработчик Junior
+SUB: junior: mobile; mobile: ios
+DB ID vacancy: 194141
+TITLE: Flutter Developer
+SUB: mobile: cross_mobile; mobile: flutter
+DB ID vacancy: 194695
+TITLE: Junior android - разработчик
+SUB: junior: mobile; mobile: android
+DB ID vacancy: 194470
+TITLE: iOS Developer
+SUB: mobile: ios
+DB ID vacancy: 194067
+TITLE: IOS инженер
+SUB: mobile: ios
+DB ID vacancy: 194054
+TITLE: Android Developer Trainee
+SUB: mobile: android
+DB ID vacancy: 194231
+TITLE: Junior Android developer
+SUB: mobile: android
+DB ID vacancy: 194208
+TITLE: Программист – радиоинженер (Android)
+SUB: mobile: android
+DB ID vacancy: 194069
+TITLE: Android-разработчик
+SUB: mobile: android
+DB ID vacancy: 194884
+TITLE: Middle+/Senior iOS Разработчик (remote)
+SUB: mobile: ios
+DB ID vacancy: 194660
+TITLE: Вакансия Senior IOS разработчик в Москве, работа в компании Тинькофф Бизнес
+SUB: mobile: ios
+DB ID vacancy: 195149
+TITLE: Junior Researcher
+SUB: junior: ; mobile: cross_mobile; mobile: android; mobile: flutter
+DB ID vacancy: 194921
+TITLE: Android-разработчик (Java/Kotlin)
+SUB: mobile: android
+DB ID vacancy: 195116
+TITLE: Android Developer
+SUB: mobile: android
+DB ID vacancy: 195141
+TITLE: Android разработчик
+SUB: mobile: android
+DB ID vacancy: 195158
+TITLE: Вакансия iOS-разработчик (Алматы) в Алматы, работа в компании Kolesa Group
+SUB: mobile: ios
+DB ID vacancy: 195410
+TITLE: Middle IOS developer (удаленная работа)
+SUB: mobile: ios
+------------------------
+callback_data.split()[-1]: hr
+DB ID vacancy: 198243
+TITLE: Менеджер по подбору и адаптации персонала (удаленно)
+SUB: hr: 
+DB ID vacancy: 198338
+TITLE: HR / Специалист по подбору персонала
+SUB: hr: 
+DB ID vacancy: 197927
+TITLE: Практикант/стажёр в отдел HR
+SUB: hr: ; junior: hr
+DB ID vacancy: 198000
+TITLE: Junior HR Бизнес-партнер
+SUB: hr: ; junior: hr
+DB ID vacancy: 198333
+TITLE: Рекрутер
+SUB: hr: ; junior: hr
+DB ID vacancy: 198084
+TITLE: HR Business Partner / HR Бизнес Партнер
+SUB: hr: 
+DB ID vacancy: 198050
+TITLE: HRD / Директор по персоналу
+SUB: hr: 
+DB ID vacancy: 198039
+TITLE: HR Manager
+SUB: hr: 
+DB ID vacancy: 197959
+TITLE: Hr/Immigration Manager 
+SUB: hr: 
+DB ID vacancy: 197965
+TITLE: Cantonese translator 
+SUB: hr: 
+DB ID vacancy: 198271
+TITLE: Директор / заместитель генерального директора
+SUB: hr: 
+DB ID vacancy: 198005
+TITLE: Junior HRBP /Junior HR Business Partner
+SUB: hr: ; junior: hr
+DB ID vacancy: 198053
+TITLE: Территориальный управляющий (Hardee's)
+SUB: hr: 
+DB ID vacancy: 198286
+TITLE: Head of HR Admin – Russia
+SUB: hr: 
+DB ID vacancy: 198693
+TITLE: HR-менеджер в анимационной студии "Делай"
+SUB: hr: 
+DB ID vacancy: 199297
+TITLE: Рабочий на производство косметики
+SUB: hr: 
+DB ID vacancy: 198161
+TITLE: Специалист по тестированию
+SUB: hr: 
+DB ID vacancy: 198235
+TITLE: Менеджер по подбору персонала, удаленно
+SUB: hr: 
+DB ID vacancy: 198498
+TITLE: Менеджер по подбору персонала (рекрутер)
+SUB: hr: 
+DB ID vacancy: 198130
+TITLE: HRGeneralist / People partner
+SUB: hr: 
+DB ID vacancy: 198642
+TITLE: Рекрутер-Фрилансер
+SUB: hr: 
+DB ID vacancy: 198659
+TITLE: Рекрутер/Ресечер/Помощник HR-менеджера
+SUB: hr: 
+DB ID vacancy: 197937
+TITLE: Sales Expert
+SUB: hr: ; junior: hr
+DB ID vacancy: 199174
+TITLE: Ассистент event-менеджера
+SUB: hr: 
+DB ID vacancy: 199004
+TITLE: Recruitment Specialist
+SUB: hr: ; junior: hr
+DB ID vacancy: 199148
+TITLE: HR менеджер / менеджер по подбору персонала / рекрутер (удаленно)
+SUB: hr: 
+DB ID vacancy: 199280
+TITLE: Специалист 1 разряда отдела организационной, финансовой, правовой работы и кадров
+SUB: hr: 
+DB ID vacancy: 199820
+TITLE: Руководитель программ по теме "Управление проектами"
+SUB: hr: 
+DB ID vacancy: 199497
+TITLE: Рекрутер
+SUB: hr: 
+DB ID vacancy: 198551
+TITLE: IT Recruiter (for work with Junior candidates)
+SUB: hr: 
+DB ID vacancy: 198495
+TITLE: Менеджер по персоналу
+SUB: hr: 
+DB ID vacancy: 198516
+TITLE: Рекрутер
+SUB: hr: 
+DB ID vacancy: 198519
+TITLE: Project manager / Менеджер интернет-проектов / Интернет-маркетолог
+SUB: hr: 
+DB ID vacancy: 199076
+TITLE: Генеральный менеджер в отель
+SUB: hr: 
+DB ID vacancy: 199226
+TITLE: Paid Social Group Head
+SUB: hr: 
+DB ID vacancy: 199287
+TITLE: HR Manager (КДП)
+SUB: hr: ; junior: hr
+DB ID vacancy: 199296
+TITLE: Продюсер YouTube канала "Пекарня "Хлебник"
+SUB: hr: 
+DB ID vacancy: 198908
+TITLE: Вакансия Junior Recruiter в Москве, работа в компании Bellerage
+SUB: hr: ; junior: hr
+DB ID vacancy: 198943
+TITLE: CSR Project Based - PASAY
+SUB: hr: 
+DB ID vacancy: 199504
+TITLE: HR-Менеджер
+SUB: hr: 
+DB ID vacancy: 199987
+TITLE: Директор по продажам/коммерческий директор
+SUB: hr: 
+DB ID vacancy: 199491
+TITLE: Младший рекрутер / ассистент HR отдела (удаленно)
+SUB: hr: 
+DB ID vacancy: 199325
+TITLE: HR-менеджер
+SUB: hr: 
+DB ID vacancy: 199318
+TITLE: Специалист по подбору персонала (удалённо)
+SUB: hr: 
+DB ID vacancy: 199380
+TITLE: Вакансия IT Рекрутер в Москве, работа в компании СБЕР
+SUB: hr: 
+DB ID vacancy: 199539
+TITLE: Специалист по кадрам																													
+SUB: hr: 
+DB ID vacancy: 199540
+TITLE: Уборщик офисных помещений																													
+SUB: hr: 
+DB ID vacancy: 200467
+TITLE: Стажер в отдел кадрового администрирования
+SUB: junior: hr; hr: 
+DB ID vacancy: 199745
+TITLE: HRG/IT recruiter в международную IT-компанию
+SUB: hr: 
+DB ID vacancy: 199857
+TITLE: HRD / HRBP
+SUB: hr: 
+DB ID vacancy: 199878
+TITLE: Head of HR Department
+SUB: hr: 
+DB ID vacancy: 199608
+TITLE: Международный HRG в EdTech (Remote)
+SUB: hr: 
+DB ID vacancy: 200702
+TITLE: Рекрутер для IT проектов / IT рекрутер (удаленно)
+SUB: hr: 
+DB ID vacancy: 200420
+TITLE: Junior/Middle IT-рекрутер
+SUB: hr: 
+DB ID vacancy: 200708
+TITLE: Помощник HR менеджера / Рекрутера (удаленно!)
+SUB: hr: 
+DB ID vacancy: 199974
+TITLE: Менеджер по персоналу/ Кадровый кладоискатель
+SUB: hr: 
+DB ID vacancy: 199853
+TITLE: Владелец продукта со специализацией в Core HR, Self‑Services, C&B, Well‑being
+SUB: hr: 
+DB ID vacancy: 200078
+TITLE: IT Recruiter в GameDev
+SUB: hr: 
+DB ID vacancy: 200081
+TITLE: IT рекрутер
+SUB: hr: 
+DB ID vacancy: 200102
+TITLE: Менеджер по подбору персонала с опытом(удаленно)
+SUB: hr: 
+DB ID vacancy: 200445
+TITLE: HR-координатор
+SUB: hr: 
+DB ID vacancy: 200463
+TITLE: Material Supervisor
+SUB: hr: 
+DB ID vacancy: 200518
+TITLE: Младший HR-менеджер / Менеджер по счастью сотрудников
+SUB: hr: 
+DB ID vacancy: 200526
+TITLE: Исполнительный директор
+SUB: hr: 
+DB ID vacancy: 200570
+TITLE: Менеджер по подбору персонала (удаленно)
+SUB: hr: 
+DB ID vacancy: 200572
+TITLE: Менеджер по подбору персонала (Рекрутер), из дома
+SUB: hr: 
+DB ID vacancy: 200696
+TITLE: Руководитель группы по развитию бизнеса
+SUB: hr: 
+DB ID vacancy: 200759
+TITLE: Инженер математического моделирования
+SUB: hr: 
+DB ID vacancy: 200854
+TITLE: Recruiter / Talent Acquisition Specialist
+SUB: hr: 
+DB ID vacancy: 201184
+TITLE: Менеджер по персоналу
+SUB: hr: 
+DB ID vacancy: 200462
+TITLE: Начинающий рекрутер
+SUB: junior: hr; hr: 
+DB ID vacancy: 200367
+TITLE: Вакансия Владелец продукта (Сore HR, Self‑Services, C&B, Well‑being), удаленная работа, работа в компании Контур
+SUB: hr: 
+DB ID vacancy: 200399
+TITLE: Remote Recruitment Team Leader (proficient in Mandarin language)
+SUB: hr: 
+DB ID vacancy: 200682
+TITLE: Заместитель директора по цифровизации
+SUB: hr: 
+DB ID vacancy: 201645
+TITLE: Разработчик БД
+SUB: hr: 
+DB ID vacancy: 200935
+TITLE: Ресечер
+SUB: hr: 
+DB ID vacancy: 200996
+TITLE: Специалист по подбору персонала
+SUB: hr: 
+DB ID vacancy: 200997
+TITLE: Менеджер по персоналу
+SUB: hr: 
+DB ID vacancy: 201016
+TITLE: IT Recruiter
+SUB: hr: 
+DB ID vacancy: 201153
+TITLE: IT-Recruiter
+SUB: hr: 
+DB ID vacancy: 200683
+TITLE: Ассистент проектного менеджера в сервис путешествий
+SUB: hr: 
+DB ID vacancy: 201206
+TITLE: HRD
+SUB: hr: 
+DB ID vacancy: 201422
+TITLE: Специалист по подбору персонала (удаленно)
+SUB: hr: 
+DB ID vacancy: 201458
+TITLE: Инженер по ручному тестированию в HR Tech
+SUB: hr: 
+DB ID vacancy: 201520
+TITLE: Начальник отдела кадров (HR-generalist)
+SUB: hr: 
+DB ID vacancy: 201681
+TITLE: Эксперт по развитию бренда работодателя в молодежном сегменте
+SUB: hr: ; junior: hr
+DB ID vacancy: 201718
+TITLE: Руководитель HR-проектов
+SUB: hr: 
+DB ID vacancy: 200461
+TITLE: Стажер в HR консалтинг
+SUB: junior: hr; hr: 
+DB ID vacancy: 200788
+TITLE: Продакт Разработчик - Рекрутер AI HR Python (Удаленно)
+SUB: hr: 
+DB ID vacancy: 202471
+TITLE: Ресечер
+SUB: hr: 
+DB ID vacancy: 201409
+TITLE: Remote Recruiter (Mandarin speaker only)
+SUB: hr: 
+DB ID vacancy: 201795
+TITLE: Начинающий рекрутер
+SUB: hr: ; junior: hr
+DB ID vacancy: 203020
+TITLE: Junior HR manager
+SUB: junior: hr; hr: 
+DB ID vacancy: 202661
+TITLE: PR Manager
+SUB: hr: ; junior: hr
+DB ID vacancy: 203013
+TITLE: Младший специалист по кадрам
+SUB: hr: 
+DB ID vacancy: 201756
+TITLE: HRD
+SUB: hr: 
+DB ID vacancy: 202350
+TITLE: Ассистент рекрутера / Младший рекрутер
+SUB: hr: 
+DB ID vacancy: 202665
+TITLE: HR менеджер
+SUB: hr: 
+DB ID vacancy: 201955
+TITLE: Ведущий специалист SAP HCM
+SUB: hr: 
+DB ID vacancy: 202004
+TITLE: Линейный рекрутер
+SUB: hr: ; junior: hr
+DB ID vacancy: 202561
+TITLE: Менеджер по персоналу (удаленно)
+SUB: hr: 
+DB ID vacancy: 201838
+TITLE: HR-generalist (удаленно)
+SUB: hr: 
+DB ID vacancy: 201844
+TITLE: Рекрутер / Менеджер по персоналу / Менеджер по подбору
+SUB: hr: 
+DB ID vacancy: 202355
+TITLE: Специалист по работе с Китаем
+SUB: hr: 
+DB ID vacancy: 202679
+TITLE: IT рекрутер
+SUB: hr: 
+DB ID vacancy: 202352
+TITLE: Специалист по работе с Китаем
+SUB: hr: 
+DB ID vacancy: 202054
+TITLE: HR-директор / Ведущий менеджер по персоналу
+SUB: hr: 
+DB ID vacancy: 202321
+TITLE: Вакансия IT Recruiter (Serbia) в Санкт-Петербурге, работа в компании Где мои дети
+SUB: hr: 
+DB ID vacancy: 202994
+TITLE: HR Recruiter
+SUB: hr: 
+DB ID vacancy: 203161
+TITLE: Senior IT Recruiter
+SUB: hr: 
+DB ID vacancy: 203037
+TITLE: Junior HR BP / HR generalist
+SUB: junior: hr; hr: 
+DB ID vacancy: 203047
+TITLE: Младший специалист по подбору персонала (удаленно)
+SUB: hr: 
+DB ID vacancy: 203107
+TITLE: HR менеджер/специалист по подбору персонала/рекрутер, удаленно в онлайн школу
+SUB: hr: 
+DB ID vacancy: 203099
+TITLE: Начинающий менеджер по подбору персонала
+SUB: hr: 
+DB ID vacancy: 203247
+TITLE: Помощник HRD / Рекрутер (удаленно)
+SUB: hr: 
+DB ID vacancy: 203286
+TITLE: Операционный HR-директор с подчинением HRD холдинга (релокация в Казахстан)
+SUB: hr: 
+DB ID vacancy: 203311
+TITLE: Проектный менеджер
+SUB: hr: 
+DB ID vacancy: 203022
+TITLE: Менеджер по работе с персоналом в команду HR BP
+SUB: hr: 
+DB ID vacancy: 202949
+TITLE: Вакансия Специалист по персоналу в Санкт-Петербурге, работа в компании X5 Retail Group
+SUB: hr: 
+DB ID vacancy: 202984
+TITLE: Freelancer-Recruiter
+SUB: hr: 
+DB ID vacancy: 202987
+TITLE: HR Functional Consultant
+SUB: hr: 
+DB ID vacancy: 203328
+TITLE: HR Business Partner / HR бизнес-партнер
+SUB: hr: 
+------------------------
+callback_data.split()[-1]: game
+DB ID vacancy: 198689
+TITLE: Game Developer (JS +PixiJS)
+SUB: game: 
+DB ID vacancy: 199449
+TITLE: Game Developer (JS)
+SUB: game: 
+DB ID vacancy: 198222
+TITLE: Разработчик на Unreal Engine
+SUB: game: 
+DB ID vacancy: 198556
+TITLE: Account Manager assistant (Game Aggregator)
+SUB: game: 
+DB ID vacancy: 199144
+TITLE: HTML5/Unity Game Developer (playable ads)
+SUB: game: 
+DB ID vacancy: 199133
+TITLE: Продюсер
+SUB: game: 
+DB ID vacancy: 199532
+TITLE: UE4 Developer [Middle]
+SUB: game: 
+DB ID vacancy: 201185
+TITLE: Cocos Creator Developer
+SUB: game: 
+DB ID vacancy: 199995
+TITLE: Senior Mobile Game Designer
+SUB: game: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+DB ID vacancy: 196363
+TITLE: Junior Sales Manager (AdTech)
+SUB: sales_manager: ; junior: sales_manager
+DB ID vacancy: 198239
+TITLE: Менеджер WB
+SUB: sales_manager: 
+DB ID vacancy: 197264
+TITLE: Менеджер по развитию проектов
+SUB: sales_manager: 
+DB ID vacancy: 197003
+TITLE: B2B Sales Manager
+SUB: sales_manager: 
+DB ID vacancy: 196074
+TITLE: Руководитель отдела продаж
+SUB: sales_manager: 
+DB ID vacancy: 196073
+TITLE: Менеджер по продажам (удаленно)
+SUB: sales_manager: 
+DB ID vacancy: 196872
+TITLE: Ассистент отдела продаж
+SUB: sales_manager: ; junior: sales_manager
+DB ID vacancy: 196695
+TITLE: Partners acquisition manager
+SUB: sales_manager: ; junior: sales_manager
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+DB ID vacancy: 196958
+TITLE: Руководитель отдела продаж в дерматологическую клинику. 
+SUB: sales_manager: 
+DB ID vacancy: 196772
+TITLE: Менеджер по продажам (IT, B2B)
+SUB: sales_manager: 
+DB ID vacancy: 196398
+TITLE: Online school sales manager / Менеджер по продажам онлайн школы (China / Китай)
+SUB: sales_manager: 
+DB ID vacancy: 196407
+TITLE: Менеджер по работе с маркетплейсами
+SUB: sales_manager: 
+DB ID vacancy: 196408
+TITLE: Менеджер по продажам мебели МЦ "Москва"
+SUB: sales_manager: 
+DB ID vacancy: 196577
+TITLE: Менеджер по продажам ИТ услуг
+SUB: sales_manager: 
+DB ID vacancy: 196696
+TITLE: Sales Manager with English Language (American/British pronunciation)
+SUB: sales_manager: 
+DB ID vacancy: 197400
+TITLE: Менеджер по продажам, удалённо
+SUB: sales_manager: 
+DB ID vacancy: 196798
+TITLE: Менеджер по продажам услуг (Sales/Business Development Representative)
+SUB: sales_manager: 
+DB ID vacancy: 196763
+TITLE: Pre-sale менеджер по продажам IT решений (B2B)
+SUB: sales_manager: 
+DB ID vacancy: 196762
+TITLE: Менеджер по продажам лабораторного оборудования
+SUB: sales_manager: 
+DB ID vacancy: 196769
+TITLE: Менеджер по продажам \ Sales (ИТ-компания, B2B, российское ПО)
+SUB: sales_manager: 
+DB ID vacancy: 196797
+TITLE: Account Manager/Sales Manager (Junior)
+SUB: sales_manager: ; junior: sales_manager
+DB ID vacancy: 196957
+TITLE: Менеджер по продажам B2B услуг / Biz Dev
+SUB: sales_manager: 
+DB ID vacancy: 196745
+TITLE: Менеджер WB
+SUB: sales_manager: 
+DB ID vacancy: 196737
+TITLE: Менеджер по продажам, удаленно
+SUB: sales_manager: 
+DB ID vacancy: 196773
+TITLE: Менеджер по продажам (удаленно)
+SUB: sales_manager: 
+DB ID vacancy: 196730
+TITLE: Менеджер по развитию бизнеса
+SUB: sales_manager: 
+DB ID vacancy: 196947
+TITLE: Менеджер по развитию бизнеса
+SUB: sales_manager: 
+DB ID vacancy: 196888
+TITLE: Менеджер по продажам
+SUB: sales_manager: 
+DB ID vacancy: 196945
+TITLE: Менеджер по B2B-продажам в медиа (удалённо)
+SUB: sales_manager: 
+DB ID vacancy: 196530
+TITLE: Помощник Менеджера по продажам оборудования (возможно удаленно)
+SUB: sales_manager: 
+DB ID vacancy: 196542
+TITLE: Pre-sale менеджер по продажам IT решений (B2B )
+SUB: sales_manager: 
+DB ID vacancy: 196561
+TITLE: Инженер ПТО
+SUB: sales_manager: 
+DB ID vacancy: 196599
+TITLE: Менеджер по продажам лабораторного оборудования
+SUB: sales_manager: 
+DB ID vacancy: 196767
+TITLE: Менеджер по работе с клиентами (sales, на входящие запросы) - удаленно или в офис
+SUB: sales_manager: 
+DB ID vacancy: 196756
+TITLE: Менеджер по продажам лабораторного оборудования
+SUB: sales_manager: 
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+callback_data.split()[-1]: hr
+callback_data.split()[-1]: game
+callback_data.split()[-1]: marketing
+callback_data.split()[-1]: sales_manager
+DB ID vacancy: 193766
+TITLE: Менеджер по работе с клиентами малого и среднего бизнеса (удаленно)
+SUB: sales_manager: 
+DB ID vacancy: 196695
+TITLE: Partners acquisition manager
+SUB: sales_manager: ; junior: sales_manager
+DB ID vacancy: 196756
+TITLE: Менеджер по продажам лабораторного оборудования
+SUB: sales_manager: 
+DB ID vacancy: 196752
+TITLE: Менеджер по продажам услуг
+SUB: sales_manager: 
+DB ID vacancy: 196395
+TITLE: Partners acquisition manager
+SUB: sales_manager: ; junior: sales_manager
+DB ID vacancy: 196302
+TITLE: Вакансия Commercial Operations Manager (Turkey) в Турции, работа в компании General Electric HealthCare
+SUB: sales_manager: 
+DB ID vacancy: 196308
+TITLE: Lead Generation -  Remote  ( Part-Time & Full-Time )
+SUB: sales_manager: 
+----------31-07-2023-----------
+[BUTTON] admin callback.data: admin/junior
+----------31-07-2023-----------
+[BUTTON] admin callback.data: admin/junior
+----------31-07-2023-----------
+[BUTTON] admin callback.data: admin/junior
+[BUTTON] shorts callback.data: PUSH shorts to junior
+Temporary data: {'id_admin_channel': '4390', 'id_admin_last_session_table': '203352', 'sended_to_agregator': '7974'}
+DB ID vacancy: 203352
+TITLE: Стажер-аналитик Big Data
+SUB: junior: analyst; analyst: 
+Temporary data: {'id_admin_channel': '4389', 'id_admin_last_session_table': '203452', 'sended_to_agregator': '102769'}
+DB ID vacancy: 203452
+TITLE: Junior SMM Manager (GameDev)
+SUB: junior: marketing; marketing: smm
+Temporary data: {'id_admin_channel': '4388', 'id_admin_last_session_table': '202961', 'sended_to_agregator': '102805'}
+DB ID vacancy: 202961
+TITLE: Вакансия Стажер в отдел маркетинга (электронная торговля) в Москве, работа в компании OKKAM Group
+SUB: junior: marketing; marketing: 
+Temporary data: {'id_admin_channel': '4387', 'id_admin_last_session_table': '202960', 'sended_to_agregator': 'None'}
+DB ID vacancy: 202960
+TITLE: Вакансия Стажер в отдел обучения персонала в Москве, работа в компании X5 Retail Group
+SUB: junior: 
+Temporary data: {'id_admin_channel': '4386', 'id_admin_last_session_table': '202948', 'sended_to_agregator': 'None'}
+DB ID vacancy: 202948
+TITLE: Вакансия Junior Build Engineer в Санкт-Петербурге, работа в компании Lesta Games
+SUB: junior: 
+----------31-07-2023-----------
+[BUTTON] admin callback.data: admin/junior
+----------01-08-2023-----------
+[BUTTON] admin callback.data: admin/sales_manager
+----------01-08-2023-----------
+[BUTTON] admin callback.data: admin/mobile
+----------01-08-2023-----------
+[BUTTON] admin callback.data: admin/mobile
+----------01-08-2023-----------
+[BUTTON] admin callback.data: admin/mobile
+----------01-08-2023-----------
+[BUTTON] admin callback.data: admin/junior
+----------01-08-2023-----------
+[BUTTON] admin callback.data: admin/qa
+----------01-08-2023-----------
+[BUTTON] admin callback.data: admin/qa
+----------02-08-2023-----------
+[BUTTON] admin callback.data: admin/junior
+----------02-08-2023-----------
+[BUTTON] admin callback.data: admin/junior
+----------02-08-2023-----------
+[BUTTON] admin callback.data: admin/junior

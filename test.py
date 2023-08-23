@@ -1,8 +1,10 @@
+from db_operations.scraping_db import DataBaseOperations
 
-import re
+db = DataBaseOperations()
+# info = db.get_information_about_tables_and_fields()
+# print(info)
 
-with open('./test.txt', 'r', encoding='utf=8') as file:
-    text = file.read()
-    text = re.sub(r'\n{2,}', '\n\n', text)
-print(text)
-
+db.change_type_column(
+    list_table_name=['vacancies'],
+    name_and_type="profession TYPE VARCHAR (100)"
+)
