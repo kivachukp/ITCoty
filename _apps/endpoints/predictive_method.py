@@ -51,7 +51,7 @@ class Predictive():
             if part_of_query:
                 query += f"{part_of_query} AND "
 
-        date_start = date.today() - timedelta(days=10)
+        date_start = date.today() - timedelta(days=20)
         full_query = f"WHERE {query} DATE (created_at) BETWEEN '{date_start}' AND '{date.today()}'"
         print(full_query)
         return full_query

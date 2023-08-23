@@ -769,9 +769,13 @@ def split_text_limit(message_for_send, limit=4096, separator="\n\n"):
 async def reset_aggregator_sending_numbers(**kwargs):
     from utils.additional_variables.additional_variables import manual_posting_shorts
     db_class = kwargs['db_class'] if 'db_class' in kwargs else None
+    approved = True if 'approved' in kwargs and kwargs['approved'] else False
+
     reset_all_profession = True if 'reset_all_profession' in kwargs and kwargs['reset_all_profession'] else False
     param = '' if reset_all_profession else f"WHERE profession NOT IN {tuple(manual_posting_shorts)}" if len(manual_posting_shorts) > 1 else f"WHERE profession NOT LIKE '%{manual_posting_shorts[0]}%'"
     # param = f"WHERE profession NOT IN {tuple(manual_posting_shorts)}" if len(manual_posting_shorts) > 1 else f"WHERE profession NOT LIKE '%{manual_posting_shorts[0]}%'"
+    if approved:
+        param = "WHERE approved = 'approves by admin'"
 
     if db_class:
         try:
@@ -783,6 +787,28 @@ async def reset_aggregator_sending_numbers(**kwargs):
             table_name=admin_database,
             field=admin_table_fields,
             param="WHERE sended_to_agregator IS NOT NULL"
+        )
+        if responses and type(responses) in [tuple, list, set]:
+            pass
+        else:
+            pass
+        return True
+    return False
+
+async def set_approved_like_null(**kwargs):
+    db_class = kwargs['db_class'] if 'db_class' in kwargs else None
+    param = f"WHERE profession LIKE '%{kwargs['profession']}%'" if 'profession' in kwargs else ''
+
+    if db_class:
+        try:
+            db_class.update_table(table_name=admin_database, field='approved', value="approves by filter", param=param)
+        except Exception as ex:
+            print("error 6", ex)
+
+        responses = db_class.get_all_from_db(
+            table_name=admin_database,
+            field=admin_table_fields,
+            param="WHERE approved = 'approves by admin' and profession LIKE '%junior%'"
         )
         if responses and type(responses) in [tuple, list, set]:
             pass
