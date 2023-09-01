@@ -185,7 +185,7 @@ class ParseRemoteWorksHub:
 
             if job_info:
                 self.all_job_info.append(job_info)
-                #helper_parser.write_each_vacancy(job_info)
+                helper_parser.write_each_vacancy(job_info)
 
         for job_info in self.all_job_info:
             print(job_info)
