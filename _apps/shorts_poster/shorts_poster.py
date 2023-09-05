@@ -633,12 +633,16 @@ class ShortsPoster:
                 if not exists['has_been_found']:
 
                     # response = self.db.push_to_db_common(table_name=table_to, fields_values_dict=vacancy)
-
-                    transfer = self.db.transfer_vacancy(
-                        table_from=self.variable.admin_database,
-                        table_to=table_to,
-                        id=vacancy['id'])
-
+                    print('3689545')
+                    # transfer = self.db.transfer_vacancy(
+                    #     table_from=self.variable.admin_database,
+                    #     table_to=table_to,
+                    #     id=vacancy['id'])
+                    transfer=True
+                    profession_list = {}
+                    profession_list['profession'] = ['junior']
+                    results_dict = {'title': 'title', 'body': 'body', 'profession': 'junior', 'sub': ''}
+                    self.db.push_to_bd(results_dict=results_dict, profession_list=profession_list)
 
                     if transfer:
                         print(f'Vacancy has been added to {table_to}')
