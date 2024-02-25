@@ -1,4 +1,3 @@
-import asyncio
 import re
 import time
 from datetime import datetime
@@ -10,43 +9,44 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 # from _apps.scraping_push_to_channels import PushChannels
-from db_operations.scraping_db import DataBaseOperations
+# from db_operations.scraping_db import DataBaseOperations
+# from __backup__.pattern_Alex2809 import cities_pattern, params
 from patterns.last_changes.pattern_Alex2809 import cities_pattern, params
 
 
 class AngelGetInformation:
 
-    def __init__(self):
-
-        self.db_tables = None
-        self.options = None
-        self.page = None
-        self.to_write_excel_dict = {
-            'chat_name': [],
-            'title': [],
-            'body': [],
-            'vacancy': [],
-            'vacancy_url': [],
-            'company': [],
-            'company_link': [],
-            'english': [],
-            'relocation': [],
-            'job_type': [],
-            'city': [],
-            'salary': [],
-            'experience': [],
-            'time_of_public': [],
-            'contacts': []
-        }
-        self.search_words = ['pm',]
-
-        self.extended = ['game', 'product', 'mobile', 'marketing', 'sales_manager', 'analyst',
-                             'frontend', 'designer', 'devops', 'hr', 'backend', 'qa', 'junior', 'ba']
-
-        # self.search_words.extend(self.extended)
-        self.current_message = None
-        # self._apps = bot_dict['_apps']
-        # self.chat_id = bot_dict['chat_id']
+    # def __init__(self, bot_dict):
+    #
+    #     self.db_tables = None
+    #     self.options = None
+    #     self.page = None
+    #     self.to_write_excel_dict = {
+    #         'chat_name': [],
+    #         'title': [],
+    #         'body': [],
+    #         'vacancy': [],
+    #         'vacancy_url': [],
+    #         'company': [],
+    #         'company_link': [],
+    #         'english': [],
+    #         'relocation': [],
+    #         'job_type': [],
+    #         'city': [],
+    #         'salary': [],
+    #         'experience': [],
+    #         'time_of_public': [],
+    #         'contacts': []
+    #     }
+    #     self.search_words = ['pm',]
+    #
+    #     self.extended = ['game', 'product', 'mobile', 'marketing', 'sales_manager', 'analyst',
+    #                          'frontend', 'designer', 'devops', 'hr', 'backend', 'qa', 'junior', 'ba']
+    #
+    #     # self.search_words.extend(self.extended)
+    #     self.current_message = None
+    #     # self._apps = bot_dict['_apps']
+    #     # self.chat_id = bot_dict['chat_id']
 
 
     async def get_content(self, db_tables=None):
@@ -68,10 +68,25 @@ class AngelGetInformation:
 
         # await self._apps.send_message(self.chat_id, 'https://angel.co/ is starting', disable_web_page_preview=True)
 
-        link = 'https://wellfound.com/jobs/'
-        response_dict = await self.get_info(link)
-
-        return response_dict
+        link = 'https://wellfound.com/jobs'
+        driver = webdriver.Chrome()
+        driver.get(link)
+        reviews_lst = []
+        urls_lst = []
+        dates_lst = []
+        MAX_LOAD_MORE_CLICKS = 10
+        count = 0
+        while count <= MAX_LOAD_MORE_CLICKS:
+            try:
+                WebDriverWait(driver, 100)
+                # Код извлечения и обработки элементов (будет дальше)
+                count += 1
+            except TimeoutException:
+                break
+        full_reviews = driver.find_elements(By.XPATH, "//*[@class='styles_name__zvQcy']")
+        # response_dict = await self.get_info(link)
+        print(full_reviews)
+        # return response_dict
 
     async def get_info(self, link):
 
@@ -87,7 +102,7 @@ class AngelGetInformation:
 
             self.current_message = await self.bot.send_message(self.chat_id, f'Поиск вакансий по слову {word}...')
 
-            self.browser.get('https://wellfound.com/jobs')
+            self.browser.get('http://hh.ru')
             time.sleep(1)
 
             holder = self.browser.find_element(By.XPATH, "/html/body/div[4]/div/div[3]/div[1]/div[1]/div/div/div[2]/div/form/div/div[1]/fieldset/input")
@@ -131,7 +146,7 @@ class AngelGetInformation:
             'contacts': []
         }
 
-        base_url = 'https://wellfound.com/'
+        base_url = 'https://hh.ru'
         links = []
         soup = BeautifulSoup(raw_content, 'lxml')
         # self.browser.quit()
@@ -400,41 +415,41 @@ class AngelGetInformation:
         text = text.replace(f'\n', '')
         return text
 
-    async def compose_in_one_file(self):
-        hiring = []
-        link = []
-        contacts = []
+    # async def compose_in_one_file(self):
+    #     hiring = []
+    #     link = []
+    #     contacts = []
+    #
+    #     for i in range(1, 48):
+    #         excel_data_df = pd.read_excel(f'./../messages/geek{i}.xlsx', sheet_name='Sheet1')
+    #
+    #         hiring.extend(excel_data_df['hiring'].tolist())
+    #         link.extend(excel_data_df['hiring_link'].tolist())
+    #         contacts.extend(excel_data_df['contacts'].tolist())
+    #
+    #     df = pd.DataFrame(
+    #         {
+    #         'hiring': hiring,
+    #         'access_hash': link,
+    #         'contacts': contacts,
+    #         }
+    #     )
+    #
+    #     df.to_excel(f'all_geek.xlsx', sheet_name='Sheet1')
+    #
+    # async def write_to_db_table_companies(self):
+    #     excel_data_df = pd.read_excel('all_geek.xlsx', sheet_name='Sheet1')
+    #     companies = excel_data_df['hiring'].tolist()
+    #     links = excel_data_df['access_hash'].tolist()
+    #
+    #     companies = set(companies)
+    #
+    #     db=DataBaseOperations(con=None)
+    #     db.write_to_db_companies(companies)
 
-        for i in range(1, 48):
-            excel_data_df = pd.read_excel(f'./../messages/geek{i}.xlsx', sheet_name='Sheet1')
+# loop = asyncio.new_event_loop()
+# loop.run_until_complete(HHGetInformation().get_content())
 
-            hiring.extend(excel_data_df['hiring'].tolist())
-            link.extend(excel_data_df['hiring_link'].tolist())
-            contacts.extend(excel_data_df['contacts'].tolist())
-
-        df = pd.DataFrame(
-            {
-            'hiring': hiring,
-            'access_hash': link,
-            'contacts': contacts,
-            }
-        )
-
-        df.to_excel(f'all_geek.xlsx', sheet_name='Sheet1')
-
-    async def write_to_db_table_companies(self):
-        excel_data_df = pd.read_excel('all_geek.xlsx', sheet_name='Sheet1')
-        companies = excel_data_df['hiring'].tolist()
-        links = excel_data_df['access_hash'].tolist()
-
-        companies = set(companies)
-
-        db=DataBaseOperations(con=None)
-        db.write_to_db_companies(companies)
-
-loop = asyncio.new_event_loop()
-loop.run_until_complete(AngelGetInformation().get_content())
-
-
-# a = AngelGetInformation.get_content()
-# print(a)
+tryest = AngelGetInformation()
+tryest.get_content()
+print(tryest)

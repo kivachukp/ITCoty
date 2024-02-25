@@ -403,3 +403,7 @@ class FinderGetInformation:
         companies = set(companies)
 
         self.bot.write_to_db_companies(companies)
+
+
+loop = asyncio.new_event_loop()
+loop.run_until_complete(FinderGetInformation().get_content())

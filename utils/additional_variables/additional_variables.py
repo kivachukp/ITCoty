@@ -74,7 +74,7 @@ pre_message_for_shorts = '<i>Функционал дайджеста наход�
                                    f'качественную и в сжатые сроки</i>\n\n'
 
 message_not_access = "Sorry, you have not the permissions"
-path_last_pattern = "./patterns/last_changes/pattern_Alex2809 (6).py"
+path_last_pattern = "./patterns/last_changes/pattern_Alex2809.py"
 path_data_pattern = "./patterns/data_pattern/_data_pattern.py"
 
 path_filter_error_file = "./excel/filter_jan_errors.txt"

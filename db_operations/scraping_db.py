@@ -1,10 +1,8 @@
 import configparser
 import json
 import re
-from utils.additional_variables.additional_variables import admin_database, archive_database, admin_table_fields, \
-    valid_professions, reject_table as reject_database
-from utils.additional_variables.additional_variables import table_list_for_checking_message_in_db, \
-    short_session_database, vacancy_table, additional_elements, vacancies_database
+from utils.additional_variables.additional_variables import admin_database, archive_database, admin_table_fields, valid_professions, reject_table as reject_database
+from utils.additional_variables.additional_variables import table_list_for_checking_message_in_db, short_session_database, vacancy_table, additional_elements, vacancies_database
 import psycopg2
 from datetime import datetime
 from logs.logs import Logs
