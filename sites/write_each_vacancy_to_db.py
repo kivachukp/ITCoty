@@ -4,8 +4,7 @@ from db_operations.scraping_db import DataBaseOperations
 from filters.filter_jan_2023.filter_jan_2023 import VacancyFilter
 from helper_functions.parser_find_add_parameters.parser_find_add_parameters import FinderAddParameters
 from utils.additional_variables.additional_variables import vacancy_table, reject_table, \
-    table_list_for_checking_message_in_db as tables, \
-    admin_database, archive_database, admin_table_fields
+    table_list_for_checking_message_in_db as tables, admin_database, archive_database, admin_table_fields
 from helper_functions.helper_functions import get_salary_usd_month, replace_NoneType, get_tags, \
     get_additional_values_fields, compose_simple_list_to_str, compose_to_str_from_list
 

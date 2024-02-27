@@ -3,6 +3,7 @@ import re
 import time
 from datetime import datetime
 import pandas as pd
+from selenium.webdriver import Chrome, ChromeOptions
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
@@ -10,8 +11,9 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 # from _apps.scraping_push_to_channels import PushChannels
-from db_operations.scraping_db import DataBaseOperations
+# from db_operations.scraping_db import DataBaseOperations
 from patterns.last_changes.pattern_Alex2809 import cities_pattern, params
+
 
 
 class AngelGetInformation:
@@ -68,14 +70,19 @@ class AngelGetInformation:
 
         # await self._apps.send_message(self.chat_id, 'https://angel.co/ is starting', disable_web_page_preview=True)
 
-        link = 'https://wellfound.com/jobs/'
+        link = 'https://angel.co/'
         response_dict = await self.get_info(link)
 
         return response_dict
 
     async def get_info(self, link):
 
-        self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=self.options)
+        # self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=self.options)
+        # self.browser = webdriver.Chrome(options = self.options)
+        options = ChromeOptions()
+        options.add_argument('--start-maximized')
+        options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        self.browser = Chrome(options=options)
 
 
 
@@ -85,9 +92,9 @@ class AngelGetInformation:
 
         for word in self.search_words:
 
-            self.current_message = await self.bot.send_message(self.chat_id, f'Поиск вакансий по слову {word}...')
+            # self.current_message = await self.bot.send_message(self.chat_id, f'Поиск вакансий по слову {word}...')
 
-            self.browser.get('https://wellfound.com/jobs')
+            self.browser.get('https://angel.co/jobs')
             time.sleep(1)
 
             holder = self.browser.find_element(By.XPATH, "/html/body/div[4]/div/div[3]/div[1]/div[1]/div/div/div[2]/div/form/div/div[1]/fieldset/input")
@@ -422,19 +429,19 @@ class AngelGetInformation:
 
         df.to_excel(f'all_geek.xlsx', sheet_name='Sheet1')
 
-    async def write_to_db_table_companies(self):
-        excel_data_df = pd.read_excel('all_geek.xlsx', sheet_name='Sheet1')
-        companies = excel_data_df['hiring'].tolist()
-        links = excel_data_df['access_hash'].tolist()
-
-        companies = set(companies)
-
-        db=DataBaseOperations(con=None)
-        db.write_to_db_companies(companies)
-
+    # async def write_to_db_table_companies(self):
+    #     excel_data_df = pd.read_excel('all_geek.xlsx', sheet_name='Sheet1')
+    #     companies = excel_data_df['hiring'].tolist()
+    #     links = excel_data_df['access_hash'].tolist()
+    #
+    #     companies = set(companies)
+    #
+    #     db=DataBaseOperations(con=None)
+    #     db.write_to_db_companies(companies)
+#
 loop = asyncio.new_event_loop()
 loop.run_until_complete(AngelGetInformation().get_content())
 
-
+# print(AngelGetInformation.get_content())
 # a = AngelGetInformation.get_content()
 # print(a)

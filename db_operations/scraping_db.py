@@ -1,18 +1,23 @@
 import configparser
 import json
 import re
-from utils.additional_variables.additional_variables import admin_database, archive_database, admin_table_fields, valid_professions, reject_table as reject_database
-from utils.additional_variables.additional_variables import table_list_for_checking_message_in_db, short_session_database, vacancy_table, additional_elements, vacancies_database
-import psycopg2
+from utils.additional_variables.additional_variables import admin_database, archive_database, admin_table_fields, \
+    valid_professions, reject_table as reject_database
+from utils.additional_variables.additional_variables import table_list_for_checking_message_in_db, \
+    short_session_database, vacancy_table, additional_elements, vacancies_database
+# import psycopg2
 from datetime import datetime
 from logs.logs import Logs
 from helper_functions import helper_functions as helper
 from patterns._export_pattern import export_pattern
 import pandas as pd
+from settings.dirs import DIR_LOGS, DIR_EXCEL
+
 logs = Logs()
 
 config = configparser.ConfigParser()
 config.read("./../settings/config.ini")
+
 
 # ---------------------DB operations ----------------------
 class DataBaseOperations:
@@ -22,7 +27,7 @@ class DataBaseOperations:
         if not self.con:
             self.connect_db()
         self.report = kwargs['report'] if 'report' in kwargs else None
-        self.admin_check_file = './logs/check_file.txt'
+        self.admin_check_file = DIR_LOGS / 'check_file.txt'
 
     def connect_db(self):
 
@@ -58,7 +63,8 @@ class DataBaseOperations:
             # print('You are in connections with database')
 
         return self.con
-    #-------------participants-------------------------
+
+    # -------------participants-------------------------
     def push_to_bd_participants(self, participant, all_user_dictionary, channel_name, channel_username):
 
         logs.write_log(f"scraping_db: function: push_to_bd_participants")
@@ -79,7 +85,7 @@ class DataBaseOperations:
                         channel VARCHAR (150),
                         entity JSONB
                         );"""
-                                )
+                        )
             # self.con.commit()
 
         with self.con:
@@ -98,7 +104,6 @@ class DataBaseOperations:
 
                 print(i)
 
-
                 query = f"""SELECT * FROM participant_table WHERE id_participant='{id_participant}' AND channel='{channel_name}'"""
                 cur.execute(query)
                 response = cur.fetchall()
@@ -116,7 +121,8 @@ class DataBaseOperations:
                         print(e)
                 else:
                     print('This user exist already', i)
-    #--------------------------------------------------
+
+    # --------------------------------------------------
     def check_or_create_table(self, table_name, cur=None, fields=None):
         if not fields:
             fields = vacancy_table
@@ -135,7 +141,7 @@ class DataBaseOperations:
         response_dict = {}
         pro = profession_list['profession']
         self.quant = 1
-# -------------------------- create short message --------------------------------
+        # -------------------------- create short message --------------------------------
         if type(pro) in [list, set, tuple]:
             pro_set = pro
         else:
@@ -143,16 +149,20 @@ class DataBaseOperations:
 
         for pro in pro_set:
             self.check_or_create_table(table_name=pro)
-            response_dict = self.push_to_db_write_message(pro, results_dict, response_dict, agregator_id, shorts_session_name)
+            response_dict = self.push_to_db_write_message(pro, results_dict, response_dict, agregator_id,
+                                                          shorts_session_name)
         return response_dict
 
-    def push_to_db_write_message(self, pro, results_dict, response_dict, agregator_id, shorts_session_name=None, cur=None):
+    def push_to_db_write_message(self, pro, results_dict, response_dict, agregator_id, shorts_session_name=None,
+                                 cur=None):
 
         logs.write_log(f"scraping_db: function: push_to_db_write_message")
 
-        vacancy_exists = self.check_vacancy_exists_in_db(tables_list=[pro], title=results_dict['title'], body=results_dict['body'])
+        vacancy_exists = self.check_vacancy_exists_in_db(tables_list=[pro], title=results_dict['title'],
+                                                         body=results_dict['body'])
         if not vacancy_exists['has_been_found']:
-            results_dict['sub'] = helper.decompose_from_str_to_list(data_str=results_dict['sub']) if results_dict['sub'] else None
+            results_dict['sub'] = helper.decompose_from_str_to_list(data_str=results_dict['sub']) if results_dict[
+                'sub'] else None
             if results_dict['sub']:
                 if pro in results_dict['sub']:
                     results_dict['sub'] = f"{pro}: {', '.join(results_dict['sub'][pro])}"
@@ -162,7 +172,8 @@ class DataBaseOperations:
 
             results_dict_for_post = results_dict.copy()
 
-            new_post_to_vacancies_table = self.compose_query(vacancy_dict=results_dict_for_post, table_name=vacancies_database, define_id=True)
+            new_post_to_vacancies_table = self.compose_query(vacancy_dict=results_dict_for_post,
+                                                             table_name=vacancies_database, define_id=True)
             new_post = self.compose_query(vacancy_dict=results_dict_for_post, table_name=pro, define_id=False)
 
             cur = self.con.cursor()
@@ -251,7 +262,6 @@ class DataBaseOperations:
             print(f"\nerror in get_all_from_db: {ex}\n")
             return False
 
-
     async def get_all_from_db_async(self, table_name, param='', without_sort=False, order=None, field='*', curs=None):
         response = []
         cur = None
@@ -328,7 +338,7 @@ class DataBaseOperations:
                 print(e)
             pass
 
-    def     delete_data(self, table_name, param, output_text=None):
+    def delete_data(self, table_name, param, output_text=None):
         pass
 
         output_text = f'delete from {table_name}' if not output_text else output_text
@@ -347,7 +357,7 @@ class DataBaseOperations:
                 return False
         return True
 
-#-----------просто в одну таблицу записать все сообщения без професии, чтобы потом достать, рассортировать и записать в файл ------------------
+    # -----------просто в одну таблицу записать все сообщения без професии, чтобы потом достать, рассортировать и записать в файл ------------------
     def write_to_one_table(self, results_dict):
 
         logs.write_log(f"scraping_db: function: write_to_one_table")
@@ -356,7 +366,7 @@ class DataBaseOperations:
             self.connect_db()
         cur = self.con.cursor()
 
-        self.check_or_create_table(cur, 'all_messages')  #!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
+        self.check_or_create_table(cur, 'all_messages')  # !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1
 
         chat_name = results_dict['chat_name']
         title = results_dict['title'].replace(f'\'', '"')
@@ -399,17 +409,17 @@ class DataBaseOperations:
         if not profession['block']:
             if profession['profession'] not in ['ad', 'no_sort']:
 
-                if type(profession['profession']) is set: # we get data in list from Alex filter
+                if type(profession['profession']) is set:  # we get data in list from Alex filter
                     for i in profession['profession']:
                         profession_str += i + '/'
                 else:  # we get str from Ruslan filter
                     profession_str = profession['profession'] + '/'
 
-                if profession['junior']>0:
+                if profession['junior'] > 0:
                     profession_str += 'junior/'
-                if profession['middle']>0:
+                if profession['middle'] > 0:
                     profession_str += 'middle/'
-                if profession['senior']>0:
+                if profession['senior'] > 0:
                     profession_str += 'senior/'
             else:
                 profession_str = profession['profession'] + '/'
@@ -483,7 +493,6 @@ class DataBaseOperations:
                     except Exception as e:
                         print(e)
 
-
                 if not response:
                     query = f"""INSERT INTO companies (company) VALUES ('{company}')"""
                     with con:
@@ -498,9 +507,9 @@ class DataBaseOperations:
         logs.write_log(f"scraping_db: function: rewrite_to_archive")
 
         for i in ['backend', 'frontend', 'devops', 'pm', 'product', 'designer', 'analyst',
-                                    'fullstack', 'mobile', 'qa', 'hr', 'game', 'ba', 'marketing', 'junior',
-                                    'sales_manager']:
-        # for i in ['no_sort', 'middle', 'senior']:
+                  'fullstack', 'mobile', 'qa', 'hr', 'game', 'ba', 'marketing', 'junior',
+                  'sales_manager']:
+            # for i in ['no_sort', 'middle', 'senior']:
             response = self.get_all_from_db(i)
             if not self.con:
                 self.connect_db()
@@ -785,7 +794,8 @@ class DataBaseOperations:
             except Exception as e:
                 print(e)
 
-    def push_to_admin_table(self, results_dict, profession, check_or_exists=True, table_name=admin_database, params=None):
+    def push_to_admin_table(self, results_dict, profession, check_or_exists=True, table_name=admin_database,
+                            params=None):
         # results_dict['title'] = self.clear_title_or_body(results_dict['title'])
         # results_dict['body'] = self.clear_title_or_body(results_dict['body'])
 
@@ -795,9 +805,9 @@ class DataBaseOperations:
             tables_list_for_vacancy_searching = tables_list_for_vacancy_searching.union(additional_elements)
 
             has_been_found = self.check_vacancy_exists_in_db(
-                    tables_list=tables_list_for_vacancy_searching,
-                    title=results_dict['title'],
-                    body=results_dict['body'])
+                tables_list=tables_list_for_vacancy_searching,
+                title=results_dict['title'],
+                body=results_dict['body'])
             if has_been_found['has_been_found']:
                 return {"has_been_found": True, "response_dict": has_been_found['response_dict']}
 
@@ -833,7 +843,6 @@ class DataBaseOperations:
                 print(f'-------------- Didn\'t push in ADMIN LAST SESSION {e}\n')
                 return {"has_been_found": False, "response_dict": results_dict}
 
-
     def check_vacancy_exists_in_db(self, tables_list, title, body):
 
         response_check = []
@@ -856,7 +865,7 @@ class DataBaseOperations:
                 query2 = common + f"""title LIKE '%{title.strip()}%'""" if "'" not in title \
                     else common + f"""title LIKE $$%{title.strip()}%$$"""
                 query3 = common + f"""title='{self.clear_title_or_body(title)}'"""
-            
+
             if body and title:
                 query1 += f" AND body='{body}'" if "'" not in body else f" AND body=$${body}$$"
                 query2 += f" AND body LIKE '%{body.strip()}%'" if "'" not in body else f" AND body LIKE $$%{body.strip()}%$$"
@@ -887,7 +896,8 @@ class DataBaseOperations:
                                 if self.report:
                                     self.report.parsing_report(found_body=body)
                                     self.report.parsing_report(found_title=title)
-                                return {"has_been_found": True, "response_dict": response_dict, "id": response_dict['id']}
+                                return {"has_been_found": True, "response_dict": response_dict,
+                                        "id": response_dict['id']}
         return {"has_been_found": False, "response_dict": {}}
 
         #
@@ -933,7 +943,7 @@ class DataBaseOperations:
         #         return {"has_been_found": True, "response_dict": response_dict}
         # return {"has_been_found": False, "response_dict": {}}
 
-    def push_followers_statistics(self, channel_statistic_dict:dict):
+    def push_followers_statistics(self, channel_statistic_dict: dict):
 
         logs.write_log(f"scraping_db: function: push_followers_statistics")
 
@@ -1069,7 +1079,7 @@ class DataBaseOperations:
         query_does_user_exist = f"""SELECT * FROM users WHERE api_id='{api_id}'"""
         with self.con:
             cur.execute(query_does_user_exist)
-        r= cur.fetchall()
+        r = cur.fetchall()
 
         if not r:
             query = f"""INSERT INTO users (id_user, api_id, api_hash, phone_number) VALUES ('{id_user}', '{api_id}', '{api_hash}', '{phone_number}')"""
@@ -1103,7 +1113,6 @@ class DataBaseOperations:
     def check_admin_temporary(self, cur):
         cur = self.con.cursor()
         with self.con:
-
             cur.execute(f"""CREATE TABLE IF NOT EXISTS admin_temporary (
                             id SERIAL PRIMARY KEY,
                             id_admin_channel VARCHAR(20),
@@ -1164,7 +1173,8 @@ class DataBaseOperations:
             with self.con:
                 try:
                     cur.execute(query)
-                    print(f'Writed to admin_temporary {id_admin_channel}-{id_admin_last_session_table}-{it_was_sending_to_agregator}')
+                    print(
+                        f'Writed to admin_temporary {id_admin_channel}-{id_admin_last_session_table}-{it_was_sending_to_agregator}')
                 except Exception as e:
                     print('Error in admin_temporary ', e)
 
@@ -1191,7 +1201,7 @@ class DataBaseOperations:
                 professions = r[0][0].split(',')
                 print(professions, len(professions))
 
-                if len(professions)>1:
+                if len(professions) > 1:
                     for i in professions:
                         i = i.strip()
                         if i != drop_profession:
@@ -1241,7 +1251,7 @@ class DataBaseOperations:
             print('-------------------------------')
         print('total: ', len(doubles_dict))
 
-        n=1
+        n = 1
         for id in doubles_dict:
             response1 = self.get_all_from_db(
                 table_name='admin_last_session',
@@ -1336,8 +1346,10 @@ class DataBaseOperations:
                         answer_dict['deleted'] += 1
                     else:
                         new_profession = helper.list_to_string(raw_list=profession, separator=', ')
-                        self.update_table(table_name='admin_last_session', param=f"WHERE id={id}", field='profession', value=new_profession)
-                        r = self.get_all_from_db(table_name='admin_last_session', param=f'WHERE id={id}', field='profession')
+                        self.update_table(table_name='admin_last_session', param=f"WHERE id={id}", field='profession',
+                                          value=new_profession)
+                        r = self.get_all_from_db(table_name='admin_last_session', param=f'WHERE id={id}',
+                                                 field='profession')
                         print(r[0][0])
                         answer_dict['change_profession'] += 1
 
@@ -1350,14 +1362,15 @@ class DataBaseOperations:
             query = f"""UPDATE {table_name} SET {field}='{value}' {param}"""
         self.run_free_request(request=query, output_text=output_text, notification=notification)
 
-    def update_table_multi(self, table_name: str, param: str, values_dict: dict, output_text='vacancy has updated', notification=True, null_if_empty=False):
+    def update_table_multi(self, table_name: str, param: str, values_dict: dict, output_text='vacancy has updated',
+                           notification=True, null_if_empty=False):
         query = f"""UPDATE {table_name} SET """
         for key in values_dict:
             if key != 'id':
                 if values_dict[key]:
                     query += f"{key}='{values_dict[key]}', "
                 elif null_if_empty:
-                     query += f"{key}=NULL, "
+                    query += f"{key}=NULL, "
 
         if query.split(' ')[-1] != "SET":
             query = f"{query[:-2]} {param}"
@@ -1447,8 +1460,6 @@ class DataBaseOperations:
                     tables_list.append(table[0])
             return tables_list
 
-
-
     def transfer_vacancy(self, table_from, table_to, id=None, response_from_db=None, output_text="comlpete"):
         keys_str = ''
         values_str = ''
@@ -1475,7 +1486,8 @@ class DataBaseOperations:
 
             if response_dict:
                 try:
-                    exists = self.check_vacancy_exists_in_db(tables_list=[table_to,], title=response_dict['title'], body=response_dict['body'])
+                    exists = self.check_vacancy_exists_in_db(tables_list=[table_to, ], title=response_dict['title'],
+                                                             body=response_dict['body'])
                 except Exception as ex:
                     print(ex)
                 if not exists['has_been_found']:
@@ -1492,11 +1504,12 @@ class DataBaseOperations:
 
     def check_or_create_stats_table(self, table_name=None, profession_list=[]):
         if not self.con:
-                self.connect_db()
+            self.connect_db()
         if not table_name:
-            table_name='stats_db'
+            table_name = 'stats_db'
         if not profession_list:
-            profession_list=['designer', 'game', 'product', 'mobile', 'pm', 'sales_manager', 'analyst', 'frontend', 'marketing', 'devops', 'hr', 'backend', 'qa', 'junior']
+            profession_list = ['designer', 'game', 'product', 'mobile', 'pm', 'sales_manager', 'analyst', 'frontend',
+                               'marketing', 'devops', 'hr', 'backend', 'qa', 'junior']
         self.delete_table(table_name)
         cur = self.con.cursor()
         with self.con:
@@ -1504,11 +1517,11 @@ class DataBaseOperations:
                                 created_at DATE,
                                 chat_name VARCHAR(150)
                                 );"""
-                            )
+                        )
         for i in profession_list:
-            list=[f'{i}_all', f'{i}_unique']
+            list = [f'{i}_all', f'{i}_unique']
             for j in list:
-                self.add_columns_to_tables(table_list=[table_name], column_name_type = f'{j} INT DEFAULT 0')
+                self.add_columns_to_tables(table_list=[table_name], column_name_type=f'{j} INT DEFAULT 0')
 
         print(f'table {table_name} has been created or exists')
 
@@ -1516,18 +1529,18 @@ class DataBaseOperations:
         if not self.con:
             self.connect_db()
         if not table_name:
-            table_name='stats_db'
+            table_name = 'stats_db'
         created_at = dict['created_at']
         chat_name = dict['chat_name']
-        subs_list=helper.decompose_from_str_to_subs_list(dict['sub'])
-        all=f'{profession}_all'
-        unique=f'{profession}_unique'
+        subs_list = helper.decompose_from_str_to_subs_list(dict['sub'])
+        all = f'{profession}_all'
+        unique = f'{profession}_unique'
 
         cur = self.con.cursor()
         for sub in subs_list:
-            self.add_columns_to_stat(cur,table_name, column_name_type = f'{sub} INT DEFAULT 0')
-            self.add_columns_to_stat(cur,table_name, column_name_type = f'{all} INT DEFAULT 0')
-            self.add_columns_to_stat(cur,table_name, column_name_type = f'{unique} INT DEFAULT 0')
+            self.add_columns_to_stat(cur, table_name, column_name_type=f'{sub} INT DEFAULT 0')
+            self.add_columns_to_stat(cur, table_name, column_name_type=f'{all} INT DEFAULT 0')
+            self.add_columns_to_stat(cur, table_name, column_name_type=f'{unique} INT DEFAULT 0')
             query = f"""SELECT * FROM {table_name} WHERE created_at='{created_at}' AND chat_name='{chat_name}'"""
 
             cur = self.con.cursor()
@@ -1566,7 +1579,7 @@ class DataBaseOperations:
         if not self.con:
             self.connect_db()
         if not table_name:
-            table_name='stats_db'
+            table_name = 'stats_db'
 
         cur = self.con.cursor()
 
@@ -1583,44 +1596,45 @@ class DataBaseOperations:
                 print(e)
                 return str(e)
 
-        return {'response':response, 'column_names':column_names}
+        return {'response': response, 'column_names': column_names}
 
-    def add_old_vacancies_to_stat_db(self,table_list=None, fields=None, table_name=None):
+    def add_old_vacancies_to_stat_db(self, table_list=None, fields=None, table_name=None):
 
         if not table_list:
-            table_list=['designer', 'game', 'product', 'mobile', 'pm', 'sales_manager', 'analyst', 'frontend', 'marketing', 'devops', 'hr', 'backend', 'qa', 'junior']
-        fields='created_at, chat_name, profession, sub'
+            table_list = ['designer', 'game', 'product', 'mobile', 'pm', 'sales_manager', 'analyst', 'frontend',
+                          'marketing', 'devops', 'hr', 'backend', 'qa', 'junior']
+        fields = 'created_at, chat_name, profession, sub'
         for i in table_list:
-            response=self.get_all_from_db(table_name=i, field=fields)
+            response = self.get_all_from_db(table_name=i, field=fields)
             for j in response:
-                result_dict=helper.to_dict_from_admin_response_sync(j, fields)
-                self.push_vacancy_to_main_stats(profession=i,dict=result_dict, table_name=i)
+                result_dict = helper.to_dict_from_admin_response_sync(j, fields)
+                self.push_vacancy_to_main_stats(profession=i, dict=result_dict, table_name=i)
             print(f'All vacancies from {i} were added to stats db')
 
     def make_report_published_vacancies_excel(self, date1, date2, table_name=None):
         """Input date format: '2023-01-02'"""
 
         if not table_name:
-            table_name='stats_db'
+            table_name = 'stats_db'
 
-        param=f"WHERE DATE(created_at) BETWEEN '{date1}' AND '{date2}'"
+        param = f"WHERE DATE(created_at) BETWEEN '{date1}' AND '{date2}'"
         data = self.get_all_from_stat_db(param=param, table_name=table_name)
-        columns=data['column_names']
-        all=[i for i in columns if 'all' in i]
-        unique=[i for i in columns if 'unique' in i]
-        df=pd.DataFrame(data['response'], columns=columns)
-        df=df.set_index(['created_at'])
-        df['Unique']=df[unique].sum(axis=1)
-        df['All']=df[all].sum(axis=1)
-        df = df[sorted(df.columns )]
-        df = df[['chat_name'] + [x for x in df.columns if x!='chat_name']]
-        df.loc[f'Total for period {date1}-{date2}']=df.sum(axis=0, numeric_only=True)
-        df2=df.groupby('chat_name').sum(numeric_only=True)
-        len=df.shape[0]
+        columns = data['column_names']
+        all = [i for i in columns if 'all' in i]
+        unique = [i for i in columns if 'unique' in i]
+        df = pd.DataFrame(data['response'], columns=columns)
+        df = df.set_index(['created_at'])
+        df['Unique'] = df[unique].sum(axis=1)
+        df['All'] = df[all].sum(axis=1)
+        df = df[sorted(df.columns)]
+        df = df[['chat_name'] + [x for x in df.columns if x != 'chat_name']]
+        df.loc[f'Total for period {date1}-{date2}'] = df.sum(axis=0, numeric_only=True)
+        df2 = df.groupby('chat_name').sum(numeric_only=True)
+        len = df.shape[0]
 
-        with pd.ExcelWriter(f'./excel/report_{date1}_{date2}.xlsx') as writer:
+        with pd.ExcelWriter(f'{DIR_EXCEL / f"report_{date1}_{date2}.xlsx"}') as writer:
             df.to_excel(writer, sheet_name="Sheet1")
-            df2.to_excel(writer, sheet_name="Sheet1", startrow=len+2,startcol=1, header=False)
+            df2.to_excel(writer, sheet_name="Sheet1", startrow=len + 2, startcol=1, header=False)
             print('Report is done, saved')
 
     def statistics_total(self, date_in, date_out):
@@ -1684,7 +1698,7 @@ class DataBaseOperations:
                                  value=df_total_channels.no_sort + df_total_channels.to_sort + df_total_channels.archive)
         df_total_channels.loc[f'Total for period'] = df_total_channels.sum(axis=0, numeric_only=True)
 
-        with pd.ExcelWriter(f'./excel/report_total_{date_in}_{date_out}.xlsx') as writer:
+        with pd.ExcelWriter(f'{DIR_EXCEL / f"report_total_{date_in}_{date_out}.xlsx"}') as writer:
             df_total.to_excel(writer, sheet_name="Total", index=False)
             df_total_channels.to_excel(writer, sheet_name="Channels", index=False)
             print('Report is done, saved')
@@ -1742,7 +1756,6 @@ class DataBaseOperations:
                     self.report.parsing_report(has_been_added_to_db=False)
                     self.report.parsing_report(error=str(ex))
                 return False
-
 
     def update_job_types(self, table_list):
         for table in table_list:

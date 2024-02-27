@@ -5,6 +5,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 from bs4 import BeautifulSoup
 from sites.write_each_vacancy_to_db import HelperSite_Parser
 from settings.browser_settings import options, chrome_driver_path
+import asyncio
 from utils.additional_variables.additional_variables import admin_database, archive_database, sites_search_words
 
 
@@ -23,9 +24,9 @@ class СareerjetGetInformation:
         self.current_message = None
         self.written_vacancies = 0
         self.rejected_vacancies = 0
-        if self.bot_dict:
-            self.bot = self.bot_dict['bot']
-            self.chat_id = self.bot_dict['chat_id']
+        # if self.bot_dict:
+        #     self.bot = self.bot_dict['bot']
+        #     self.chat_id = self.bot_dict['chat_id']
         self.browser = None
         self.main_url = 'https://www.careerjet.by'
         self.count_message_in_one_channel = 1
@@ -40,45 +41,44 @@ class СareerjetGetInformation:
             await self.get_info()
         except Exception as ex:
             print(f"Error: {ex}")
-            if self.bot:
-                await self.bot.send_message(self.chat_id, f"Error: {ex}")
+            # if self.bot:
+            #     await self.bot.send_message(self.chat_id, f"Error: {ex}")
 
         if self.report and self.helper:
             try:
                 await self.report.add_to_excel()
                 await self.helper.send_file_to_user(
-                    bot=self.bot,
-                    chat_id=self.chat_id,
+                    # bot=self.bot,
+                    # chat_id=self.chat_id,
                     path=self.report.keys.report_file_path['parsing'],
                 )
             except Exception as ex:
                 print(f"Error: {ex}")
-                if self.bot:
-                    await self.bot.send_message(self.chat_id, f"Error: {ex}")
-
+                # if self.bot:
+                #     await self.bot.send_message(self.chat_id, f"Error: {ex}")
         self.browser.quit()
 
     async def get_info(self):
         try:
             self.browser = webdriver.Chrome(
-                executable_path=chrome_driver_path,
-                options=options
+                options=options,
             )
         except:
-            self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+            self.browser = webdriver.Chrome(options=options)
 
-        self.current_session = await self.helper_parser_site.get_name_session() if self.db else None
+        # self.current_session = await self.helper_parser_site.get_name_session() if self.db else None
 
-        if self.bot_dict:
-            await self.bot.send_message(self.chat_id, 'https://www.careerjet.by/', disable_web_page_preview=True)
+        # if self.bot_dict:
+        #     await self.bot.send_message(self.chat_id, 'https://www.careerjet.by/', disable_web_page_preview=True)
         for word in sites_search_words:
             self.word = word
             self.browser.get(f'https://www.careerjet.by/search/jobs?s={self.word}&l=&radius=25&sort=relevance')
 
             self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
             vacancy_exists_on_page = await self.get_link_message(self.browser.page_source)
-        if self.bot_dict:
-            await self.bot.send_message(self.chat_id, 'Сareerjet parsing: Done!', disable_web_page_preview=True)
+        # if self.bot_dict:
+        #     await self.bot.send_message(self.chat_id, 'Сareerjet parsing: Done!', disable_web_page_preview=True)
+
 
     async def get_link_message(self, raw_content):
         soup = BeautifulSoup(raw_content, 'lxml')
@@ -91,6 +91,7 @@ class СareerjetGetInformation:
                 self.current_message = await self.bot.send_message(self.chat_id,
                                                                f'Сareerjet:\nПо слову {self.word} найдено {len(self.list_links)} вакансий',
                                                                disable_web_page_preview=True)
+
             # --------------------- LOOP -------------------------
             self.written_vacancies = 0
             self.rejected_vacancies = 0
@@ -107,7 +108,7 @@ class СareerjetGetInformation:
         check_vacancy_not_exists = True
         links = []
         soup = None
-        self.found_by_link = 0
+        found_by_link = 0
         for link in self.list_links:
             found_vacancy = True
             try:
@@ -139,7 +140,7 @@ class СareerjetGetInformation:
                     except AttributeError as ex:
                         vacancy = None
                         print(f"Exception occurred: {ex}")
-
+                    print(vacancy)
                     # get title --------------------------
                     try:
                         title = soup.find("h1").text.strip()
@@ -183,6 +184,7 @@ class СareerjetGetInformation:
                     if job_format:
                         if type(job_format) is list:
                             job_format = ", ".join(job_format)
+                    print(job_format)
                     # get company -------------------------
                     try:
                         company = soup.find("p", class_="company").text.strip()
@@ -192,14 +194,14 @@ class СareerjetGetInformation:
 
                     if company and self.db:
                         self.db.write_to_db_companies([company])
-
+                    print(company)
                     # get salary --------------------------
                     try:
                         salary = soup.find("span", class_="price").text.strip()
                     except AttributeError as ex:
                         salary = None
-                        print(f"AttributeError occurred: {ex}")
-
+                        print(f"AttributeError occurred: {ex} salary")
+                    print(salary)
 
                     # -------------------------public time ----------------------------
 
@@ -234,7 +236,9 @@ class СareerjetGetInformation:
                         'contacts': '',
                         'session': self.current_session
                     }
-                    #print(results_dict)
+                    print(results_dict)
+                    found_by_link += 1
+                    print(found_by_link)
                     return_raw_dictionary = False
                     if not return_raw_dictionary:
                         response = await self.helper_parser_site.write_each_vacancy(results_dict)
@@ -249,9 +253,11 @@ class СareerjetGetInformation:
                         self.response = response
                     else:
                         self.response = results_dict
+
             else:
-                self.found_by_link += 1
+                # found_by_link += 1
                 print("vacancy link exists")
+        print(found_by_link)
 
         if self.found_by_link > 0:
             self.count_message_in_one_channel += self.found_by_link
@@ -265,7 +271,6 @@ class СareerjetGetInformation:
     async def get_content_from_one_link(self, vacancy_url):
         try:
             self.browser = webdriver.Chrome(
-                executable_path=chrome_driver_path,
                 options=options
             )
         except:
@@ -337,3 +342,6 @@ class СareerjetGetInformation:
         self.count_message_in_one_channel += 1
 
 
+loop = asyncio.new_event_loop()
+loop.run_until_complete(СareerjetGetInformation().get_content())
+# asyncio.run(СareerjetGetInformation().get_content())

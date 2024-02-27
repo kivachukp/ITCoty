@@ -1,5 +1,6 @@
 # for add in vacancy search in db tables
 import pandas
+from settings.dirs import DIR_EXCEL, DIR_REPORT, DIR_PATTERNS, DIR_UTILS, DIR_LOGS
 
 admin_database = 'admin_last_session'
 archive_database = 'archive'
@@ -58,12 +59,12 @@ dict_for_title_shorts = {
     '': 'Системных аналитиков',
 }
 
-flood_control_logs_path = "./excel/flood_control.txt"
-pattern_path = "./excel/pattern.txt"
-admin_check_file_path = './logs/check_file.txt'
-path_log_check_profession = "./excel/send_log_txt.txt"
-report_file_not_actual_vacancy = "./excel/not_actual_vacancies.txt"
-shorts_copy_path = "./excel/copy_shorts.txt"
+flood_control_logs_path = DIR_EXCEL / "flood_control.txt"
+pattern_path = DIR_EXCEL /"pattern.txt"
+admin_check_file_path = DIR_LOGS / "check_file.txt"
+path_log_check_profession = DIR_EXCEL / "send_log_txt.txt"
+report_file_not_actual_vacancy = DIR_EXCEL / "not_actual_vacancies.txt"
+shorts_copy_path = DIR_EXCEL / "copy_shorts.txt"
 
 sites_search_words = ['junior', 'стажер', 'designer', 'ui', 'стажировка', 'product manager', 'project manager', 'python', 'php']
 
@@ -74,15 +75,15 @@ pre_message_for_shorts = '<i>Функционал дайджеста наход�
                                    f'качественную и в сжатые сроки</i>\n\n'
 
 message_not_access = "Sorry, you have not the permissions"
-path_last_pattern = "./patterns/last_changes/pattern_Alex2809.py"
-path_data_pattern = "./patterns/data_pattern/_data_pattern.py"
+path_last_pattern = DIR_PATTERNS / "last_changes" / "pattern_Alex2809 (6).py"
+path_data_pattern = DIR_PATTERNS / "data_pattern" / "_data_pattern.py"
 
-path_filter_error_file = "./excel/filter_jan_errors.txt"
+path_filter_error_file = DIR_EXCEL / "filter_jan_errors.txt"
 db_fields_for_update_in_parsing = ['job_type', 'relocation', 'city', 'experience', 'english']
 
-cities_file_path = './utils/additional_data/data.xlsx'
-# cities_file_path = './../utils/additional_data/data.xlsx' # for tests
-callback_for_push_shorts = ['*', 'all']
+cities_file_path = DIR_UTILS / "additional_data" / "data.xlsx"
+
+callba6ck_for_push_shorts = ['*', 'all']
 
 excel_data_df = pandas.read_excel(f'{cities_file_path}', sheet_name='Cities')
 excel_dict = {
@@ -100,18 +101,18 @@ clear_vacancy_trash_pattern = "[Ии]щем в команду[:]?|[Тт]ребу
                               "[Дд]олжность[:]|в поиске[:]|[Нн]азвание вакансии[:]|[VACANCYvacancy]{7}[:]?|[Pp]osition[:]?"
 
 how_much_pages = 7
-path_post_request_file = "./excel/path_post_request_file.txt"
+path_post_request_file = DIR_EXCEL / "path_post_request_file.txt"
 till = 5
 vacancy_fresh_time_days = 7
 path_to_excel = "./excel/"
-path_push_shorts_report_file = "./excel/report_push_shorts.txt"
+path_push_shorts_report_file = DIR_EXCEL / "report_push_shorts.txt"
 tables_list_for_report = ['junior', '*']
 developer_chat_id = 5884559465
 
-parsing_report_path = './report/excel/parsing_report.xlsx'
-table_parsing_report = 'report_parsing_temporary'
-
-pictures_separators_path = "./utils/pictures/shorts_separators"
+parsing_report_path = DIR_REPORT / "excel" / "parsing_report.xlsx"
+table_parsing_report = DIR_REPORT / "report_parsing_temporary"
+pictures_separators_path = DIR_UTILS / "pictures" / "shorts_separators"
+# pictures_separators_path = "./utils/pictures/shorts_separators"
 
 valid_subs = {'analyst' : ['sys_analyst', 'data_analyst', 'data_scientist', 'ba'],
               'backend' : ['python', 'c', 'php', 'java', 'ruby', 'scala', 'net', 'nodejs', 'laravel', 'golang', 'delphi', 'abap', 'ml', 'data_engineer', 'unity', 'one_c', 'embedded'],
@@ -340,8 +341,7 @@ preview_fields_for_web = "id, profession, vacancy, company, " \
 vacancies_database = 'vacancies'
 manual_posting_shorts = ['junior']
 hard_pushing_time_hour = [10, 30]
-excel_name_courses = './excel/courses.xlsx'
+excel_name_courses = DIR_EXCEL / "courses.xlsx"
 fields_for_agregator_vacancy = ['vacancy', 'company', 'salary', 'job_type', 'city', 'english', 'experience', 'vacancy_url', 'title', 'body']
 sub_separator = "; "
 double_n_before_field = 'vacancy_url'
-
