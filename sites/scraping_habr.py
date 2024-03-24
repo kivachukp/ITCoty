@@ -15,6 +15,7 @@ from helper_functions.helper_functions import edit_message, send_message, send_f
 from patterns.data_pattern._data_pattern import cities_pattern, params
 from report.report_variables import report_file_path
 from helper_functions import helper_functions as helper
+import asyncio
 
 class HabrGetInformation:
 
@@ -45,7 +46,9 @@ class HabrGetInformation:
 
     async def get_content(self, db_tables=None):
         self.db_tables = db_tables
+        print('1')
         try:
+            print("call get_info")
             await self.get_info()
         except Exception as ex:
             print(f"Error: {ex}")
@@ -56,8 +59,8 @@ class HabrGetInformation:
             try:
                 await self.report.add_to_excel()
                 await self.helper.send_file_to_user(
-                    bot=self.bot,
-                    chat_id=self.chat_id,
+                    # bot=self.bot,
+                    # chat_id=self.chat_id,
                     path=self.report.keys.report_file_path['parsing'],
                 )
             except Exception as ex:
@@ -68,25 +71,28 @@ class HabrGetInformation:
 
     async def get_info(self):
         try:
+
             self.browser = webdriver.Chrome(
-                executable_path=chrome_driver_path,
-                options=options
+                options=options,
             )
         except:
-            self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+            # print("Don't call")
+            self.browser = webdriver.Chrome(options=options)
         # -------------------- check what is current session --------------
-        self.current_session = await self.helper_parser_site.get_name_session()
+        # self.current_session = await self.helper_parser_site.get_name_session() if self.db else None
 
+        print('Call')
         till = 13
         for self.page_number in range(1, till):
             try:
-                if self.bot_dict:
-                    await self.bot.send_message(self.chat_id, f'https://career.habr.com/vacancies?page={self.page_number}&sort=date&type=all',
-                                          disable_web_page_preview=True)
+                # if self.bot_dict:
+                #     await self.bot.send_message(self.chat_id, f'https://career.habr.com/vacancies?page={self.page_number}&sort=date&type=all',
+                #                           disable_web_page_preview=True)
                 self.browser.get(f'https://career.habr.com/vacancies?page={self.page_number}&sort=date&type=all')
                 self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
                 vacancy_exists_on_page = await self.get_link_message(self.browser.page_source)
                 if not vacancy_exists_on_page:
+                    print("Not vacancy_exists")
                     break
             except:
                 break
@@ -141,6 +147,7 @@ class HabrGetInformation:
 
                 if found_vacancy:
                     # get vacancy ------------------------
+                    print('found_vacancy')
                     try:
                         vacancy = soup.find('div', class_='page-title').get_text()
                     except:
@@ -205,7 +212,7 @@ class HabrGetInformation:
                         time_of_public = self.normalize_date(time_of_public)
                     except Exception as e:
                         pass
-                    # print('time_of_public after = ', time_of_public)
+                    print('time_of_public after = ', time_of_public)
 
                     contacts = ''
                     experience = ''
@@ -278,7 +285,7 @@ class HabrGetInformation:
                         'contacts': contacts,
                         'session': self.current_session
                     }
-
+                    print(results_dict)
                     if not return_raw_dictionary:
                         response = await self.helper_parser_site.write_each_vacancy(results_dict)
 
@@ -312,7 +319,7 @@ class HabrGetInformation:
         except:
             self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
         # -------------------- check what is current session --------------
-        self.current_session = await self.helper_parser_site.get_name_session()
+        self.current_session = await self.helper_parser_site.get_name_session() if self.db else None
         self.list_links= [vacancy_url]
         await self.get_content_from_link(return_raw_dictionary)
         self.browser.quit()
@@ -463,3 +470,7 @@ class HabrGetInformation:
         return structure_list
 
 
+
+
+# loop = asyncio.new_event_loop()
+# loop.run_until_complete(HabrGetInformation().get_content())

@@ -15,6 +15,7 @@ from utils.additional_variables.additional_variables import sites_search_words, 
 from helper_functions.helper_functions import edit_message, send_message, send_file_to_user
 from helper_functions import helper_functions as helper
 from report.report_variables import report_file_path
+import asyncio
 
 
 class DesignerGetInformation:
@@ -49,6 +50,7 @@ class DesignerGetInformation:
         self.db_tables = db_tables
         try:
             await self.get_info()
+
         except Exception as ex:
             print(f"Error: {ex}")
             if self.bot:
@@ -69,25 +71,28 @@ class DesignerGetInformation:
         self.browser.quit()
 
     async def get_info(self):
+        # print('get_info uploaded')
         # -------------------- check what is current session --------------
         try:
             self.browser = webdriver.Chrome(
-                executable_path=chrome_driver_path,
-                options=options
+                options=options,
             )
-        except:
-            self.browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
-        self.current_session = await self.helper_parser_site.get_name_session()
+        except:
+            self.browser = webdriver.Chrome(options=options)
+
+        self.current_session = await self.helper_parser_site.get_name_session() if self.db else None
         if self.bot_dict:
             await self.bot.send_message(self.chat_id, 'https://designer.ru/t/', disable_web_page_preview=True)
         self.browser.get('https://designer.ru/t/')
+
         self.browser.execute_script("window.scrollTo(0, document.body.scrollHeight);")
         vacancy_exists_on_page = await self.get_link_message(self.browser.page_source)
         if self.bot_dict:
             await self.bot.send_message(self.chat_id, 'designer.ru parsing: Done!', disable_web_page_preview=True)
 
     async def get_link_message(self, raw_content):
+        # print('get_link_message call')
         soup = BeautifulSoup(raw_content, 'lxml')
         open_links = soup.find_all('div', class_='z_bx00kk__i')
         closed_links = soup.find_all('div', class_='z_b_1204897897897892734_b_close')
@@ -286,7 +291,7 @@ class DesignerGetInformation:
     async def get_content_from_one_link(self, vacancy_url):
         try:
             self.browser = webdriver.Chrome(
-                executable_path=chrome_driver_path,
+                # executable_path=chrome_driver_path,
                 options=options
             )
         except:
@@ -435,3 +440,8 @@ class DesignerGetInformation:
                 )
 
         self.count_message_in_one_channel += 1
+
+
+
+loop = asyncio.new_event_loop()
+loop.run_until_complete(DesignerGetInformation().get_content())

@@ -66,7 +66,7 @@ class СareerjetGetInformation:
         except:
             self.browser = webdriver.Chrome(options=options)
 
-        # self.current_session = await self.helper_parser_site.get_name_session() if self.db else None
+        self.current_session = await self.helper_parser_site.get_name_session() if self.db else None
 
         # if self.bot_dict:
         #     await self.bot.send_message(self.chat_id, 'https://www.careerjet.by/', disable_web_page_preview=True)
